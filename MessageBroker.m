@@ -25,6 +25,7 @@ static const float SocketTimeout = -1.0;
             [newSocket setDelegate:self];
             messageQueue = [NSMutableArray new];
             [socket readDataToLength:MessageHeaderSize withTimeout:SocketTimeout tag:0];
+			[self pingConnection]; 
         }
         else {
             NSLog(@"Could not change delegate of socket");
@@ -36,6 +37,7 @@ static const float SocketTimeout = -1.0;
 }
 
 -(void)dealloc {
+	
     [socket setDelegate:nil];
     if ( [socket isConnected] ) [socket disconnect];
     [socket release];
@@ -96,14 +98,15 @@ static const float SocketTimeout = -1.0;
 }
 
 -(void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-	NSLog(@"Message Incoming");
+	//NSLog(@"Message Incoming");
     if ( tag == 0 ) {
         // Header
         UInt64 header = *((UInt64*)[data bytes]);
         header = CFSwapInt64LittleToHost(header);  // Convert from little endian to native
         [socket readDataToLength:(CFIndex)header withTimeout:SocketTimeout tag:(long)1];
     }
-    else if ( tag == 1 ) { 
+
+	else if ( tag == 1 ) { 
         // Message body. Pass to delegate
         if ( delegate && [delegate respondsToSelector:@selector(messageBroker:didReceiveMessage:)] ) {
             Message *message = [NSKeyedUnarchiver unarchiveObjectWithData:data];
@@ -113,9 +116,15 @@ static const float SocketTimeout = -1.0;
         // Begin listening for next message
         if ( !isPaused ) [socket readDataToLength:MessageHeaderSize withTimeout:SocketTimeout tag:(long)0];
     }
-    else {
+ 
+	else {
+	
+
         NSLog(@"Unknown tag in read of socket data %d", tag);
     }
+	
+
+	
 }
 
 -(void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag {
@@ -128,5 +137,56 @@ static const float SocketTimeout = -1.0;
         }
     }
 }
+
+// Connection Mait. 
+
+-(void)pingConnection 
+{ 
+	[waitTimer invalidate];
+	////[waitTimer release];
+	waitTimer = nil; 
+	
+	connectionPinger = [[NSTimer scheduledTimerWithTimeInterval:0.5
+														 target:self
+													   selector:@selector(maintainConnection)
+													   userInfo:nil 
+														repeats:NO] autorelease]; 
+	//Start CountDown
+	
+	waitTimer = [[NSTimer scheduledTimerWithTimeInterval:2
+												  target:self
+												selector:@selector(timeOutDisconnect) 
+												userInfo:nil 
+												 repeats:NO] autorelease];
+	
+}
+
+-(void)maintainConnection 
+{ 
+	
+	Message *newMessage = [[[Message alloc] init] autorelease]; 
+	newMessage.tag = 600;
+	
+	[self sendMessage:newMessage]; 
+	
+	NSLog(@"Ping");
+	[connectionPinger invalidate]; 
+	[connectionPinger release]; 
+	connectionPinger = nil; 
+}
+
+-(void)timeOutDisconnect 
+{ 
+	NSLog(@"TimeOut Called"); 
+	[socket setDelegate:nil];
+    if ( [socket isConnected] ) [socket disconnect];
+    [socket release];
+    [messageQueue release];
+	
+	
+	
+}
+
+
 
 @end

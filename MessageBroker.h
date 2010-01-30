@@ -28,6 +28,9 @@
     id delegate;
     NSMutableArray *messageQueue;
     BOOL isPaused;
+	
+	NSTimer *connectionPinger; 
+	NSTimer *waitTimer; 
 }
 
 -(id)initWithAsyncSocket:(AsyncSocket *)socket;
@@ -41,5 +44,10 @@
 
 -(void)setIsPaused:(BOOL)yn;
 -(BOOL)isPaused;
+
+
+-(void)pingConnection; 
+-(void)maintainConnection; 
+-(void)timeOutDisconnect;
 
 @end

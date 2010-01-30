@@ -47,8 +47,8 @@ extern NSString *kGlobalBecomePrimaryKey;
     IBOutlet NSArrayController *servicesController;
 	
 	//Connetion 
-	NSTimer *connectionPinger;
-	NSTimer *waitTimer; 
+	//NSTimer *connectionPinger;
+	//NSTimer *waitTimer; 
 	
 
 	//Qlab
@@ -112,9 +112,9 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(IBAction)disconnect:(id)sender;
 
 //Connection
--(void)pingConnection;
--(void)maintainConnection;
--(void)timeOutDisconnect;
+//-(void)pingConnection;
+//-(void)maintainConnection;
+//-(void)timeOutDisconnect;
 
 
 

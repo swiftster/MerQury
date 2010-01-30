@@ -173,7 +173,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 #pragma mark Message Center  
 
 // Connection Mait. 
-
+/*
 -(void)pingConnection 
 { 
 	[waitTimer invalidate];
@@ -216,7 +216,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 
 }
- 
+ */
 	
 
 //Keys
@@ -432,7 +432,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     MessageBroker *newBroker = [[[MessageBroker alloc] initWithAsyncSocket:sock] autorelease];
     newBroker.delegate = self;
     self.messageBroker = newBroker;
-	[self pingConnection];
+	//[self pingConnection];
 	NSLog(@"Connected, Host:%@  Port:%d",host,port);
 }
 
@@ -463,8 +463,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	if (message.tag == 600) { 
 		
-		//NSLog(@"Ping Back");
-		[self pingConnection];
+		NSLog(@"Ping Back");
+		[server pingConnection];
 	}
 	
 }
