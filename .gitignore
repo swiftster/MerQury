@@ -1,0 +1,10 @@
+#Added these lines to .gitignore 
+#xcode noise
+build/*
+*modelv3
+
+#osx Noise
+.DS_Store
+profile 
+
+

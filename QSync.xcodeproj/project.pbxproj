@@ -1,0 +1,567 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		381986CC10D5932400E25426 /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 381986CB10D5932400E25426 /* AboutWindow.m */; };
+		3822658B10D58F8A00F96214 /* Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3822658A10D58F8900F96214 /* Q.jpg */; };
+		3845506A11112976002D2749 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
+		384550A211112E41002D2749 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
+		388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
+		388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
+		388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B2ED51108E17C00745A2D /* MerQuryToolbar.m */; };
+		38B351FC10CB3F0D00E5A97A /* MessageBroker.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351F710CB3F0D00E5A97A /* MessageBroker.m */; };
+		38B351FD10CB3F0D00E5A97A /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351F910CB3F0D00E5A97A /* Message.m */; };
+		38B351FE10CB3F0D00E5A97A /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351FA10CB3F0D00E5A97A /* AsyncSocket.m */; };
+		38B3520510CB3F2400E5A97A /* QlabScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B3520210CB3F2400E5A97A /* QlabScripting.m */; };
+		38B3520610CB3F2400E5A97A /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B3520410CB3F2400E5A97A /* PreferenceController.m */; };
+		38B3520910CB3F9A00E5A97A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B3520710CB3F9A00E5A97A /* MainMenu.xib */; };
+		38B3520C10CB3FB100E5A97A /* QSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B3520B10CB3FB100E5A97A /* QSyncController.m */; };
+		38B3520E10CB400C00E5A97A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B3520D10CB400C00E5A97A /* CoreServices.framework */; };
+		38B3521310CB402200E5A97A /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B3521210CB402200E5A97A /* ScriptingBridge.framework */; };
+		38B3534F10CB404000E5A97A /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B3534E10CB404000E5A97A /* Carbon.framework */; };
+		38B353E110CB438F00E5A97A /* SGHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353DA10CB438F00E5A97A /* SGHotKey.m */; };
+		38B353E210CB438F00E5A97A /* SGHotKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353DC10CB438F00E5A97A /* SGHotKeyCenter.m */; };
+		38B353E310CB438F00E5A97A /* SGKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353DE10CB438F00E5A97A /* SGKeyCodeTranslator.m */; };
+		38B353E410CB438F00E5A97A /* SGKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353E010CB438F00E5A97A /* SGKeyCombo.m */; };
+		38C0AB46110782DA00592A30 /* Adjust.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C0AB45110782DA00592A30 /* Adjust.xib */; };
+		38DF877611134AA700FC3F93 /* CoreMIDIServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DF877511134AA700FC3F93 /* CoreMIDIServer.framework */; };
+		38DF877D11134C5400FC3F93 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DF877C11134C5400FC3F93 /* CoreMIDI.framework */; };
+		38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 38F99DE5111134140057CE78 /* dsa_pub.pem */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		9628A1AE10FA5329009DCE4B /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9628A1AD10FA5329009DCE4B /* MainWindow.m */; };
+		9644160010CD78C1005F595D /* AboutWindowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 964415FF10CD78C1005F595D /* AboutWindowControl.m */; };
+		9644160210CD78DC005F595D /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9644160110CD78DC005F595D /* AboutWindow.xib */; };
+		9644160510CD78FF005F595D /* btn_donateCC_LG.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9644160410CD78FF005F595D /* btn_donateCC_LG.gif */; };
+		967A49E110E9146800CA5CDD /* ImportOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 967A49E010E9146800CA5CDD /* ImportOp.m */; };
+		967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967A4ABF10E914E900CA5CDD /* CoreData.framework */; };
+		967A4AEF10E917F000CA5CDD /* QSyncController.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 967A4AEE10E917F000CA5CDD /* QSyncController.xcdatamodel */; };
+		967A4B2E10E91AA000CA5CDD /* DataWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 967A4B2D10E91AA000CA5CDD /* DataWindow.xib */; };
+		96B4FE3410D5DC8100A791C1 /* q.icns in Resources */ = {isa = PBXBuildFile; fileRef = 96B4FE3310D5DC8100A791C1 /* q.icns */; };
+		96FDBAEF10F0F1FF0010537B /* DataWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDBAEE10F0F1FF0010537B /* DataWindowController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3845509B111129AF002D2749 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				384550A211112E41002D2749 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		388AF92E10CB543B00081B5F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38DF8978111361E500FC3F93 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		256AC3F00F4B6AF500CF3369 /* QSync_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSync_Prefix.pch; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		381986CA10D5932400E25426 /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
+		381986CB10D5932400E25426 /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
+		3822658A10D58F8900F96214 /* Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q.jpg; sourceTree = "<group>"; };
+		3845506911112976002D2749 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
+		388B2ED41108E17C00745A2D /* MerQuryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerQuryToolbar.h; sourceTree = "<group>"; };
+		388B2ED51108E17C00745A2D /* MerQuryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerQuryToolbar.m; sourceTree = "<group>"; };
+		38B351F610CB3F0D00E5A97A /* MessageBroker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBroker.h; sourceTree = "<group>"; };
+		38B351F710CB3F0D00E5A97A /* MessageBroker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBroker.m; sourceTree = "<group>"; };
+		38B351F810CB3F0D00E5A97A /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		38B351F910CB3F0D00E5A97A /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		38B351FA10CB3F0D00E5A97A /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncSocket.m; sourceTree = "<group>"; };
+		38B351FB10CB3F0D00E5A97A /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
+		38B3520110CB3F2400E5A97A /* QlabScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QlabScripting.h; sourceTree = "<group>"; };
+		38B3520210CB3F2400E5A97A /* QlabScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QlabScripting.m; sourceTree = "<group>"; };
+		38B3520310CB3F2400E5A97A /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		38B3520410CB3F2400E5A97A /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
+		38B3520810CB3F9A00E5A97A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		38B3520A10CB3FB100E5A97A /* QSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSyncController.h; sourceTree = "<group>"; };
+		38B3520B10CB3FB100E5A97A /* QSyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSyncController.m; sourceTree = "<group>"; };
+		38B3520D10CB400C00E5A97A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		38B3521210CB402200E5A97A /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		38B3534E10CB404000E5A97A /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		38B353D910CB438F00E5A97A /* SGHotKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGHotKey.h; sourceTree = "<group>"; };
+		38B353DA10CB438F00E5A97A /* SGHotKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGHotKey.m; sourceTree = "<group>"; };
+		38B353DB10CB438F00E5A97A /* SGHotKeyCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGHotKeyCenter.h; sourceTree = "<group>"; };
+		38B353DC10CB438F00E5A97A /* SGHotKeyCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGHotKeyCenter.m; sourceTree = "<group>"; };
+		38B353DD10CB438F00E5A97A /* SGKeyCodeTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGKeyCodeTranslator.h; sourceTree = "<group>"; };
+		38B353DE10CB438F00E5A97A /* SGKeyCodeTranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGKeyCodeTranslator.m; sourceTree = "<group>"; };
+		38B353DF10CB438F00E5A97A /* SGKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGKeyCombo.h; sourceTree = "<group>"; };
+		38B353E010CB438F00E5A97A /* SGKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGKeyCombo.m; sourceTree = "<group>"; };
+		38C0AB45110782DA00592A30 /* Adjust.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Adjust.xib; sourceTree = "<group>"; };
+		38DF877511134AA700FC3F93 /* CoreMIDIServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDIServer.framework; path = System/Library/Frameworks/CoreMIDIServer.framework; sourceTree = SDKROOT; };
+		38DF877C11134C5400FC3F93 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		38F99DE5111134140057CE78 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* QSync-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QSync-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* MerQury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerQury.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9628A1AC10FA5329009DCE4B /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
+		9628A1AD10FA5329009DCE4B /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
+		964415FE10CD78C1005F595D /* AboutWindowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowControl.h; sourceTree = "<group>"; };
+		964415FF10CD78C1005F595D /* AboutWindowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowControl.m; sourceTree = "<group>"; };
+		9644160110CD78DC005F595D /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
+		9644160410CD78FF005F595D /* btn_donateCC_LG.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = btn_donateCC_LG.gif; sourceTree = "<group>"; };
+		967A49DF10E9146800CA5CDD /* ImportOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportOp.h; sourceTree = "<group>"; };
+		967A49E010E9146800CA5CDD /* ImportOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportOp.m; sourceTree = "<group>"; };
+		967A4ABF10E914E900CA5CDD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		967A4AEE10E917F000CA5CDD /* QSyncController.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = QSyncController.xcdatamodel; sourceTree = "<group>"; };
+		967A4B2D10E91AA000CA5CDD /* DataWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataWindow.xib; sourceTree = "<group>"; };
+		96B4FE3310D5DC8100A791C1 /* q.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = q.icns; sourceTree = "<group>"; };
+		96B5195D10FF9F0E007504CB /* Qlab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Qlab.h; sourceTree = "<group>"; };
+		96FDBAED10F0F1FF0010537B /* DataWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWindowController.h; sourceTree = "<group>"; };
+		96FDBAEE10F0F1FF0010537B /* DataWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataWindowController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				38B3520E10CB400C00E5A97A /* CoreServices.framework in Frameworks */,
+				38B3521310CB402200E5A97A /* ScriptingBridge.framework in Frameworks */,
+				38B3534F10CB404000E5A97A /* Carbon.framework in Frameworks */,
+				388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */,
+				967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */,
+				3845506A11112976002D2749 /* Sparkle.framework in Frameworks */,
+				38DF877611134AA700FC3F93 /* CoreMIDIServer.framework in Frameworks */,
+				38DF877D11134C5400FC3F93 /* CoreMIDI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				38B3520A10CB3FB100E5A97A /* QSyncController.h */,
+				38B3520B10CB3FB100E5A97A /* QSyncController.m */,
+				964415FD10CD78AD005F595D /* Views & Controllers */,
+				967A49DB10E9140800CA5CDD /* Models */,
+				967A49DE10E9146800CA5CDD /* Import Thread */,
+				38D811D410D9B11400931384 /* HotKeys */,
+				38B351FF10CB3F2400E5A97A /* QLab Scripting */,
+				38B351F510CB3F0D00E5A97A /* Networking */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3845506911112976002D2749 /* Sparkle.framework */,
+				38B3534E10CB404000E5A97A /* Carbon.framework */,
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				38B3520D10CB400C00E5A97A /* CoreServices.framework */,
+				38B3521210CB402200E5A97A /* ScriptingBridge.framework */,
+				38DF877511134AA700FC3F93 /* CoreMIDIServer.framework */,
+				38DF877C11134C5400FC3F93 /* CoreMIDI.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				967A4ABF10E914E900CA5CDD /* CoreData.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* MerQury.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* QSync */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = QSync;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				96B4FE3310D5DC8100A791C1 /* q.icns */,
+				9644160410CD78FF005F595D /* btn_donateCC_LG.gif */,
+				256AC3F00F4B6AF500CF3369 /* QSync_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				38F99DE5111134140057CE78 /* dsa_pub.pem */,
+				3822658910D58F7B00F96214 /* Images */,
+				9644160110CD78DC005F595D /* AboutWindow.xib */,
+				967A4B2D10E91AA000CA5CDD /* DataWindow.xib */,
+				38B3520710CB3F9A00E5A97A /* MainMenu.xib */,
+				8D1107310486CEB800E47090 /* QSync-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				38C0AB45110782DA00592A30 /* Adjust.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3822658910D58F7B00F96214 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3822658A10D58F8900F96214 /* Q.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		38B351F510CB3F0D00E5A97A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				38B351F610CB3F0D00E5A97A /* MessageBroker.h */,
+				38B351F710CB3F0D00E5A97A /* MessageBroker.m */,
+				38B351F810CB3F0D00E5A97A /* Message.h */,
+				38B351F910CB3F0D00E5A97A /* Message.m */,
+				38B351FB10CB3F0D00E5A97A /* AsyncSocket.h */,
+				38B351FA10CB3F0D00E5A97A /* AsyncSocket.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		38B351FF10CB3F2400E5A97A /* QLab Scripting */ = {
+			isa = PBXGroup;
+			children = (
+				96B5195D10FF9F0E007504CB /* Qlab.h */,
+				38B3520110CB3F2400E5A97A /* QlabScripting.h */,
+				38B3520210CB3F2400E5A97A /* QlabScripting.m */,
+				38B3520310CB3F2400E5A97A /* PreferenceController.h */,
+				38B3520410CB3F2400E5A97A /* PreferenceController.m */,
+			);
+			name = "QLab Scripting";
+			sourceTree = "<group>";
+		};
+		38B353D810CB438F00E5A97A /* SGHotKeyLib */ = {
+			isa = PBXGroup;
+			children = (
+				38B353D910CB438F00E5A97A /* SGHotKey.h */,
+				38B353DA10CB438F00E5A97A /* SGHotKey.m */,
+				38B353DB10CB438F00E5A97A /* SGHotKeyCenter.h */,
+				38B353DC10CB438F00E5A97A /* SGHotKeyCenter.m */,
+				38B353DD10CB438F00E5A97A /* SGKeyCodeTranslator.h */,
+				38B353DE10CB438F00E5A97A /* SGKeyCodeTranslator.m */,
+				38B353DF10CB438F00E5A97A /* SGKeyCombo.h */,
+				38B353E010CB438F00E5A97A /* SGKeyCombo.m */,
+			);
+			name = SGHotKeyLib;
+			sourceTree = "<group>";
+		};
+		38D811D410D9B11400931384 /* HotKeys */ = {
+			isa = PBXGroup;
+			children = (
+				38B353D810CB438F00E5A97A /* SGHotKeyLib */,
+			);
+			name = HotKeys;
+			sourceTree = "<group>";
+		};
+		964415FD10CD78AD005F595D /* Views & Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9628A1AC10FA5329009DCE4B /* MainWindow.h */,
+				9628A1AD10FA5329009DCE4B /* MainWindow.m */,
+				96FDBAEC10F0F1D70010537B /* Data View Window */,
+				96F774E310D5BA05005A6B6B /* About Window */,
+				388B2ED41108E17C00745A2D /* MerQuryToolbar.h */,
+				388B2ED51108E17C00745A2D /* MerQuryToolbar.m */,
+			);
+			name = "Views & Controllers";
+			sourceTree = "<group>";
+		};
+		967A49DB10E9140800CA5CDD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				967A4AEE10E917F000CA5CDD /* QSyncController.xcdatamodel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		967A49DE10E9146800CA5CDD /* Import Thread */ = {
+			isa = PBXGroup;
+			children = (
+				967A49DF10E9146800CA5CDD /* ImportOp.h */,
+				967A49E010E9146800CA5CDD /* ImportOp.m */,
+			);
+			name = "Import Thread";
+			sourceTree = "<group>";
+		};
+		96F774E310D5BA05005A6B6B /* About Window */ = {
+			isa = PBXGroup;
+			children = (
+				964415FE10CD78C1005F595D /* AboutWindowControl.h */,
+				964415FF10CD78C1005F595D /* AboutWindowControl.m */,
+				381986CA10D5932400E25426 /* AboutWindow.h */,
+				381986CB10D5932400E25426 /* AboutWindow.m */,
+			);
+			name = "About Window";
+			sourceTree = "<group>";
+		};
+		96FDBAEC10F0F1D70010537B /* Data View Window */ = {
+			isa = PBXGroup;
+			children = (
+				96FDBAED10F0F1FF0010537B /* DataWindowController.h */,
+				96FDBAEE10F0F1FF0010537B /* DataWindowController.m */,
+			);
+			name = "Data View Window";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* QSync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "QSync" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				388AF92E10CB543B00081B5F /* CopyFiles */,
+				3845509B111129AF002D2749 /* CopyFiles */,
+				38DF8978111361E500FC3F93 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QSync;
+			productInstallPath = "$(HOME)/Applications";
+			productName = QSync;
+			productReference = 8D1107320486CEB800E47090 /* MerQury.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "QSync" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* QSync */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* QSync */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				38B3520910CB3F9A00E5A97A /* MainMenu.xib in Resources */,
+				9644160210CD78DC005F595D /* AboutWindow.xib in Resources */,
+				9644160510CD78FF005F595D /* btn_donateCC_LG.gif in Resources */,
+				3822658B10D58F8A00F96214 /* Q.jpg in Resources */,
+				96B4FE3410D5DC8100A791C1 /* q.icns in Resources */,
+				967A4B2E10E91AA000CA5CDD /* DataWindow.xib in Resources */,
+				38C0AB46110782DA00592A30 /* Adjust.xib in Resources */,
+				38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				38B351FC10CB3F0D00E5A97A /* MessageBroker.m in Sources */,
+				38B351FD10CB3F0D00E5A97A /* Message.m in Sources */,
+				38B351FE10CB3F0D00E5A97A /* AsyncSocket.m in Sources */,
+				38B3520510CB3F2400E5A97A /* QlabScripting.m in Sources */,
+				38B3520610CB3F2400E5A97A /* PreferenceController.m in Sources */,
+				38B3520C10CB3FB100E5A97A /* QSyncController.m in Sources */,
+				38B353E110CB438F00E5A97A /* SGHotKey.m in Sources */,
+				38B353E210CB438F00E5A97A /* SGHotKeyCenter.m in Sources */,
+				38B353E310CB438F00E5A97A /* SGKeyCodeTranslator.m in Sources */,
+				38B353E410CB438F00E5A97A /* SGKeyCombo.m in Sources */,
+				9644160010CD78C1005F595D /* AboutWindowControl.m in Sources */,
+				381986CC10D5932400E25426 /* AboutWindow.m in Sources */,
+				967A49E110E9146800CA5CDD /* ImportOp.m in Sources */,
+				967A4AEF10E917F000CA5CDD /* QSyncController.xcdatamodel in Sources */,
+				96FDBAEF10F0F1FF0010537B /* DataWindowController.m in Sources */,
+				9628A1AE10FA5329009DCE4B /* MainWindow.m in Sources */,
+				388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		38B3520710CB3F9A00E5A97A /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38B3520810CB3F9A00E5A97A /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../shortcutrecorder-read-only/build/Release\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QSync_Prefix.pch;
+				INFOPLIST_FILE = "QSync-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = MerQury;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../shortcutrecorder-read-only/build/Release\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = QSync_Prefix.pch;
+				INFOPLIST_FILE = "QSync-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = MerQury;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_GC = supported;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "QSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "QSync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
