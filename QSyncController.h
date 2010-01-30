@@ -134,9 +134,6 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(void)enterMasterMode;
 -(void)enterSlaveMode;
 
-// iPhone 
--(BOOL)acceptiPhoneControl;
--(void)importData;
 
 
 
