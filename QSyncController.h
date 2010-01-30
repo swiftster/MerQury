@@ -45,6 +45,9 @@ extern NSString *kGlobalBecomePrimaryKey;
     NSMutableArray *services;
     AsyncSocket *socket;
     IBOutlet NSArrayController *servicesController;
+	
+	//Connetion 
+	NSTimer *connectionPinger;
 
 	//Qlab
 	QlabScripting *qlabScripts;
@@ -106,6 +109,9 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(IBAction)connect:(id)sender;
 -(IBAction)disconnect:(id)sender;
 
+//Connection
+-(void)pingConnection;
+-(void)maintainConnection;
 
 
 

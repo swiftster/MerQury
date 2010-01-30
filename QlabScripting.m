@@ -240,6 +240,8 @@ NSString const * JATFeedBackNotification = @"JATFeedBackPost";
 
 }
 
+
+
 -(void) adjustLoadTime:(double) a 
 { 
 	int i, c;

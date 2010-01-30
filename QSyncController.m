@@ -175,7 +175,36 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 }
 
+#pragma mark Message Center  
 
+// Connection Mait. 
+
+-(void)pingConnection 
+{ 
+	connectionPinger = [[NSTimer scheduledTimerWithTimeInterval:0.5
+											  target:self
+											selector:@selector(maintainConnection)
+											userInfo:nil 
+											 repeats:YES] retain]; 
+	
+			
+}
+
+-(void)maintainConnection 
+{ 
+	
+	Message *newMessage = [[[Message alloc] init] autorelease]; 
+	newMessage.tag = 600;
+	
+	NSLog(@"Ping"); 
+	
+	[connectionPinger invalidate]; 
+	[connectionPinger release]; 
+	connectionPinger = nil; 
+}
+
+
+//Keys
 
 - (void)goKeyPressed:(id)sender {
 	
@@ -415,8 +444,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	if (message.tag == 140) {
 		[qlabScripts moveSelectionDown]; }
 	
-	//iPhone Command Block
-	if (message.tag == 200) { 
+	
+	if (message.tag == 600) { 
+		[self pingConnection];
 	}
 	
 }
@@ -447,7 +477,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(IBAction)disconnect:(id)sender { 
 	//NSNetService *service = servicesController.selectedObjects.lastObject; 
 	//service.delegate = self; 
-   // self.connectedService = service;
+	//self.connectedService = service;
     //self.socket = [[[AsyncSocket alloc] initWithDelegate:nil] autorelease];
     [self.socket disconnect];
 	NSLog(@"Disconnected");
