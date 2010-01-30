@@ -46,10 +46,6 @@ extern NSString *kGlobalBecomePrimaryKey;
     AsyncSocket *socket;
     IBOutlet NSArrayController *servicesController;
 	
-	//Connetion 
-	//NSTimer *connectionPinger;
-	//NSTimer *waitTimer; 
-	
 
 	//Qlab
 	QlabScripting *qlabScripts;
@@ -110,12 +106,6 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(IBAction)search:(id)sender;
 -(IBAction)connect:(id)sender;
 -(IBAction)disconnect:(id)sender;
-
-//Connection
-//-(void)pingConnection;
-//-(void)maintainConnection;
-//-(void)timeOutDisconnect;
-
 
 
 //HotKeys

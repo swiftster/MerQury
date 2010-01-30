@@ -172,52 +172,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 #pragma mark Message Center  
 
-// Connection Mait. 
-/*
--(void)pingConnection 
-{ 
-	[waitTimer invalidate];
-	////[waitTimer release];
-	waitTimer = nil; 
-	
-	connectionPinger = [[NSTimer scheduledTimerWithTimeInterval:0.5
-											  target:self
-											selector:@selector(maintainConnection)
-											userInfo:nil 
-											 repeats:NO] autorelease]; 
-	//Start CountDown
-	
-	waitTimer = [[NSTimer scheduledTimerWithTimeInterval:2
-											target:self
-											selector:@selector(timeOutDisconnect) 
-											userInfo:nil 
-											repeats:NO] autorelease];
-	
-}
-
--(void)maintainConnection 
-{ 
-	
-	Message *newMessage = [[[Message alloc] init] autorelease]; 
-	newMessage.tag = 600;
-	
-	[self.messageBroker sendMessage:newMessage]; 
-	
-	
-	[connectionPinger invalidate]; 
-	[connectionPinger release]; 
-	connectionPinger = nil; 
-}
-
--(void)timeOutDisconnect 
-{ 
-	NSLog(@"TimeOut Called"); 
-	
-	
-
-}
- */
-	
 
 //Keys
 
@@ -493,11 +447,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 
 -(IBAction)disconnect:(id)sender { 
-	//NSNetService *service = servicesController.selectedObjects.lastObject; 
-	//service.delegate = self; 
-	//self.connectedService = service;
-    //self.socket = [[[AsyncSocket alloc] initWithDelegate:nil] autorelease];
-    [self.socket disconnect];
+	NSNetService *service = servicesController.selectedObjects.lastObject; 
+	[service stop];
+	
 	NSLog(@"Disconnected");
 	
 }
@@ -538,7 +490,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     NSLog(@"Could not resolve: %@", errorDict);
 }
 
-
+- (void)netServiceDidStop:(NSNetService *)sender
+{ 
+	[socket disconnect];
+}
 
 #pragma mark App Controls	
 
