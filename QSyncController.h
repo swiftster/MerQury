@@ -48,6 +48,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 	//Connetion 
 	NSTimer *connectionPinger;
+	NSTimer *waitTimer; 
+	
 
 	//Qlab
 	QlabScripting *qlabScripts;
@@ -112,6 +114,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 //Connection
 -(void)pingConnection;
 -(void)maintainConnection;
+-(void)timeOutDisconnect;
 
 
 
@@ -145,12 +148,6 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(BOOL)acceptiPhoneControl;
 -(void)importData;
 
-@property (readwrite, assign) BOOL acceptiPhoneControl; 
-
-// PreLoad 
-
-float preLoad; 
-@property (readwrite, assign) float preLoad; 
 
 
 

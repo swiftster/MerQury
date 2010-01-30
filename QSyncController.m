@@ -52,11 +52,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 @synthesize downKey; 
 @synthesize primaryKey; 
 
-//App 
-@synthesize preLoad; 
-
-//iPhone 
-@synthesize acceptiPhoneControl;
 
 
 
@@ -181,13 +176,23 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(void)pingConnection 
 { 
+	[waitTimer invalidate];
+	////[waitTimer release];
+	waitTimer = nil; 
+	
 	connectionPinger = [[NSTimer scheduledTimerWithTimeInterval:0.5
 											  target:self
 											selector:@selector(maintainConnection)
 											userInfo:nil 
-											 repeats:YES] retain]; 
+											 repeats:NO] autorelease]; 
+	//Start CountDown
 	
-			
+	waitTimer = [[NSTimer scheduledTimerWithTimeInterval:2
+											target:self
+											selector:@selector(timeOutDisconnect) 
+											userInfo:nil 
+											repeats:NO] autorelease];
+	
 }
 
 -(void)maintainConnection 
@@ -196,13 +201,23 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	Message *newMessage = [[[Message alloc] init] autorelease]; 
 	newMessage.tag = 600;
 	
-	NSLog(@"Ping"); 
+	[self.messageBroker sendMessage:newMessage]; 
+	
 	
 	[connectionPinger invalidate]; 
 	[connectionPinger release]; 
 	connectionPinger = nil; 
 }
 
+-(void)timeOutDisconnect 
+{ 
+	NSLog(@"TimeOut Called"); 
+	
+	
+
+}
+ 
+	
 
 //Keys
 
@@ -417,6 +432,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     MessageBroker *newBroker = [[[MessageBroker alloc] initWithAsyncSocket:sock] autorelease];
     newBroker.delegate = self;
     self.messageBroker = newBroker;
+	[self pingConnection];
 	NSLog(@"Connected, Host:%@  Port:%d",host,port);
 }
 
@@ -446,6 +462,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	
 	if (message.tag == 600) { 
+		
+		//NSLog(@"Ping Back");
 		[self pingConnection];
 	}
 	
