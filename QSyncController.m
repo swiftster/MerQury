@@ -454,9 +454,12 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 
 -(IBAction)disconnect:(id)sender { 
-	NSNetService *service = servicesController.selectedObjects.lastObject; 
-	[service stop];
+	//NSNetService *service = servicesController.selectedObjects.lastObject; 
 	
+	connectedService = nil; 
+	[self.socket disconnect];
+	connectionSocket = nil;
+	[self search:nil];
 	
 	
 }
@@ -491,6 +494,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(void)netServiceDidResolveAddress:(NSNetService *)service {
 	//Should call AsyncSocket Delegate -> onSocket:(AsyncSocket *)sock didConnectToHost:
     NSError *error;
+	
     self.connectedService = service;
     self.socket = [[[AsyncSocket alloc] initWithDelegate:self] autorelease];
     [self.socket connectToAddress:service.addresses.lastObject error:&error];
@@ -500,7 +504,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     NSLog(@"Could not resolve: %@", errorDict);
 }
 
-- (void)netServiceDidStop:(NSNetService *)sender
+//Delegate Method Below gets called whenever NetService completes a task (generally speaking)
+/* - (void)netServiceDidStop:(NSNetService *)sender
 { 
 	NSLog(@"Service Stop");
 	connectedService = nil; 
@@ -509,7 +514,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	connectionSocket = nil;
 	
 }
-
+*/
 #pragma mark App Controls	
 
 -(IBAction)openAboutWindow: (id) sender

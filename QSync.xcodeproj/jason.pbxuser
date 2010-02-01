@@ -71,8 +71,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 286731005;
-			PBXWorkspaceStateSaveDate = 286731005;
+			PBXPerProjectTemplateStateSaveDate = 286740678;
+			PBXWorkspaceStateSaveDate = 286740678;
 		};
 		perUserProjectItems = {
 			962073F310FA9C15009BC81F = 962073F310FA9C15009BC81F /* PlistBookmark */;
@@ -82,8 +82,8 @@
 			9628A34810FA72D7009DCE4B = 9628A34810FA72D7009DCE4B /* PBXTextBookmark */;
 			9628A35010FA732C009DCE4B = 9628A35010FA732C009DCE4B /* PBXTextBookmark */;
 			9628A37110FA8F2F009DCE4B = 9628A37110FA8F2F009DCE4B /* PBXTextBookmark */;
-			962B0BDC11172D5F0094B588 /* XCBuildMessageTextBookmark */ = 962B0BDC11172D5F0094B588 /* XCBuildMessageTextBookmark */;
-			962B0BDD11172D5F0094B588 /* PBXTextBookmark */ = 962B0BDD11172D5F0094B588 /* PBXTextBookmark */;
+			962B0BDC11172D5F0094B588 = 962B0BDC11172D5F0094B588 /* PBXTextBookmark */;
+			962B0BDD11172D5F0094B588 = 962B0BDD11172D5F0094B588 /* PBXTextBookmark */;
 			962CB16A1114C5F6007FCF73 = 962CB16A1114C5F6007FCF73 /* PBXTextBookmark */;
 			962CB16B1114C5F6007FCF73 = 962CB16B1114C5F6007FCF73 /* PBXTextBookmark */;
 			962CB16C1114C5F6007FCF73 = 962CB16C1114C5F6007FCF73 /* PBXTextBookmark */;
@@ -235,16 +235,16 @@
 	};
 	38B3520A10CB3FB100E5A97A /* QSyncController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {891, 1872}}";
-			sepNavSelRange = "{1041, 1}";
-			sepNavVisRange = "{165, 1456}";
+			sepNavIntBoundsRect = "{{0, 0}, {774, 1885}}";
+			sepNavSelRange = "{961, 0}";
+			sepNavVisRange = "{349, 1463}";
 		};
 	};
 	38B3520B10CB3FB100E5A97A /* QSyncController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1048, 8853}}";
-			sepNavSelRange = "{11016, 0}";
-			sepNavVisRange = "{15052, 900}";
+			sepNavIntBoundsRect = "{{0, 0}, {1048, 8970}}";
+			sepNavSelRange = "{626, 0}";
+			sepNavVisRange = "{280, 1161}";
 		};
 	};
 	38B353D910CB438F00E5A97A /* SGHotKey.h */ = {
@@ -375,11 +375,10 @@
 		vrLen = 1352;
 		vrLoc = 0;
 	};
-	962B0BDC11172D5F0094B588 /* XCBuildMessageTextBookmark */ = {
+	962B0BDC11172D5F0094B588 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		comments = "Local declaration of 'moc' hides instance variable";
 		fRef = 96FDBAEE10F0F1FF0010537B /* DataWindowController.m */;
-		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
 		rLoc = 67;
 		rType = 1;
