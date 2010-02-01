@@ -353,8 +353,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 #pragma mark Socket Callbacks
 - (void) onSocket:(AsyncSocket *) sock didAcceptNewSocket:(AsyncSocket *) newSocket 
 {
-	NSLog(@"didAcceptNewSocket Called");
-	
+		
 	if( ! listeningSocket ) listeningSocket = [newSocket retain];
 	else [newSocket disconnect];
 	
@@ -368,7 +367,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 
 -(BOOL)onSocketWillConnect:(AsyncSocket *)sock {
-	NSLog(@"onSocketWillConnet");
+	
 	
     if ( self.connectionSocket == nil ) {
         self.connectionSocket = sock;
@@ -379,7 +378,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(void)onSocketDidDisconnect:(AsyncSocket *)sock {
 	
-	NSLog(@"onSocketDidDisconnect");
+	
     if ( sock == self.connectionSocket ) {
         self.connectionSocket = nil;
         self.messageBroker = nil;
@@ -438,7 +437,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(IBAction)search:(id)sender {
 	//Stop and remove the controller before starting a new search or bad things will happen.
-	NSLog(@"Searching");
+	
 	[browser stop]; 
 	
 	[servicesController remove:self];
@@ -458,7 +457,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	NSNetService *service = servicesController.selectedObjects.lastObject; 
 	[service stop];
 	
-	NSLog(@"Disconnected");
+	
 	
 }
 
