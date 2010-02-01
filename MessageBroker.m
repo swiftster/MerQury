@@ -73,7 +73,7 @@ static const float SocketTimeout = -1.0;
 
 #pragma mark Sending/Receiving Messages
 -(void)sendMessage:(Message *)message {
-	NSLog(@"Broker Sending");
+	//NSLog(@"Broker Sending");
     [messageQueue addObject:message];
     NSData *messageData = [NSKeyedArchiver archivedDataWithRootObject:message];
     UInt64 header[1];
@@ -169,7 +169,7 @@ static const float SocketTimeout = -1.0;
 	
 	[self sendMessage:newMessage]; 
 	
-	NSLog(@"Ping");
+	//NSLog(@"Ping");
 	[connectionPinger invalidate]; 
 	[connectionPinger release]; 
 	connectionPinger = nil; 

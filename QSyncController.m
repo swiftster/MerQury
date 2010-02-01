@@ -5,6 +5,8 @@
 //  Created by Jason Tratta on 12/4/09.
 //  Copyright 2009 Sound Character . All rights reserved.
 //
+//
+// Connection Mait. is handled by the MessageBroker Class
 
 #import "QSyncController.h"
 #import "AsyncSocket.h"
@@ -347,10 +349,11 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 }
 
 
-//
+
 #pragma mark Socket Callbacks
 - (void) onSocket:(AsyncSocket *) sock didAcceptNewSocket:(AsyncSocket *) newSocket 
 {
+	NSLog(@"didAcceptNewSocket Called");
 	
 	if( ! listeningSocket ) listeningSocket = [newSocket retain];
 	else [newSocket disconnect];
@@ -365,6 +368,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 
 -(BOOL)onSocketWillConnect:(AsyncSocket *)sock {
+	NSLog(@"onSocketWillConnet");
+	
     if ( self.connectionSocket == nil ) {
         self.connectionSocket = sock;
         return YES;
@@ -374,7 +379,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(void)onSocketDidDisconnect:(AsyncSocket *)sock {
 	
-	//NSLog(@"Disconnected");
+	NSLog(@"onSocketDidDisconnect");
     if ( sock == self.connectionSocket ) {
         self.connectionSocket = nil;
         self.messageBroker = nil;
@@ -397,7 +402,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 #pragma mark MessageBroker Delegate Methods
 -(void)messageBroker:(MessageBroker *)server didReceiveMessage:(Message *)message {
-	NSLog(@"Reciveing Message"); 
+	
+	//NSLog(@"Reciveing Message"); 
     if ( message.tag == 100 ) {
 		NSLog(@"Tag = 100"); }
 	
@@ -413,11 +419,11 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	if (message.tag == 140) {
 		[qlabScripts moveSelectionDown]; }
-	
+
 	
 	if (message.tag == 600) { 
 		
-		NSLog(@"Ping Back");
+		//NSLog(@"Ping Back");
 		[server pingConnection];
 	}
 	
@@ -431,7 +437,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 #pragma mark Client Methods 
 
 -(IBAction)search:(id)sender {
-	
+	//Stop and remove the controller before starting a new search or bad things will happen.
+	NSLog(@"Searching");
 	[browser stop]; 
 	
 	[servicesController remove:self];
@@ -442,7 +449,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(IBAction)connect:(id)sender {
     NSNetService *remoteService = servicesController.selectedObjects.lastObject;
     remoteService.delegate = self;
-    [remoteService resolveWithTimeout:30];
+    [remoteService resolveWithTimeout:30]; 
+	//Calls either delagate methods: netServiceDidResolveAddress or didNotResolve
 }
 
 
@@ -456,8 +464,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 
 #pragma mark Net Service Browser Delegate Methods
+
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aBrowser didFindService:(NSNetService *)aService moreComing:(BOOL)more 
 {
+	//Exclude self from the server browser
 	
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
@@ -480,6 +490,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 }
 
 -(void)netServiceDidResolveAddress:(NSNetService *)service {
+	//Should call AsyncSocket Delegate -> onSocket:(AsyncSocket *)sock didConnectToHost:
     NSError *error;
     self.connectedService = service;
     self.socket = [[[AsyncSocket alloc] initWithDelegate:self] autorelease];
@@ -492,7 +503,12 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 - (void)netServiceDidStop:(NSNetService *)sender
 { 
-	[socket disconnect];
+	NSLog(@"Service Stop");
+	connectedService = nil; 
+	[self.socket disconnect];
+	[self search:nil];
+	connectionSocket = nil;
+	
 }
 
 #pragma mark App Controls	

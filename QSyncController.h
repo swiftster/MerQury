@@ -135,7 +135,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(void)enterSlaveMode;
 
 
-
+//Data Sharing 
+-(void)importData;
 
 
 
