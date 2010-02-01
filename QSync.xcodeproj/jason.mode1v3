@@ -331,7 +331,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>968D952C111762EA00B9275D</string>
+										<string>968D953A111763AE00B9275D</string>
 										<key>history</key>
 										<array>
 											<string>9679C76F10D69BC600669157</string>
@@ -575,13 +575,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>968D9537111762EA00B9275D</string>
 		<string>968D9538111762EA00B9275D</string>
 		<string>968D9539111762EA00B9275D</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>9661A1FA10D5CC28006EFDF5</string>
 		<string>/Users/jason/MerQury/QSync.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>16 108 1168 920 0 0 1680 1028 </string>
@@ -930,7 +929,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {576, 622}}</string>
 								<key>RubberWindowFrame</key>
-								<string>702 263 576 663 0 0 1680 1028 </string>
+								<string>773 365 576 663 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -959,7 +958,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>702 263 576 663 0 0 1680 1028 </string>
+			<string>773 365 576 663 0 0 1680 1028 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
