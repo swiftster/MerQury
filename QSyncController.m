@@ -426,6 +426,11 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 		[server pingConnection];
 	}
 	
+	if (message.tag == 610) {
+		NSLog(@"Recived Disconnect Info");
+		[self disconnect]; 
+	}
+	
 }
 
 #pragma mark Net Service Delegate Methods
@@ -453,17 +458,33 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 }
 
 
--(IBAction)disconnect:(id)sender { 
+-(IBAction)disconnectButton:(id)sender { 
 	//NSNetService *service = servicesController.selectedObjects.lastObject; 
 	
-	connectedService = nil; 
+	Message *newMessage = [[[Message alloc] init] autorelease];
+    newMessage.tag = 610;
+    [self.messageBroker sendMessage:newMessage];
+	
+	[self disconnect];
+	
+	
+	/* connectedService = nil; 
 	[self.socket disconnect];
 	connectionSocket = nil;
 	[self search:nil];
+	 
+	 */
 	
 	
 }
 
+-(void)disconnect
+{ 
+	connectedService = nil; 
+	[self.socket disconnect];
+	connectionSocket = nil;
+	[self search:nil];
+}
 
 #pragma mark Net Service Browser Delegate Methods
 
@@ -502,6 +523,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {
     NSLog(@"Could not resolve: %@", errorDict);
+	NSLog (@"Address: %@", [service addresses]);
 }
 
 //Delegate Method Below gets called whenever NetService completes a task (generally speaking)

@@ -105,7 +105,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 
 -(IBAction)search:(id)sender;
 -(IBAction)connect:(id)sender;
--(IBAction)disconnect:(id)sender;
+-(IBAction)disconnectButton:(id)sender;
+-(void)disconnect;
 
 
 //HotKeys
