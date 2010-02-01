@@ -427,8 +427,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	}
 	
 	if (message.tag == 610) {
-		NSLog(@"Recived Disconnect Info");
-		[self disconnect]; 
+		NSLog(@"Negotiate Disconnect");
+		[self disconnectPause]; 
 	}
 	
 }
@@ -465,7 +465,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     newMessage.tag = 610;
     [self.messageBroker sendMessage:newMessage];
 	
-	[self disconnect];
+	[self disconnectPause];
 	
 	
 	/* connectedService = nil; 
@@ -478,12 +478,27 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 }
 
+-(void)disconnectPause 
+{ 
+	
+	NSLog(@"Timer Started");
+	wait = [[NSTimer scheduledTimerWithTimeInterval:0.5
+											 target:self
+										   selector:@selector(disconnect)
+										   userInfo:nil 
+											repeats:NO] autorelease]; 
+	
+		
+}
+
 -(void)disconnect
 { 
+	NSLog(@"Disconnect Called");
 	connectedService = nil; 
 	[self.socket disconnect];
 	connectionSocket = nil;
 	[self search:nil];
+	[wait invalidate];
 }
 
 #pragma mark Net Service Browser Delegate Methods

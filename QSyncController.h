@@ -45,6 +45,7 @@ extern NSString *kGlobalBecomePrimaryKey;
     NSMutableArray *services;
     AsyncSocket *socket;
     IBOutlet NSArrayController *servicesController;
+	NSTimer *wait;
 	
 
 	//Qlab
@@ -107,6 +108,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(IBAction)connect:(id)sender;
 -(IBAction)disconnectButton:(id)sender;
 -(void)disconnect;
+-(void)disconnectPause;
 
 
 //HotKeys
