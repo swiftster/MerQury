@@ -390,7 +390,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     MessageBroker *newBroker = [[[MessageBroker alloc] initWithAsyncSocket:sock] autorelease];
     newBroker.delegate = self;
     self.messageBroker = newBroker;
-	//[self pingConnection];
+	
 	NSLog(@"Connected, Host:%@  Port:%d",host,port);
 }
 
@@ -421,8 +421,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 	
 	if (message.tag == 600) { 
-		
-		//NSLog(@"Ping Back");
 		[server pingConnection];
 	}
 	
@@ -467,14 +465,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	[self disconnectPause];
 	
-	
-	/* connectedService = nil; 
-	[self.socket disconnect];
-	connectionSocket = nil;
-	[self search:nil];
-	 
-	 */
-	
+
 	
 }
 
@@ -488,7 +479,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 										   userInfo:nil 
 											repeats:NO] autorelease]; 
 	
-		
 }
 
 -(void)disconnect
@@ -538,20 +528,13 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {
     NSLog(@"Could not resolve: %@", errorDict);
-	NSLog (@"Address: %@", [service addresses]);
-}
-
-//Delegate Method Below gets called whenever NetService completes a task (generally speaking)
-/* - (void)netServiceDidStop:(NSNetService *)sender
-{ 
-	NSLog(@"Service Stop");
-	connectedService = nil; 
-	[self.socket disconnect];
-	[self search:nil];
-	connectionSocket = nil;
 	
 }
-*/
+
+
+
+
+
 #pragma mark App Controls	
 
 -(IBAction)openAboutWindow: (id) sender
