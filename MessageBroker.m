@@ -146,14 +146,14 @@ static const float SocketTimeout = -1.0;
 	////[waitTimer release];
 	waitTimer = nil; 
 	
-	connectionPinger = [[NSTimer scheduledTimerWithTimeInterval:0.5
+	connectionPinger = [[NSTimer scheduledTimerWithTimeInterval:10
 														 target:self
 													   selector:@selector(maintainConnection)
 													   userInfo:nil 
 														repeats:NO] autorelease]; 
 	//Start CountDown
 	
-	waitTimer = [[NSTimer scheduledTimerWithTimeInterval:2
+	waitTimer = [[NSTimer scheduledTimerWithTimeInterval:15
 												  target:self
 												selector:@selector(timeOutDisconnect) 
 												userInfo:nil 

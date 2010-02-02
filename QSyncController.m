@@ -54,6 +54,13 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 @synthesize downKey; 
 @synthesize primaryKey; 
 
+//ToolBar
+@synthesize searchEnabled;
+@synthesize connectEnabled; 
+@synthesize disconnectEnabled;
+@synthesize startEnabled; 
+@synthesize stopEnabled; 
+
 
 
 
@@ -64,10 +71,11 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	if ([qlabScripts isQlabActive] == TRUE) { 
 		[qlabScripts loadQlabArray];  }
 	
-	
-	
-	
 	queue = [[NSOperationQueue alloc] init];
+	
+	searchEnabled = TRUE; 
+	connectEnabled = TRUE;
+	disconnectEnabled = TRUE; 
 	
 	return self; 
 }
@@ -319,8 +327,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	localServerName = [netService name];
 	NSLog(@"Local Name is: %@", localServerName);
 	
-	[serverStopButton setEnabled:YES];
-	[serverStartButton setEnabled:NO];
+	startEnabled = FALSE; 
+	stopEnabled = TRUE; 
+	[self validateToolbarItem:serverStartButton];
+	[self validateToolbarItem:serverStopButton];
 	
 }
 
@@ -335,6 +345,11 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[serverStopButton setEnabled:NO];
 	[serverStartButton setEnabled:YES];
 	NSLog(@"Service Stopped");
+	
+	startEnabled = TRUE; 
+	stopEnabled = FALSE; 
+	[self validateToolbarItem:serverStartButton];
+	[self validateToolbarItem:serverStopButton];
   
 }
 
@@ -453,27 +468,17 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(IBAction)connect:(id)sender {
     NSNetService *remoteService = servicesController.selectedObjects.lastObject;
     remoteService.delegate = self;
-    [remoteService resolveWithTimeout:30]; 
-	//Calls either delagate methods: netServiceDidResolveAddress or didNotResolve
+    [remoteService resolveWithTimeout:30]; //Calls either delagate methods: netServiceDidResolveAddress or didNotResolve
 }
 
 
 -(IBAction)disconnectButton:(id)sender { 
-	//NSNetService *service = servicesController.selectedObjects.lastObject; 
-	
+	//Need to add selectable disconnet
 	Message *newMessage = [[[Message alloc] init] autorelease];
     newMessage.tag = 610;
     [self.messageBroker sendMessage:newMessage];
 	
 	[self disconnectPause];
-	
-	
-	/* connectedService = nil; 
-	[self.socket disconnect];
-	connectionSocket = nil;
-	[self search:nil];
-	 
-	 */
 	
 	
 }
@@ -486,9 +491,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 											 target:self
 										   selector:@selector(disconnect)
 										   userInfo:nil 
-											repeats:NO] autorelease]; 
-	
-		
+											repeats:NO] autorelease];			
 }
 
 -(void)disconnect
@@ -541,17 +544,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	NSLog (@"Address: %@", [service addresses]);
 }
 
-//Delegate Method Below gets called whenever NetService completes a task (generally speaking)
-/* - (void)netServiceDidStop:(NSNetService *)sender
-{ 
-	NSLog(@"Service Stop");
-	connectedService = nil; 
-	[self.socket disconnect];
-	[self search:nil];
-	connectionSocket = nil;
-	
-}
-*/
+
+
 #pragma mark App Controls	
 
 -(IBAction)openAboutWindow: (id) sender
@@ -607,6 +601,37 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 }
 
 
+#pragma mark  Toolbar Validation 
+
+- (BOOL)validateToolbarItem:(NSToolbarItem *)theItem
+{
+	BOOL enable; 
+	
+	if ([[theItem itemIdentifier] isEqual:@"startServerItem"]) { 
+		
+		enable = startEnabled; 
+		
+	} else if ([[theItem itemIdentifier] isEqual:@"stopServerItem"]) { 
+	
+		enable = stopEnabled; 
+	
+	} else if ([[theItem itemIdentifier] isEqual:@"searchItem"]) { 
+		
+		enable = searchEnabled; 
+	
+	} else if ([[theItem itemIdentifier] isEqual:@"connectItem"]) { 
+		
+		enable = connectEnabled; 
+	
+	} else if ([[theItem itemIdentifier] isEqual:@"disconnectItem"]) { 
+		
+		enable = disconnectEnabled; 
+	}
+	
+	
+	return enable;
+	
+}
 
 
 -(void)enterMasterMode { 

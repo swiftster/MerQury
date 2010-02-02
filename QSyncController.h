@@ -76,8 +76,17 @@ extern NSString *kGlobalBecomePrimaryKey;
 	IBOutlet NSMatrix *modeSelectionMatrix; 
 	
 	//Toolbar 
+	IBOutlet NSToolbarItem *searchButton;
+	IBOutlet NSToolbarItem *connectButton;
+	IBOutlet NSToolbarItem *disconnectButton;
 	IBOutlet NSToolbarItem *serverStartButton;
 	IBOutlet NSToolbarItem *serverStopButton;
+	
+	BOOL searchEnabled;
+	BOOL connectEnabled; 
+	BOOL disconnectEnabled; 
+	BOOL startEnabled; 
+	BOOL stopEnabled; 
 	
 	//Menus 
 	IBOutlet NSMenuItem *toggleKeysMenuItem;
@@ -126,6 +135,13 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(void)registerHotKeys;
 -(void)unregisterHotKeys;
 -(void)clearKeys;
+
+//ToolBar 
+@property (readwrite, assign) BOOL searchEnabled;
+@property (readwrite, assign) BOOL connectEnabled;
+@property (readwrite, assign) BOOL disconnectEnabled;
+@property (readwrite, assign) BOOL startEnabled;
+@property (readwrite, assign) BOOL stopEnabled;
 
 //App Controls
 -(IBAction)openAboutWindow: (id) sender;

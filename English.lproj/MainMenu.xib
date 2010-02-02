@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="371"/>
+			<integer value="784"/>
 			<integer value="29"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -1087,7 +1087,6 @@
 						<reference ref="825532033"/>
 						<reference ref="563471344"/>
 						<reference ref="572637925"/>
-						<reference ref="871814286"/>
 					</object>
 					<object class="NSMutableArray" key="NSToolbarIBSelectableItems">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -3387,13 +3386,19 @@
 					<string>784.IBPluginDependency</string>
 					<string>791.IBPluginDependency</string>
 					<string>792.IBPluginDependency</string>
+					<string>792.designableToolbarItemIdentifier</string>
 					<string>793.IBPluginDependency</string>
+					<string>793.designableToolbarItemIdentifier</string>
 					<string>794.IBPluginDependency</string>
+					<string>794.designableToolbarItemIdentifier</string>
 					<string>798.IBPluginDependency</string>
+					<string>798.designableToolbarItemIdentifier</string>
 					<string>798.toolbarItem.selectable</string>
 					<string>799.IBPluginDependency</string>
+					<string>799.designableToolbarItemIdentifier</string>
 					<string>799.toolbarItem.selectable</string>
 					<string>800.IBPluginDependency</string>
+					<string>800.designableToolbarItemIdentifier</string>
 					<string>811.IBPluginDependency</string>
 					<string>92.IBPluginDependency</string>
 					<string>92.ImportedFromIB2</string>
@@ -3593,17 +3598,23 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>MerQuryToolbar</string>
-					<string>{{20, 633}, {617, 0}}</string>
+					<string>{{20, 406}, {617, 227}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>searchItem</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>connectItem</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>disconnectItem</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>stopServerItem</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>startServerItem</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>phoneItem</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>

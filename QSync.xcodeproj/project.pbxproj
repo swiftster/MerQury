@@ -11,6 +11,7 @@
 		3822658B10D58F8A00F96214 /* Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3822658A10D58F8900F96214 /* Q.jpg */; };
 		3845506A11112976002D2749 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
 		384550A211112E41002D2749 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
+		385D3DCD1118A39A00D1E82B /* PingTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 385D3DCC1118A39A00D1E82B /* PingTime.m */; };
 		388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B2ED51108E17C00745A2D /* MerQuryToolbar.m */; };
@@ -90,6 +91,8 @@
 		381986CB10D5932400E25426 /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		3822658A10D58F8900F96214 /* Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q.jpg; sourceTree = "<group>"; };
 		3845506911112976002D2749 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		385D3DCB1118A39900D1E82B /* PingTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingTime.h; sourceTree = "<group>"; };
+		385D3DCC1118A39A00D1E82B /* PingTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingTime.m; sourceTree = "<group>"; };
 		388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		388B2ED41108E17C00745A2D /* MerQuryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerQuryToolbar.h; sourceTree = "<group>"; };
 		388B2ED51108E17C00745A2D /* MerQuryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerQuryToolbar.m; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				38B351F910CB3F0D00E5A97A /* Message.m */,
 				38B351FB10CB3F0D00E5A97A /* AsyncSocket.h */,
 				38B351FA10CB3F0D00E5A97A /* AsyncSocket.m */,
+				385D3DCB1118A39900D1E82B /* PingTime.h */,
+				385D3DCC1118A39A00D1E82B /* PingTime.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				96FDBAEF10F0F1FF0010537B /* DataWindowController.m in Sources */,
 				9628A1AE10FA5329009DCE4B /* MainWindow.m in Sources */,
 				388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */,
+				385D3DCD1118A39A00D1E82B /* PingTime.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
