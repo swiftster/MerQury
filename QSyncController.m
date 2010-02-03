@@ -576,6 +576,15 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 	
 }
 
+-(IBAction)openChat:(id)sender 
+{
+	if (!chatWindow) { 
+		chatWindow = [[ChatWindowController alloc] init]; 
+	} 
+	NSLog(@"showing %@", chatWindow); 
+	[chatWindow showWindow:self]; 
+}	
+
 -(IBAction)openAdjustPanel:(id)sender { 
 
 }

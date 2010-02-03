@@ -254,15 +254,15 @@
 	};
 	381986CA10D5932400E25426 /* AboutWindow.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {884, 589}}";
+			sepNavIntBoundsRect = "{{0, 0}, {767, 598}}";
 			sepNavSelRange = "{206, 0}";
 			sepNavVisRange = "{0, 206}";
 		};
 	};
 	381986CB10D5932400E25426 /* AboutWindow.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {884, 589}}";
-			sepNavSelRange = "{588, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {767, 598}}";
+			sepNavSelRange = "{354, 0}";
 			sepNavVisRange = "{0, 685}";
 			sepNavWindowFrame = "{{15, 80}, {768, 693}}";
 		};
@@ -299,16 +299,16 @@
 	};
 	381F326F1119F8AB00939B24 /* ChatterClientController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {801, 586}}";
+			sepNavIntBoundsRect = "{{0, 0}, {771, 588}}";
 			sepNavSelRange = "{167, 0}";
 			sepNavVisRange = "{0, 585}";
 		};
 	};
 	381F32701119F8AB00939B24 /* ChatterClientController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {801, 2795}}";
-			sepNavSelRange = "{4467, 0}";
-			sepNavVisRange = "{3657, 813}";
+			sepNavIntBoundsRect = "{{0, 0}, {756, 2886}}";
+			sepNavSelRange = "{223, 0}";
+			sepNavVisRange = "{0, 1006}";
 		};
 	};
 	381F32731119FC8000939B24 /* PBXTextBookmark */ = {
@@ -905,17 +905,17 @@
 	};
 	38B3520A10CB3FB100E5A97A /* QSyncController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {801, 2106}}";
-			sepNavSelRange = "{1636, 0}";
-			sepNavVisRange = "{3, 1036}";
+			sepNavIntBoundsRect = "{{0, 0}, {670, 2275}}";
+			sepNavSelRange = "{1469, 22}";
+			sepNavVisRange = "{1406, 466}";
 			sepNavWindowFrame = "{{895, 63}, {729, 386}}";
 		};
 	};
 	38B3520B10CB3FB100E5A97A /* QSyncController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1146, 8385}}";
-			sepNavSelRange = "{2789, 0}";
-			sepNavVisRange = "{0, 921}";
+			sepNavIntBoundsRect = "{{0, 0}, {936, 9763}}";
+			sepNavSelRange = "{16246, 0}";
+			sepNavVisRange = "{15690, 838}";
 			sepNavWindowFrame = "{{15, 80}, {768, 693}}";
 		};
 	};
@@ -1416,7 +1416,7 @@
 		fRef = 38B3520B10CB3FB100E5A97A /* QSyncController.m */;
 		name = "QSyncController.m: 122";
 		rLen = 0;
-		rLoc = 2789;
+		rLoc = 2837;
 		rType = 0;
 		vrLen = 921;
 		vrLoc = 0;
@@ -1436,7 +1436,7 @@
 		fRef = 38B3520A10CB3FB100E5A97A /* QSyncController.h */;
 		name = "QSyncController.h: 74";
 		rLen = 0;
-		rLoc = 1636;
+		rLoc = 1732;
 		rType = 0;
 		vrLen = 1036;
 		vrLoc = 3;
@@ -1548,7 +1548,7 @@
 	};
 	9628A1AC10FA5329009DCE4B /* MainWindow.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {577, 609}}";
+			sepNavIntBoundsRect = "{{0, 0}, {756, 572}}";
 			sepNavSelRange = "{0, 0}";
 			sepNavVisRange = "{0, 205}";
 		};
@@ -1562,7 +1562,7 @@
 	};
 	964415FE10CD78C1005F595D /* AboutWindowControl.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {926, 603}}";
+			sepNavIntBoundsRect = "{{0, 0}, {756, 572}}";
 			sepNavSelRange = "{234, 0}";
 			sepNavVisRange = "{0, 463}";
 		};
@@ -1570,8 +1570,8 @@
 	964415FF10CD78C1005F595D /* AboutWindowControl.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {894, 845}}";
-			sepNavSelRange = "{621, 0}";
-			sepNavVisRange = "{33, 904}";
+			sepNavSelRange = "{280, 0}";
+			sepNavVisRange = "{33, 903}";
 		};
 	};
 	967A49DF10E9146800CA5CDD /* ImportOp.h */ = {
@@ -1756,16 +1756,16 @@
 	};
 	96FDBAED10F0F1FF0010537B /* DataWindowController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {621, 609}}";
-			sepNavSelRange = "{0, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {767, 598}}";
+			sepNavSelRange = "{588, 0}";
 			sepNavVisRange = "{0, 596}";
 		};
 	};
 	96FDBAEE10F0F1FF0010537B /* DataWindowController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {803, 1131}}";
+			sepNavIntBoundsRect = "{{0, 0}, {803, 1183}}";
 			sepNavSelRange = "{806, 0}";
-			sepNavVisRange = "{202, 828}";
+			sepNavVisRange = "{202, 802}";
 		};
 	};
 }
