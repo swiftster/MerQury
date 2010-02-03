@@ -29,6 +29,7 @@
 		38B353E310CB438F00E5A97A /* SGKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353DE10CB438F00E5A97A /* SGKeyCodeTranslator.m */; };
 		38B353E410CB438F00E5A97A /* SGKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353E010CB438F00E5A97A /* SGKeyCombo.m */; };
 		38C0AB46110782DA00592A30 /* Adjust.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C0AB45110782DA00592A30 /* Adjust.xib */; };
+		38D8D75311190F5F004775AB /* ChatterServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D8D75211190F5F004775AB /* ChatterServer.m */; };
 		38DF877611134AA700FC3F93 /* CoreMIDIServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DF877511134AA700FC3F93 /* CoreMIDIServer.framework */; };
 		38DF877D11134C5400FC3F93 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38DF877C11134C5400FC3F93 /* CoreMIDI.framework */; };
 		38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 38F99DE5111134140057CE78 /* dsa_pub.pem */; };
@@ -118,6 +119,9 @@
 		38B353DF10CB438F00E5A97A /* SGKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGKeyCombo.h; sourceTree = "<group>"; };
 		38B353E010CB438F00E5A97A /* SGKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGKeyCombo.m; sourceTree = "<group>"; };
 		38C0AB45110782DA00592A30 /* Adjust.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Adjust.xib; sourceTree = "<group>"; };
+		38D8D74E111906B7004775AB /* ChatterServing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatterServing.h; sourceTree = "<group>"; };
+		38D8D75111190F5F004775AB /* ChatterServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatterServer.h; sourceTree = "<group>"; };
+		38D8D75211190F5F004775AB /* ChatterServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatterServer.m; sourceTree = "<group>"; };
 		38DF877511134AA700FC3F93 /* CoreMIDIServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDIServer.framework; path = System/Library/Frameworks/CoreMIDIServer.framework; sourceTree = SDKROOT; };
 		38DF877C11134C5400FC3F93 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		38F99DE5111134140057CE78 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -266,12 +270,8 @@
 		38B351F510CB3F0D00E5A97A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				38B351F610CB3F0D00E5A97A /* MessageBroker.h */,
-				38B351F710CB3F0D00E5A97A /* MessageBroker.m */,
-				38B351F810CB3F0D00E5A97A /* Message.h */,
-				38B351F910CB3F0D00E5A97A /* Message.m */,
-				38B351FB10CB3F0D00E5A97A /* AsyncSocket.h */,
-				38B351FA10CB3F0D00E5A97A /* AsyncSocket.m */,
+				38D8D74D111905FA004775AB /* iPhone  */,
+				38D8D74C111905EF004775AB /* Distrib Objects */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -309,6 +309,29 @@
 				38B353D810CB438F00E5A97A /* SGHotKeyLib */,
 			);
 			name = HotKeys;
+			sourceTree = "<group>";
+		};
+		38D8D74C111905EF004775AB /* Distrib Objects */ = {
+			isa = PBXGroup;
+			children = (
+				38D8D74E111906B7004775AB /* ChatterServing.h */,
+				38D8D75111190F5F004775AB /* ChatterServer.h */,
+				38D8D75211190F5F004775AB /* ChatterServer.m */,
+			);
+			name = "Distrib Objects";
+			sourceTree = "<group>";
+		};
+		38D8D74D111905FA004775AB /* iPhone  */ = {
+			isa = PBXGroup;
+			children = (
+				38B351F610CB3F0D00E5A97A /* MessageBroker.h */,
+				38B351F710CB3F0D00E5A97A /* MessageBroker.m */,
+				38B351F810CB3F0D00E5A97A /* Message.h */,
+				38B351F910CB3F0D00E5A97A /* Message.m */,
+				38B351FB10CB3F0D00E5A97A /* AsyncSocket.h */,
+				38B351FA10CB3F0D00E5A97A /* AsyncSocket.m */,
+			);
+			name = "iPhone ";
 			sourceTree = "<group>";
 		};
 		964415FD10CD78AD005F595D /* Views & Controllers */ = {
@@ -444,6 +467,7 @@
 				96FDBAEF10F0F1FF0010537B /* DataWindowController.m in Sources */,
 				9628A1AE10FA5329009DCE4B /* MainWindow.m in Sources */,
 				388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */,
+				38D8D75311190F5F004775AB /* ChatterServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
