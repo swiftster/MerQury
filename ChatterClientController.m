@@ -168,7 +168,7 @@
 -(IBAction)unsubscribe:(id)sender 
 { 
 	@try { 
-		[proxy unsubscibeClient:self]; 
+		[proxy unsubscribeClient:self]; 
 		[messageField setStringValue:@"Unsubscribed"];
 		[self cleanUp]; }
 	
@@ -194,7 +194,7 @@
 	
 	NSLog(@"invalidating connection"); 
 	if (proxy) { 
-		[proxy unsubscibeClient:self];
+		[proxy unsubscribeClient:self];
 		[[proxy connectionForProxy] invalidate];
 	}
 	return NSTerminateNow; 

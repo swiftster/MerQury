@@ -25,7 +25,7 @@
 @protocol ChatterServing
 
 -(oneway void)sendMessage:(in bycopy NSString *)message
-			 fromClient:(in bycopy NSString *)client;
+			 fromClient:(in byref id <ChatterUsing>)client;
 
 //Returns NO if someone already has newClients nickname 
 -(BOOL)subscribeClient:(in byref id <ChatterUsing>)newClient; 
