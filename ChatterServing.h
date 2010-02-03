@@ -30,7 +30,7 @@
 //Returns NO if someone already has newClients nickname 
 -(BOOL)subscribeClient:(in byref id <ChatterUsing>)newClient; 
 
--(void)unsubscribeClient:(in byref id <ChatterUsing>)client:
+-(void)unsubscribeClient:(in byref id <ChatterUsing>)client;
 
 @end 
 

@@ -42,7 +42,7 @@
 //Methods called by clients 
 
 -(oneway void)sendMessage:(in bycopy NSString *)message
-			   fromClient:(in bycopy NSString *)client
+			   fromClient:(in byref id <ChatterUsing>)client
 {
 	NSString *senderNickname; 
 	id currentClient; 
@@ -52,17 +52,41 @@
 	
 	enumerator = [clients objectEnumerator];
 	
-	//Finish this from book pg. 452
+	NSLog(@"from %@: %@",senderNickname, message); 
+	
+	while (currentClient = [enumerator nextObject]) {
+		[currentClient showMessage:message fromNickname:senderNickname];
+	}
 	
 }
 	
+-(BOOL)subscribeClient:(in byref id <ChatterUsing>)newClient
+{ 
+	NSString *newNickname = [newClient nickname]; 
+	
+	//Is the nickname taken?
+	
+	if ([self clientWithNickname:newNickname]) {
+		return NO; } 
+	
+	NSLog(@"adding client"); 
+	
+	[clients addObject:newClient]; 
+	
+	return YES; 
+} 
+						
+-(void)unsubscribeClient:(in byref id <ChatterUsing>) client
+{ 
+	
+	NSDistantObject *clientProxy = (NSDistantObject *)client; 
+	NSConnection *connection = [clientProxy connectionForProxy]; 
+	[clients removeObject:client];
+	[connection invalidate]; 
+	NSLog(@"Client Removed"); 
+}
+						
+						
 	
 	
-	
-	
-	
-	
-	
-	
-
 @end

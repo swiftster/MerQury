@@ -63,6 +63,11 @@ extern NSString *kGlobalBecomePrimaryKey;
 	SGHotKey *downKey;
 	SGHotKey *primaryKey; 
 	
+	//DO Server Que 
+	NSOperationQueue *doServerOperarionQueue; 
+	NSOperation *doServerQueue; 
+	
+	
 	//Qlab  Data Import Operation 
 	NSOperationQueue *genericOperationQueue;
 	NSOperation *queue;
@@ -157,6 +162,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 //Data Sharing 
 -(void)importData;
 
+-(void)startDoServer;
 
 
 

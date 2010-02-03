@@ -10,7 +10,7 @@
 #import "ChatterServing.h"
 
 @interface ChatterClientController : NSObject <ChatterUsing> {
-
+	
 	IBOutlet NSTextField *hostField; 
 	IBOutlet NSTextField *messageField; 
 	IBOutlet NSTextField *nicknameField; 
@@ -21,8 +21,11 @@
 	
 }
 
+ 
+
 -(IBAction)sendMessage:(id)sender; 
--(IBAction)subscribe:(id)sender:
--(IBAction)unsubscribe:(id)sender; 
+-(IBAction)subscribe:(id)sender;
+-(IBAction)unsubscibe:(id)sender;
+
 
 @end

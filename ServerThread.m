@@ -48,7 +48,7 @@
 	
 	//Set up the monitor object 
 	[connection setDelegate:monitor];
-	[[NSNotification defaultCenter] 
+	[[NSNotificationCenter defaultCenter] 
 					addObserver:monitor
 						selector:@selector(connectDidDie:)
 							name:NSConnectionDidDieNotification

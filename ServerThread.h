@@ -14,8 +14,8 @@
 #include <sys/socket.h>
 
 
-@interface ServerThread: NSOperation {
+@interface ServerThread : NSOperation {
 
 	
-
+}
 @end

@@ -14,6 +14,7 @@
 #import "Message.h"
 #import "SGHotKeyCenter.h"
 #import	"ImportOp.h"
+#import "ServerThread.h"
 
 
 
@@ -104,6 +105,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	//Server 
 	[self startService];
+	[self startDoServer];
 	[self search:self];
 	
 }
@@ -679,7 +681,25 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 	
 }
 
-
+-(void)startDoServer 
+{ 
+	ServerThread *operation = nil;
+	operation = [[ServerThread alloc] init];
+	if (!doServerQueue) {
+		doServerQueue = [[NSOperationQueue alloc] init]; }
+	
+	
+	ServerThread *op = nil;
+	op = [[ServerThread alloc] init];
+	
+	if (!doServerOperarionQueue) {
+		doServerOperarionQueue = [[NSOperationQueue alloc] init];
+	}
+	
+	[doServerOperarionQueue addOperation:op];
+	[op release], op = nil;
+}
+	
 
 @end
 
