@@ -19,7 +19,14 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	ConnectionMonitor *monitor = [[ConnectionMonitor alloc] init]; 
-	ChatterServer *chatterServer = [[ChatterServer alloc] init]; 
+	MessageServer	*mServer = [[MessageServer alloc] init];
+	NSNetService *netService; 
+	
+	NSString *serviceName = [NSString stringWithFormat:@"%@", [[NSProcessInfo processInfo] hostName]];
+    netService = [[NSNetService alloc] initWithDomain:@"" type:@"_merqury._tcp." name:serviceName port:8081];
+    netService.delegate = self;
+    [netService publish];
+
 	
 	//Create Recive Port 
 	NSSocketPort *receivePort; 
@@ -40,11 +47,11 @@
 	//The port is retained by the connection 
 	[receivePort release]; 
 		  
-	//When clients use this connection, they will talk to the ChatterServer
-	[connection setRootObject:chatterServer]; 
+	//When clients use this connection, they will talk to the Server
+	[connection setRootObject:mServer]; 
 	
-	//The chatterServer is retained by the connection 
-	[chatterServer release]; 
+	//The Server is retained by the connection 
+	[mServer release]; 
 	
 	//Set up the monitor object 
 	[connection setDelegate:monitor];
@@ -61,7 +68,7 @@
 	[connection release]; 
 	[monitor release]; 
 	[pool release];
-	return 0;
+	//return 0;
 	
 }
 

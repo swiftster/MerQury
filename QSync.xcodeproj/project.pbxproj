@@ -10,7 +10,7 @@
 		381986CC10D5932400E25426 /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 381986CB10D5932400E25426 /* AboutWindow.m */; };
 		381F326B1119E49500939B24 /* ServerThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F326A1119E49500939B24 /* ServerThread.m */; };
 		381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F326D1119E4B100939B24 /* ConnectionMonitor.m */; };
-		381F32711119F8AB00939B24 /* ChatterClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F32701119F8AB00939B24 /* ChatterClientController.m */; };
+		381F32711119F8AB00939B24 /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F32701119F8AB00939B24 /* ClientController.m */; };
 		3822658B10D58F8A00F96214 /* Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3822658A10D58F8900F96214 /* Q.jpg */; };
 		3829DF3F111A15C900270A58 /* ChatWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3829DF3E111A15C900270A58 /* ChatWindow.xib */; };
 		3829DF55111A1A6D00270A58 /* ChatWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3829DF54111A1A6D00270A58 /* ChatWindowController.m */; };
@@ -34,7 +34,7 @@
 		38B353E310CB438F00E5A97A /* SGKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353DE10CB438F00E5A97A /* SGKeyCodeTranslator.m */; };
 		38B353E410CB438F00E5A97A /* SGKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353E010CB438F00E5A97A /* SGKeyCombo.m */; };
 		38C0AB46110782DA00592A30 /* Adjust.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C0AB45110782DA00592A30 /* Adjust.xib */; };
-		38D8D75311190F5F004775AB /* ChatterServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D8D75211190F5F004775AB /* ChatterServer.m */; };
+		38D8D75311190F5F004775AB /* MessageServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D8D75211190F5F004775AB /* MessageServer.m */; };
 		38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 38F99DE5111134140057CE78 /* dsa_pub.pem */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -96,8 +96,8 @@
 		381F326A1119E49500939B24 /* ServerThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerThread.m; sourceTree = "<group>"; };
 		381F326C1119E4B100939B24 /* ConnectionMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionMonitor.h; sourceTree = "<group>"; };
 		381F326D1119E4B100939B24 /* ConnectionMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionMonitor.m; sourceTree = "<group>"; };
-		381F326F1119F8AB00939B24 /* ChatterClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatterClientController.h; sourceTree = "<group>"; };
-		381F32701119F8AB00939B24 /* ChatterClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatterClientController.m; sourceTree = "<group>"; };
+		381F326F1119F8AB00939B24 /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
+		381F32701119F8AB00939B24 /* ClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientController.m; sourceTree = "<group>"; };
 		3822658A10D58F8900F96214 /* Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q.jpg; sourceTree = "<group>"; };
 		3829DF3E111A15C900270A58 /* ChatWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatWindow.xib; sourceTree = "<group>"; };
 		3829DF53111A1A6D00270A58 /* ChatWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatWindowController.h; sourceTree = "<group>"; };
@@ -131,12 +131,12 @@
 		38B353DF10CB438F00E5A97A /* SGKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGKeyCombo.h; sourceTree = "<group>"; };
 		38B353E010CB438F00E5A97A /* SGKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGKeyCombo.m; sourceTree = "<group>"; };
 		38C0AB45110782DA00592A30 /* Adjust.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Adjust.xib; sourceTree = "<group>"; };
-		38D8D74E111906B7004775AB /* ChatterServing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatterServing.h; sourceTree = "<group>"; };
-		38D8D75111190F5F004775AB /* ChatterServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatterServer.h; sourceTree = "<group>"; };
-		38D8D75211190F5F004775AB /* ChatterServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatterServer.m; sourceTree = "<group>"; };
+		38D8D75111190F5F004775AB /* MessageServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageServer.h; sourceTree = "<group>"; };
+		38D8D75211190F5F004775AB /* MessageServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageServer.m; sourceTree = "<group>"; };
 		38F99DE5111134140057CE78 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* QSync-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QSync-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MerQury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerQury.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		960ACB79111C9CB200A9A18B /* CommandMessagesProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandMessagesProto.h; sourceTree = "<group>"; };
 		9628A1AC10FA5329009DCE4B /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
 		9628A1AD10FA5329009DCE4B /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
 		964415FE10CD78C1005F595D /* AboutWindowControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowControl.h; sourceTree = "<group>"; };
@@ -321,15 +321,15 @@
 		38D8D74C111905EF004775AB /* Distrib Objects */ = {
 			isa = PBXGroup;
 			children = (
-				38D8D74E111906B7004775AB /* ChatterServing.h */,
-				38D8D75111190F5F004775AB /* ChatterServer.h */,
-				38D8D75211190F5F004775AB /* ChatterServer.m */,
+				960ACB79111C9CB200A9A18B /* CommandMessagesProto.h */,
 				381F32691119E49500939B24 /* ServerThread.h */,
 				381F326A1119E49500939B24 /* ServerThread.m */,
+				38D8D75111190F5F004775AB /* MessageServer.h */,
+				38D8D75211190F5F004775AB /* MessageServer.m */,
+				381F326F1119F8AB00939B24 /* ClientController.h */,
+				381F32701119F8AB00939B24 /* ClientController.m */,
 				381F326C1119E4B100939B24 /* ConnectionMonitor.h */,
 				381F326D1119E4B100939B24 /* ConnectionMonitor.m */,
-				381F326F1119F8AB00939B24 /* ChatterClientController.h */,
-				381F32701119F8AB00939B24 /* ChatterClientController.m */,
 			);
 			name = "Distrib Objects";
 			sourceTree = "<group>";
@@ -483,10 +483,10 @@
 				96FDBAEF10F0F1FF0010537B /* DataWindowController.m in Sources */,
 				9628A1AE10FA5329009DCE4B /* MainWindow.m in Sources */,
 				388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */,
-				38D8D75311190F5F004775AB /* ChatterServer.m in Sources */,
+				38D8D75311190F5F004775AB /* MessageServer.m in Sources */,
 				381F326B1119E49500939B24 /* ServerThread.m in Sources */,
 				381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */,
-				381F32711119F8AB00939B24 /* ChatterClientController.m in Sources */,
+				381F32711119F8AB00939B24 /* ClientController.m in Sources */,
 				3829DF55111A1A6D00270A58 /* ChatWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

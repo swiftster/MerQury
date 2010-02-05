@@ -72,6 +72,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	if ([qlabScripts isQlabActive] == TRUE) { 
 		[qlabScripts loadQlabArray];  }
 	
+	client = [[ClientController alloc] init]; 
 	queue = [[NSOperationQueue alloc] init];
 	
 	searchEnabled = TRUE; 
@@ -189,40 +190,30 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 - (void)goKeyPressed:(id)sender {
 	
-	
 	NSLog(@"Go Pressed");  
-	Message *newMessage = [[[Message alloc] init] autorelease];
-    newMessage.tag = 110;
-    [self.messageBroker sendMessage:newMessage];
 	[qlabScripts goCue];
+	[client sendCommand:110];
+	
 }
 
 - (void)stopKeyPressed:(id)sender {
+	NSLog(@"Stop Pressed");
 	[qlabScripts stopCue];
-	NSLog(@"Stop Pressed");  
-    Message *newMessage = [[[Message alloc] init] autorelease];
-    newMessage.tag = 120;
-    [self.messageBroker sendMessage:newMessage];
+	[client sendCommand:120];
+ 
 }
 
 - (void)upKeyPressed:(id)sender {
+	NSLog(@"Up Pressed");
 	[qlabScripts moveSelectionUp];
-	NSLog(@"Up Pressed");  
-	//NSData *data = [textView.string dataUsingEncoding:NSUTF8StringEncoding];
-    Message *newMessage = [[[Message alloc] init] autorelease];
-    newMessage.tag = 130;
-    //newMessage.dataContent = data;
-    [self.messageBroker sendMessage:newMessage];
+	[client sendCommand:130];
 }
 
 - (void)downKeyPressed:(id)sender {
+	NSLog(@"Down Pressed");
 	[qlabScripts moveSelectionDown];
-	NSLog(@"Down Pressed");  
-	//NSData *data = [textView.string dataUsingEncoding:NSUTF8StringEncoding];
-    Message *newMessage = [[[Message alloc] init] autorelease];
-    newMessage.tag = 140;
-    //newMessage.dataContent = data;
-    [self.messageBroker sendMessage:newMessage];
+	[client sendCommand:140];
+	
 }
 
 -(void)becomePrimaryPresssed:(id)sender { 
@@ -321,9 +312,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
         return;
     }
     
-    // Advertise service with bonjour
+    // Advertise iphone service with bonjour
     NSString *serviceName = [NSString stringWithFormat:@"%@", [[NSProcessInfo processInfo] hostName]];
-    netService = [[NSNetService alloc] initWithDomain:@"" type:@"_merqury._tcp." name:serviceName port:self.listeningSocket.localPort];
+    netService = [[NSNetService alloc] initWithDomain:@"" type:@"_imerqury._tcp." name:serviceName port:self.listeningSocket.localPort];
     netService.delegate = self;
     [netService publish];
 	localServerName = [netService name];
@@ -469,19 +460,13 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(IBAction)connect:(id)sender {
     NSNetService *remoteService = servicesController.selectedObjects.lastObject;
-    remoteService.delegate = self;
-    [remoteService resolveWithTimeout:30]; //Calls either delagate methods: netServiceDidResolveAddress or didNotResolve
+	
+    
 }
 
 
 -(IBAction)disconnectButton:(id)sender { 
-	//Need to add selectable disconnet
-	Message *newMessage = [[[Message alloc] init] autorelease];
-    newMessage.tag = 610;
-    [self.messageBroker sendMessage:newMessage];
-	
-	[self disconnectPause];
-	
+	NSNetService *remoteService = servicesController.selectedObjects.lastObject;
 	
 }
 

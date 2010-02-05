@@ -17,6 +17,7 @@
 #import	"DataWindowController.h"
 #import "ChatWindowController.h"
 
+#import	"ClientController.h"
 
 extern NSString *kGlobalGoKey;
 extern NSString *kGlobalStopKey;
@@ -32,7 +33,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 	
 	
-	//Server 
+	//iPhone Server 
     NSNetService *netService;
     AsyncSocket *listeningSocket;
     AsyncSocket *connectionSocket;
@@ -40,6 +41,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	NSString *localServerName;
 	
 	//Client
+	ClientController *client;
 	BOOL isConnected;
     NSNetServiceBrowser *browser;
     NSNetService *connectedService;

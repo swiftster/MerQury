@@ -8,8 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "ChatterServer.h"
-#import "ChatterServing.h"
+#import "MessageServer.h"
+#import "CommandMessagesProto.h"
 #import "ConnectionMonitor.h"
 #include <sys/socket.h>
 
