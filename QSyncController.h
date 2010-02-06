@@ -49,6 +49,7 @@ extern NSString *kGlobalBecomePrimaryKey;
     AsyncSocket *socket;
     IBOutlet NSArrayController *servicesController;
 	NSTimer *wait;
+	NSData *address; 
 	
 
 	//Qlab

@@ -49,55 +49,85 @@
 	
 }
 
+-(void)setAddress:(NSData *)a
+{ 
+	[a retain]; 
+	[address release]; 
+	address = a; 
+}
+
 	
-
-//Accessors 
--(bycopy NSString *)nickname 
-{ 
-	return nickname;
-}
-
--(void)setNickname:(NSString *)s 
-{ 
-	[s retain]; 
-	[nickname release]; 
-	nickname = s; 
-}
-
--(void)setServerHostname:(NSString	*)s 
-{ 
-	
-	[s retain]; 
-	[serverHostName release]; 
-	serverHostName = s; 
-}
 
 //Connect to the server 
 -(void)connect
 {
-	
-}
-	
-//Read Hostname and nickname then connect 
--(void)subscribe
-{ 
-	
-	//Is the sender user already subscribed?
-	if (proxy) { 
-		[messageField setStringValue:@"unsubscribe first!"]; 
-	} else { 
-		//Read the hostname from UI 
-		[self setServerHostname:[hostField stringValue]]; 
-		[self setNickname:[nicknameField stringValue]]; 
-		
-		 //connect 
-		 
-		 [self connect]; }
-		 
-}
-		
-		
 
+BOOL successful; 
+NSConnection *connection; 
+NSSocketPort *sendPort; 
+
+//Create the send port 
+sendPort = [[NSSocketPort alloc] initRemoteWithProtocolFamily:AF_INET
+												   socketType:SOCK_STREAM
+													 protocol:INET_TCP
+													  address:address];
+
+//Create a NSConenction 
+connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort]; 
+
+//Set Timeouts to something resonable 
+[connection setRequestTimeout:10.0]; 
+[connection setReplyTimeout:10.0]; 
+
+//The Send port is retained by the connection 
+[sendPort release]; 
+
+@try { 
+	//Get the proxy 
+	proxy = [[connection rootProxy] retain]; 
+	
+	//Get informed when connection fails
+	[[NSNotificationCenter defaultCenter] addObserver:self 
+											 selector:@selector(connectionDown:)
+												 name:NSConnectionDidDieNotification
+											   object:connection]; 
+	
+	//By telling the proxy about the protocol for the object 
+	//it represents, we significantly reduce the network traffic 
+	//involved with each invocation 
+	
+	[proxy setProtocolForProxy:@protocol(ClientMessage)];
+	
+	//Try to subscribe with chosen nickname 
+	successful = [proxy connectClient:self];
+	
+	if (successful) {
+		NSLog(@"Connected");
+		
+	} else {
+		[messageField setStringValue:@"Name not available"];
+		[self cleanUp];
+	}
+}
+
+@catch (NSException *e) {
+	//The server does not respond in 10 seconds, this handler is called 
+	[messageField setStringValue:@"Unable to connect"]; 
+	[self cleanUp]; }
+			
+	
+-(void)subscribe:(
+	{
+		NSNetService *currentService; 
+		
+		if (proxy) { 
+			NSLog(@"Already Connected"); 
+		} else {
+			[currentService setDelegate:self]; 
+			[currentService resolveWithTimeout:30];
+		}
+		
+			
 
 -(void)disconnect 
 { 

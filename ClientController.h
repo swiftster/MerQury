@@ -9,16 +9,15 @@
 #import <Cocoa/Cocoa.h>
 #import "CommandMessagesProto.h"
 #import "QlabScripting.h"
+#import <sys/socket.h>
 
 @interface ClientController : NSObject <ServerMessage> {
 	
-	IBOutlet NSTextField *hostField; 
-	IBOutlet NSTextField *messageField; 
-	IBOutlet NSTextField *nicknameField; 
-	IBOutlet NSTextView	 *textView; 
+	
 	NSString *nickname; 
 	NSString *serverHostName; 
 	id proxy;
+	NSData *address; 
 	
 	QlabScripting *qlabScripts;
 	
@@ -27,6 +26,7 @@
  
 -(void)connect;
 -(void)disconnect;
+-(void)setAddress:(NSData *)a; 
 
 
 @end

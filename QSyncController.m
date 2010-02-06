@@ -94,7 +94,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     self.isConnected = NO;
 	
 	
-	
+	//Preload Qlab Array
 	if ([qlabScripts isQlabActive] == YES) { 
 		[self importData]; }
 	
@@ -303,6 +303,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 //Server
 	
 -(void)startService {
+	//Start iPhone OS Service 
     // Start listening socket
 	NSLog(@"Listening, Service Started");
     NSError *error;
