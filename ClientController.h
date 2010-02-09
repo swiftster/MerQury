@@ -17,16 +17,16 @@
 	NSString *nickname; 
 	NSString *serverHostName; 
 	id proxy;
-	NSData *address; 
+	
 	
 	QlabScripting *qlabScripts;
 	
 }
 
  
--(void)connect;
+-(void)connect:(NSData *)address;
 -(void)disconnect;
--(void)setAddress:(NSData *)a; 
+ 
 
 
 @end

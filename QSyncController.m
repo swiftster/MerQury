@@ -20,6 +20,7 @@
 
 
 
+
 NSString *kGlobalGoKey = @"Global Go Key";
 NSString *kGlobalStopKey = @"Global Stop Key";
 NSString *kGlobalUpKey = @"Global Up Key";
@@ -461,13 +462,15 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(IBAction)connect:(id)sender {
     NSNetService *remoteService = servicesController.selectedObjects.lastObject;
+	[remoteService setDelegate:self]; 
+	[remoteService resolveWithTimeout:30];
 	
     
 }
 
 
 -(IBAction)disconnectButton:(id)sender { 
-	NSNetService *remoteService = servicesController.selectedObjects.lastObject;
+	//NSNetService *remoteService = servicesController.selectedObjects.lastObject;
 	
 }
 
@@ -501,7 +504,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == FALSE) {
+	if (match == TRUE) {
 		[servicesController addObject:aService];
 		
 	} else { 
@@ -519,12 +522,13 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 }
 
 -(void)netServiceDidResolveAddress:(NSNetService *)service {
-	//Should call AsyncSocket Delegate -> onSocket:(AsyncSocket *)sock didConnectToHost:
-    NSError *error;
+	NSData *address; 
+	NSArray *addressArray = [service addresses]; 
+	NSLog(@"Array Count %d", [addressArray count]);
 	
-    self.connectedService = service;
-    self.socket = [[[AsyncSocket alloc] initWithDelegate:self] autorelease];
-    [self.socket connectToAddress:service.addresses.lastObject error:&error];
+	address = [addressArray objectAtIndex:0];
+	
+	[client connect:address]; 
 }
 
 -(void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {

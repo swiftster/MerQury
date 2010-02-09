@@ -16,8 +16,8 @@
 
 #import	"DataWindowController.h"
 #import "ChatWindowController.h"
-
 #import	"ClientController.h"
+
 
 extern NSString *kGlobalGoKey;
 extern NSString *kGlobalStopKey;
@@ -49,7 +49,6 @@ extern NSString *kGlobalBecomePrimaryKey;
     AsyncSocket *socket;
     IBOutlet NSArrayController *servicesController;
 	NSTimer *wait;
-	NSData *address; 
 	
 
 	//Qlab

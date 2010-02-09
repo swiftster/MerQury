@@ -15,7 +15,7 @@
 //Qlab Commands 
 -(oneway void)sendCommand:(in int)command; 
 
--(bycopy NSString *)clientName;
+
 
 
 @end

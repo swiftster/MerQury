@@ -7,7 +7,7 @@
 //
 
 #import "ClientController.h"
-
+#import <sys/socket.h>
 
 @implementation ClientController
 
@@ -49,27 +49,22 @@
 	
 }
 
--(void)setAddress:(NSData *)a
-{ 
-	[a retain]; 
-	[address release]; 
-	address = a; 
-}
+
 
 	
 
 //Connect to the server 
--(void)connect
+-(void)connect:(NSData *)address
 {
 
 BOOL successful; 
 NSConnection *connection; 
 NSSocketPort *sendPort; 
 
-//Create the send port 
+//Create the send port INET_TCP is 0x06
 sendPort = [[NSSocketPort alloc] initRemoteWithProtocolFamily:AF_INET
 												   socketType:SOCK_STREAM
-													 protocol:INET_TCP
+													 protocol:0x06
 													  address:address];
 
 //Create a NSConenction 
@@ -105,18 +100,18 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 		NSLog(@"Connected");
 		
 	} else {
-		[messageField setStringValue:@"Name not available"];
+		//[messageField setStringValue:@"Name not available"];
 		[self cleanUp];
 	}
 }
 
 @catch (NSException *e) {
 	//The server does not respond in 10 seconds, this handler is called 
-	[messageField setStringValue:@"Unable to connect"]; 
+	//[messageField setStringValue:@"Unable to connect"]; 
 	[self cleanUp]; }
-			
+}
 	
--(void)subscribe:(
+-(void)subscribe
 	{
 		NSNetService *currentService; 
 		
@@ -126,18 +121,18 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 			[currentService setDelegate:self]; 
 			[currentService resolveWithTimeout:30];
 		}
-		
+	}
 			
 
 -(void)disconnect 
 { 
 	@try { 
 		[proxy disconnectClient:self]; 
-		[messageField setStringValue:@"Disconnecting"];
+		//[messageField setStringValue:@"Disconnecting"];
 		[self cleanUp]; }
 	
 	@catch (NSException *e) {
-		[messageField setStringValue:@"Error Disconnecting"]; 
+		//[messageField setStringValue:@"Error Disconnecting"]; 
 	
 	}
 }
@@ -148,7 +143,7 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 -(void)connectionDown:(NSNotification *)note 
 { 
 	NSLog(@"Conenction Down:"); 
-	[messageField setStringValue:@"connectons down"];
+	//[messageField setStringValue:@"connectons down"];
 	[self cleanUp]; 
 }
 
