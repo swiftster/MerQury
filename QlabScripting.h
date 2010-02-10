@@ -9,7 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "PreferenceController.h"
 
+extern NSString * const JATQlabGoNotification;
+extern NSString * const JATQlabSelectionUpNotification;
+extern NSString * const JATQlabSelectionDownNotification;
+extern NSString * const JATQlabStopNotification;
+
 @interface QlabScripting : NSObject {
+
+
 	
 int arrayNumber;
 BOOL active; 
@@ -48,6 +55,11 @@ NSString *workspaceName;
 //Saveing and Backups
 -(int)getArrayNumber;
 
+//Notes
+-(void)goCueNote:(NSNotification *)note;
+-(void)upSelectionNote:(NSNotification *)note;
+-(void)downSelectionNote:(NSNotification *)note;
+-(void)stopNote:(NSNotification *)note;
 
 //Controls
 -(void)goCue;

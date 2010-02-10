@@ -19,7 +19,7 @@
 	id proxy;
 	
 	
-	QlabScripting *qlabScripts;
+	
 	
 }
 

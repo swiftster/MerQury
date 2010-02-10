@@ -192,33 +192,26 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 //Keys
 
 - (void)goKeyPressed:(id)sender {
+	  
+	[client sendCommand:110]; 
 	
-	NSLog(@"Go Pressed");  
-	[qlabScripts goCue];
-	[client sendCommand:110];
-	[mServer sendCommand:110]; 
 	
 }
 
 - (void)stopKeyPressed:(id)sender {
-	NSLog(@"Stop Pressed");
-	[qlabScripts stopCue];
+
 	[client sendCommand:120];
-	[mServer sendCommand:120];
  
 }
 
 - (void)upKeyPressed:(id)sender {
-	NSLog(@"Up Pressed");
-	[qlabScripts moveSelectionUp];
+	
 	[client sendCommand:130];
-	[client sendCommand:130];
+	
 }
 
 - (void)downKeyPressed:(id)sender {
-	NSLog(@"Down Pressed");
-	[qlabScripts moveSelectionDown];
-	[client sendCommand:140];
+
 	[client sendCommand:140];
 	
 }
@@ -441,16 +434,24 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	if (message.tag == 110) {
 		NSLog(@"Go Message Recieved");
-		[qlabScripts goCue]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabGoNotification object:self];
+	}
 	
 	if (message.tag == 120) {
-		[qlabScripts stopCue]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabStopNotification object:self];
+	}
 	
 	if (message.tag == 130) {
-		[qlabScripts moveSelectionUp]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabSelectionUpNotification object:self];
+	}
 	
 	if (message.tag == 140) {
-		[qlabScripts moveSelectionDown]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+	}
 
 	
 	if (message.tag == 600) { 

@@ -16,9 +16,7 @@
 {
 	[super init]; 
 	clients = [[NSMutableArray alloc] init];
-	qlabScripts = [[QlabScripting alloc] init];
-	if ([qlabScripts isQlabActive] == TRUE) { 
-		[qlabScripts loadQlabArray];  }
+
 
 	return self; 
 }
@@ -28,22 +26,29 @@
 //Methods called by clients 
 -(oneway void)sendCommand:(in int)command
 {
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	
 	//NSLog(@"Reciveing Message"); 
     if ( command == 100 ) {
 		NSLog(@"Tag = 100"); }
 	
 	if (command == 110) {
 		NSLog(@"Client Go Message Recieved Send Command");
-		[qlabScripts goCue]; }
+		[nc postNotificationName:JATQlabGoNotification object:self]; 
+	}
 	
 	if (command == 120) {
-		[qlabScripts stopCue]; }
+		[nc postNotificationName:JATQlabStopNotification object:self];
+	}
 	
 	if (command == 130) {
-		[qlabScripts moveSelectionUp]; }
+		[nc postNotificationName:JATQlabSelectionUpNotification object:self]; 
+	}
 	
 	if (command == 140) {
-		[qlabScripts moveSelectionDown]; }
+		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+
+	}
 	
 	
 }	
@@ -51,22 +56,31 @@
 -(oneway void)recieveCommand:(in int)command
 {
 	
-	//NSLog(@"Reciveing Message"); 
+	NSLog(@"Reciveing Message"); 
     if ( command == 100 ) {
 		NSLog(@"Tag = 100"); }
 	
 	if (command == 110) {
 		NSLog(@"Server Go Message Recieved");
-		[qlabScripts goCue]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabGoNotification object:self];
+
+	}
 	
 	if (command == 120) {
-		[qlabScripts stopCue]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabGoNotification object:self];
+	}
 	
 	if (command == 130) {
-		[qlabScripts moveSelectionUp]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabSelectionUpNotification object:self]; 
+	}
 	
 	if (command == 140) {
-		[qlabScripts moveSelectionDown]; }
+		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+	}
 	
 	
 }

@@ -29,23 +29,27 @@
 //Show Message coming in from server 
 -(oneway void)sendCommand:(in int)command
 {
-	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	//NSLog(@"Reciveing Message"); 
     if ( command == 100 ) {
 		NSLog(@"Tag = 100"); }
 	
 	if (command == 110) {
 		NSLog(@"Client Go Message Recieved");
-		[proxy sendCommand:110]; }
+		[nc postNotificationName:JATQlabGoNotification object:self];
+	}
 	
 	if (command == 120) {
-		[proxy sendCommand:120]; }
+		[nc postNotificationName:JATQlabStopNotification object:self];
+	}
 	
 	if (command == 130) {
-		[proxy sendCommand:130]; }
+		[nc postNotificationName:JATQlabSelectionUpNotification object:self];
+	}
 	
 	if (command == 140) {
-		[proxy sendCommand:140]; }
+		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+	}
 	
 	
 }
@@ -98,7 +102,7 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 	successful = [proxy connectClient:self];
 	
 	if (successful) {
-		NSLog(@"Connected");
+		NSLog(@"Client Connected");
 		
 	} else {
 		//[messageField setStringValue:@"Name not available"];

@@ -11,6 +11,10 @@
 
 
 NSString const * JATFeedBackNotification = @"JATFeedBackPost";
+NSString * const JATQlabGoNotification = @"JATQlabGo";
+NSString * const JATQlabSelectionUpNotification = @"JATQlabUp";
+NSString * const JATQlabSelectionDownNotification = @"JATQlanDown";
+NSString * const JATQlabStopNotification = @"JATQlabStop";
 
 @implementation QlabScripting
 
@@ -23,6 +27,15 @@ NSString const * JATFeedBackNotification = @"JATFeedBackPost";
 -(id)init
 {
 	[super init]; 
+	//Register Observer 
+	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc addObserver:self selector:@selector(goCueNote:) name:JATQlabGoNotification object:nil];
+	[nc addObserver:self selector:@selector(upSelectionNote:) name:JATQlabSelectionUpNotification object:nil];
+	[nc addObserver:self selector:@selector(downSelectionNote:) name:JATQlabSelectionDownNotification object:nil];
+	[nc addObserver:self selector:@selector(stopNote:) name:JATQlabStopNotification object:nil];
+	
+	
 
 	return self;
 }	
@@ -186,7 +199,30 @@ NSString const * JATFeedBackNotification = @"JATFeedBackPost";
 	return i; 
 }
 
+#pragma mark -
+#pragma mark Notifications 
+#pragma mark - 
 
+-(void)goCueNote:(NSNotification *)note
+{ 
+	[self goCue]; 
+}
+
+-(void)upSelectionNote:(NSNotification *)note 
+{ 
+	NSLog(@"Up Note");
+	[self moveSelectionUp]; 
+}
+
+-(void)downSelectionNote:(NSNotification *)note
+{ 
+	[self moveSelectionDown]; 
+}
+
+-(void)stopNote:(NSNotification *)note
+{
+	[self stopCue]; 
+}
 
 
 

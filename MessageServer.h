@@ -15,7 +15,7 @@
 @interface MessageServer : NSObject <ServerMessage> {
 	
 	NSMutableArray *clients; 
-	QlabScripting *qlabScripts;
+
 
 }
 
