@@ -9,13 +9,15 @@
 
 #import <Foundation/Foundation.h>
 #import "CommandMessagesProto.h"
+#import "QlabScripting.h"
 
 
 @interface MessageServer : NSObject <ServerMessage> {
 	
 	NSMutableArray *clients; 
-	
+	QlabScripting *qlabScripts;
 
 }
+
 
 @end

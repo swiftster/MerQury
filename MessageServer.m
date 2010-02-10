@@ -16,41 +16,64 @@
 {
 	[super init]; 
 	clients = [[NSMutableArray alloc] init];
+	qlabScripts = [[QlabScripting alloc] init];
+	if ([qlabScripts isQlabActive] == TRUE) { 
+		[qlabScripts loadQlabArray];  }
+
 	return self; 
 }
 
-//Private Method
 
--(id)clientWithNickname:(NSString *)string 
-{
-	id currentClient; 
-	NSEnumerator *enumerator; 
-	
-	enumerator = [clients objectEnumerator];
-	
-	while (currentClient = [enumerator nextObject]) {
-		
-		if ([[currentClient clientName] isEqual:string]) {
-			
-			return currentClient; 
-	}
-}
-
-	return nil;
-}
 
 //Methods called by clients 
+-(oneway void)sendCommand:(in int)command
+{
+	//NSLog(@"Reciveing Message"); 
+    if ( command == 100 ) {
+		NSLog(@"Tag = 100"); }
+	
+	if (command == 110) {
+		NSLog(@"Client Go Message Recieved Send Command");
+		[qlabScripts goCue]; }
+	
+	if (command == 120) {
+		[qlabScripts stopCue]; }
+	
+	if (command == 130) {
+		[qlabScripts moveSelectionUp]; }
+	
+	if (command == 140) {
+		[qlabScripts moveSelectionDown]; }
+	
+	
+}	
 
+-(oneway void)recieveCommand:(in int)command
+{
+	
+	//NSLog(@"Reciveing Message"); 
+    if ( command == 100 ) {
+		NSLog(@"Tag = 100"); }
+	
+	if (command == 110) {
+		NSLog(@"Server Go Message Recieved");
+		[qlabScripts goCue]; }
+	
+	if (command == 120) {
+		[qlabScripts stopCue]; }
+	
+	if (command == 130) {
+		[qlabScripts moveSelectionUp]; }
+	
+	if (command == 140) {
+		[qlabScripts moveSelectionDown]; }
+	
+	
+}
 	
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient
 { 
-	NSString *newNickname = [newClient clientName]; 
-	
-	//Is the nickname taken?
-	
-	if ([self clientWithNickname:newNickname]) {
-		return NO; } 
-	
+
 	NSLog(@"adding client"); 
 	
 	[clients addObject:newClient]; 

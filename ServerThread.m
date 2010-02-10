@@ -20,13 +20,7 @@
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	ConnectionMonitor *monitor = [[ConnectionMonitor alloc] init]; 
 	MessageServer	*mServer = [[MessageServer alloc] init];
-	NSNetService *netService; 
 	
-	NSString *serviceName = [NSString stringWithFormat:@"%@", [[NSProcessInfo processInfo] hostName]];
-    netService = [[NSNetService alloc] initWithDomain:@"" type:@"_merqury._tcp." name:serviceName port:8081];
-    netService.delegate = self;
-    [netService publish];
-
 	
 	//Create Recive Port 
 	NSSocketPort *receivePort; 
@@ -43,7 +37,7 @@
 	
 	NSConnection *connection; 
 	connection = [NSConnection connectionWithReceivePort:receivePort sendPort:nil];
-		  
+	
 	//The port is retained by the connection 
 	[receivePort release]; 
 		  

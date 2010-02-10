@@ -9,9 +9,10 @@
 #import "ClientController.h"
 #import <sys/socket.h>
 
+
 @implementation ClientController
 
-
+@synthesize proxy;
 
 //Private Method to clean up connection and proxy 
 -(void) cleanUp 
@@ -34,17 +35,17 @@
 		NSLog(@"Tag = 100"); }
 	
 	if (command == 110) {
-		NSLog(@"Go Message Recieved");
-		[qlabScripts goCue]; }
+		NSLog(@"Client Go Message Recieved");
+		[proxy sendCommand:110]; }
 	
 	if (command == 120) {
-		[qlabScripts stopCue]; }
+		[proxy sendCommand:120]; }
 	
 	if (command == 130) {
-		[qlabScripts moveSelectionUp]; }
+		[proxy sendCommand:130]; }
 	
 	if (command == 140) {
-		[qlabScripts moveSelectionDown]; }
+		[proxy sendCommand:140]; }
 	
 	
 }

@@ -17,6 +17,7 @@
 #import	"DataWindowController.h"
 #import "ChatWindowController.h"
 #import	"ClientController.h"
+#import "MessageServer.h"
 
 
 extern NSString *kGlobalGoKey;
@@ -69,7 +70,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 	//DO Server Que 
 	NSOperationQueue *doServerOperarionQueue; 
 	NSOperation *doServerQueue; 
-	
+	NSNetService *macService;
+	MessageServer *mServer;
 	
 	//Qlab  Data Import Operation 
 	NSOperationQueue *genericOperationQueue;
@@ -163,6 +165,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(void)enterMasterMode;
 -(void)enterSlaveMode;
 
+//DOServer 
+@property (readwrite, retain) AsyncSocket *macListeningSocket;
 
 //Data Sharing 
 -(void)importData;

@@ -23,7 +23,7 @@
 	
 }
 
- 
+@property (readwrite, assign) id proxy;
 -(void)connect:(NSData *)address;
 -(void)disconnect;
  

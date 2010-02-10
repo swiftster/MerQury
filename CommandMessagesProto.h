@@ -30,6 +30,7 @@
 
 -(void)disconnectClient:(in byref id <ServerMessage>)client;
 
+-(oneway void)recieveCommand:(in int)command;
 
 
 
