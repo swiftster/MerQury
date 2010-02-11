@@ -11,13 +11,25 @@
 #import "CommandMessagesProto.h"
 #import "QlabScripting.h"
 
+//Use notifcations for server return since Server is running on NSOperation
+extern NSString * const JATServerGoNotification;
+extern NSString * const JATServerSelectionUpNotification;
+extern NSString * const JATServerSelectionDownNotification;
+extern NSString * const JATServerStopNotification;
+
 
 @interface MessageServer : NSObject <ServerMessage> {
 	
 	NSMutableArray *clients; 
-
+	id proxy; 
 
 }
+
+-(id) initWithConnection:(NSConnection *)connection;
+-(void)serverGoNote:(NSNotificationCenter *)note;
+-(void)serverStopNote:(NSNotificationCenter *)note;
+-(void)serverUpNote:(NSNotificationCenter *)note;
+-(void)serverDownNote:(NSNotificationCenter *)note;
 
 
 @end

@@ -193,26 +193,36 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 - (void)goKeyPressed:(id)sender {
 	  
-	[client sendCommand:110]; 
+	[client proxySendCommand:110]; 
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc postNotificationName:JATServerGoNotification object:self];
+
 	
 	
 }
 
 - (void)stopKeyPressed:(id)sender {
 
-	[client sendCommand:120];
+	[client proxySendCommand:120];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc postNotificationName:JATServerStopNotification object:self];
  
 }
 
 - (void)upKeyPressed:(id)sender {
 	
-	[client sendCommand:130];
+	[client proxySendCommand:130];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc postNotificationName:JATServerSelectionUpNotification object:self];
 	
 }
 
 - (void)downKeyPressed:(id)sender {
 
-	[client sendCommand:140];
+	[client proxySendCommand:140];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc postNotificationName:JATServerSelectionDownNotification object:self];
+
 	
 }
 

@@ -9,14 +9,28 @@
 
 #import "MessageServer.h"
 
+NSString * const JATServerGoNotification = @"ServerGoNote";
+NSString * const JATServerSelectionUpNotification = @"ServerUpNote";
+NSString * const JATServerSelectionDownNotification = @"ServerDownNote";
+NSString * const JATServerStopNotification = @"ServerStopNote";
 
 @implementation MessageServer
 
--(id) init 
+-(id) initWithConnection:(NSConnection *)connection 
 {
 	[super init]; 
 	clients = [[NSMutableArray alloc] init];
-
+	NSConnection *proxyConnection = connection; 
+	
+	proxy = [[proxyConnection rootProxy] retain]; 
+	[proxy setProtocolForProxy:@protocol(ServerMessage)];
+	
+	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc addObserver:self selector:@selector(serverGoNote:) name:JATServerGoNotification object:nil];
+	[nc addObserver:self selector:@selector(serverUpNote:) name:JATServerSelectionUpNotification object:nil];
+	[nc addObserver:self selector:@selector(serverDownNote:) name:JATServerSelectionDownNotification object:nil];
+	[nc addObserver:self selector:@selector(serverStopNote:) name:JATServerStopNotification object:nil];
 
 	return self; 
 }
@@ -105,7 +119,29 @@
 	NSLog(@"Client Removed"); 
 }
 						
-						
+//Notification Handle 
+
+-(void)serverGoNote:(NSNotificationCenter *)note 
+{
+	[proxy sendCommand:110];
+	NSLog(@"Send Server Command");
+}
+
+-(void)serverStopNote:(NSNotificationCenter *)note 
+{ 
+	//[self recieveCommand:120]; 
+	
+}
+
+-(void)serverUpNote:(NSNotificationCenter *)note 
+{ 
+	//[self recieveCommand:130]; 
+}
+
+-(void)serverDownNote:(NSNotificationCenter *)note
+{ 
+	//[self recieveCommand:140]; 
+}
 	
 	
 @end

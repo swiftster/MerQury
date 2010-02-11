@@ -37,6 +37,7 @@
 	if (command == 110) {
 		NSLog(@"Client Go Message Recieved");
 		[nc postNotificationName:JATQlabGoNotification object:self];
+		
 	}
 	
 	if (command == 120) {
@@ -54,7 +55,10 @@
 	
 }
 
-
+-(void)proxySendCommand:(int)a 
+{ 
+	[proxy sendCommand:a];
+}
 
 	
 
@@ -102,7 +106,7 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 	successful = [proxy connectClient:self];
 	
 	if (successful) {
-		NSLog(@"Client Connected");
+		NSLog(@"Connected to Server");
 		
 	} else {
 		//[messageField setStringValue:@"Name not available"];

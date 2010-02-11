@@ -26,6 +26,7 @@
 @property (readwrite, assign) id proxy;
 -(void)connect:(NSData *)address;
 -(void)disconnect;
+-(void)proxySendCommand:(int)a;
  
 
 
