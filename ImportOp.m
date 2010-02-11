@@ -87,16 +87,16 @@
 	NSManagedObjectContext *moc = mainMOC;
 	
 	//Add the Local Server Name 
-	NSLog(@"Ping1");
+	;
 	NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"Server" inManagedObjectContext:moc]; 
 	[server setValue:serviceName forKey:@"serverName"];
-	NSLog(@"Ping2");
+
 	//Prepare Workspace Set 
 	mutableWorkspace = [server mutableSetValueForKey:@"workspace"];
 	//Workspace Array Already Created
 	//ArrayCount Already Created
 	
-	NSLog(@"Ping3");
+	
 	
 	// Find a workspace, determine the number of CueLists, make a MutableNSSet of the Cuelist, add the cues, add it to the workspace
 	for (i = 0; i < arrayCount; i++) {
@@ -194,8 +194,11 @@
 	[cueObject setValue:sortIndex forKey:@"sortNumber"];
 	
 	NSString *cueName = [[cueArray objectAtIndex:c]qName];
-	NSLog(@"CueName= %@", cueName);
+	//NSLog(@"CueName= %@", cueName);
 	[cueObject setValue:cueName forKey:@"qName"];
+	
+	NSString *idName = [[cueArray objectAtIndex:c]uniqueID]; 
+	[cueObject setValue:idName forKey:@"uniqueID"]; 
 	
 	NSString *cueNumber = [[cueArray objectAtIndex:c]qNumber];
 	[cueObject setValue:cueName forKey:@"qName"];
@@ -266,6 +269,9 @@
 	
 	NSString *cueName = [[cueArray objectAtIndex:c]qName];
 	[groupObject setValue:cueName forKey:@"qName"];
+	
+	NSString *idName = [[cueArray objectAtIndex:c]uniqueID]; ; 
+	[groupObject setValue:idName forKey:@"uniqueID"]; 
 	
 	NSString *cueNumber = [[cueArray objectAtIndex:c]qNumber];
 	[groupObject setValue:cueNumber forKey:@"qNumber"];

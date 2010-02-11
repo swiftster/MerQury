@@ -71,9 +71,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 {
 	[super init]; 
 	qlabScripts = [[QlabScripting alloc] init]; 
-	if ([qlabScripts isQlabActive] == TRUE) { 
-		[qlabScripts loadQlabArray];  }
-	
+		
 	client = [[ClientController alloc] init]; 
 	mServer = [[MessageServer alloc] init]; 
 	queue = [[NSOperationQueue alloc] init];
@@ -100,6 +98,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	//Preload Qlab Array
 	if ([qlabScripts isQlabActive] == YES) { 
 		[self importData]; }
+	 
 	
 }
 

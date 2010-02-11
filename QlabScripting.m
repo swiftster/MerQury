@@ -35,7 +35,10 @@ NSString * const JATQlabStopNotification = @"JATQlabStop";
 	[nc addObserver:self selector:@selector(downSelectionNote:) name:JATQlabSelectionDownNotification object:nil];
 	[nc addObserver:self selector:@selector(stopNote:) name:JATQlabStopNotification object:nil];
 	
-	
+	if ([self isQlabActive] == TRUE) { 
+		[self loadQlabArray];  }
+
+     [self firstSelectedCue];
 
 	return self;
 }	
@@ -181,6 +184,37 @@ NSString * const JATQlabStopNotification = @"JATQlabStop";
 	
 	return active; 
 	[qLab release];
+}
+
+-(BOOL)isFrontMost
+{	
+	BOOL front;
+	QlabApplication *qLab = [SBApplication applicationWithBundleIdentifier:@"com.figure53.Qlab.2"]; 
+	front = [qLab frontmost]; 
+	NSLog(@"Is Front:%d",front);
+	return front; 
+	
+}
+
+-(NSArray *)selectedCues:(int)inWorkspace  
+{ 
+	
+	int w = inWorkspace; 
+	NSArray *selectedCues = [[qlabCurrentArray objectAtIndex:w]selected]; 
+	
+	return selectedCues; 
+}
+		
+	
+-(NSString *)firstSelectedCue
+{ 
+	NSArray *cues = [self selectedCues:0];
+	NSString *cueString; 
+	
+	cueString = [[cues objectAtIndex:0]uniqueID];
+	NSLog(@"1st Cue:%@",cueString);
+	return cueString; 
+	
 }
 
 #pragma mark -

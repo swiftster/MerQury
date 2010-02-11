@@ -51,6 +51,9 @@ NSString *workspaceName;
 -(BOOL)isRunning; 
 -(int)findNewRunningCue;
 -(BOOL)isQlabActive; 
+-(BOOL)isFrontMost; 
+-(NSArray *)selectedCues:(int)inWorkspace; 
+-(NSString *)firstSelectedCue; 
 
 //Saveing and Backups
 -(int)getArrayNumber;
