@@ -76,14 +76,27 @@
 	NSArray *workspaceArray = [myScript getWorkspaceArray];
 	int i, l, c, g, numberOfCueLists, numberOfCues; 
 	int arrayCount = [workspaceArray count];
+	NSLog(@"Workspace Array: %d", arrayCount);
 	NSMutableSet *mutableCueLists;
 	NSMutableSet *mutableCues;
 	NSMutableSet *mutableGroupCues;
+	NSMutableSet *mutableWorkspace; 
 	NSArray *cueListArray, *cueArray; 
-	
+	NSString *serviceName = [NSString stringWithFormat:@"%@", [[NSProcessInfo processInfo] hostName]];
 	
 	NSManagedObjectContext *moc = mainMOC;
 	
+	//Add the Local Server Name 
+	NSLog(@"Ping1");
+	NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"Server" inManagedObjectContext:moc]; 
+	[server setValue:serviceName forKey:@"serverName"];
+	NSLog(@"Ping2");
+	//Prepare Workspace Set 
+	mutableWorkspace = [server mutableSetValueForKey:@"workspace"];
+	//Workspace Array Already Created
+	//ArrayCount Already Created
+	
+	NSLog(@"Ping3");
 	
 	// Find a workspace, determine the number of CueLists, make a MutableNSSet of the Cuelist, add the cues, add it to the workspace
 	for (i = 0; i < arrayCount; i++) {
@@ -91,7 +104,7 @@
 		
 		
 		NSString *nameString = [[workspaceArray objectAtIndex:i]name];
-		
+		NSLog(@"Workspace Name: %@",nameString);
 		NSManagedObject *workspace = [NSEntityDescription insertNewObjectForEntityForName:@"Workspace" inManagedObjectContext:moc];  
 		
 		[workspace setValue:nameString forKey:@"name"];
@@ -165,9 +178,9 @@
 				[mutableCueLists addObject:cueListObject]; }
 			
 			
-		}}
+		}
 	
-
+		[mutableWorkspace addObject:workspace];  } //Add the workspace
 	
 }
 
