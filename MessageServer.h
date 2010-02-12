@@ -25,7 +25,6 @@ extern NSString * const JATServerStopNotification;
 
 }
 
--(id) initWithConnection:(NSConnection *)connection;
 -(void)serverGoNote:(NSNotificationCenter *)note;
 -(void)serverStopNote:(NSNotificationCenter *)note;
 -(void)serverUpNote:(NSNotificationCenter *)note;

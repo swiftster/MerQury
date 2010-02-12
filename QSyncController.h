@@ -15,7 +15,6 @@
 #import	"AboutWindowControl.h"
 
 #import	"DataWindowController.h"
-#import "ChatWindowController.h"
 #import	"ClientController.h"
 #import "MessageServer.h"
 
@@ -81,7 +80,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 
 	//Windows and View Controllers 
 	AboutWindowControl *aboutWindow;
-	ChatWindowController *chatWindow;
+	
 	
 	
 	IBOutlet NSButton *keyCaptureButton;

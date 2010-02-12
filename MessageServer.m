@@ -16,15 +16,11 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 
 @implementation MessageServer
 
--(id) initWithConnection:(NSConnection *)connection 
+-(id) init
 {
 	[super init]; 
 	clients = [[NSMutableArray alloc] init];
-	NSConnection *proxyConnection = connection; 
-	
-	proxy = [[proxyConnection rootProxy] retain]; 
-	[proxy setProtocolForProxy:@protocol(ServerMessage)];
-	
+
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(serverGoNote:) name:JATServerGoNotification object:nil];

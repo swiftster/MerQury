@@ -12,8 +12,6 @@
 		381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F326D1119E4B100939B24 /* ConnectionMonitor.m */; };
 		381F32711119F8AB00939B24 /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F32701119F8AB00939B24 /* ClientController.m */; };
 		3822658B10D58F8A00F96214 /* Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3822658A10D58F8900F96214 /* Q.jpg */; };
-		3829DF3F111A15C900270A58 /* ChatWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3829DF3E111A15C900270A58 /* ChatWindow.xib */; };
-		3829DF55111A1A6D00270A58 /* ChatWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3829DF54111A1A6D00270A58 /* ChatWindowController.m */; };
 		3845506A11112976002D2749 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
 		384550A211112E41002D2749 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
 		388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
@@ -99,9 +97,6 @@
 		381F326F1119F8AB00939B24 /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
 		381F32701119F8AB00939B24 /* ClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientController.m; sourceTree = "<group>"; };
 		3822658A10D58F8900F96214 /* Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q.jpg; sourceTree = "<group>"; };
-		3829DF3E111A15C900270A58 /* ChatWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatWindow.xib; sourceTree = "<group>"; };
-		3829DF53111A1A6D00270A58 /* ChatWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatWindowController.h; sourceTree = "<group>"; };
-		3829DF54111A1A6D00270A58 /* ChatWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatWindowController.m; sourceTree = "<group>"; };
 		3845506911112976002D2749 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		388B2ED41108E17C00745A2D /* MerQuryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerQuryToolbar.h; sourceTree = "<group>"; };
@@ -252,7 +247,6 @@
 				8D1107310486CEB800E47090 /* QSync-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				38C0AB45110782DA00592A30 /* Adjust.xib */,
-				3829DF3E111A15C900270A58 /* ChatWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -356,8 +350,6 @@
 				96F774E310D5BA05005A6B6B /* About Window */,
 				388B2ED41108E17C00745A2D /* MerQuryToolbar.h */,
 				388B2ED51108E17C00745A2D /* MerQuryToolbar.m */,
-				3829DF53111A1A6D00270A58 /* ChatWindowController.h */,
-				3829DF54111A1A6D00270A58 /* ChatWindowController.m */,
 			);
 			name = "Views & Controllers";
 			sourceTree = "<group>";
@@ -454,7 +446,6 @@
 				967A4B2E10E91AA000CA5CDD /* DataWindow.xib in Resources */,
 				38C0AB46110782DA00592A30 /* Adjust.xib in Resources */,
 				38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */,
-				3829DF3F111A15C900270A58 /* ChatWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +478,6 @@
 				381F326B1119E49500939B24 /* ServerThread.m in Sources */,
 				381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */,
 				381F32711119F8AB00939B24 /* ClientController.m in Sources */,
-				3829DF55111A1A6D00270A58 /* ChatWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

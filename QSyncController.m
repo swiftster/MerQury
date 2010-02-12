@@ -537,7 +537,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == FALSE) {
+	if (match == TRUE) {
 		[servicesController addObject:aService];
 		
 	} else { 
@@ -600,14 +600,7 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 	
 }
 
--(IBAction)openChat:(id)sender 
-{
-	if (!chatWindow) { 
-		chatWindow = [[ChatWindowController alloc] init]; 
-	} 
-	NSLog(@"showing %@", chatWindow); 
-	[chatWindow showWindow:self]; 
-}	
+
 
 -(IBAction)openAdjustPanel:(id)sender { 
 
