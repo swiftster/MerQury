@@ -440,7 +440,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 		NSLog(@"Tag = 100"); }
 	
 	if (message.tag == 110) {
-		NSLog(@"Go Message Recieved");
 		[nc postNotificationName:JATQlabGoNotification object:self];
 	}
 	

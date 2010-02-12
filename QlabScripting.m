@@ -113,12 +113,13 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 		for (c = 0; c < cueCount; c++){
 			
 			if([[cuesRunning objectAtIndex:c]running] == TRUE) { 
-				NSLog(@"Cue Running"); 
+				//NSLog(@"Cue Running"); 
 				running = TRUE; 
 				
 			} else { 
 				running = FALSE;
-			NSLog(@"No Cue Running"); }
+			//NSLog(@"No Cue Running"); 
+			}
 			
 		}
 	}
@@ -171,14 +172,13 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 	
 	if ([qLab isRunning] == TRUE){
 		active = TRUE;
-		NSLog(@"Qlab is active"); 
+		//NSLog(@"Qlab is active"); 
 		
 	} else {
 		
-		NSLog(@"Qlab is not active");
-		active = FALSE; 
+				active = FALSE; 
 		[self setFeedBackText:@"Please Launch Qlab 2!"]; 
-		NSLog(@"Sending Notification"); 
+		 
 		[nc postNotificationName:(NSString *) JATFeedBackNotification object:self];
 	  }
 	
