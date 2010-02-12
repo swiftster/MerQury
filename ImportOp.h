@@ -35,6 +35,7 @@
 
 -(NSManagedObject *)cueObject:(int) c:(NSManagedObjectContext *) moc:(NSArray *)cueArray;
 -(NSManagedObject *)groupObject:(int) c:(NSManagedObjectContext *) moc: (NSArray *)cueArray;
+-(NSManagedObject *)levelsObject:(int) c:(NSManagedObjectContext *) moc:(NSArray *)cueArray;
 
 -(NSString *)doubleToString:(NSNumber *)numberToString;
 -(int)incrementSortInt;

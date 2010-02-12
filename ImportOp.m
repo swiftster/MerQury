@@ -189,12 +189,13 @@
 	
 	
 	NSManagedObject *cueObject = [NSEntityDescription insertNewObjectForEntityForName:@"Cues" inManagedObjectContext:moc];
+	NSMutableSet *mutableLevelSet = [cueObject mutableSetValueForKey:@"levels"];
+	
 	
 	NSNumber *sortIndex = [NSNumber numberWithInt:[self incrementSortInt]];
 	[cueObject setValue:sortIndex forKey:@"sortNumber"];
 	
 	NSString *cueName = [[cueArray objectAtIndex:c]qName];
-	//NSLog(@"CueName= %@", cueName);
 	[cueObject setValue:cueName forKey:@"qName"];
 	
 	NSString *idName = [[cueArray objectAtIndex:c]uniqueID]; 
@@ -249,6 +250,9 @@
 	preWaitTimeString = [self doubleToString:qPreWait];
 	[cueObject setValue:preWaitTimeString forKey:@"preWait"];  
 	
+	//Add Levels Here 
+	[mutableLevelSet addObject:[self levelsObject:c :moc :cueArray]];
+	
 	
 	return cueObject; 
 	[durationTimeString release]; 
@@ -256,12 +260,11 @@
 
 -(NSManagedObject *)groupObject:(int) c:(NSManagedObjectContext *) moc: (NSArray *)cueArray
 
-{
-	
-	
-	
+{    
 	
 	NSManagedObject *groupObject = [NSEntityDescription insertNewObjectForEntityForName:@"GroupCue" inManagedObjectContext:moc];
+	NSMutableSet *mutableLevelSet = [groupObject mutableSetValueForKey:@"levels"];
+
 	
 	NSNumber *sortIndex = [NSNumber numberWithInt:[self incrementSortInt]];
 	[groupObject setValue:sortIndex forKey:@"sortNumber"];
@@ -320,8 +323,174 @@
 	[groupObject setValue:preWaitTimeString forKey:@"preWait"]; 
 	
 	
+	[mutableLevelSet addObject:[self levelsObject:c :moc :cueArray]];
+	 
+	
+	
 	return groupObject; 
 }
+
+
+-(NSManagedObject *)levelsObject:(int) c:(NSManagedObjectContext *) moc:(NSArray *)cueArray
+{
+	NSLog(@"Levels Called");
+	NSManagedObject *cueObject = [NSEntityDescription insertNewObjectForEntityForName:@"Levels" inManagedObjectContext:moc];
+
+	//Fader Levels 
+	
+	NSNumber *qMaster =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:0]];
+	[cueObject setValue:qMaster forKey:@"masterLevel"];
+	NSLog(@"Master lvl:%f",[qMaster doubleValue]);
+	
+	NSNumber *qFader1 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:1]]; 
+	[cueObject setValue:qFader1 forKey:@"output1"];
+	
+	NSNumber *qFader2 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:2]]; 
+	[cueObject setValue:qFader2 forKey:@"output2"];
+	
+	NSNumber *qFader3 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:3]]; 
+	[cueObject setValue:qFader3 forKey:@"output3"];
+	
+	NSNumber *qFader4 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:4]]; 
+	[cueObject setValue:qFader4 forKey:@"output4"];
+	
+	NSNumber *qFader5 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:5]]; 
+	[cueObject setValue:qFader5 forKey:@"output5"];
+	
+	NSNumber *qFader6 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:6]]; 
+	[cueObject setValue:qFader6 forKey:@"output6"];
+	
+	NSNumber *qFader7=  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:7]]; 
+	[cueObject setValue:qFader7 forKey:@"output7"];
+	
+	NSNumber *qFader8 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:8]]; 
+	[cueObject setValue:qFader8 forKey:@"output8"];
+	
+	NSNumber *qFader9 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:9]]; 
+	[cueObject setValue:qFader9 forKey:@"output9"];
+	
+	NSNumber *qFader10 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:10]]; 
+	[cueObject setValue:qFader10 forKey:@"output10"];
+	
+	NSNumber *qFader11 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:11]]; 
+	[cueObject setValue:qFader11 forKey:@"output11"];
+	
+	NSNumber *qFader12 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:12]]; 
+	[cueObject setValue:qFader12 forKey:@"output12"];
+	
+	NSNumber *qFader13 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:13]]; 
+	[cueObject setValue:qFader13 forKey:@"output13"];
+	
+	NSNumber *qFader14 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:14]]; 
+	[cueObject setValue:qFader14 forKey:@"output14"];
+	
+	NSNumber *qFader15 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:15]]; 
+	[cueObject setValue:qFader15 forKey:@"output15"];
+	
+	NSNumber *qFader16 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:16]]; 
+	[cueObject setValue:qFader16 forKey:@"output16"];
+	
+	NSNumber *qFader17 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:17]]; 
+	[cueObject setValue:qFader17 forKey:@"output17"];
+	
+	NSNumber *qFader18 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:18]]; 
+	[cueObject setValue:qFader18 forKey:@"output18"];
+	
+	NSNumber *qFader19 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:19]]; 
+	[cueObject setValue:qFader19 forKey:@"output19"];
+	
+	NSNumber *qFader20 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:20]]; 
+	[cueObject setValue:qFader20 forKey:@"output20"];
+	
+	NSNumber *qFader21 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:21]]; 
+	[cueObject setValue:qFader21 forKey:@"output21"];
+	
+	NSNumber *qFader22 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:22]]; 
+	[cueObject setValue:qFader22 forKey:@"output22"];
+	
+	NSNumber *qFader23 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:23]]; 
+	[cueObject setValue:qFader23 forKey:@"output23"]; 
+	
+	NSNumber *qFader24 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:24]]; 
+	[cueObject setValue:qFader24 forKey:@"output24"];
+	
+	NSNumber *qFader25 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:25]]; 
+	[cueObject setValue:qFader25 forKey:@"output25"];
+	
+	NSNumber *qFader26 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:26]]; 
+	[cueObject setValue:qFader26 forKey:@"output26"];
+	
+	NSNumber *qFader27 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:27]]; 
+	[cueObject setValue:qFader27 forKey:@"output27"];
+	
+	NSNumber *qFader28 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:28]]; 
+	[cueObject setValue:qFader28 forKey:@"output28"];
+	
+	NSNumber *qFader29 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:29]]; 
+	[cueObject setValue:qFader29 forKey:@"output29"];
+	
+	NSNumber *qFader30 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:30]]; 
+	[cueObject setValue:qFader30 forKey:@"output30"];
+	
+	NSNumber *qFader31 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:31]]; 
+	[cueObject setValue:qFader31 forKey:@"output31"];
+	
+	NSNumber *qFader32 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:32]]; 
+	[cueObject setValue:qFader32 forKey:@"output32"];
+	
+	NSNumber *qFader33 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:33]]; 
+	[cueObject setValue:qFader33 forKey:@"output33"];
+	
+	NSNumber *qFader34 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:34]]; 
+	[cueObject setValue:qFader34 forKey:@"output34"];
+	
+	NSNumber *qFader35 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:35]]; 
+	[cueObject setValue:qFader35 forKey:@"output35"];
+	
+	NSNumber *qFader36 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:36]]; 
+	[cueObject setValue:qFader36 forKey:@"output36"];
+	
+	NSNumber *qFader37 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:37]]; 
+	[cueObject setValue:qFader37 forKey:@"output37"];
+	
+	NSNumber *qFader38 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:38]]; 
+	[cueObject setValue:qFader38 forKey:@"output38"];
+	
+	NSNumber *qFader39 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:39]]; 
+	[cueObject setValue:qFader39 forKey:@"output39"];
+	
+	NSNumber *qFader40 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:40]]; 
+	[cueObject setValue:qFader40 forKey:@"output40"];
+	
+	NSNumber *qFader41 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:41]]; 
+	[cueObject setValue:qFader41 forKey:@"output41"];
+	
+	NSNumber *qFader42 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:42]]; 
+	[cueObject setValue:qFader42 forKey:@"output42"];
+	
+	NSNumber *qFader43 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:43]]; 
+	[cueObject setValue:qFader43 forKey:@"output43"];
+	
+	NSNumber *qFader44 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:44]]; 
+	[cueObject setValue:qFader44 forKey:@"output44"];
+	
+	NSNumber *qFader45 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:45]]; 
+	[cueObject setValue:qFader45 forKey:@"output45"];
+	
+	NSNumber *qFader46 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:46]]; 
+	[cueObject setValue:qFader46 forKey:@"output46"];
+	
+	NSNumber *qFader47 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:47]]; 
+	[cueObject setValue:qFader47 forKey:@"output47"];
+	
+	NSNumber *qFader48 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:48]]; 
+	[cueObject setValue:qFader48 forKey:@"output48"];
+
+	
+	
+	return cueObject;
+}
+
 
 -(NSString *)doubleToString:(NSNumber *)numberToString
 { 
