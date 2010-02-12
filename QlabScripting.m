@@ -15,6 +15,7 @@ NSString * const JATQlabGoNotification = @"JATQlabGo";
 NSString * const JATQlabSelectionUpNotification = @"JATQlabUp";
 NSString * const JATQlabSelectionDownNotification = @"JATQlanDown";
 NSString * const JATQlabStopNotification = @"JATQlabStop";
+NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 
 @implementation QlabScripting
 
@@ -34,11 +35,12 @@ NSString * const JATQlabStopNotification = @"JATQlabStop";
 	[nc addObserver:self selector:@selector(upSelectionNote:) name:JATQlabSelectionUpNotification object:nil];
 	[nc addObserver:self selector:@selector(downSelectionNote:) name:JATQlabSelectionDownNotification object:nil];
 	[nc addObserver:self selector:@selector(stopNote:) name:JATQlabStopNotification object:nil];
+	[nc addObserver:self selector:@selector(levelAdjustNote:) name:JATQlabAdjustLevelNotification object:nil]; 
 	
 	if ([self isQlabActive] == TRUE) { 
 		[self loadQlabArray];  }
 
-     [self firstSelectedCue];
+     
 
 	return self;
 }	
@@ -259,7 +261,9 @@ NSString * const JATQlabStopNotification = @"JATQlabStop";
 }
 
 
-
+-(void)levelAdjustNote:(NSNotification *)note
+{
+}
 
 
 
@@ -332,6 +336,8 @@ NSString * const JATQlabStopNotification = @"JATQlabStop";
 	
 	
 }
+
+
 
 
 	

@@ -33,6 +33,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 @interface QSyncController : NSPersistentDocument {
 	
 	
+	//Notification 
+	NSNotificationCenter *nc;
 	
 	//iPhone Server 
     NSNetService *netService;

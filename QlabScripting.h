@@ -13,6 +13,7 @@ extern NSString * const JATQlabGoNotification;
 extern NSString * const JATQlabSelectionUpNotification;
 extern NSString * const JATQlabSelectionDownNotification;
 extern NSString * const JATQlabStopNotification;
+extern NSString * const JATQlabAdjustLevelNotification;
 
 @interface QlabScripting : NSObject {
 
@@ -58,18 +59,19 @@ NSString *workspaceName;
 //Saveing and Backups
 -(int)getArrayNumber;
 
-//Notes
+//Notification Handleing 
 -(void)goCueNote:(NSNotification *)note;
 -(void)upSelectionNote:(NSNotification *)note;
 -(void)downSelectionNote:(NSNotification *)note;
 -(void)stopNote:(NSNotification *)note;
+-(void)levelAdjustNote:(NSNotification *)note; 
 
 //Controls
 -(void)goCue;
 -(void)moveSelectionUp; 
 -(void)moveSelectionDown;
 -(void)stopCue;
--(void)pause;
+-(void)pauseCue;
 -(void)reset; 
 
 -(void) adjustLoadTime:(double) i;

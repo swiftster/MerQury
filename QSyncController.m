@@ -76,6 +76,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	mServer = [[MessageServer alloc] init]; 
 	queue = [[NSOperationQueue alloc] init];
 	
+	nc = [NSNotificationCenter defaultCenter];
+	
 	searchEnabled = TRUE; 
 	connectEnabled = TRUE;
 	disconnectEnabled = TRUE; 
@@ -193,7 +195,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 - (void)goKeyPressed:(id)sender {
 	  
 	[client proxySendCommand:110]; 
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc postNotificationName:JATServerGoNotification object:self];
 
 	
@@ -203,7 +204,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 - (void)stopKeyPressed:(id)sender {
 
 	[client proxySendCommand:120];
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc postNotificationName:JATServerStopNotification object:self];
  
 }
@@ -211,7 +211,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 - (void)upKeyPressed:(id)sender {
 	
 	[client proxySendCommand:130];
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc postNotificationName:JATServerSelectionUpNotification object:self];
 	
 }
@@ -219,7 +218,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 - (void)downKeyPressed:(id)sender {
 
 	[client proxySendCommand:140];
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc postNotificationName:JATServerSelectionDownNotification object:self];
 
 	
@@ -443,34 +441,30 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	if (message.tag == 110) {
 		NSLog(@"Go Message Recieved");
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 		[nc postNotificationName:JATQlabGoNotification object:self];
 	}
 	
 	if (message.tag == 120) {
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 		[nc postNotificationName:JATQlabStopNotification object:self];
 	}
 	
 	if (message.tag == 130) {
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 		[nc postNotificationName:JATQlabSelectionUpNotification object:self];
 	}
 	
 	if (message.tag == 140) {
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
 	}
 
 	
 	if (message.tag == 600) { 
 		
-		//NSLog(@"Ping Back");
+		
 		[server pingConnection];
 	}
 	
 	if (message.tag == 610) {
-		NSLog(@"Negotiate Disconnect");
+		//NSLog(@"Negotiate Disconnect");
 		[self disconnectPause]; 
 	}
 	
