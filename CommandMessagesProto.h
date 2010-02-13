@@ -15,6 +15,14 @@
 //Qlab Commands 
 -(oneway void)sendCommand:(in int)command; 
 
+//Core Data Sharing 
+-(byref NSManagedObject *)createObject; 
+-(byref NSManagedObject *)createChildForObject:(byref NSManagedObject *)parent; 
+-(oneway void)deleteObject:(byref NSManagedObject *)object;
+-(byref NSArray *)allObjects; 
+-(byref NSArray *)objectsOfName:(bycopy NSString *)name 
+				  withPredicate:(bycopy NSPredicate *)predicate;
+
 
 
 

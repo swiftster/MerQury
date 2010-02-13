@@ -61,13 +61,13 @@
 	NSArray *sorters = [NSArray arrayWithObject:cueSort];
 	[cueSort release], cueSort = nil;
 	
-	NSManagedObjectContext *moc = [self managedObjectContext];
+	NSManagedObjectContext *mocl = [self managedObjectContext];
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setSortDescriptors:sorters];
 	[request setEntity:[NSEntityDescription entityForName:@"Workspace"
-								   inManagedObjectContext:moc]];
+								   inManagedObjectContext:mocl]];
 	NSError *error = nil;
-	NSArray *result = [moc executeFetchRequest:request 
+	NSArray *result = [mocl executeFetchRequest:request 
 										 error:&error];
 	[request release], request = nil;
 	if (error) {

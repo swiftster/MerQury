@@ -137,11 +137,10 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 { 
 	@try { 
 		[proxy disconnectClient:self]; 
-		//[messageField setStringValue:@"Disconnecting"];
 		[self cleanUp]; }
 	
 	@catch (NSException *e) {
-		//[messageField setStringValue:@"Error Disconnecting"]; 
+		//Error here if you like
 	
 	}
 }

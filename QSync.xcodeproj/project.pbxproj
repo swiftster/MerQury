@@ -32,7 +32,6 @@
 		38B353E310CB438F00E5A97A /* SGKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353DE10CB438F00E5A97A /* SGKeyCodeTranslator.m */; };
 		38B353E410CB438F00E5A97A /* SGKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353E010CB438F00E5A97A /* SGKeyCombo.m */; };
 		38C0AB46110782DA00592A30 /* Adjust.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C0AB45110782DA00592A30 /* Adjust.xib */; };
-		38C4B0BA1125F4C1005E6784 /* BrowserTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C4B0B91125F4C1005E6784 /* BrowserTableView.m */; };
 		38D8D75311190F5F004775AB /* MessageServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D8D75211190F5F004775AB /* MessageServer.m */; };
 		38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 38F99DE5111134140057CE78 /* dsa_pub.pem */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -127,8 +126,6 @@
 		38B353DF10CB438F00E5A97A /* SGKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGKeyCombo.h; sourceTree = "<group>"; };
 		38B353E010CB438F00E5A97A /* SGKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGKeyCombo.m; sourceTree = "<group>"; };
 		38C0AB45110782DA00592A30 /* Adjust.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Adjust.xib; sourceTree = "<group>"; };
-		38C4B0B81125F4C1005E6784 /* BrowserTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowserTableView.h; sourceTree = "<group>"; };
-		38C4B0B91125F4C1005E6784 /* BrowserTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowserTableView.m; sourceTree = "<group>"; };
 		38D8D75111190F5F004775AB /* MessageServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageServer.h; sourceTree = "<group>"; };
 		38D8D75211190F5F004775AB /* MessageServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageServer.m; sourceTree = "<group>"; };
 		38F99DE5111134140057CE78 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -353,8 +350,6 @@
 				96F774E310D5BA05005A6B6B /* About Window */,
 				388B2ED41108E17C00745A2D /* MerQuryToolbar.h */,
 				388B2ED51108E17C00745A2D /* MerQuryToolbar.m */,
-				38C4B0B81125F4C1005E6784 /* BrowserTableView.h */,
-				38C4B0B91125F4C1005E6784 /* BrowserTableView.m */,
 			);
 			name = "Views & Controllers";
 			sourceTree = "<group>";
@@ -483,7 +478,6 @@
 				381F326B1119E49500939B24 /* ServerThread.m in Sources */,
 				381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */,
 				381F32711119F8AB00939B24 /* ClientController.m in Sources */,
-				38C4B0BA1125F4C1005E6784 /* BrowserTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

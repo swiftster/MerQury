@@ -161,7 +161,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(IBAction)openAdjustPanel:(id)sender;
 -(IBAction)adjustNow: (id) sender; 
 -(IBAction)modeSelection: (id) sender; 
--(IBAction)openChat:(id)sender; 
+ 
 
 -(void)enterMasterMode;
 -(void)enterSlaveMode;

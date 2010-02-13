@@ -16,19 +16,56 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 
 @implementation MessageServer
 
--(id) init
-{
-	[super init]; 
-	clients = [[NSMutableArray alloc] init];
 
+@synthesize appDelegate;
+@synthesize mainMOC;
+
+- (id)initWithDelegate:(QSyncController*)delegate
+{
+	
+	//NSLog(@"Import Op Called"); 
+	if (!(self = [super init])) return nil;
+	
+	
+	appDelegate = delegate;
+	
+	mainMOC = [self newContextToMainStore];
+	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+	[center addObserver:self
+			   selector:@selector(contextDidSave:) 
+				   name:NSManagedObjectContextDidSaveNotification 
+				 object:mainMOC];;
+	
+	clients = [[NSMutableArray alloc] init];
+	
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(serverGoNote:) name:JATServerGoNotification object:nil];
 	[nc addObserver:self selector:@selector(serverUpNote:) name:JATServerSelectionUpNotification object:nil];
 	[nc addObserver:self selector:@selector(serverDownNote:) name:JATServerSelectionDownNotification object:nil];
 	[nc addObserver:self selector:@selector(serverStopNote:) name:JATServerStopNotification object:nil];
-
+	
 	return self; 
+	
+}
+
+#pragma mark Core Data 
+
+
+- (NSManagedObjectContext*)newContextToMainStore 
+{ 
+	
+	NSManagedObjectContext *moc = [appDelegate managedObjectContext]; 
+	
+	return [moc autorelease]; 
+} 
+
+- (void)contextDidSave:(NSNotification*)notification
+{
+	SEL selector = @selector(mergeChangesFromContextDidSaveNotification:);
+	[[appDelegate managedObjectContext] performSelectorOnMainThread:selector
+														 withObject:notification
+													  waitUntilDone:YES]; 
 }
 
 
@@ -63,38 +100,82 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	
 }	
 
--(oneway void)recieveCommand:(in int)command
-{
+-(byref NSArray *)allObjects
+{ 
+	NSManagedObjectContext *context = mainMOC;
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Server"
+											  inManagedObjectContext:context];
+	[request setEntity:entity]; 
 	
-	NSLog(@"Reciveing Message"); 
-    if ( command == 100 ) {
-		NSLog(@"Tag = 100"); }
+	NSError *error = nil; 
 	
-	if (command == 110) {
-		NSLog(@"Server Go Message Recieved");
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-		[nc postNotificationName:JATQlabGoNotification object:self];
-
+	NSArray *objects = [context executeFetchRequest:request error:&error];
+	[request release], request = nil;
+	
+	if (error) {
+		NSLog(@"%@:%s error %@", [self class], _cmd, error); 
+		return nil; 
 	}
 	
-	if (command == 120) {
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-		[nc postNotificationName:JATQlabGoNotification object:self];
-	}
-	
-	if (command == 130) {
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-		[nc postNotificationName:JATQlabSelectionUpNotification object:self]; 
-	}
-	
-	if (command == 140) {
-		NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
-	}
-	
-	
+	return objects; 
 }
+
+-(byref NSManagedObject *)createObject 
+{ 
+	NSManagedObjectContext *context = mainMOC; 
+	NSManagedObject *object = nil; 
+	object = [NSEntityDescription insertNewObjectForEntityForName:@"Server"
+										   inManagedObjectContext:context];
+	return object; 
+}
+
+-(oneway void)deleteObject:(byref NSManagedObject *)object
+{
+	NSManagedObject *local = [mainMOC objectWithID:[object objectID]];
+	if ([local isDeleted]) {
+		return; }
+		 
+	if (![local isInserted]) { 
+			 [self saveAction:self]; }
+		 
+	[mainMOC deleteObject:local]; 
+
+		 
+}
+//Probably dont need this one.
+-(byref NSManagedObject *)createChildForObject:(byref NSManagedObject *)parent 
+{ 
+	NSManagedObject *localParent = [mainMOC objectWithID:[parent objectID]];
+	NSManagedObject *object = nil; 
+	object = [NSEntityDescription insertNewObjectForEntityForName:@"Child"
+										   inManagedObjectContext:mainMOC]; 
 	
+	[object setValue:localParent forKey:@"parent"];
+	return object; 
+}
+
+-(byref NSArray *)objectsOfName:(bycopy NSString *)name 
+					withPredicate:(bycopy NSPredicate *)predicate
+{
+	NSError *error = nil;
+	NSFetchRequest *request = [[NSFetchRequest alloc] init]; 
+	[request setEntity:[NSEntityDescription entityForName:name
+								   inManagedObjectContext:mainMOC]];
+	 [request setPredicate:predicate];
+	 NSArray *results = [mainMOC executeFetchRequest:request error:&error];
+	 [request release], request = nil;
+	 
+	 if (error) { 
+		 NSLog(@"%@;%s Error on fetch %@", [self class], _cmd, error);
+		 return nil; } 
+	
+	 return results; 
+}
+	 
+	
+			
+
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient
 { 
 

@@ -10,8 +10,9 @@
 #import <Foundation/Foundation.h>
 #import "CommandMessagesProto.h"
 #import "QlabScripting.h"
+@class QSyncController; 
 
-//Use notifcations for server return since Server is running on NSOperation
+//Use notifcations for server return since Server is running on another Thread
 extern NSString * const JATServerGoNotification;
 extern NSString * const JATServerSelectionUpNotification;
 extern NSString * const JATServerSelectionDownNotification;
@@ -22,8 +23,17 @@ extern NSString * const JATServerStopNotification;
 	
 	NSMutableArray *clients; 
 	id proxy; 
+	QSyncController *appDelegate;
+	NSManagedObjectContext *mainMOC;
+
 
 }
+@property (assign) QSyncController *appDelegate;
+@property (readwrite, assign) NSManagedObjectContext *mainMOC; 
+
+- (id)initWithDelegate:(QSyncController*)aDelegate;
+- (NSManagedObjectContext*)newContextToMainStore;
+- (void)contextDidSave:(NSNotification*)notification;
 
 -(void)serverGoNote:(NSNotificationCenter *)note;
 -(void)serverStopNote:(NSNotificationCenter *)note;
