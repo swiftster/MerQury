@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "QlabScripting.h"
 #import "Qlab.h"
 
 @class QSyncController;

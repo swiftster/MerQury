@@ -27,23 +27,23 @@
 
 
 //Show Message coming in from server 
--(oneway void)sendCommand:(in int)command
+-(oneway void)ServerCommand:(in int)command
 {
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	//NSLog(@"Reciveing Message"); 
     if ( command == 100 ) {
 		NSLog(@"Tag = 100"); }
-	
+	 
 	if (command == 110) {
 		NSLog(@"Client Go Message Recieved");
-		[nc postNotificationName:JATQlabGoNotification object:self];
+		//[nc postNotificationName:JATQlabGoNotification object:self];
 		
 	}
 	
 	if (command == 120) {
 		[nc postNotificationName:JATQlabStopNotification object:self];
 	}
-	
+	 
 	if (command == 130) {
 		[nc postNotificationName:JATQlabSelectionUpNotification object:self];
 	}
@@ -55,9 +55,11 @@
 	
 }
 
+
+
 -(void)proxySendCommand:(int)a 
 { 
-	[proxy sendCommand:a];
+	[proxy ClientCommand:a];
 }
 
 	

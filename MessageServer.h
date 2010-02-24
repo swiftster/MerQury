@@ -9,6 +9,8 @@
 
 #import <Foundation/Foundation.h>
 #import "CommandMessagesProto.h"
+#import "ConnectionMonitor.h"
+#include <sys/socket.h>
 #import "QlabScripting.h"
 @class QSyncController; 
 
@@ -31,7 +33,14 @@ extern NSString * const JATServerStopNotification;
 @property (assign) QSyncController *appDelegate;
 @property (readwrite, assign) NSManagedObjectContext *mainMOC; 
 
-- (id)initWithDelegate:(QSyncController*)aDelegate;
+
+
+-(id)initWithDelegate:(QSyncController *)delegate andConnection:(NSConnection *)connection;
+
+-(void)proxySendCommand:(int)a;
+
+
+
 - (NSManagedObjectContext*)newContextToMainStore;
 - (void)contextDidSave:(NSNotification*)notification;
 

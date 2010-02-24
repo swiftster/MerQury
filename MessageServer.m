@@ -20,14 +20,15 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 @synthesize appDelegate;
 @synthesize mainMOC;
 
-- (id)initWithDelegate:(QSyncController*)delegate
-{
+
+-(id)initWithDelegate:(QSyncController *)delegate andConnection:(NSConnection *)connection
+{	
+	NSLog(@"Init Server Del Called");
 	
-	//NSLog(@"Import Op Called"); 
 	if (!(self = [super init])) return nil;
 	
-	
 	appDelegate = delegate;
+	proxy = [connection rootProxy];
 	
 	mainMOC = [self newContextToMainStore];
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -39,6 +40,7 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	clients = [[NSMutableArray alloc] init];
 	
 	
+	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(serverGoNote:) name:JATServerGoNotification object:nil];
 	[nc addObserver:self selector:@selector(serverUpNote:) name:JATServerSelectionUpNotification object:nil];
@@ -48,6 +50,8 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	return self; 
 	
 }
+
+
 
 #pragma mark Core Data 
 
@@ -68,37 +72,47 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 													  waitUntilDone:YES]; 
 }
 
+-(void)proxySendCommand:(int)a 
+{ 
+	[proxy ServerCommand:a];
+}
 
 
-//Methods called by clients 
--(oneway void)sendCommand:(in int)command
+//Control From Client 
+-(oneway void)ClientCommand:(in int)command
 {
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-	
-	//NSLog(@"Reciveing Message"); 
-    if ( command == 100 ) {
-		NSLog(@"Tag = 100"); }
-	
-	if (command == 110) {
-		NSLog(@"Client Go Message Recieved Send Command");
-		[nc postNotificationName:JATQlabGoNotification object:self]; 
-	}
-	
-	if (command == 120) {
-		[nc postNotificationName:JATQlabStopNotification object:self];
-	}
-	
-	if (command == 130) {
-		[nc postNotificationName:JATQlabSelectionUpNotification object:self]; 
-	}
-	
-	if (command == 140) {
-		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
 
-	}
+NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+
+//NSLog(@"Reciveing Message"); 
+if ( command == 100 ) {
+	NSLog(@"Tag = 100"); }
+
+if (command == 110) {
+	NSLog(@"Client Go Message Recieved Send Command");
+	[self proxySendCommand:110];
+}
+
+if (command == 120) {
 	
 	
-}	
+}
+
+if (command == 130) {
+	[nc postNotificationName:JATQlabSelectionUpNotification object:self]; 
+	
+}
+
+if (command == 140) {
+	[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+}
+
+
+}
+
+
+
+
 
 -(byref NSArray *)allObjects
 { 
@@ -200,24 +214,27 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 
 -(void)serverGoNote:(NSNotificationCenter *)note 
 {
-	[proxy sendCommand:110];
+	[proxy proxySendCommand:110];
 	NSLog(@"Send Server Command");
 }
 
 -(void)serverStopNote:(NSNotificationCenter *)note 
 { 
 	//[self recieveCommand:120]; 
+	[proxy proxySendCommand:120];
 	
 }
 
 -(void)serverUpNote:(NSNotificationCenter *)note 
 { 
 	//[self recieveCommand:130]; 
+	[proxy proxySendCommand:130];
 }
 
 -(void)serverDownNote:(NSNotificationCenter *)note
 { 
 	//[self recieveCommand:140]; 
+	[proxy proxySendCommand:140];
 }
 	
 	

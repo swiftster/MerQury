@@ -11,6 +11,20 @@
 
 @implementation ServerThread
 
+@synthesize appDelegate;
+
+- (id)initWithDelegate:(QSyncController*)delegate
+{
+	
+	NSLog(@"Server Thread"); 
+	if (!(self = [super init])) return nil;
+	
+	
+	appDelegate = delegate;
+
+	return self;
+}
+
 
 
 -(void)main 
@@ -19,7 +33,7 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	ConnectionMonitor *monitor = [[ConnectionMonitor alloc] init]; 
-	MessageServer *mServer = [[MessageServer alloc] init]; 
+	//MessageServer *mServer = [[MessageServer alloc] init];
 	
 	
 	
@@ -35,7 +49,7 @@
 	}
 		  
 	//Create the connection object 
-	
+	NSLog(@"Starting Server Connection");
 	NSConnection *connection; 
 	connection = [NSConnection connectionWithReceivePort:receivePort sendPort:nil];
 	
@@ -43,7 +57,9 @@
 	[receivePort release]; 
 		  
 	//When clients use this connection, they will talk to the Server
+	MessageServer *mServer = [[MessageServer alloc] initWithDelegate:appDelegate andConnection:connection];
 	[connection setRootObject:mServer]; 
+	
 	
 	//The Server is retained by the connection 
 	[mServer release]; 

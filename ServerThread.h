@@ -12,10 +12,16 @@
 #import "CommandMessagesProto.h"
 #import "ConnectionMonitor.h"
 #include <sys/socket.h>
+@class QSyncController;
 
 
 @interface ServerThread : NSOperation {
+	
+	
+	QSyncController *appDelegate;
 
 	
 }
+
+@property (assign) QSyncController *appDelegate;
 @end

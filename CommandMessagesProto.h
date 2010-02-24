@@ -13,7 +13,7 @@
 
 
 //Qlab Commands 
--(oneway void)sendCommand:(in int)command; 
+-(oneway void)ServerCommand:(in int)command; 
 
 //Core Data Sharing 
 -(byref NSManagedObject *)createObject; 
@@ -32,13 +32,12 @@
 
 @protocol ClientMessage
 
+-(oneway void)ClientCommand:(in int)command;
 
 //Returns NO if someone already has newClients nickname 
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient; 
-
 -(void)disconnectClient:(in byref id <ServerMessage>)client;
 
--(oneway void)recieveCommand:(in int)command;
 
 
 

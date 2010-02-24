@@ -40,7 +40,7 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 	if ([self isQlabActive] == TRUE) { 
 		[self loadQlabArray];  }
 
-     
+
 
 	return self;
 }	
@@ -242,6 +242,7 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 -(void)goCueNote:(NSNotification *)note
 { 
 	[self goCue]; 
+	NSLog(@"Go Note");
 }
 
 -(void)upSelectionNote:(NSNotification *)note 

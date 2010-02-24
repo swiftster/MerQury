@@ -22,7 +22,7 @@
 - (id)initWithDelegate:(QSyncController*)delegate
 {
 	
-	//NSLog(@"Import Op Called"); 
+	NSLog(@"Import Op Called"); 
 	if (!(self = [super init])) return nil;
 	
 
@@ -72,8 +72,10 @@
 
 -(void)main 
 { 
-	QlabScripting *myScript = [[QlabScripting alloc] init]; 
-	NSArray *workspaceArray = [myScript getWorkspaceArray];
+	//QlabScripting *qLab = [[QlabScripting alloc] init]; 
+	//Use to create another instance of the QlabScripting Class.  Considering makeing Singelton.  Until then..this works for import.
+	QlabApplication *qLab = [SBApplication applicationWithBundleIdentifier:@"com.figure53.Qlab.2"]; 
+	NSArray *workspaceArray = [qLab workspaces];
 	int i, l, c, g, numberOfCueLists, numberOfCues; 
 	int arrayCount = [workspaceArray count];
 	NSLog(@"Workspace Array: %d", arrayCount);
@@ -181,6 +183,8 @@
 		}
 	
 		[mutableWorkspace addObject:workspace];  } //Add the workspace
+	
+	
 	
 }
 

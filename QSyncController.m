@@ -73,10 +73,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	qlabScripts = [[QlabScripting alloc] init]; 
 		
 	client = [[ClientController alloc] init]; 
-	mServer = [[MessageServer alloc] init]; 
-	queue = [[NSOperationQueue alloc] init];
 	
-	nc = [NSNotificationCenter defaultCenter];
+	
+	queue = [[NSOperationQueue alloc] init];
 	
 	searchEnabled = TRUE; 
 	connectEnabled = TRUE;
@@ -100,19 +99,21 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	//Preload Qlab Array
 	if ([qlabScripts isQlabActive] == YES) { 
 		[self importData]; }
+	
 	 
 	
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)theNotification {
 	
-	[self registerHotKeys]; 
+	
 	
 	//Server 
 	[self startService];
 	[self startDoServer];
 	[self search:self];
-	
+	[self registerHotKeys]; 
+
 }
 
 - (void)applicationWillTerminate:(NSNotification *)theNotification {
@@ -170,7 +171,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[[SGHotKeyCenter sharedCenter] registerHotKey:primaryKey];
 	[hotKeyBecomePrimaryControl setKeyCombo:SRMakeKeyCombo(primaryKey.keyCombo.keyCode, [hotKeyBecomePrimaryControl carbonToCocoaFlags:primaryKey.keyCombo.modifiers])];
 	
-	
+	NSLog(@"Keys Registered");
 }
 
 -(void)unregisterHotKeys { 
@@ -193,32 +194,34 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 //Keys
 
 - (void)goKeyPressed:(id)sender {
-	  
-	[client proxySendCommand:110]; 
+	
+	NSLog(@"Go Button Pressed");
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc postNotificationName:JATServerGoNotification object:self];
-
-	
-	
+	[nc postNotificationName:JATQlabGoNotification object:self];
 }
 
 - (void)stopKeyPressed:(id)sender {
 
-	[client proxySendCommand:120];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc postNotificationName:JATServerStopNotification object:self];
- 
+	[nc postNotificationName:JATQlabStopNotification object:self];
+	
 }
 
 - (void)upKeyPressed:(id)sender {
 	
-	[client proxySendCommand:130];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc postNotificationName:JATServerSelectionUpNotification object:self];
-	
+	[nc postNotificationName:JATQlabSelectionUpNotification object:self];
 }
 
 - (void)downKeyPressed:(id)sender {
 
-	[client proxySendCommand:140];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc postNotificationName:JATServerSelectionDownNotification object:self];
+	[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+	
 
 	
 }
@@ -339,7 +342,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     macService = [[NSNetService alloc] initWithDomain:@"" type:@"_merqury._tcp." name:macName port:8081];
     macService.delegate = self;
     [macService publish];
-		
+	
 	startEnabled = FALSE; 
 	stopEnabled = TRUE; 
 	[self validateToolbarItem:serverStartButton];
@@ -435,6 +438,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 #pragma mark MessageBroker Delegate Methods
 -(void)messageBroker:(MessageBroker *)server didReceiveMessage:(Message *)message {
 	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	//NSLog(@"Reciveing Message"); 
     if ( message.tag == 100 ) {
 		NSLog(@"Tag = 100"); }
@@ -536,7 +540,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == TRUE) {
+	if (match == FALSE) {
 		[servicesController addObject:aService];
 		
 	} else { 
@@ -705,6 +709,7 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 	[op release], op = nil;
 	
 }
+
 
 -(void)startDoServer 
 { 

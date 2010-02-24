@@ -16,7 +16,8 @@
 
 #import	"DataWindowController.h"
 #import	"ClientController.h"
-#import "MessageServer.h"
+
+
 
 
 extern NSString *kGlobalGoKey;
@@ -32,8 +33,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 @interface QSyncController : NSPersistentDocument {
 	
 	
-	//Notification 
-	NSNotificationCenter *nc;
+
 	
 	//iPhone Server 
     NSNetService *netService;
@@ -72,7 +72,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	NSOperationQueue *doServerOperarionQueue; 
 	NSOperation *doServerQueue; 
 	NSNetService *macService;
-	MessageServer *mServer;
+
 	
 	//Qlab  Data Import Operation 
 	NSOperationQueue *genericOperationQueue;
