@@ -23,8 +23,7 @@ extern NSString * const JATServerStopNotification;
 
 @interface MessageServer : NSObject <ServerMessage> {
 	
-	NSMutableArray *clients; 
-	id proxy; 
+	NSMutableArray *clients;  
 	QSyncController *appDelegate;
 	NSManagedObjectContext *mainMOC;
 
@@ -35,9 +34,9 @@ extern NSString * const JATServerStopNotification;
 
 
 
--(id)initWithDelegate:(QSyncController *)delegate andConnection:(NSConnection *)connection;
+-(id)initWithDelegate:(QSyncController *)delegate;
 
--(void)proxySendCommand:(int)a;
+
 
 
 

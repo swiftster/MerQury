@@ -63,8 +63,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 @synthesize startEnabled; 
 @synthesize stopEnabled; 
 
-//DOServer 
-@synthesize macListeningSocket;
+
 
 
 -(id)init
@@ -171,7 +170,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[[SGHotKeyCenter sharedCenter] registerHotKey:primaryKey];
 	[hotKeyBecomePrimaryControl setKeyCombo:SRMakeKeyCombo(primaryKey.keyCombo.keyCode, [hotKeyBecomePrimaryControl carbonToCocoaFlags:primaryKey.keyCombo.modifiers])];
 	
-	NSLog(@"Keys Registered");
+	//NSLog(@"Keys Registered");
 }
 
 -(void)unregisterHotKeys { 
@@ -198,7 +197,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	NSLog(@"Go Button Pressed");
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc postNotificationName:JATServerGoNotification object:self];
-	[nc postNotificationName:JATQlabGoNotification object:self];
+	[qlabScripts goCue];
 }
 
 - (void)stopKeyPressed:(id)sender {
@@ -320,7 +319,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(void)startService {
 	//Start iPhone OS Service 
     // Start listening socket
-	NSLog(@"Listening, Service Started");
+	//NSLog(@"Listening, Service Started");
     NSError *error;
     self.listeningSocket = [[[AsyncSocket alloc]initWithDelegate:self] autorelease];
     if ( ![self.listeningSocket acceptOnPort:0 error:&error] ) {

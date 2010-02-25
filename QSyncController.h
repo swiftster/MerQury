@@ -166,8 +166,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(void)enterMasterMode;
 -(void)enterSlaveMode;
 
-//DOServer 
-@property (readwrite, retain) AsyncSocket *macListeningSocket;
+
 
 //Data Sharing 
 -(void)importData;

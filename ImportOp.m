@@ -22,7 +22,7 @@
 - (id)initWithDelegate:(QSyncController*)delegate
 {
 	
-	NSLog(@"Import Op Called"); 
+	//NSLog(@"Import Op Called"); 
 	if (!(self = [super init])) return nil;
 	
 
@@ -78,7 +78,7 @@
 	NSArray *workspaceArray = [qLab workspaces];
 	int i, l, c, g, numberOfCueLists, numberOfCues; 
 	int arrayCount = [workspaceArray count];
-	NSLog(@"Workspace Array: %d", arrayCount);
+	//NSLog(@"Workspace Array: %d", arrayCount);
 	NSMutableSet *mutableCueLists;
 	NSMutableSet *mutableCues;
 	NSMutableSet *mutableGroupCues;
@@ -106,7 +106,7 @@
 		
 		
 		NSString *nameString = [[workspaceArray objectAtIndex:i]name];
-		NSLog(@"Workspace Name: %@",nameString);
+		//NSLog(@"Workspace Name: %@",nameString);
 		NSManagedObject *workspace = [NSEntityDescription insertNewObjectForEntityForName:@"Workspace" inManagedObjectContext:moc];  
 		
 		[workspace setValue:nameString forKey:@"name"];

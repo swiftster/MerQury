@@ -9,6 +9,7 @@
 
 #import "MessageServer.h"
 
+
 NSString * const JATServerGoNotification = @"ServerGoNote";
 NSString * const JATServerSelectionUpNotification = @"ServerUpNote";
 NSString * const JATServerSelectionDownNotification = @"ServerDownNote";
@@ -21,14 +22,14 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 @synthesize mainMOC;
 
 
--(id)initWithDelegate:(QSyncController *)delegate andConnection:(NSConnection *)connection
+-(id)initWithDelegate:(QSyncController *)delegate
 {	
 	NSLog(@"Init Server Del Called");
 	
 	if (!(self = [super init])) return nil;
 	
 	appDelegate = delegate;
-	proxy = [connection rootProxy];
+	
 	
 	mainMOC = [self newContextToMainStore];
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -71,47 +72,6 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 														 withObject:notification
 													  waitUntilDone:YES]; 
 }
-
--(void)proxySendCommand:(int)a 
-{ 
-	[proxy ServerCommand:a];
-}
-
-
-//Control From Client 
--(oneway void)ClientCommand:(in int)command
-{
-
-NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-
-//NSLog(@"Reciveing Message"); 
-if ( command == 100 ) {
-	NSLog(@"Tag = 100"); }
-
-if (command == 110) {
-	NSLog(@"Client Go Message Recieved Send Command");
-	[self proxySendCommand:110];
-}
-
-if (command == 120) {
-	
-	
-}
-
-if (command == 130) {
-	[nc postNotificationName:JATQlabSelectionUpNotification object:self]; 
-	
-}
-
-if (command == 140) {
-	[nc postNotificationName:JATQlabSelectionDownNotification object:self];
-}
-
-
-}
-
-
-
 
 
 -(byref NSArray *)allObjects
@@ -214,27 +174,54 @@ if (command == 140) {
 
 -(void)serverGoNote:(NSNotificationCenter *)note 
 {
-	[proxy proxySendCommand:110];
-	NSLog(@"Send Server Command");
+	
+	NSEnumerator *enumerator; 
+	id currentClient; 
+	
+	enumerator = [clients objectEnumerator]; 
+	
+	while (currentClient = [enumerator nextObject]) { 
+		[currentClient commandFromServer:110]; }
+	
 }
 
 -(void)serverStopNote:(NSNotificationCenter *)note 
 { 
-	//[self recieveCommand:120]; 
-	[proxy proxySendCommand:120];
+	
+	NSEnumerator *enumerator; 
+	id currentClient; 
+	
+	enumerator = [clients objectEnumerator]; 
+	
+	while (currentClient = [enumerator nextObject]) { 
+		[currentClient commandFromServer:120]; }
 	
 }
 
 -(void)serverUpNote:(NSNotificationCenter *)note 
 { 
-	//[self recieveCommand:130]; 
-	[proxy proxySendCommand:130];
+	
+	NSEnumerator *enumerator; 
+	id currentClient; 
+	
+	enumerator = [clients objectEnumerator]; 
+	
+	while (currentClient = [enumerator nextObject]) { 
+		[currentClient commandFromServer:130]; }
+	
 }
 
 -(void)serverDownNote:(NSNotificationCenter *)note
 { 
-	//[self recieveCommand:140]; 
-	[proxy proxySendCommand:140];
+	
+	NSEnumerator *enumerator; 
+	id currentClient; 
+	
+	enumerator = [clients objectEnumerator]; 
+	
+	while (currentClient = [enumerator nextObject]) { 
+		[currentClient commandFromServer:140]; }
+	
 }
 	
 	

@@ -32,8 +32,7 @@
 	
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; 
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
-	ConnectionMonitor *monitor = [[ConnectionMonitor alloc] init]; 
-	//MessageServer *mServer = [[MessageServer alloc] init];
+	ConnectionMonitor *monitor = [[ConnectionMonitor alloc] init];
 	
 	
 	
@@ -57,7 +56,7 @@
 	[receivePort release]; 
 		  
 	//When clients use this connection, they will talk to the Server
-	MessageServer *mServer = [[MessageServer alloc] initWithDelegate:appDelegate andConnection:connection];
+	MessageServer *mServer = [[MessageServer alloc] initWithDelegate:appDelegate];
 	[connection setRootObject:mServer]; 
 	
 	
