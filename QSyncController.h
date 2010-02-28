@@ -34,6 +34,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 	
 
+	IBOutlet NSArrayController *serviceBrowserController; 
 	
 	//iPhone Server 
     NSNetService *netService;
@@ -44,12 +45,10 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 	//Client
 	ClientController *client;
-	BOOL isConnected;
-    NSNetServiceBrowser *browser;
-    NSNetService *connectedService;
-    NSMutableArray *services;
+   // NSNetService *connectedService;
+   // NSMutableArray *services;
     AsyncSocket *socket;
-    IBOutlet NSArrayController *servicesController;
+    //NSMutableArray *servicesController;
 	NSTimer *wait;
 	
 
@@ -106,6 +105,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 	  
 }
 
+//@property (readwrite, assign) IBOutlet NSArrayController *serviceBrowserController; 
+
 //Server
 @property (readwrite, retain) AsyncSocket *listeningSocket;
 @property (readwrite, retain) AsyncSocket *connectionSocket;
@@ -119,8 +120,8 @@ extern NSString *kGlobalBecomePrimaryKey;
 
 
 //Client
-@property (readonly, retain) NSMutableArray *services;
-@property (readwrite, assign) BOOL isConnected;
+//@property (readonly, retain) NSMutableArray *services;
+//@property (readwrite, assign) BOOL isConnected;
 @property (readwrite, retain) AsyncSocket *socket;
 @property (readwrite, retain) NSNetServiceBrowser *browser;
 @property (readwrite, retain) NSNetService *connectedService;
@@ -170,7 +171,6 @@ extern NSString *kGlobalBecomePrimaryKey;
 
 //Data Sharing 
 -(void)importData;
-
 -(void)startDoServer;
 
 

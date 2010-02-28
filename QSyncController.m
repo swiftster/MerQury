@@ -15,6 +15,7 @@
 #import "SGHotKeyCenter.h"
 #import	"ImportOp.h"
 #import "ServerThread.h"
+#import "ServerBrowser.h"
 
 
 
@@ -31,6 +32,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 @implementation QSyncController
 
+//@synthesize serviceBrowserController;
+
 //Server
 @synthesize listeningSocket;
 @synthesize connectionSocket;
@@ -39,8 +42,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 //Client 
 @synthesize browser;
-@synthesize services;
-@synthesize isConnected;
+//@synthesize services;
+//@synthesize isConnected;
 @synthesize connectedService;
 @synthesize socket;
 
@@ -89,10 +92,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     
 	
 	//Client 
-	services = [NSMutableArray new];
+	//services = [NSMutableArray new];
     self.browser = [[NSNetServiceBrowser new] autorelease];
     self.browser.delegate = self;
-    self.isConnected = NO;
+   // self.isConnected = NO;
 	
 	
 	//Preload Qlab Array
@@ -301,7 +304,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     self.socket = nil;
     self.messageBroker.delegate = nil;
     self.messageBroker = nil;
-    [services release];
+    
 	
 	[self stopService];
     [super dealloc];
@@ -484,7 +487,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	[browser stop]; 
 	
-	[servicesController remove:self];
+
 	
     [self.browser searchForServicesOfType:@"_merqury._tcp." inDomain:@""];
 }
@@ -496,16 +499,30 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	if (theProxy) {
 		NSLog(@"Already Connected"); 
 	} else {
-    NSNetService *remoteService = servicesController.selectedObjects.lastObject;
+		
+	NSArray *serviceBrowserObjects = [serviceBrowserController selectedObjects];	
+	
+	ServerBrowser *servicesBrowser = [serviceBrowserObjects objectAtIndex:0];
+	NSNetService *remoteService = [servicesBrowser netService]; 
 	[remoteService setDelegate:self]; 
-	[remoteService resolveWithTimeout:30];}
+	[remoteService resolveWithTimeout:30];
+	//[servicesBrowser setValue:[NSString stringWithFormat:@"Yes"] forKey:@"isConnected"];
+	
+	}
 	
     
 }
 
 
 -(IBAction)disconnectButton:(id)sender { 
-	//NSNetService *remoteService = servicesController.selectedObjects.lastObject;
+	NSArray *serviceBrowserObjects = [serviceBrowserController selectedObjects];	
+	ServerBrowser *servicesBrowser = [serviceBrowserObjects objectAtIndex:0];
+	
+	[client disconnect]; 
+	
+	[servicesBrowser setValue:[NSString stringWithFormat:@"No"]	forKey:@"isConnected"];
+	
+	
 	
 }
 
@@ -531,16 +548,27 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 }
 
 #pragma mark Net Service Browser Delegate Methods
+//Called by NSNetService when a server is found. 
 
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aBrowser didFindService:(NSNetService *)aService moreComing:(BOOL)more 
 {
-	//Exclude self from the server browser
+		
+	NSArray *addressCount = [aService addresses];
+	NSLog(@"Address Count:%i", [addressCount count]);
 	
+	
+	//Exclude self from the server browser
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == FALSE) {
-		[servicesController addObject:aService];
+	if (match == TRUE) {
+		NSManagedObjectContext *moc = [self managedObjectContext]; 
+		NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"ServerBrowser" inManagedObjectContext:moc];
+	    [server setValue:[aService name] forKey:@"name"];
+		[server setValue:aService forKey:@"netService"];
+		[moc processPendingChanges];
+		
+		
 		
 	} else { 
 		
@@ -552,19 +580,25 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	 
 	 
 -(void)netServiceBrowser:(NSNetServiceBrowser *)aBrowser didRemoveService:(NSNetService *)aService moreComing:(BOOL)more {
-    [servicesController removeObject:aService];
-    if ( aService == self.connectedService ) self.isConnected = NO;
+   
+    
 }
 
 -(void)netServiceDidResolveAddress:(NSNetService *)service {
 	NSData *address; 
+	BOOL connected; 
+	NSArray *serviceBrowserObjects = [serviceBrowserController selectedObjects];	
+	ServerBrowser *servicesBrowser = [serviceBrowserObjects objectAtIndex:0];
+	
 	NSArray *addressArray = [service addresses]; 
 	NSLog(@"Array Count %d", [addressArray count]);
 	
 	address = [addressArray objectAtIndex:0];
 	
+	connected = [client connect:address]; 
 	
-	[client connect:address]; 
+	if (connected == YES) { 
+		[servicesBrowser setValue:[NSString stringWithFormat:@"Yes"] forKey:@"isConnected"]; }
 }
 
 -(void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {

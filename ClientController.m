@@ -65,7 +65,7 @@
 	
 
 //Connect to the server 
--(void)connect:(NSData *)address
+-(BOOL)connect:(NSData *)address
 {
 
 BOOL successful; 
@@ -114,6 +114,8 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 		//[messageField setStringValue:@"Name not available"];
 		[self cleanUp];
 	}
+	
+	return successful;
 }
 
 @catch (NSException *e) {
