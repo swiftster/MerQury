@@ -579,9 +579,27 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 	 
 	 
--(void)netServiceBrowser:(NSNetServiceBrowser *)aBrowser didRemoveService:(NSNetService *)aService moreComing:(BOOL)more {
-   
-    
+-(void)netServiceBrowser:(NSNetServiceBrowser *)aBrowser didRemoveService:(NSNetService *)aService moreComing:(BOOL)more 
+{
+	
+	NSString *nameString = [aService name];
+	NSArray *serverObject;
+	NSError *error;
+	
+    NSManagedObjectContext *moc = [self managedObjectContext]; 
+	NSFetchRequest *request = [[NSFetchRequest alloc] init]; 
+	[request setEntity:[NSEntityDescription entityForName:@"ServerBrowser" inManagedObjectContext:moc]];
+	 
+	 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name like %@",nameString];
+	 [request setPredicate:predicate];
+
+	 serverObject = [moc executeFetchRequest:request error:&error];
+	 [moc deleteObject:[serverObject objectAtIndex:0]];
+	[moc processPendingChanges];
+	 
+	 
+	
+	
 }
 
 -(void)netServiceDidResolveAddress:(NSNetService *)service {
