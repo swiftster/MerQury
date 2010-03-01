@@ -45,10 +45,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 	//Client
 	ClientController *client;
-   // NSNetService *connectedService;
-   // NSMutableArray *services;
-    AsyncSocket *socket;
-    //NSMutableArray *servicesController;
+    //AsyncSocket *socket;
 	NSTimer *wait;
 	
 
@@ -122,9 +119,9 @@ extern NSString *kGlobalBecomePrimaryKey;
 //Client
 //@property (readonly, retain) NSMutableArray *services;
 //@property (readwrite, assign) BOOL isConnected;
-@property (readwrite, retain) AsyncSocket *socket;
+//@property (readwrite, retain) AsyncSocket *socket;
 @property (readwrite, retain) NSNetServiceBrowser *browser;
-@property (readwrite, retain) NSNetService *connectedService;
+//@property (readwrite, retain) NSNetService *connectedService;
 
 -(IBAction)search:(id)sender;
 -(IBAction)connect:(id)sender;

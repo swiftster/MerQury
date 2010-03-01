@@ -11,9 +11,9 @@
 			<string key="net.wafflesoftware.ShortcutRecorder.IB.Leopard">1</string>
 		</dictionary>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="864"/>
 			<integer value="871"/>
 			<integer value="29"/>
+			<integer value="864"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>net.wafflesoftware.ShortcutRecorder.IB.Leopard</string>
@@ -2214,6 +2214,22 @@
 					</object>
 					<int key="connectionID">882</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">connect:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="575078640"/>
+					</object>
+					<int key="connectionID">883</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">disconnectButton:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="963490571"/>
+					</object>
+					<int key="connectionID">884</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -3364,6 +3380,8 @@
 				<string key="865.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="866.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="867.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="871.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="872.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="873.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="92.ImportedFromIB2"/>
@@ -3372,7 +3390,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">882</int>
+			<int key="maxID">884</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">

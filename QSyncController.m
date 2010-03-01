@@ -40,12 +40,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 @synthesize messageBroker;
 @synthesize localServerName;
 
-//Client 
+//Browser
 @synthesize browser;
-//@synthesize services;
-//@synthesize isConnected;
-@synthesize connectedService;
-@synthesize socket;
+
 
 //hotkeys
 @synthesize hotKeyGoControl;
@@ -91,13 +88,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(void)awakeFromNib {    
     
 	
-	//Client 
-	//services = [NSMutableArray new];
+	//Browser 
     self.browser = [[NSNetServiceBrowser new] autorelease];
     self.browser.delegate = self;
-   // self.isConnected = NO;
-	
-	
+   
 	//Preload Qlab Array
 	if ([qlabScripts isQlabActive] == YES) { 
 		[self importData]; }
@@ -107,8 +101,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)theNotification {
-	
-	
 	
 	//Server 
 	[self startService];
@@ -299,14 +291,12 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 //Client
 -(void)dealloc {
-    self.connectedService = nil;
-    self.browser = nil;
-    self.socket = nil;
-    self.messageBroker.delegate = nil;
-    self.messageBroker = nil;
     
 	
-	[self stopService];
+    self.browser = nil;
+    self.messageBroker.delegate = nil;
+    self.messageBroker = nil;
+    [self stopService];
     [super dealloc];
 	
 }
@@ -329,8 +319,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
         NSLog(@"Failed to create listening socket");
         return;
     }
-	
-	
 	
     
     // Advertise iphone service with bonjour
@@ -506,13 +494,11 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	NSNetService *remoteService = [servicesBrowser netService]; 
 	[remoteService setDelegate:self]; 
 	[remoteService resolveWithTimeout:30];
-	//[servicesBrowser setValue:[NSString stringWithFormat:@"Yes"] forKey:@"isConnected"];
-	
+		
 	}
 	
     
 }
-
 
 -(IBAction)disconnectButton:(id)sender { 
 	NSArray *serviceBrowserObjects = [serviceBrowserController selectedObjects];	
@@ -540,8 +526,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(void)disconnect
 { 
 	NSLog(@"Disconnect Called");
-	connectedService = nil; 
-	[self.socket disconnect];
 	connectionSocket = nil;
 	[self search:nil];
 	[wait invalidate];
