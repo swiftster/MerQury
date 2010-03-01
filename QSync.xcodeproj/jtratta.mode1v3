@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -265,11 +267,8 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>967A49DB10E9140800CA5CDD</string>
 								<string>967A49DE10E9146800CA5CDD</string>
-								<string>38B351FF10CB3F2400E5A97A</string>
 								<string>38B351F510CB3F0D00E5A97A</string>
-								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
 								<string>1C37FAAC04509CD000000102</string>
@@ -278,13 +277,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
+									<integer>5</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {272, 609}}</string>
+							<string>{{0, 0}, {272, 613}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -296,14 +295,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {289, 627}}</string>
+						<string>{{0, 0}, {289, 631}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
 							<real>272</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>32 109 1241 668 0 0 1280 778 </string>
+						<string>19 106 1203 672 0 0 1280 778 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -314,14 +313,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>QSyncController.m</string>
+								<string>QSyncController.xcdatamodel</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -329,11 +326,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>QSyncController.m</string>
+										<string>QSyncController.xcdatamodel</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>38F5B0BC113B2085003F1DAF</string>
+										<string>38F5B0C7113B238F003F1DAF</string>
 										<key>history</key>
 										<array>
 											<string>38D8118C10D9A83400931384</string>
@@ -385,7 +382,6 @@
 											<string>3846B577112736670073AE20</string>
 											<string>3846B578112736670073AE20</string>
 											<string>3846B579112736670073AE20</string>
-											<string>3846B57D112736670073AE20</string>
 											<string>3846B57E112736670073AE20</string>
 											<string>3846B5E4112743670073AE20</string>
 											<string>3846B5E5112743670073AE20</string>
@@ -393,14 +389,11 @@
 											<string>3871CF8411360D7600A9FE44</string>
 											<string>3871CFAD1136138100A9FE44</string>
 											<string>3871CFAF1136138100A9FE44</string>
-											<string>38C29C0811361B9400048418</string>
-											<string>38C29C0911361B9400048418</string>
 											<string>38F5AFE1113AF971003F1DAF</string>
 											<string>38F5AFE2113AF971003F1DAF</string>
 											<string>38F5AFE3113AF971003F1DAF</string>
 											<string>38F5AFE4113AF971003F1DAF</string>
 											<string>38F5AFE5113AF971003F1DAF</string>
-											<string>38F5B017113B0047003F1DAF</string>
 											<string>38F5B052113B0A28003F1DAF</string>
 											<string>38F5B064113B0B95003F1DAF</string>
 											<string>38F5B065113B0B95003F1DAF</string>
@@ -409,7 +402,11 @@
 											<string>38F5B093113B1291003F1DAF</string>
 											<string>38F5B0A2113B14C1003F1DAF</string>
 											<string>38F5B0A6113B1909003F1DAF</string>
-											<string>38F5B0AF113B1F7B003F1DAF</string>
+											<string>38F5B0C2113B238F003F1DAF</string>
+											<string>38F5B0C3113B238F003F1DAF</string>
+											<string>38F5B0C4113B238F003F1DAF</string>
+											<string>38F5B0C5113B238F003F1DAF</string>
+											<string>38F5B0C6113B238F003F1DAF</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -421,14 +418,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {947, 607}}</string>
+								<string>{{0, 0}, {909, 611}}</string>
 								<key>RubberWindowFrame</key>
-								<string>32 109 1241 668 0 0 1280 778 </string>
+								<string>19 106 1203 672 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>607pt</string>
+							<string>611pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -441,9 +438,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 612}, {947, 15}}</string>
+								<string>{{0, 616}, {909, 15}}</string>
 								<key>RubberWindowFrame</key>
-								<string>32 109 1241 668 0 0 1280 778 </string>
+								<string>19 106 1203 672 0 0 1280 778 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -452,7 +449,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>947pt</string>
+					<string>909pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -605,16 +602,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>38F5B0BD113B2085003F1DAF</string>
 		<string>38F5AFF5113AF971003F1DAF</string>
 		<string>38F5AFF6113AF971003F1DAF</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>38B3535710CB407400E5A97A</string>
-		<string>/Users/jtratta/MerQury/QSync.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>/Users/jtratta/MerQury/QSync.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>32 109 1241 668 0 0 1280 778 </string>
+	<string>19 106 1203 672 0 0 1280 778 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
