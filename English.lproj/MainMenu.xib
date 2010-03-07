@@ -11,9 +11,9 @@
 			<string key="net.wafflesoftware.ShortcutRecorder.IB.Leopard">1</string>
 		</dictionary>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="871"/>
-			<integer value="29"/>
 			<integer value="864"/>
+			<integer value="29"/>
+			<integer value="544"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>net.wafflesoftware.ShortcutRecorder.IB.Leopard</string>
@@ -2230,6 +2230,22 @@
 					</object>
 					<int key="connectionID">884</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">browserTableView</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="960797500"/>
+					</object>
+					<int key="connectionID">885</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="960797500"/>
+						<reference key="destination" ref="976324537"/>
+					</object>
+					<int key="connectionID">886</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -3281,9 +3297,9 @@
 				<integer value="1" key="351.ImportedFromIB2"/>
 				<string key="354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="354.ImportedFromIB2"/>
-				<string key="371.IBEditorWindowLastContentRect">{{376, 346}, {433, 356}}</string>
+				<string key="371.IBEditorWindowLastContentRect">{{460, 108}, {433, 356}}</string>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="371.IBWindowTemplateEditedContentRect">{{376, 346}, {433, 356}}</string>
+				<string key="371.IBWindowTemplateEditedContentRect">{{460, 108}, {433, 356}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="371.editorWindowContentRectSynchronizationRect">{{33, 99}, {480, 360}}</string>
 				<string key="371.windowTemplate.maxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -3390,7 +3406,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">884</int>
+			<int key="maxID">886</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3440,6 +3456,7 @@
 						<string key="stopServer:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="browserTableView">NSTableView</string>
 						<string key="connectButton">NSToolbarItem</string>
 						<string key="disconnectButton">NSToolbarItem</string>
 						<string key="hotKeyBecomePrimaryControl">SRRecorderControl</string>

@@ -35,8 +35,6 @@
 
 -(oneway void)commandFromServer:(in int)command fromClient:(in byref id <ServerMessage>)client;
 
-
-//Returns NO if someone already has newClients nickname 
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient; 
 -(void)disconnectClient:(in byref id <ServerMessage>)client;
 

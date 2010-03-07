@@ -17,12 +17,14 @@
 //Private Method to clean up connection and proxy 
 -(void) cleanUp 
 { 
-
+	
 	NSConnection *connection = [proxy connectionForProxy]; 
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[connection invalidate]; 
 	[proxy release]; 
 	proxy = nil;
+	
+	NSLog(@"Client Cleaned, proxy:%@", proxy);
 }
 
 
@@ -59,7 +61,7 @@
 
 -(void)proxySendCommand:(int)a 
 { 
-	[proxy ClientCommand:a];
+
 }
 
 	
@@ -72,6 +74,8 @@ BOOL successful;
 NSConnection *connection; 
 NSSocketPort *sendPort; 
 
+	NSLog(@"Client: Connecting...");	
+
 //Create the send port INET_TCP is 0x06
 sendPort = [[NSSocketPort alloc] initRemoteWithProtocolFamily:AF_INET
 												   socketType:SOCK_STREAM
@@ -80,6 +84,8 @@ sendPort = [[NSSocketPort alloc] initRemoteWithProtocolFamily:AF_INET
 
 //Create a NSConenction 
 connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort]; 
+	
+		NSLog(@"Client Connection is valid:%d", [connection isValid]);
 
 //Set Timeouts to something resonable 
 [connection setRequestTimeout:10.0]; 
@@ -115,13 +121,15 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 		[self cleanUp];
 	}
 	
-	return successful;
+	
 }
 
 @catch (NSException *e) {
 	//The server does not respond in 10 seconds, this handler is called 
 	//[messageField setStringValue:@"Unable to connect"]; 
 	[self cleanUp]; }
+	
+	return successful;
 }
 	
 -(void)subscribe

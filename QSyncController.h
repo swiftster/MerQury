@@ -35,6 +35,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 
 	IBOutlet NSArrayController *serviceBrowserController; 
+	IBOutlet NSTableView *browserTableView;
 	
 	//iPhone Server 
     NSNetService *netService;
@@ -47,6 +48,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	ClientController *client;
     //AsyncSocket *socket;
 	NSTimer *wait;
+	int retryAttempt; 
 	
 
 	//Qlab
@@ -102,7 +104,6 @@ extern NSString *kGlobalBecomePrimaryKey;
 	  
 }
 
-//@property (readwrite, assign) IBOutlet NSArrayController *serviceBrowserController; 
 
 //Server
 @property (readwrite, retain) AsyncSocket *listeningSocket;
@@ -117,11 +118,9 @@ extern NSString *kGlobalBecomePrimaryKey;
 
 
 //Client
-//@property (readonly, retain) NSMutableArray *services;
-//@property (readwrite, assign) BOOL isConnected;
-//@property (readwrite, retain) AsyncSocket *socket;
 @property (readwrite, retain) NSNetServiceBrowser *browser;
-//@property (readwrite, retain) NSNetService *connectedService;
+@property (readwrite, assign) int retryAttempt;
+
 
 -(IBAction)search:(id)sender;
 -(IBAction)connect:(id)sender;

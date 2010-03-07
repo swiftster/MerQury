@@ -32,7 +32,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 @implementation QSyncController
 
-//@synthesize serviceBrowserController;
+
 
 //Server
 @synthesize listeningSocket;
@@ -42,6 +42,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 //Browser
 @synthesize browser;
+
+//Client
+@synthesize retryAttempt;
 
 
 //hotkeys
@@ -474,11 +477,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	//Stop and remove the controller before starting a new search or bad things will happen.
 	
 	[browser stop]; 
-	
-
-	
-    [self.browser searchForServicesOfType:@"_merqury._tcp." inDomain:@""];
+	[browser searchForServicesOfType:@"_merqury._tcp." inDomain:@""];
 }
+
 
 -(IBAction)connect:(id)sender {
 	id theProxy; 
@@ -600,7 +601,15 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	connected = [client connect:address]; 
 	
 	if (connected == YES) { 
-		[servicesBrowser setValue:[NSString stringWithFormat:@"Yes"] forKey:@"isConnected"]; }
+		[servicesBrowser setValue:[NSString stringWithFormat:@"Yes"] forKey:@"isConnected"]; 
+		
+	} else {
+		
+		NSLog(@"Not Connected");
+		
+		
+	}
+
 }
 
 -(void)netService:(NSNetService *)service didNotResolve:(NSDictionary *)errorDict {
@@ -666,6 +675,34 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 
 }
 
+#pragma mark Server Browser Table Delegate
+
+-(void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{ 
+
+	NSArray *serviceBrowserObjects = [serviceBrowserController selectedObjects];	
+	NSInteger x = [serviceBrowserObjects count];
+
+	if (x == 0) {
+		NSLog(@"Selected Nothing");
+		connectEnabled = NO; 
+		disconnectEnabled = NO;
+	
+	} else {
+		
+	ServerBrowser *servicesBrowser = [serviceBrowserObjects objectAtIndex:0];
+		if ([[servicesBrowser isConnected] isEqualToString:@"Yes"] == YES) {
+			connectEnabled = NO; 
+			disconnectEnabled = YES;
+		}else {
+			connectEnabled = YES; 
+			disconnectEnabled = NO;
+		}
+
+	
+	}
+	
+}
 
 #pragma mark  Toolbar Validation 
 
