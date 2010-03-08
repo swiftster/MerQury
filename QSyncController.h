@@ -46,10 +46,9 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 	//Client
 	ClientController *client;
-    //AsyncSocket *socket;
 	NSTimer *wait;
 	int retryAttempt; 
-	
+	NSNetService *remoteService;
 
 	//Qlab
 	QlabScripting *qlabScripts;
@@ -100,7 +99,10 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 	//Menus 
 	IBOutlet NSMenuItem *toggleKeysMenuItem;
-	
+	IBOutlet NSMenuItem *connectMenuItem; 
+	IBOutlet NSMenuItem *disconnectMenuItem;
+	IBOutlet NSMenuItem *startServerMenuItem; 
+	IBOutlet NSMenuItem *stopServerMenuItem;
 	  
 }
 

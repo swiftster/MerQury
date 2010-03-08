@@ -8,6 +8,7 @@
 
 
 #import "MessageServer.h"
+#import "CommandMessagesProto.h"
 
 
 NSString * const JATServerGoNotification = @"ServerGoNote";
@@ -110,8 +111,8 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	if ([local isDeleted]) {
 		return; }
 		 
-	if (![local isInserted]) { 
-			 [self saveAction:self]; }
+	//if (![local isInserted]) { 
+			 //[self saveAction:self]; }
 		 
 	[mainMOC deleteObject:local]; 
 

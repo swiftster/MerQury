@@ -73,15 +73,15 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 {
 	[super init]; 
 	qlabScripts = [[QlabScripting alloc] init]; 
-		
 	client = [[ClientController alloc] init]; 
-	
-	
 	queue = [[NSOperationQueue alloc] init];
+	remoteService = [[NSNetService alloc] init]; 
 	
 	searchEnabled = TRUE; 
 	connectEnabled = TRUE;
 	disconnectEnabled = TRUE; 
+	connectEnabled = YES; 
+	disconnectEnabled = NO;
 	
 	return self; 
 }
@@ -92,8 +92,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     
 	
 	//Browser 
-    self.browser = [[NSNetServiceBrowser new] autorelease];
-    self.browser.delegate = self;
+    browser = [[NSNetServiceBrowser new] autorelease];
+	[browser setDelegate:self];
+    
    
 	//Preload Qlab Array
 	if ([qlabScripts isQlabActive] == YES) { 
@@ -315,10 +316,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(void)startService {
 	//Start iPhone OS Service 
     // Start listening socket
-	//NSLog(@"Listening, Service Started");
+
     NSError *error;
-    self.listeningSocket = [[[AsyncSocket alloc]initWithDelegate:self] autorelease];
-    if ( ![self.listeningSocket acceptOnPort:0 error:&error] ) {
+    listeningSocket = [[[AsyncSocket alloc]initWithDelegate:self] autorelease];
+    if ( ![listeningSocket acceptOnPort:0 error:&error] ) {
         NSLog(@"Failed to create listening socket");
         return;
     }
@@ -327,19 +328,24 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     // Advertise iphone service with bonjour
     NSString *serviceName = [NSString stringWithFormat:@"%@", [[NSProcessInfo processInfo] hostName]];
     netService = [[NSNetService alloc] initWithDomain:@"" type:@"_imerqury._tcp." name:serviceName port:self.listeningSocket.localPort];
-    netService.delegate = self;
+	[netService setDelegate:self];
     [netService publish];
 	localServerName = [netService name];
 	
 	NSString *macName = [NSString stringWithFormat:@"%@", [[NSProcessInfo processInfo] hostName]];
     macService = [[NSNetService alloc] initWithDomain:@"" type:@"_merqury._tcp." name:macName port:8081];
-    macService.delegate = self;
+    [macService setDelegate:self];
     [macService publish];
 	
 	startEnabled = FALSE; 
 	stopEnabled = TRUE; 
 	[self validateToolbarItem:serverStartButton];
 	[self validateToolbarItem:serverStopButton];
+	[startServerMenuItem setEnabled:NO]; 
+	[stopServerMenuItem setEnabled:YES];
+	[stopServerMenuItem setState:0];
+	[startServerMenuItem setState:1];
+
 	
 }
 
@@ -371,6 +377,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	stopEnabled = FALSE; 
 	[self validateToolbarItem:serverStartButton];
 	[self validateToolbarItem:serverStopButton];
+	[startServerMenuItem setEnabled:YES]; 
+	[stopServerMenuItem setEnabled:NO];
+	[stopServerMenuItem setState:1];
+	[startServerMenuItem setState:0];
   
 }
 
@@ -483,6 +493,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(IBAction)connect:(id)sender {
 	id theProxy; 
+	[remoteService stop];
+	
 	
 	theProxy = [client proxy];
 	if (theProxy) {
@@ -492,9 +504,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	NSArray *serviceBrowserObjects = [serviceBrowserController selectedObjects];	
 	
 	ServerBrowser *servicesBrowser = [serviceBrowserObjects objectAtIndex:0];
-	NSNetService *remoteService = [servicesBrowser netService]; 
+	remoteService = [servicesBrowser netService]; 
 	[remoteService setDelegate:self]; 
-	[remoteService resolveWithTimeout:30];
+	[remoteService resolveWithTimeout:5];
 		
 	}
 	
@@ -508,7 +520,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[client disconnect]; 
 	
 	[servicesBrowser setValue:[NSString stringWithFormat:@"No"]	forKey:@"isConnected"];
-	
+	connectEnabled = YES; 
+	disconnectEnabled = NO;
 	
 	
 }
@@ -602,6 +615,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 	if (connected == YES) { 
 		[servicesBrowser setValue:[NSString stringWithFormat:@"Yes"] forKey:@"isConnected"]; 
+		connectEnabled = NO; 
+		disconnectEnabled = YES;
+
 		
 	} else {
 		

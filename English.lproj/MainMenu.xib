@@ -12,7 +12,7 @@
 		</dictionary>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<integer value="864"/>
-			<integer value="29"/>
+			<integer value="736"/>
 			<integer value="544"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
@@ -608,44 +608,18 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="131096808">
-									<reference key="NSMenu" ref="33577251"/>
-									<string key="NSTitle">Preload Local Cues</string>
-									<string key="NSKeyEquiv">l</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
-								<object class="NSMenuItem" id="65102792">
-									<reference key="NSMenu" ref="33577251"/>
-									<string key="NSTitle">Preload Settings</string>
-									<string key="NSKeyEquiv">L</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
-								<object class="NSMenuItem" id="968931213">
-									<reference key="NSMenu" ref="33577251"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
 								<object class="NSMenuItem" id="920238904">
 									<reference key="NSMenu" ref="33577251"/>
 									<string key="NSTitle">Start Server </string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
+									<int key="NSState">1</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
 								<object class="NSMenuItem" id="328384935">
 									<reference key="NSMenu" ref="33577251"/>
+									<bool key="NSIsDisabled">YES</bool>
 									<string key="NSTitle">Stop Server</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -2223,14 +2197,6 @@
 					<int key="connectionID">883</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">disconnectButton:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="963490571"/>
-					</object>
-					<int key="connectionID">884</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">browserTableView</string>
 						<reference key="source" ref="976324537"/>
@@ -2245,6 +2211,38 @@
 						<reference key="destination" ref="976324537"/>
 					</object>
 					<int key="connectionID">886</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">connectMenuItem</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="575078640"/>
+					</object>
+					<int key="connectionID">890</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">disconnectMenuItem</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="963490571"/>
+					</object>
+					<int key="connectionID">892</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">startServerMenuItem</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="920238904"/>
+					</object>
+					<int key="connectionID">893</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">stopServerMenuItem</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="328384935"/>
+					</object>
+					<int key="connectionID">894</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2838,10 +2836,7 @@
 						<reference key="object" ref="33577251"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="318988976"/>
-							<reference ref="131096808"/>
-							<reference ref="65102792"/>
 							<reference ref="777836699"/>
-							<reference ref="968931213"/>
 							<reference ref="920238904"/>
 							<reference ref="328384935"/>
 							<reference ref="330018637"/>
@@ -2856,23 +2851,8 @@
 						<reference key="parent" ref="33577251"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">738</int>
-						<reference key="object" ref="131096808"/>
-						<reference key="parent" ref="33577251"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">739</int>
-						<reference key="object" ref="65102792"/>
-						<reference key="parent" ref="33577251"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">742</int>
 						<reference key="object" ref="777836699"/>
-						<reference key="parent" ref="33577251"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">743</int>
-						<reference key="object" ref="968931213"/>
 						<reference key="parent" ref="33577251"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -3354,13 +3334,10 @@
 				<string key="723.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="724.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="733.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="736.IBEditorWindowLastContentRect">{{289, 563}, {241, 173}}</string>
+				<string key="736.IBEditorWindowLastContentRect">{{141, 613}, {227, 123}}</string>
 				<string key="736.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="737.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="738.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="739.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="742.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="743.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="744.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="745.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="748.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3391,7 +3368,7 @@
 				<string key="800.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="800.designableToolbarItemIdentifier">phoneItem</string>
 				<string key="811.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="864.IBEditorWindowLastContentRect">{{103, 580}, {189, 63}}</string>
+				<string key="864.IBEditorWindowLastContentRect">{{144, 508}, {189, 63}}</string>
 				<string key="864.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="865.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="866.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3406,7 +3383,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">886</int>
+			<int key="maxID">894</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3458,7 +3435,9 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="browserTableView">NSTableView</string>
 						<string key="connectButton">NSToolbarItem</string>
+						<string key="connectMenuItem">NSMenuItem</string>
 						<string key="disconnectButton">NSToolbarItem</string>
+						<string key="disconnectMenuItem">NSMenuItem</string>
 						<string key="hotKeyBecomePrimaryControl">SRRecorderControl</string>
 						<string key="hotKeyDownSelectionControl">SRRecorderControl</string>
 						<string key="hotKeyGoControl">SRRecorderControl</string>
@@ -3470,6 +3449,8 @@
 						<string key="serverStartButton">NSToolbarItem</string>
 						<string key="serverStopButton">NSToolbarItem</string>
 						<string key="serviceBrowserController">NSArrayController</string>
+						<string key="startServerMenuItem">NSMenuItem</string>
+						<string key="stopServerMenuItem">NSMenuItem</string>
 						<string key="timeAdjustmentField">NSTextField</string>
 						<string key="toggleKeysMenuItem">NSMenuItem</string>
 					</dictionary>

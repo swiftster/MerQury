@@ -67,7 +67,7 @@
 	[connection setDelegate:monitor];
 	[[NSNotificationCenter defaultCenter] 
 					addObserver:monitor
-						selector:@selector(connectDidDie:)
+						selector:@selector(connectionDidDie:)
 							name:NSConnectionDidDieNotification
 								object:nil];
 	

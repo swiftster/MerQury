@@ -8,6 +8,7 @@
 
 #import "ClientController.h"
 #import <sys/socket.h>
+#import "CommandMessagesProto.h"
 
 
 @implementation ClientController
@@ -24,7 +25,7 @@
 	[proxy release]; 
 	proxy = nil;
 	
-	NSLog(@"Client Cleaned, proxy:%@", proxy);
+	
 }
 
 
