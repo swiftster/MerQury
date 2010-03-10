@@ -40,17 +40,23 @@
 	NSSocketPort *receivePort; 
 	@try {
 		  //The server will wait for requests on port 8081
-		  receivePort = [[NSSocketPort alloc] initWithTCPPort:8081]; }
+		  receivePort = [[NSSocketPort alloc] initWithTCPPort:8081];
+		NSLog(@"Server Recieve Port is Valid:%d", [receivePort isValid]);
+		}
 		  
 	@catch (NSException *e) {
 		NSLog(@"Unable to get port 8081"); 
 		exit(-1); 
 	}
-		  
+	
+		
+	
 	//Create the connection object 
 	NSLog(@"Starting Server Connection");
 	NSConnection *connection; 
 	connection = [NSConnection connectionWithReceivePort:receivePort sendPort:nil];
+	
+	
 	
 	//The port is retained by the connection 
 	[receivePort release]; 
@@ -58,10 +64,15 @@
 	//When clients use this connection, they will talk to the Server
 	MessageServer *mServer = [[MessageServer alloc] initWithDelegate:appDelegate];
 	[connection setRootObject:mServer]; 
-	
+	NSLog(@"Server Connection Valid:%d", [connection isValid]);
+	NSLog(@"Server Root Object:%@",[connection rootObject]);
+	NSDictionary *dict = [connection statistics];
+	NSLog(@"Connection Stats:%@",[dict description]);
 	
 	//The Server is retained by the connection 
 	[mServer release]; 
+	 
+	
 	
 	//Set up the monitor object 
 	[connection setDelegate:monitor];
@@ -73,13 +84,19 @@
 	
 	//Start thr runloop 
 	[runLoop run]; 
+	NSLog(@"runLoop state:%@", [runLoop currentMode]);
 	
-	//If the runloop exits cleanup 
+	//If the runloop exits cleanup
+
 	[connection release]; 
 	[monitor release]; 
 	[pool release];
 	//return 0;
 	
 }
+
+
+	
+	
 
 @end

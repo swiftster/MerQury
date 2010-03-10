@@ -96,6 +96,11 @@ extern NSString *kGlobalBecomePrimaryKey;
 	BOOL disconnectEnabled; 
 	BOOL startEnabled; 
 	BOOL stopEnabled; 
+	BOOL connectMenuItemEnable; 
+	BOOL disconnectMenuItemEnable;
+	BOOL startServerMenuItemEnable;
+	BOOL stopServerMenuItemEnable;
+	
 	
 	//Menus 
 	IBOutlet NSMenuItem *toggleKeysMenuItem;

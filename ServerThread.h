@@ -24,4 +24,9 @@
 }
 
 @property (assign) QSyncController *appDelegate;
+
+
+
+
+
 @end

@@ -12,8 +12,8 @@
 		</dictionary>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<integer value="864"/>
+			<integer value="371"/>
 			<integer value="736"/>
-			<integer value="544"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>net.wafflesoftware.ShortcutRecorder.IB.Leopard</string>
@@ -619,7 +619,6 @@
 								</object>
 								<object class="NSMenuItem" id="328384935">
 									<reference key="NSMenu" ref="33577251"/>
-									<bool key="NSIsDisabled">YES</bool>
 									<string key="NSTitle">Stop Server</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -636,19 +635,19 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="450821532">
-									<reference key="NSMenu" ref="33577251"/>
-									<string key="NSTitle">Accept iPhone Control</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="35465992"/>
-									<reference key="NSMixedImage" ref="502551668"/>
-								</object>
 								<object class="NSMenuItem" id="988759189">
 									<reference key="NSMenu" ref="33577251"/>
 									<string key="NSTitle">Data Sharing View</string>
 									<string key="NSKeyEquiv">d</string>
 									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="35465992"/>
+									<reference key="NSMixedImage" ref="502551668"/>
+								</object>
+								<object class="NSMenuItem" id="450821532">
+									<reference key="NSMenu" ref="33577251"/>
+									<string key="NSTitle">Accept iPhone Control</string>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -797,28 +796,6 @@
 							<object class="NSCustomResource" key="NSToolbarItemImage">
 								<string key="NSClassName">NSImage</string>
 								<string key="NSResourceName">NSStopProgressTemplate</string>
-							</object>
-							<nil key="NSToolbarItemTarget"/>
-							<nil key="NSToolbarItemAction"/>
-							<string key="NSToolbarItemMinSize">{0, 0}</string>
-							<string key="NSToolbarItemMaxSize">{0, 0}</string>
-							<bool key="NSToolbarItemEnabled">YES</bool>
-							<bool key="NSToolbarItemAutovalidates">YES</bool>
-							<int key="NSToolbarItemTag">-1</int>
-							<bool key="NSToolbarIsUserRemovable">YES</bool>
-							<int key="NSToolbarItemVisibilityPriority">0</int>
-						</object>
-						<object class="NSToolbarItem" key="25A20491-AAB0-43EF-BCE7-63B236646769" id="186747172">
-							<object class="NSMutableString" key="NSToolbarItemIdentifier">
-								<characters key="NS.bytes">25A20491-AAB0-43EF-BCE7-63B236646769</characters>
-							</object>
-							<string key="NSToolbarItemLabel">Search</string>
-							<string key="NSToolbarItemPaletteLabel">Search</string>
-							<string key="NSToolbarItemToolTip"/>
-							<nil key="NSToolbarItemView"/>
-							<object class="NSCustomResource" key="NSToolbarItemImage">
-								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">NSRevealFreestandingTemplate</string>
 							</object>
 							<nil key="NSToolbarItemTarget"/>
 							<nil key="NSToolbarItemAction"/>
@@ -1025,7 +1002,6 @@
 						<reference ref="669832365"/>
 						<reference ref="871814286"/>
 						<reference ref="527978461"/>
-						<reference ref="186747172"/>
 						<reference ref="946929584"/>
 						<reference ref="521821992"/>
 						<reference ref="572637925"/>
@@ -1033,7 +1009,6 @@
 						<reference ref="635924058"/>
 					</array>
 					<array class="NSMutableArray" key="NSToolbarIBDefaultItems">
-						<reference ref="186747172"/>
 						<reference ref="946929584"/>
 						<reference ref="521821992"/>
 						<reference ref="825532033"/>
@@ -2050,14 +2025,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">search:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="186747172"/>
-					</object>
-					<int key="connectionID">795</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">connect:</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="946929584"/>
@@ -2838,9 +2805,9 @@
 							<reference ref="318988976"/>
 							<reference ref="777836699"/>
 							<reference ref="920238904"/>
-							<reference ref="328384935"/>
 							<reference ref="330018637"/>
 							<reference ref="450821532"/>
+							<reference ref="328384935"/>
 							<reference ref="988759189"/>
 						</array>
 						<reference key="parent" ref="766362512"/>
@@ -2923,7 +2890,6 @@
 							<reference ref="572637925"/>
 							<reference ref="521821992"/>
 							<reference ref="946929584"/>
-							<reference ref="186747172"/>
 							<reference ref="527978461"/>
 							<reference ref="871814286"/>
 							<reference ref="669832365"/>
@@ -2954,11 +2920,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">793</int>
 						<reference key="object" ref="946929584"/>
-						<reference key="parent" ref="142216683"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">792</int>
-						<reference key="object" ref="186747172"/>
 						<reference key="parent" ref="142216683"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -3277,9 +3238,9 @@
 				<integer value="1" key="351.ImportedFromIB2"/>
 				<string key="354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="354.ImportedFromIB2"/>
-				<string key="371.IBEditorWindowLastContentRect">{{460, 108}, {433, 356}}</string>
+				<string key="371.IBEditorWindowLastContentRect">{{451, 182}, {433, 356}}</string>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="371.IBWindowTemplateEditedContentRect">{{460, 108}, {433, 356}}</string>
+				<string key="371.IBWindowTemplateEditedContentRect">{{451, 182}, {433, 356}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="371.editorWindowContentRectSynchronizationRect">{{33, 99}, {480, 360}}</string>
 				<string key="371.windowTemplate.maxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -3350,11 +3311,9 @@
 				<string key="781.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="782.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="784.CustomClassName">MerQuryToolbar</string>
-				<string key="784.IBEditorWindowLastContentRect">{{20, 633}, {617, 0}}</string>
+				<string key="784.IBEditorWindowLastContentRect">{{263, 470}, {617, 0}}</string>
 				<string key="784.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="791.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="792.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="792.designableToolbarItemIdentifier">searchItem</string>
 				<string key="793.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="793.designableToolbarItemIdentifier">connectItem</string>
 				<string key="794.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4179,7 +4138,6 @@
 			<string key="NSGoRightTemplate">{9, 9}</string>
 			<string key="NSLockLockedTemplate">{9, 12}</string>
 			<string key="NSRemoveTemplate">{8, 8}</string>
-			<string key="NSRevealFreestandingTemplate">{14, 14}</string>
 			<string key="NSStopProgressTemplate">{11, 11}</string>
 		</dictionary>
 	</data>

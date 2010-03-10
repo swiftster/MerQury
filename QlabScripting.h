@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PreferenceController.h"
+
 
 extern NSString * const JATQlabGoNotification;
 extern NSString * const JATQlabSelectionUpNotification;
@@ -23,7 +23,6 @@ int arrayNumber;
 BOOL active; 
 
 NSString *feedBackText; 
-PreferenceController *myPrefs;
 NSMutableArray *workspaces;
 NSArray *qlabCurrentArray;
  
@@ -50,7 +49,6 @@ NSString *workspaceName;
 
 //Qlab Polling
 -(BOOL)isRunning; 
--(int)findNewRunningCue;
 -(BOOL)isQlabActive; 
 -(BOOL)isFrontMost; 
 -(NSArray *)selectedCues:(int)inWorkspace; 
@@ -71,7 +69,7 @@ NSString *workspaceName;
 -(void)moveSelectionUp; 
 -(void)moveSelectionDown;
 -(void)stopCue;
--(void)pauseCue;
+//-(void)pauseCue;
 -(void)reset; 
 
 -(void) adjustLoadTime:(double) i;

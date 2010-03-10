@@ -32,6 +32,7 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	appDelegate = delegate;
 	
 	
+	
 	mainMOC = [self newContextToMainStore];
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 	[center addObserver:self
@@ -53,6 +54,15 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	
 }
 
+-(void)dealloc 
+{ 
+	NSLog(@"Message Server dealloc");
+	appDelegate = nil; 
+	[clients release]; 
+	[mainMOC release];
+	[super dealloc];
+	
+}
 
 
 #pragma mark Core Data 
@@ -224,6 +234,8 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 		[currentClient commandFromServer:140]; }
 	
 }
+
+
 	
 	
 @end

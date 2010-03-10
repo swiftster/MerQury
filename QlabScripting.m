@@ -130,38 +130,6 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 	
 }
 
--(int)findNewRunningCue
-{ 
-	
-	NSArray *array;
-	array = [self getWorkspaceArray];
-	NSArray *cuesRunning;
-	int i;
-	int c;
-	BOOL running = FALSE;
-	NSInteger arrayCount = [array count]; 
-	int cueCount;
-	
-	for (i = 0; i < arrayCount; i++){
-		
-		cuesRunning = [[array objectAtIndex:i]cues];
-		cueCount = [cuesRunning count]; 
-		
-		for (c = 0; c < cueCount; c++){
-			
-			if([[cuesRunning objectAtIndex:c]running] == TRUE) { 
-				NSLog(@"Cue Running"); 
-				running = TRUE; 
-				
-					
-				
-			} else { 
-				running = FALSE;
-				NSLog(@"No Cue Running"); }
-			
-		}
-	}
-}
 
 //Is the QLab Application Running?
 -(BOOL)isQlabActive 

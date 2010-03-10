@@ -66,8 +66,9 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 @synthesize startEnabled; 
 @synthesize stopEnabled; 
 
-
-
+#pragma mark -
+#pragma mark Application Life Cycles
+#pragma mark -
 
 -(id)init
 {
@@ -90,9 +91,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 -(void)awakeFromNib {    
     
-	
-	//Browser 
-    browser = [[NSNetServiceBrowser new] autorelease];
+	browser = [[NSNetServiceBrowser new] autorelease];
 	[browser setDelegate:self];
     
    
@@ -100,13 +99,11 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	if ([qlabScripts isQlabActive] == YES) { 
 		[self importData]; }
 	
-	 
-	
 }
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)theNotification {
 	
-	//Server 
 	[self startService];
 	[self startDoServer];
 	[self search:self];
@@ -124,12 +121,31 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 } 
 
+
+-(void)dealloc {
+    
+	
+    browser = nil;
+    [messageBroker setDelegate:nil];
+    messageBroker = nil;
+    [self stopService];
+	[qlabScripts release];
+	[client release];
+	[queue release];
+	[remoteService release];
+	
+	
+    [super dealloc];
+	
+}
+
+
 # pragma mark -
 #pragma mark Register HotKeys 
 
 -(void)registerHotKeys { 
 	//GO Key
-	 [[SGHotKeyCenter sharedCenter] unregisterHotKey:goKey];	
+	[[SGHotKeyCenter sharedCenter] unregisterHotKey:goKey];	
 	id goKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalGoKey];
 	SGKeyCombo *goKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:goKeyComboPlist] autorelease];
 	goKey = [[SGHotKey alloc] initWithIdentifier:kGlobalGoKey keyCombo:goKeyCombo target:self action:@selector(goKeyPressed:)];
@@ -246,31 +262,32 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 												 modifiers:[aRecorder cocoaToCarbonFlags:[aRecorder keyCombo].flags]];
 	
 	if (aRecorder == hotKeyGoControl) {		
-		self.goKey.keyCombo = keyCombo;
+		[goKey setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:self.goKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:goKey];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalGoKey];
 	} 
 	
 	if (aRecorder == hotKeyStopControl) {		
-		self.stopKey.keyCombo = keyCombo;
+		//self.stopKey.keyCombo = keyCombo;
+		[stopKey setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:self.stopKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:stopKey];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalStopKey];
 	} 
 	
 	if (aRecorder == hotKeyUpSelectionControl) {		
-		self.upKey.keyCombo = keyCombo;
+		[upKey setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:self.upKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:upKey];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalUpKey];
 	} 
 	
 	if (aRecorder == hotKeyDownSelectionControl) {		
-		self.downKey.keyCombo = keyCombo;
+		[downKey setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
 		[[SGHotKeyCenter sharedCenter] registerHotKey:self.downKey];
@@ -278,7 +295,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	} 
 	
 	if (aRecorder == hotKeyBecomePrimaryControl) {		
-		self.primaryKey.keyCombo = keyCombo;
+		[primaryKey setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
 		[[SGHotKeyCenter sharedCenter] registerHotKey:self.primaryKey];
@@ -290,20 +307,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[defaults synchronize];
 }
 
-
-
-
-//Client
--(void)dealloc {
-    
-	
-    self.browser = nil;
-    self.messageBroker.delegate = nil;
-    self.messageBroker = nil;
-    [self stopService];
-    [super dealloc];
-	
-}
 
 
 //Server
@@ -358,10 +361,10 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 
 -(void)stopService {
-    self.listeningSocket = nil;
-    self.connectionSocket = nil;
-    self.messageBroker.delegate = nil;
-    self.messageBroker = nil;
+    listeningSocket = nil;
+    connectionSocket = nil;
+    [messageBroker setDelegate:nil];
+    messageBroker = nil;
 	
     [netService stop]; 
     [netService release]; 
@@ -429,7 +432,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
     MessageBroker *newBroker = [[[MessageBroker alloc] initWithAsyncSocket:sock] autorelease];
     newBroker.delegate = self;
     self.messageBroker = newBroker;
-	//[self pingConnection];
+	
 	NSLog(@"Connected, Host:%@  Port:%d",host,port);
 }
 
@@ -617,6 +620,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 		[servicesBrowser setValue:[NSString stringWithFormat:@"Yes"] forKey:@"isConnected"]; 
 		connectEnabled = NO; 
 		disconnectEnabled = YES;
+		[connectMenuItem setEnabled:NO];
+		[disconnectMenuItem setEnabled:YES];
 
 		
 	} else {
@@ -751,6 +756,16 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 	return enable;
 	
 }
+
+#pragma mark TODO MenuItem Validation
+
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem
+{ 
+	BOOL enable;
+	
+	
+}
+	
 
 
 -(void)enterMasterMode { 
