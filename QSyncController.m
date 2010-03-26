@@ -196,7 +196,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[[SGHotKeyCenter sharedCenter] unregisterHotKey:stopKey];
 	[[SGHotKeyCenter sharedCenter] unregisterHotKey:upKey];
 	[[SGHotKeyCenter sharedCenter] unregisterHotKey:downKey];
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:primaryKey];
+	//[[SGHotKeyCenter sharedCenter] unregisterHotKey:primaryKey];
 }
 
 -(void)clearKeys { 
@@ -244,10 +244,23 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	
 }
 
+//This method is now call Toggle HiJacked Keys, should rename
+
 -(void)becomePrimaryPresssed:(id)sender { 
 	
-	NSLog(@"Primary Pressed");
-	[self enterSlaveMode];
+	
+	int i = [keyCaptureButton state];
+	NSLog(@"Key state: %d", [keyCaptureButton state]);
+	
+	
+	if (i == 0) {
+		[self enterMasterMode];
+		[keyCaptureButton setState:1]; }
+	
+	if (i == 1) { 
+		[self enterSlaveMode]; 
+		[keyCaptureButton setState:0];
+	}
 	
 }
 
@@ -579,7 +592,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == TRUE) {
+	if (match == FALSE) {
 		NSManagedObjectContext *moc = [self managedObjectContext]; 
 		NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"ServerBrowser" inManagedObjectContext:moc];
 	    [server setValue:[aService name] forKey:@"name"];
