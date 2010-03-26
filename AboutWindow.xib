@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">10C540</string>
-		<string key="IBDocument.InterfaceBuilderVersion">759</string>
+		<string key="IBDocument.InterfaceBuilderVersion">762</string>
 		<string key="IBDocument.AppKitVersion">1038.25</string>
 		<string key="IBDocument.HIToolboxVersion">458.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">759</string>
+			<string key="NS.object.0">762</string>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -83,7 +83,7 @@
 						<object class="NSTextField" id="401531690">
 							<reference key="NSNextResponder" ref="284530739"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{191, 87}, {142, 17}}</string>
+							<string key="NSFrame">{{191, 79}, {142, 17}}</string>
 							<reference key="NSSuperview" ref="284530739"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="237544928">
@@ -139,14 +139,18 @@
 						<object class="NSTextField" id="960303945">
 							<reference key="NSNextResponder" ref="284530739"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{193, 107}, {103, 17}}</string>
+							<string key="NSFrame">{{158, 96}, {175, 33}}</string>
 							<reference key="NSSuperview" ref="284530739"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="73737676">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">1077937152</int>
-								<string key="NSContents">MerQury v. A16</string>
-								<reference key="NSSupport" ref="832140367"/>
+								<string key="NSContents">MerQury v. A10</string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">Palatino-Roman</string>
+									<double key="NSSize">24</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<reference key="NSControlView" ref="960303945"/>
 								<reference key="NSBackgroundColor" ref="731523483"/>
 								<reference key="NSTextColor" ref="1027569064"/>
@@ -351,9 +355,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{289, 454}, {350, 144}}</string>
+					<string>{{172, 551}, {350, 144}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{289, 454}, {350, 144}}</string>
+					<string>{{172, 551}, {350, 144}}</string>
 					<integer value="0"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -376,7 +380,7 @@
 						<object class="IBToolTipAttribute" key="NS.object.0">
 							<string key="name">ToolTip</string>
 							<reference key="object" ref="245116420"/>
-							<string key="toolTip">Did QAutoSaver save the day?  How about a donation? </string>
+							<string key="toolTip">Did I save your show?  Save a bundle on gear?  Hmm?  How about a donation!  Thanks!</string>
 						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
