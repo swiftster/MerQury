@@ -17,12 +17,8 @@
 -(oneway void)commandFromServer:(in int)command; 
 
 //Core Data Sharing 
--(byref NSManagedObject *)createObject; 
--(byref NSManagedObject *)createChildForObject:(byref NSManagedObject *)parent; 
--(oneway void)deleteObject:(byref NSManagedObject *)object;
--(byref NSArray *)allObjects; 
--(byref NSArray *)objectsOfName:(bycopy NSString *)name 
-				  withPredicate:(bycopy NSPredicate *)predicate;
+-(byref NSArray *)allObjectsServer; 
+
 
 
 
@@ -37,6 +33,9 @@
 
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient; 
 -(void)disconnectClient:(in byref id <ServerMessage>)client;
+
+//Core Data Sharing 
+-(byref NSArray *)allObjectsClient; 
 
 
 

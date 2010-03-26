@@ -15,25 +15,24 @@ NSString * const JATServerGoNotification = @"ServerGoNote";
 NSString * const JATServerSelectionUpNotification = @"ServerUpNote";
 NSString * const JATServerSelectionDownNotification = @"ServerDownNote";
 NSString * const JATServerStopNotification = @"ServerStopNote";
+NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 
 @implementation MessageServer
 
 
 @synthesize appDelegate;
-@synthesize mainMOC;
+@synthesize mainMOC; 
+
 
 
 -(id)initWithDelegate:(QSyncController *)delegate
 {	
-	NSLog(@"Init Server Del Called");
 	
 	if (!(self = [super init])) return nil;
 	
 	appDelegate = delegate;
-	
-	
-	
 	mainMOC = [self newContextToMainStore];
+	
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 	[center addObserver:self
 			   selector:@selector(contextDidSave:) 
@@ -49,6 +48,7 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	[nc addObserver:self selector:@selector(serverUpNote:) name:JATServerSelectionUpNotification object:nil];
 	[nc addObserver:self selector:@selector(serverDownNote:) name:JATServerSelectionDownNotification object:nil];
 	[nc addObserver:self selector:@selector(serverStopNote:) name:JATServerStopNotification object:nil];
+	[nc addObserver:self selector:@selector(updateModalFromClient:) name:JATGetClientSharedDataNotification object:nil];
 	
 	return self; 
 	
@@ -70,8 +70,10 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 
 - (NSManagedObjectContext*)newContextToMainStore 
 { 
-	
-	NSManagedObjectContext *moc = [appDelegate managedObjectContext]; 
+	 
+	NSPersistentStoreCoordinator *coord = [appDelegate persistentStoreCoordinator];
+	NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] init];
+	[moc setPersistentStoreCoordinator:coord];
 	
 	return [moc autorelease]; 
 } 
@@ -87,6 +89,7 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 
 -(byref NSArray *)allObjects
 { 
+	
 	NSManagedObjectContext *context = mainMOC;
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Server"
@@ -103,63 +106,11 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 		return nil; 
 	}
 	
-	return objects; 
-}
-
--(byref NSManagedObject *)createObject 
-{ 
-	NSManagedObjectContext *context = mainMOC; 
-	NSManagedObject *object = nil; 
-	object = [NSEntityDescription insertNewObjectForEntityForName:@"Server"
-										   inManagedObjectContext:context];
-	return object; 
-}
-
--(oneway void)deleteObject:(byref NSManagedObject *)object
-{
-	NSManagedObject *local = [mainMOC objectWithID:[object objectID]];
-	if ([local isDeleted]) {
-		return; }
-		 
-	//if (![local isInserted]) { 
-			 //[self saveAction:self]; }
-		 
-	[mainMOC deleteObject:local]; 
-
-		 
-}
-//Probably dont need this one.
--(byref NSManagedObject *)createChildForObject:(byref NSManagedObject *)parent 
-{ 
-	NSManagedObject *localParent = [mainMOC objectWithID:[parent objectID]];
-	NSManagedObject *object = nil; 
-	object = [NSEntityDescription insertNewObjectForEntityForName:@"Child"
-										   inManagedObjectContext:mainMOC]; 
+	NSLog(@"Main Thread Object Count:%d", [objects count]);
+	return objects;
 	
-	[object setValue:localParent forKey:@"parent"];
-	return object; 
 }
 
--(byref NSArray *)objectsOfName:(bycopy NSString *)name 
-					withPredicate:(bycopy NSPredicate *)predicate
-{
-	NSError *error = nil;
-	NSFetchRequest *request = [[NSFetchRequest alloc] init]; 
-	[request setEntity:[NSEntityDescription entityForName:name
-								   inManagedObjectContext:mainMOC]];
-	 [request setPredicate:predicate];
-	 NSArray *results = [mainMOC executeFetchRequest:request error:&error];
-	 [request release], request = nil;
-	 
-	 if (error) { 
-		 NSLog(@"%@;%s Error on fetch %@", [self class], _cmd, error);
-		 return nil; } 
-	
-	 return results; 
-}
-	 
-	
-			
 
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient
 { 
@@ -232,6 +183,26 @@ NSString * const JATServerStopNotification = @"ServerStopNote";
 	
 	while (currentClient = [enumerator nextObject]) { 
 		[currentClient commandFromServer:140]; }
+	
+}
+
+
+#pragma mark FROM CLient messages
+
+-(void)updateModalFromClient:(NSNotification *)note
+{ 
+	NSLog(@"Server Update Note Arrived");
+	NSEnumerator *enumerator; 
+	id currentClient;
+	NSArray *objects; 
+	
+	enumerator = [clients objectEnumerator]; 
+	
+	while (currentClient = [enumerator nextObject]) { 
+		
+		objects = [currentClient allObjectsClient]; 
+		NSLog(@"Client Data Count:%d", [objects count]);
+	}	
 	
 }
 

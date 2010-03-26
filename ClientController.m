@@ -9,11 +9,13 @@
 #import "ClientController.h"
 #import <sys/socket.h>
 #import "CommandMessagesProto.h"
+#import "QlabScripting.h"
 
 
 @implementation ClientController
 
 @synthesize proxy;
+@synthesize moc; 
 
 //Private Method to clean up connection and proxy 
 -(void) cleanUp 
@@ -26,6 +28,14 @@
 	proxy = nil;
 	
 	
+}
+
+-(id)initWithManagedObjectContect:(NSManagedObjectContext *)mainMoc 
+{ 
+	moc = mainMoc; 
+	
+	[super init]; 
+	return self; 
 }
 
 
@@ -57,6 +67,40 @@
 	
 	
 }
+
+-(void)updateModalFromServer 
+{ 
+	NSArray *serverObjects; 
+	serverObjects = [proxy allObjects]; 
+	
+	NSLog(@"Client Object Count:%@",[serverObjects count]);
+	
+}
+
+-(byref NSArray *)allObjectsClient
+{ 
+	
+	NSManagedObjectContext *context = moc;
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Server"
+											  inManagedObjectContext:context];
+	[request setEntity:entity]; 
+	
+	NSError *error = nil; 
+	
+	NSArray *objects = [context executeFetchRequest:request error:&error];
+	[request release], request = nil;
+	
+	if (error) {
+		NSLog(@"%@:%s error %@", [self class], _cmd, error); 
+		return nil; 
+	}
+	
+	NSLog(@"Main Thread Object Count:%d", [objects count]);
+	return objects;
+	
+}
+
 
 
 
@@ -116,6 +160,7 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 	
 	if (successful) {
 		NSLog(@"Connected to Server");
+		
 		
 	} else {
 		//[messageField setStringValue:@"Name not available"];

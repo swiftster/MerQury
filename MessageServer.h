@@ -12,13 +12,15 @@
 #import "ConnectionMonitor.h"
 #include <sys/socket.h>
 #import "QlabScripting.h"
-@class QSyncController; 
+@class QSyncController;
+
 
 //Use notifcations for server return since Server is running on another Thread
 extern NSString * const JATServerGoNotification;
 extern NSString * const JATServerSelectionUpNotification;
 extern NSString * const JATServerSelectionDownNotification;
 extern NSString * const JATServerStopNotification;
+extern NSString	* const JATGetClientSharedDataNotification; 
 
 
 @interface MessageServer : NSObject <ServerMessage> {
@@ -26,19 +28,16 @@ extern NSString * const JATServerStopNotification;
 	NSMutableArray *clients;  
 	QSyncController *appDelegate;
 	NSManagedObjectContext *mainMOC;
+	
+	
 
 
 }
 @property (assign) QSyncController *appDelegate;
-@property (readwrite, assign) NSManagedObjectContext *mainMOC; 
-
+@property (readwrite, assign) NSManagedObjectContext *mainMOC;
 
 
 -(id)initWithDelegate:(QSyncController *)delegate;
-
-
-
-
 
 - (NSManagedObjectContext*)newContextToMainStore;
 - (void)contextDidSave:(NSNotification*)notification;
@@ -47,6 +46,8 @@ extern NSString * const JATServerStopNotification;
 -(void)serverStopNote:(NSNotificationCenter *)note;
 -(void)serverUpNote:(NSNotificationCenter *)note;
 -(void)serverDownNote:(NSNotificationCenter *)note;
+
+-(void)updateModalFromClient:(NSNotification *)note;
 
 
 @end

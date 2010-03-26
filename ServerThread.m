@@ -19,9 +19,8 @@
 	NSLog(@"Server Thread"); 
 	if (!(self = [super init])) return nil;
 	
-	
 	appDelegate = delegate;
-
+	
 	return self;
 }
 

@@ -74,7 +74,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 {
 	[super init]; 
 	qlabScripts = [[QlabScripting alloc] init]; 
-	client = [[ClientController alloc] init]; 
+	 
 	queue = [[NSOperationQueue alloc] init];
 	remoteService = [[NSNetService alloc] init]; 
 	
@@ -95,19 +95,22 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[browser setDelegate:self];
     
    
-	//Preload Qlab Array
-	if ([qlabScripts isQlabActive] == YES) { 
-		[self importData]; }
+	
 	
 }
 
 
 - (void)applicationDidFinishLaunching:(NSNotification *)theNotification {
 	
+	client = [[ClientController alloc] initWithManagedObjectContect:[self managedObjectContext]];
 	[self startService];
 	[self startDoServer];
 	[self search:self];
 	[self registerHotKeys]; 
+	
+	//Preload Qlab Array
+	if ([qlabScripts isQlabActive] == YES) { 
+		[self importData]; }
 
 }
 
@@ -228,6 +231,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	[nc postNotificationName:JATServerSelectionUpNotification object:self];
 	[nc postNotificationName:JATQlabSelectionUpNotification object:self];
+	
 }
 
 - (void)downKeyPressed:(id)sender {
@@ -483,6 +487,19 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(void)netService:(NSNetService *)aNetService didNotPublish:(NSDictionary *)dict {
     NSLog(@"Failed to publish: %@", dict);
 }
+
+#pragma mark Server Calls
+
+-(IBAction)getClientSharedData:(id)sender
+{ 
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc postNotificationName:JATGetClientSharedDataNotification object:self]; 
+	
+	NSLog(@"Note Sent");
+
+}
+
+
 
 #pragma mark Client Methods 
 
@@ -817,7 +834,7 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 -(void)startDoServer 
 { 
 	ServerThread *operation = nil;
-	operation = [[ServerThread alloc] init];
+	operation = [[ServerThread alloc] initWithDelegate:self];
 	if (!doServerQueue) {
 		doServerQueue = [[NSOperationQueue alloc] init]; }
 	
@@ -833,6 +850,7 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 	[op release], op = nil;
 }
 	
+
 
 @end
 

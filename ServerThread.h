@@ -17,15 +17,13 @@
 
 @interface ServerThread : NSOperation {
 	
-	
 	QSyncController *appDelegate;
-
 	
 }
 
 @property (assign) QSyncController *appDelegate;
 
-
+- (id)initWithDelegate:(QSyncController*)delegate;
 
 
 

@@ -22,7 +22,6 @@
 - (id)initWithDelegate:(QSyncController*)delegate
 {
 	
-	//NSLog(@"Import Op Called"); 
 	if (!(self = [super init])) return nil;
 	
 
@@ -344,7 +343,7 @@
 	
 	NSNumber *qMaster =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:0]];
 	[cueObject setValue:qMaster forKey:@"masterLevel"];
-	//NSLog(@"Master lvl:%f",[qMaster doubleValue]);
+	
 	
 	NSNumber *qFader1 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:1]]; 
 	[cueObject setValue:qFader1 forKey:@"output1"];

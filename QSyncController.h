@@ -49,6 +49,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	NSTimer *wait;
 	int retryAttempt; 
 	NSNetService *remoteService;
+	NSNetServiceBrowser *browser;
 
 	//Qlab
 	QlabScripting *qlabScripts;
@@ -65,7 +66,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	SGHotKey *downKey;
 	SGHotKey *primaryKey; 
 	
-	//DO Server Que 
+	//Server Que 
 	NSOperationQueue *doServerOperarionQueue; 
 	NSOperation *doServerQueue; 
 	NSNetService *macService;
@@ -175,6 +176,9 @@ extern NSString *kGlobalBecomePrimaryKey;
 //Data Sharing 
 -(void)importData;
 -(void)startDoServer;
+-(IBAction)getClientSharedData:(id)sender; 
+
+
 
 
 
