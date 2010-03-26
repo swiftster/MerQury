@@ -187,6 +187,38 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 	
 }
 
+-(BOOL)isModified 
+{
+	QlabApplication *qLab = [SBApplication applicationWithBundleIdentifier:@"com.figure53.Qlab.2"]; 
+	NSArray *array = [qLab documents];
+	int i;
+	
+	BOOL checkMod = FALSE;
+	NSInteger arrayCount = [array count]; 
+	
+	
+	
+	
+	for (i = 0; i < arrayCount; i++){
+		
+		checkMod = [[array objectAtIndex:i]modified];
+		//NSLog(@"checkMod reports %d", checkMod);
+		
+		if (checkMod == TRUE) {
+			//NSLog(@"checkMod reports %d", checkMod);
+			return TRUE;
+		}
+		
+	}
+	
+	
+	
+	return checkMod;
+	[array release]; 
+	[qLab release]; 
+}
+
+
 #pragma mark -
 
 #pragma mark -

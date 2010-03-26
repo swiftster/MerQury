@@ -11,9 +11,9 @@
 			<string key="net.wafflesoftware.ShortcutRecorder.IB.Leopard">1</string>
 		</dictionary>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
+			<integer value="736"/>
 			<integer value="372"/>
 			<integer value="864"/>
-			<integer value="736"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>net.wafflesoftware.ShortcutRecorder.IB.Leopard</string>
@@ -1429,35 +1429,13 @@
 								<reference key="NSControlView" ref="585120128"/>
 								<int key="NSButtonFlags">1211912703</int>
 								<int key="NSButtonFlags2">268435458</int>
-								<object class="NSCustomResource" key="NSNormalImage" id="661021525">
+								<object class="NSCustomResource" key="NSNormalImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">NSSwitch</string>
 								</object>
-								<object class="NSButtonImageSource" key="NSAlternateImage" id="607112408">
+								<object class="NSButtonImageSource" key="NSAlternateImage">
 									<string key="NSImageName">NSSwitch</string>
 								</object>
-								<string key="NSAlternateContents"/>
-								<string key="NSKeyEquivalent">k</string>
-								<int key="NSPeriodicDelay">200</int>
-								<int key="NSPeriodicInterval">25</int>
-							</object>
-						</object>
-						<object class="NSButton" id="586191709">
-							<reference key="NSNextResponder" ref="439893737"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{307, 183}, {182, 18}}</string>
-							<reference key="NSSuperview" ref="439893737"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="366495533">
-								<int key="NSCellFlags">-2080244224</int>
-								<int key="NSCellFlags2">0</int>
-								<string key="NSContents">iPhone Cntrl</string>
-								<reference key="NSSupport" ref="337450820"/>
-								<reference key="NSControlView" ref="586191709"/>
-								<int key="NSButtonFlags">1211912703</int>
-								<int key="NSButtonFlags2">268435458</int>
-								<reference key="NSNormalImage" ref="661021525"/>
-								<reference key="NSAlternateImage" ref="607112408"/>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent">k</string>
 								<int key="NSPeriodicDelay">200</int>
@@ -2035,14 +2013,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">modeSelection:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="586191709"/>
-					</object>
-					<int key="connectionID">783</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">connect:</string>
 						<reference key="source" ref="976324537"/>
 						<reference key="destination" ref="946929584"/>
@@ -2315,7 +2285,6 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="216302497"/>
 							<reference ref="585120128"/>
-							<reference ref="586191709"/>
 							<reference ref="342213916"/>
 							<reference ref="1058932379"/>
 							<reference ref="493814183"/>
@@ -2895,19 +2864,6 @@
 						<reference key="parent" ref="289341132"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">781</int>
-						<reference key="object" ref="586191709"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="366495533"/>
-						</array>
-						<reference key="parent" ref="439893737"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">782</int>
-						<reference key="object" ref="366495533"/>
-						<reference key="parent" ref="586191709"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">784</int>
 						<reference key="object" ref="142216683"/>
 						<array class="NSMutableArray" key="children">
@@ -3276,9 +3232,9 @@
 				<integer value="1" key="351.ImportedFromIB2"/>
 				<string key="354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="354.ImportedFromIB2"/>
-				<string key="371.IBEditorWindowLastContentRect">{{451, 182}, {433, 356}}</string>
+				<string key="371.IBEditorWindowLastContentRect">{{498, 172}, {433, 356}}</string>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="371.IBWindowTemplateEditedContentRect">{{451, 182}, {433, 356}}</string>
+				<string key="371.IBWindowTemplateEditedContentRect">{{498, 172}, {433, 356}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="371.editorWindowContentRectSynchronizationRect">{{33, 99}, {480, 360}}</string>
 				<string key="371.windowTemplate.maxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -3346,8 +3302,6 @@
 				<string key="754.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="768.IBPluginDependency">net.wafflesoftware.ShortcutRecorder.IB.Leopard</string>
 				<string key="778.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="781.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="782.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="784.CustomClassName">MerQuryToolbar</string>
 				<string key="784.IBEditorWindowLastContentRect">{{263, 470}, {617, 0}}</string>
 				<string key="784.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

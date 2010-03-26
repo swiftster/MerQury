@@ -26,6 +26,8 @@ extern NSString *kGlobalUpKey;
 extern NSString *kGlobalDownKey;
 extern NSString *kGlobalBecomePrimaryKey; 
 
+extern NSString * const JATDataRefreshNotification;
+
 @class AsyncSocket;
 @class MessageBroker;
 
@@ -166,6 +168,12 @@ extern NSString *kGlobalBecomePrimaryKey;
 -(IBAction)openAdjustPanel:(id)sender;
 -(IBAction)adjustNow: (id) sender; 
 -(IBAction)modeSelection: (id) sender; 
+
+
+//Qlab Time Cycle 
+-(void)activeUpdate;
+-(void)qlabMait;
+-(void)refreshQlabInfo:(NSNotification *)note;
  
 
 -(void)enterMasterMode;

@@ -28,6 +28,8 @@ NSString *kGlobalUpKey = @"Global Up Key";
 NSString *kGlobalDownKey = @"Global Down Key";
 NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
+NSString * const JATDataRefreshNotification = @"DataRefreshNote";
+
 
 
 @implementation QSyncController
@@ -108,9 +110,14 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	[self search:self];
 	[self registerHotKeys]; 
 	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc addObserver:self selector:@selector(refreshQlabInfo:) name:JATDataRefreshNotification object:nil];
+	
 	//Preload Qlab Array
 	if ([qlabScripts isQlabActive] == YES) { 
 		[self importData]; }
+	
+	[self activeUpdate];
 
 }
 
@@ -725,6 +732,81 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 	
 
 }
+
+
+#pragma mark Qlab Update Cycle
+
+-(void)activeUpdate
+{ 
+	NSTimer *updateTimer;
+	updateTimer = [[NSTimer scheduledTimerWithTimeInterval:2
+														 target:self
+													   selector:@selector(qlabMait)
+													   userInfo:nil 
+														repeats:NO] autorelease]; 
+	
+}
+
+
+-(void)qlabMait
+{
+	//NSLog(@"Updating Qlab info");
+	
+	if ([qlabScripts isQlabActive] == YES) { 
+		
+		[qlabScripts loadQlabArray];
+		
+	}
+	
+	[self activeUpdate];
+	
+}
+
+
+-(void)refreshQlabInfo:(NSNotification *)note
+{ 
+	NSLog(@"Refreshing Data");
+	[qlabScripts loadQlabArray];
+	
+	//Remove ALl Core Data Objects Before Update
+	NSManagedObjectContext *moc = [self managedObjectContext]; 
+	
+	NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+	[fetch setEntity:[NSEntityDescription entityForName:@"GroupCue" inManagedObjectContext:moc]];
+	NSArray *result = [moc executeFetchRequest:fetch error:nil];
+	for (id groupcue in result)
+		[moc deleteObject:groupcue];
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"Cues" inManagedObjectContext:moc]];
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id cues in result)
+		[moc deleteObject:cues];
+	
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"CueLists" inManagedObjectContext:moc]];
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id cuelists in result)
+		[moc deleteObject:cuelists];
+	
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"Workspace" inManagedObjectContext:moc]];
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id workspace in result)
+		[moc deleteObject:workspace];
+	
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"Server" inManagedObjectContext:moc]];
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id server in result)
+		[moc deleteObject:server];
+	
+	[self importData]; 
+	 
+
+}
+
+
+
 
 #pragma mark Server Browser Table Delegate
 

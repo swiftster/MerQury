@@ -53,6 +53,7 @@ NSString *workspaceName;
 -(BOOL)isFrontMost; 
 -(NSArray *)selectedCues:(int)inWorkspace; 
 -(NSString *)firstSelectedCue; 
+-(BOOL)isModified; 
 
 //Saveing and Backups
 -(int)getArrayNumber;

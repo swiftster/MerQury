@@ -46,7 +46,8 @@
 
 -(IBAction)refreshData:(id)sender 
 { 
-	[self allCuesSortedBySortID];
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc postNotificationName:JATDataRefreshNotification object:self];
 	
 	
 }
