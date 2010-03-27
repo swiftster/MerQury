@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -267,33 +265,23 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>967A49DB10E9140800CA5CDD</string>
 								<string>38B351FF10CB3F2400E5A97A</string>
-								<string>38B351F510CB3F0D00E5A97A</string>
-								<string>38D8D74C111905EF004775AB</string>
-								<string>29B97315FDCFA39411CA2CEA</string>
+								<string>29B97317FDCFA39411CA2CEA</string>
 								<string>29B97323FDCFA39411CA2CEA</string>
-								<string>1058C7A0FEA54F0111CA2CBB</string>
 								<string>19C28FACFE9D520D11CA2CBB</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>96BE8842115E56DE008C3DF5</string>
-								<string>96BE8843115E56DE008C3DF5</string>
-								<string>96BE8844115E56DE008C3DF5</string>
-								<string>96BE8845115E56DE008C3DF5</string>
-								<string>96BE8846115E56DE008C3DF5</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>60</integer>
-									<integer>59</integer>
-									<integer>46</integer>
-									<integer>45</integer>
+									<integer>22</integer>
+									<integer>16</integer>
+									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 336}, {260, 786}}</string>
+							<string>{{0, 0}, {260, 825}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -305,14 +293,14 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {277, 804}}</string>
+						<string>{{0, 0}, {277, 843}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
 							<real>260</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>59 183 995 845 0 0 1680 1028 </string>
+						<string>178 125 1044 884 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -328,7 +316,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ClientController.h</string>
+								<string>QSync-Info.plist</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -336,11 +324,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ClientController.h</string>
+										<string>QSync-Info.plist</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>96BE8847115E56DE008C3DF5</string>
+										<string>96BE8861115E60C1008C3DF5</string>
 										<key>history</key>
 										<array>
 											<string>9679C76F10D69BC600669157</string>
@@ -396,12 +384,12 @@
 											<string>96876006115E3DBA00A390EB</string>
 											<string>96876007115E3DBA00A390EB</string>
 											<string>96876032115E403500A390EB</string>
-											<string>9687603E115E41B500A390EB</string>
-											<string>9687603F115E41B500A390EB</string>
 											<string>96876058115E4B0F00A390EB</string>
 											<string>9687605D115E4B5000A390EB</string>
 											<string>96876079115E4DFD00A390EB</string>
-											<string>96CC7895115E4FD600F2FB81</string>
+											<string>96BE885F115E60C1008C3DF5</string>
+											<string>96BE8860115E60C1008C3DF5</string>
+											<string>9687603F115E41B500A390EB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -413,14 +401,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {713, 559}}</string>
+								<string>{{0, 0}, {762, 838}}</string>
 								<key>RubberWindowFrame</key>
-								<string>59 183 995 845 0 0 1680 1028 </string>
+								<string>178 125 1044 884 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>559pt</string>
+							<string>838pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -433,18 +421,18 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 564}, {713, 240}}</string>
+								<string>{{0, 843}, {762, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>59 183 995 845 0 0 1680 1028 </string>
+								<string>178 125 1044 884 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>240pt</string>
+							<string>0pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>713pt</string>
+					<string>762pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -599,16 +587,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>96BE8852115E56DE008C3DF5</string>
 		<string>96BE8853115E56DE008C3DF5</string>
 		<string>96BE8854115E56DE008C3DF5</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>9661A1FA10D5CC28006EFDF5</string>
-		<string>/Users/jason/MerQury/QSync.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
-	<string>59 183 995 845 0 0 1680 1028 </string>
+	<string>178 125 1044 884 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
