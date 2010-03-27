@@ -12,8 +12,6 @@
 		381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F326D1119E4B100939B24 /* ConnectionMonitor.m */; };
 		381F32711119F8AB00939B24 /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F32701119F8AB00939B24 /* ClientController.m */; };
 		3822658B10D58F8A00F96214 /* Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3822658A10D58F8900F96214 /* Q.jpg */; };
-		3845506A11112976002D2749 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
-		384550A211112E41002D2749 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3845506911112976002D2749 /* Sparkle.framework */; };
 		388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B2ED51108E17C00745A2D /* MerQuryToolbar.m */; };
@@ -47,6 +45,8 @@
 		967A4AEF10E917F000CA5CDD /* QSyncController.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 967A4AEE10E917F000CA5CDD /* QSyncController.xcdatamodel */; };
 		967A4B2E10E91AA000CA5CDD /* DataWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 967A4B2D10E91AA000CA5CDD /* DataWindow.xib */; };
 		96B4FE3410D5DC8100A791C1 /* q.icns in Resources */ = {isa = PBXBuildFile; fileRef = 96B4FE3310D5DC8100A791C1 /* q.icns */; };
+		96BE8834115E56BD008C3DF5 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96BE8833115E56BD008C3DF5 /* Sparkle.framework */; };
+		96BE883F115E56C6008C3DF5 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 96BE8833115E56BD008C3DF5 /* Sparkle.framework */; };
 		96FDBAEF10F0F1FF0010537B /* DataWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 96FDBAEE10F0F1FF0010537B /* DataWindowController.m */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				384550A211112E41002D2749 /* Sparkle.framework in CopyFiles */,
+				96BE883F115E56C6008C3DF5 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +98,6 @@
 		381F326F1119F8AB00939B24 /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
 		381F32701119F8AB00939B24 /* ClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientController.m; sourceTree = "<group>"; };
 		3822658A10D58F8900F96214 /* Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q.jpg; sourceTree = "<group>"; };
-		3845506911112976002D2749 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		388B2ED41108E17C00745A2D /* MerQuryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerQuryToolbar.h; sourceTree = "<group>"; };
 		388B2ED51108E17C00745A2D /* MerQuryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerQuryToolbar.m; sourceTree = "<group>"; };
@@ -148,6 +147,7 @@
 		967A4B2D10E91AA000CA5CDD /* DataWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DataWindow.xib; sourceTree = "<group>"; };
 		96B4FE3310D5DC8100A791C1 /* q.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = q.icns; sourceTree = "<group>"; };
 		96B5195D10FF9F0E007504CB /* Qlab.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Qlab.h; sourceTree = "<group>"; };
+		96BE8833115E56BD008C3DF5 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = "/Users/jason/Sparkle/build/Release (GC dual-mode; 10.5-only)/Sparkle.framework"; sourceTree = "<absolute>"; };
 		96FDBAED10F0F1FF0010537B /* DataWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataWindowController.h; sourceTree = "<group>"; };
 		96FDBAEE10F0F1FF0010537B /* DataWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataWindowController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,7 +163,7 @@
 				38B3534F10CB404000E5A97A /* Carbon.framework in Frameworks */,
 				388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */,
 				967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */,
-				3845506A11112976002D2749 /* Sparkle.framework in Frameworks */,
+				96BE8834115E56BD008C3DF5 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,11 +188,11 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3845506911112976002D2749 /* Sparkle.framework */,
 				38B3534E10CB404000E5A97A /* Carbon.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				38B3520D10CB400C00E5A97A /* CoreServices.framework */,
 				38B3521210CB402200E5A97A /* ScriptingBridge.framework */,
+				96BE8833115E56BD008C3DF5 /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -518,6 +518,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../shortcutrecorder-read-only/build/Release\"",
+					"\"$(SRCROOT)/../Sparkle/build/Release (GC dual-mode; 10.5-only)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -540,6 +541,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../shortcutrecorder-read-only/build/Release\"",
+					"\"$(SRCROOT)/../Sparkle/build/Release (GC dual-mode; 10.5-only)\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
