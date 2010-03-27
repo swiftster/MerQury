@@ -33,6 +33,11 @@
 	NSRunLoop *runLoop = [NSRunLoop currentRunLoop];
 	ConnectionMonitor *monitor = [[ConnectionMonitor alloc] init];
 	
+	//Create and Destroy port 8081 to insure its open?  Will that work?
+	NSSocketPort *testPort; 
+	testPort = [[NSSocketPort alloc] initWithTCPPort:8081];
+	[testPort invalidate]; 
+	[testPort release];
 	
 	
 	//Create Recive Port 

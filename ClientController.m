@@ -20,7 +20,7 @@
 //Private Method to clean up connection and proxy 
 -(void) cleanUp 
 { 
-	
+	NSLog(@"Client Clean Up");
 	NSConnection *connection = [proxy connectionForProxy]; 
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[connection invalidate]; 
@@ -193,14 +193,13 @@ connection = [NSConnection connectionWithReceivePort:nil sendPort:sendPort];
 
 -(void)disconnect 
 { 
-	@try { 
+	NSLog(@"Client Disconnect Called");
+	
+	
 		[proxy disconnectClient:self]; 
-		[self cleanUp]; }
+		[self cleanUp]; 
+		NSLog(@"Cleanup:"); 
 	
-	@catch (NSException *e) {
-		//Error here if you like
-	
-	}
 }
 
 //Delegate Methods 

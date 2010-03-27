@@ -6,7 +6,7 @@
 //  Copyright 2009 Sound Character . All rights reserved.
 //
 //
-// Connection Mait. is handled by the MessageBroker Class
+
 
 #import "QSyncController.h"
 #import "AsyncSocket.h"
@@ -128,7 +128,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	[[NSUserDefaults standardUserDefaults] setObject:[self.downKey.keyCombo plistRepresentation] forKey:kGlobalDownKey];
 	[[NSUserDefaults standardUserDefaults] setObject:[self.primaryKey.keyCombo plistRepresentation] forKey:kGlobalBecomePrimaryKey];
 	
-	
+	[client disconnect];
 } 
 
 
