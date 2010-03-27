@@ -91,7 +91,7 @@
 	NSLog(@"runLoop state:%@", [runLoop currentMode]);
 	
 	//If the runloop exits cleanup
-
+	NSLog(@"Server Loop Ending");
 	[connection release]; 
 	[monitor release]; 
 	[pool release];

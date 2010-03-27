@@ -11,9 +11,9 @@
 			<string key="net.wafflesoftware.ShortcutRecorder.IB.Leopard">1</string>
 		</dictionary>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
-			<integer value="736"/>
-			<integer value="372"/>
 			<integer value="864"/>
+			<integer value="372"/>
+			<integer value="736"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>net.wafflesoftware.ShortcutRecorder.IB.Leopard</string>
@@ -2199,14 +2199,6 @@
 					</object>
 					<int key="connectionID">894</int>
 				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">getClientSharedData:</string>
-						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="502353527"/>
-					</object>
-					<int key="connectionID">897</int>
-				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -3232,9 +3224,9 @@
 				<integer value="1" key="351.ImportedFromIB2"/>
 				<string key="354.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="354.ImportedFromIB2"/>
-				<string key="371.IBEditorWindowLastContentRect">{{498, 172}, {433, 356}}</string>
+				<string key="371.IBEditorWindowLastContentRect">{{607, 383}, {433, 356}}</string>
 				<string key="371.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="371.IBWindowTemplateEditedContentRect">{{498, 172}, {433, 356}}</string>
+				<string key="371.IBWindowTemplateEditedContentRect">{{607, 383}, {433, 356}}</string>
 				<integer value="1" key="371.NSWindowTemplate.visibleAtLaunch"/>
 				<string key="371.editorWindowContentRectSynchronizationRect">{{33, 99}, {480, 360}}</string>
 				<string key="371.windowTemplate.maxSize">{3.40282e+38, 3.40282e+38}</string>

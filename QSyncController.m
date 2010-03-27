@@ -395,6 +395,9 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	[macService stop]; 
 	[macService release]; 
 	
+
+	
+	
 	
 	[serverStopButton setEnabled:NO];
 	[serverStartButton setEnabled:YES];
