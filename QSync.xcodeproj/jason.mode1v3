@@ -306,7 +306,7 @@
 							<real>260</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>94 120 1330 908 0 0 1680 1028 </string>
+						<string>20 120 1330 908 0 0 1680 1028 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -334,7 +334,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9668BB1F1160F7430095B752</string>
+										<string>9668BB251160F8180095B752</string>
 										<key>history</key>
 										<array>
 											<string>9679C76F10D69BC600669157</string>
@@ -411,7 +411,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {1048, 863}}</string>
 								<key>RubberWindowFrame</key>
-								<string>94 120 1330 908 0 0 1680 1028 </string>
+								<string>20 120 1330 908 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -431,7 +431,7 @@
 								<key>Frame</key>
 								<string>{{0, 868}, {1048, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>94 120 1330 908 0 0 1680 1028 </string>
+								<string>20 120 1330 908 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -595,16 +595,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>9668BB201160F7430095B752</string>
 		<string>9668B9551160EF830095B752</string>
 		<string>9668B9561160EF830095B752</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>9661A1FA10D5CC28006EFDF5</string>
-		<string>/Users/jason/MerQury/QSync.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>/Users/jason/MerQury/QSync.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>94 120 1330 908 0 0 1680 1028 </string>
+	<string>20 120 1330 908 0 0 1680 1028 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -952,7 +951,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {614, 658}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1038 326 614 699 0 0 1680 1028 </string>
+								<string>986 217 614 699 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -981,7 +980,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>1038 326 614 699 0 0 1680 1028 </string>
+			<string>986 217 614 699 0 0 1680 1028 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
