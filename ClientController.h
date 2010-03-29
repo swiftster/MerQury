@@ -28,7 +28,7 @@
 
 
 -(id)initWithManagedObjectContect:(NSManagedObjectContext *)moc;
--(void)updateModalFromServer;
+-(NSArray *)updateModalFromServer;
 
 
 -(BOOL)connect:(NSData *)address;

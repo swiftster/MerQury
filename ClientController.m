@@ -68,12 +68,14 @@
 	
 }
 
--(void)updateModalFromServer 
+-(NSArray *)updateModalFromServer 
 { 
 	NSArray *serverObjects; 
 	serverObjects = [proxy allObjects]; 
 	
 	NSLog(@"Client Object Count:%@",[serverObjects count]);
+	
+	return serverObjects;
 	
 }
 

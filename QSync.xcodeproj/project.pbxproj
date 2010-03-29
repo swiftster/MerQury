@@ -42,6 +42,7 @@
 		9644160010CD78C1005F595D /* AboutWindowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 964415FF10CD78C1005F595D /* AboutWindowControl.m */; };
 		9644160210CD78DC005F595D /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9644160110CD78DC005F595D /* AboutWindow.xib */; };
 		9644160510CD78FF005F595D /* btn_donateCC_LG.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9644160410CD78FF005F595D /* btn_donateCC_LG.gif */; };
+		9668B95A1160EFCB0095B752 /* SharedDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668B9591160EFCB0095B752 /* SharedDataImport.m */; };
 		967A49E110E9146800CA5CDD /* ImportOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 967A49E010E9146800CA5CDD /* ImportOp.m */; };
 		967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967A4ABF10E914E900CA5CDD /* CoreData.framework */; };
 		967A4AEF10E917F000CA5CDD /* QSyncController.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 967A4AEE10E917F000CA5CDD /* QSyncController.xcdatamodel */; };
@@ -141,6 +142,8 @@
 		964415FF10CD78C1005F595D /* AboutWindowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowControl.m; sourceTree = "<group>"; };
 		9644160110CD78DC005F595D /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 		9644160410CD78FF005F595D /* btn_donateCC_LG.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = btn_donateCC_LG.gif; sourceTree = "<group>"; };
+		9668B9581160EFCB0095B752 /* SharedDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDataImport.h; sourceTree = "<group>"; };
+		9668B9591160EFCB0095B752 /* SharedDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDataImport.m; sourceTree = "<group>"; };
 		967A49DF10E9146800CA5CDD /* ImportOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportOp.h; sourceTree = "<group>"; };
 		967A49E010E9146800CA5CDD /* ImportOp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportOp.m; sourceTree = "<group>"; };
 		967A4ABF10E914E900CA5CDD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -177,7 +180,7 @@
 				38B3520B10CB3FB100E5A97A /* QSyncController.m */,
 				964415FD10CD78AD005F595D /* Views & Controllers */,
 				967A49DB10E9140800CA5CDD /* Models */,
-				967A49DE10E9146800CA5CDD /* Import Thread */,
+				967A49DE10E9146800CA5CDD /* Import Operations */,
 				38D811D410D9B11400931384 /* HotKeys */,
 				38B351FF10CB3F2400E5A97A /* QLab Scripting */,
 				38B351F510CB3F0D00E5A97A /* Networking */,
@@ -367,13 +370,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		967A49DE10E9146800CA5CDD /* Import Thread */ = {
+		967A49DE10E9146800CA5CDD /* Import Operations */ = {
 			isa = PBXGroup;
 			children = (
 				967A49DF10E9146800CA5CDD /* ImportOp.h */,
 				967A49E010E9146800CA5CDD /* ImportOp.m */,
+				9668B9581160EFCB0095B752 /* SharedDataImport.h */,
+				9668B9591160EFCB0095B752 /* SharedDataImport.m */,
 			);
-			name = "Import Thread";
+			name = "Import Operations";
 			sourceTree = "<group>";
 		};
 		96F774E310D5BA05005A6B6B /* About Window */ = {
@@ -484,6 +489,7 @@
 				381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */,
 				381F32711119F8AB00939B24 /* ClientController.m in Sources */,
 				38F5B00E113AFF1B003F1DAF /* ServerBrowser.m in Sources */,
+				9668B95A1160EFCB0095B752 /* SharedDataImport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

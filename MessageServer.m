@@ -56,7 +56,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 
 -(void)dealloc 
 { 
-	NSLog(@"Message Server dealloc");
+	
 	appDelegate = nil; 
 	[clients release]; 
 	[mainMOC release];
@@ -71,7 +71,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 - (NSManagedObjectContext*)newContextToMainStore 
 { 
 	 
-	NSPersistentStoreCoordinator *coord = [appDelegate persistentStoreCoordinator];
+	NSPersistentStoreCoordinator *coord = [[appDelegate managedObjectContext] persistentStoreCoordinator];
 	NSManagedObjectContext *moc = [[NSManagedObjectContext alloc] init];
 	[moc setPersistentStoreCoordinator:coord];
 	

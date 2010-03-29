@@ -16,6 +16,8 @@
 #import	"ImportOp.h"
 #import "ServerThread.h"
 #import "ServerBrowser.h"
+#import "MessageServer.h"
+#import "SharedDataImport.h"
 
 
 
@@ -219,7 +221,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 - (void)goKeyPressed:(id)sender {
 	
-	NSLog(@"Go Button Pressed");
+	//NSLog(@"Go Button Pressed");
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc postNotificationName:JATServerGoNotification object:self];
 	[qlabScripts goCue];
@@ -257,7 +259,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 	
 	int i = [keyCaptureButton state];
-	NSLog(@"Key state: %d", [keyCaptureButton state]);
+	//NSLog(@"Key state: %d", [keyCaptureButton state]);
 	
 	
 	if (i == 0) {
@@ -347,7 +349,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
     NSError *error;
     listeningSocket = [[[AsyncSocket alloc]initWithDelegate:self] autorelease];
     if ( ![listeningSocket acceptOnPort:0 error:&error] ) {
-        NSLog(@"Failed to create listening socket");
+       // NSLog(@"Failed to create listening socket");
         return;
     }
 	
@@ -401,7 +403,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 	[serverStopButton setEnabled:NO];
 	[serverStartButton setEnabled:YES];
-	NSLog(@"Service Stopped");
+	//NSLog(@"Service Stopped");
 	
 	startEnabled = TRUE; 
 	stopEnabled = FALSE; 
@@ -460,7 +462,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
     newBroker.delegate = self;
     self.messageBroker = newBroker;
 	
-	NSLog(@"Connected, Host:%@  Port:%d",host,port);
+	//NSLog(@"Connected, Host:%@  Port:%d",host,port);
 }
 
 
@@ -513,12 +515,15 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 #pragma mark Server Calls
 
--(IBAction)getClientSharedData:(id)sender
+-(IBAction)getServerSharedData:(id)sender
 { 
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-	[nc postNotificationName:JATGetClientSharedDataNotification object:self]; 
+	NSArray *array; 
 	
-	NSLog(@"Note Sent");
+	array = [client updateModalFromServer];
+
+	[self importSharedData:array]; 
+
+	
 
 }
 
@@ -602,7 +607,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == FALSE) {
+	if (match == TRUE) {
 		NSManagedObjectContext *moc = [self managedObjectContext]; 
 		NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"ServerBrowser" inManagedObjectContext:moc];
 	    [server setValue:[aService name] forKey:@"name"];
@@ -613,7 +618,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 		
 	} else { 
 		
-		NSLog(@"Excluding self from server browser"); }
+		//NSLog(@"Excluding self from server browser"); 
+	}
 	
 	
 }
@@ -907,11 +913,20 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 #pragma mark -
 #pragma mark Qlab Data Import Methods
 
+-(MessageServer *)setupServerClass
+{
+	MessageServer *server = [[MessageServer alloc] initWithDelegate:self]; 
+	
+	return server; 
+	
+}
+
+
+
 
 -(void)importData
 { 
-	ImportOp *operation = nil;
-	operation = [[ImportOp alloc] initWithDelegate:self];
+
 	if (!queue) {
 		queue = [[NSOperationQueue alloc] init]; }
 	
@@ -931,14 +946,13 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 
 -(void)startDoServer 
 { 
-	ServerThread *operation = nil;
-	operation = [[ServerThread alloc] initWithDelegate:self];
+	
 	if (!doServerQueue) {
 		doServerQueue = [[NSOperationQueue alloc] init]; }
 	
 	
 	ServerThread *op = nil;
-	op = [[ServerThread alloc] init];
+	op = [[ServerThread alloc] initWithDelegate:self withServer:[self setupServerClass]];
 	
 	if (!doServerOperarionQueue) {
 		doServerOperarionQueue = [[NSOperationQueue alloc] init];
@@ -949,6 +963,25 @@ DataWindowController *newWindowController = [[DataWindowController alloc] initWi
 }
 	
 
+
+-(void)importSharedData:(NSArray *)array
+{ 
+	
+	if (!queue) {
+		queue = [[NSOperationQueue alloc] init]; }
+	
+	
+	SharedDataImport *op = nil;
+	op = [[SharedDataImport alloc] initWithDelegate:self withArray:array];
+	
+	if (!genericOperationQueue) {
+		genericOperationQueue = [[NSOperationQueue alloc] init];
+	}
+	
+	[genericOperationQueue addOperation:op];
+	[op release], op = nil;
+	
+}
 
 @end
 

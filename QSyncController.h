@@ -16,6 +16,7 @@
 
 #import	"DataWindowController.h"
 #import	"ClientController.h"
+#import "MessageServer.h"
 
 
 
@@ -184,7 +185,13 @@ extern NSString * const JATDataRefreshNotification;
 //Data Sharing 
 -(void)importData;
 -(void)startDoServer;
--(IBAction)getClientSharedData:(id)sender; 
+-(void)importSharedData:(NSArray *)array;
+
+
+-(IBAction)getServerSharedData:(id)sender; 
+
+-(MessageServer *)setupServerClass; 
+
 
 
 

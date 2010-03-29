@@ -11,9 +11,9 @@
 			<string key="net.wafflesoftware.ShortcutRecorder.IB.Leopard">1</string>
 		</dictionary>
 		<array class="NSMutableArray" key="IBDocument.EditedObjectIDs">
+			<integer value="736"/>
 			<integer value="864"/>
 			<integer value="372"/>
-			<integer value="736"/>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>net.wafflesoftware.ShortcutRecorder.IB.Leopard</string>
@@ -2199,6 +2199,14 @@
 					</object>
 					<int key="connectionID">894</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">getServerSharedData:</string>
+						<reference key="source" ref="976324537"/>
+						<reference key="destination" ref="502353527"/>
+					</object>
+					<int key="connectionID">898</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -3328,7 +3336,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">897</int>
+			<int key="maxID">898</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3369,7 +3377,7 @@
 						<string key="adjustNow:">id</string>
 						<string key="connect:">id</string>
 						<string key="disconnectButton:">id</string>
-						<string key="getClientSharedData:">id</string>
+						<string key="getServerSharedData:">id</string>
 						<string key="modeSelection:">id</string>
 						<string key="openAboutWindow:">id</string>
 						<string key="openAdjustPanel:">id</string>

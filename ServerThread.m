@@ -12,14 +12,16 @@
 @implementation ServerThread
 
 @synthesize appDelegate;
+@synthesize myServer;
 
-- (id)initWithDelegate:(QSyncController*)delegate
+- (id)initWithDelegate:(QSyncController*)delegate withServer:(MessageServer *)server
 {
 	
-	NSLog(@"Server Thread"); 
+	//NSLog(@"Server Thread"); 
 	if (!(self = [super init])) return nil;
 	
 	appDelegate = delegate;
+	myServer = server;
 	
 	return self;
 }
@@ -45,18 +47,18 @@
 	@try {
 		  //The server will wait for requests on port 8081
 		  receivePort = [[NSSocketPort alloc] initWithTCPPort:8081];
-		NSLog(@"Server Recieve Port is Valid:%d", [receivePort isValid]);
+		//NSLog(@"Server Recieve Port is Valid:%d", [receivePort isValid]);
 		}
 		  
 	@catch (NSException *e) {
-		NSLog(@"Unable to get port 8081"); 
+		//NSLog(@"Unable to get port 8081"); 
 		exit(-1); 
 	}
 	
 		
 	
 	//Create the connection object 
-	NSLog(@"Starting Server Connection");
+	//NSLog(@"Starting Server Connection");
 	NSConnection *connection; 
 	connection = [NSConnection connectionWithReceivePort:receivePort sendPort:nil];
 	
@@ -66,15 +68,15 @@
 	[receivePort release]; 
 		  
 	//When clients use this connection, they will talk to the Server
-	MessageServer *mServer = [[MessageServer alloc] initWithDelegate:appDelegate];
-	[connection setRootObject:mServer]; 
-	NSLog(@"Server Connection Valid:%d", [connection isValid]);
-	NSLog(@"Server Root Object:%@",[connection rootObject]);
-	NSDictionary *dict = [connection statistics];
-	NSLog(@"Connection Stats:%@",[dict description]);
+	//MessageServer *mServer = [appDelegate setupServerClass];
+	[connection setRootObject:myServer]; 
+	//NSLog(@"Server Connection Valid:%d", [connection isValid]);
+	//NSLog(@"Server Root Object:%@",[connection rootObject]);
+	//NSDictionary *dict = [connection statistics];
+	//NSLog(@"Connection Stats:%@",[dict description]);
 	
 	//The Server is retained by the connection 
-	[mServer release]; 
+	[myServer release]; 
 	 
 	
 	
@@ -88,10 +90,10 @@
 	
 	//Start thr runloop 
 	[runLoop run]; 
-	NSLog(@"runLoop state:%@", [runLoop currentMode]);
+	//NSLog(@"runLoop state:%@", [runLoop currentMode]);
 	
 	//If the runloop exits cleanup
-	NSLog(@"Server Loop Ending");
+	//NSLog(@"Server Loop Ending");
 	[connection release]; 
 	[monitor release]; 
 	[pool release];
