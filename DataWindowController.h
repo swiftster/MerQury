@@ -15,6 +15,9 @@
 
 	NSManagedObjectContext *moc; 
 	IBOutlet NSTreeController *cuesController; 
+	IBOutlet NSTableView *masterTable; 
+	
+	IBOutlet NSTextView *masterText; 
 	
 }
 

@@ -21,6 +21,9 @@
 	NSArray *cueSortArray = [NSArray arrayWithObject:cueSort];
 	[cuesController setSortDescriptors:cueSortArray];
 	
+	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	[nc addObserver:self selector:@selector(textDidEndEditing:) name:NSControlTextDidEndEditingNotification object:self];
+	
 }
 
 
@@ -76,6 +79,12 @@
 		return nil;
 	}
 	return [result sortedArrayUsingDescriptors:sorters];
+}
+
+- (void)textDidEndEditing:(NSNotification *)notification
+{
+	NSLog(@"Finished Editing");
+	
 }
 
 

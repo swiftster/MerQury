@@ -42,6 +42,10 @@
 		9644160010CD78C1005F595D /* AboutWindowControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 964415FF10CD78C1005F595D /* AboutWindowControl.m */; };
 		9644160210CD78DC005F595D /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9644160110CD78DC005F595D /* AboutWindow.xib */; };
 		9644160510CD78FF005F595D /* btn_donateCC_LG.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9644160410CD78FF005F595D /* btn_donateCC_LG.gif */; };
+		966876B411626A7F003B884F /* MasterTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 966876B311626A7F003B884F /* MasterTable.m */; };
+		966876E111627831003B884F /* OutputTextFields.m in Sources */ = {isa = PBXBuildFile; fileRef = 966876E011627831003B884F /* OutputTextFields.m */; };
+		966876F511627B8E003B884F /* QlabLevelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 966876F411627B8E003B884F /* QlabLevelController.m */; };
+		966877231162838F003B884F /* OmniFader.m in Sources */ = {isa = PBXBuildFile; fileRef = 966877221162838F003B884F /* OmniFader.m */; };
 		9668B95A1160EFCB0095B752 /* SharedDataImport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9668B9591160EFCB0095B752 /* SharedDataImport.m */; };
 		967A49E110E9146800CA5CDD /* ImportOp.m in Sources */ = {isa = PBXBuildFile; fileRef = 967A49E010E9146800CA5CDD /* ImportOp.m */; };
 		967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 967A4ABF10E914E900CA5CDD /* CoreData.framework */; };
@@ -142,6 +146,14 @@
 		964415FF10CD78C1005F595D /* AboutWindowControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowControl.m; sourceTree = "<group>"; };
 		9644160110CD78DC005F595D /* AboutWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 		9644160410CD78FF005F595D /* btn_donateCC_LG.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = btn_donateCC_LG.gif; sourceTree = "<group>"; };
+		966876B211626A7F003B884F /* MasterTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTable.h; sourceTree = "<group>"; };
+		966876B311626A7F003B884F /* MasterTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTable.m; sourceTree = "<group>"; };
+		966876DF11627831003B884F /* OutputTextFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutputTextFields.h; sourceTree = "<group>"; };
+		966876E011627831003B884F /* OutputTextFields.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutputTextFields.m; sourceTree = "<group>"; };
+		966876F311627B8E003B884F /* QlabLevelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QlabLevelController.h; sourceTree = "<group>"; };
+		966876F411627B8E003B884F /* QlabLevelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QlabLevelController.m; sourceTree = "<group>"; };
+		966877211162838F003B884F /* OmniFader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmniFader.h; sourceTree = "<group>"; };
+		966877221162838F003B884F /* OmniFader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OmniFader.m; sourceTree = "<group>"; };
 		9668B9581160EFCB0095B752 /* SharedDataImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDataImport.h; sourceTree = "<group>"; };
 		9668B9591160EFCB0095B752 /* SharedDataImport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDataImport.m; sourceTree = "<group>"; };
 		967A49DF10E9146800CA5CDD /* ImportOp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportOp.h; sourceTree = "<group>"; };
@@ -291,6 +303,8 @@
 				38B3520210CB3F2400E5A97A /* QlabScripting.m */,
 				38B3520310CB3F2400E5A97A /* PreferenceController.h */,
 				38B3520410CB3F2400E5A97A /* PreferenceController.m */,
+				966876F311627B8E003B884F /* QlabLevelController.h */,
+				966876F411627B8E003B884F /* QlabLevelController.m */,
 			);
 			name = "QLab Scripting";
 			sourceTree = "<group>";
@@ -397,6 +411,12 @@
 			children = (
 				96FDBAED10F0F1FF0010537B /* DataWindowController.h */,
 				96FDBAEE10F0F1FF0010537B /* DataWindowController.m */,
+				966876B211626A7F003B884F /* MasterTable.h */,
+				966876B311626A7F003B884F /* MasterTable.m */,
+				966876DF11627831003B884F /* OutputTextFields.h */,
+				966876E011627831003B884F /* OutputTextFields.m */,
+				966877211162838F003B884F /* OmniFader.h */,
+				966877221162838F003B884F /* OmniFader.m */,
 			);
 			name = "Data View Window";
 			sourceTree = "<group>";
@@ -490,6 +510,10 @@
 				381F32711119F8AB00939B24 /* ClientController.m in Sources */,
 				38F5B00E113AFF1B003F1DAF /* ServerBrowser.m in Sources */,
 				9668B95A1160EFCB0095B752 /* SharedDataImport.m in Sources */,
+				966876B411626A7F003B884F /* MasterTable.m in Sources */,
+				966876E111627831003B884F /* OutputTextFields.m in Sources */,
+				966876F511627B8E003B884F /* QlabLevelController.m in Sources */,
+				966877231162838F003B884F /* OmniFader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
