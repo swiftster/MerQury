@@ -607,7 +607,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == TRUE) {
+	if (match == FALSE) {
 		NSManagedObjectContext *moc = [self managedObjectContext]; 
 		NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"ServerBrowser" inManagedObjectContext:moc];
 	    [server setValue:[aService name] forKey:@"name"];
@@ -980,6 +980,54 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 	[genericOperationQueue addOperation:op];
 	[op release], op = nil;
+	
+}
+
+
+#pragma mark Blind Mode Methods 
+
+
+-(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d
+{ 
+	
+	[client sendLevelChangeForID:unID inRow:r inColumn:c db:d];
+	
+	
+	
+}
+
+-(void)changeLevelForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d
+{
+	
+	NSArray *array = [qlabScripts qlabCurrentArray]; 
+	NSArray *cueArray;
+	NSString *cueID = unID; 
+	NSInteger xRow = r; 
+	NSInteger xColumn = c; 
+	double level = d; 
+	int i, x, cueCount, j;
+	
+	x = [array count]; 
+	
+	for (i = 0; i < x; i++){
+		
+		cueArray = [[array objectAtIndex:i]cues];
+		cueCount = [cueArray count]; 
+		
+		for (j = 0; j < cueCount; j++){
+			
+			if([[[cueArray objectAtIndex:j]uniqueID] isEqual:cueID]) { 
+				
+				[[cueArray objectAtIndex:j]setLevelRow:xRow column:xColumn db:level]; 
+			}
+				
+		}
+			
+	}
+
+	
+	
+
 	
 }
 

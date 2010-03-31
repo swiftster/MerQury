@@ -112,6 +112,14 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 }
 
 
+-(void)changeLevelFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c db:(in double)d 
+{
+
+	[appDelegate changeLevelForID:unID inRow:r inColumn:c db:d];	
+
+}
+
+
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient
 { 
 

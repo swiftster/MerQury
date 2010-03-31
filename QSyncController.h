@@ -192,7 +192,9 @@ extern NSString * const JATDataRefreshNotification;
 
 -(MessageServer *)setupServerClass; 
 
-
+//Blind Mode 
+-(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d;
+-(void)changeLevelForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d;
 
 
 

@@ -20,7 +20,7 @@
 //Private Method to clean up connection and proxy 
 -(void) cleanUp 
 { 
-	NSLog(@"Client Clean Up");
+	
 	NSConnection *connection = [proxy connectionForProxy]; 
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[connection invalidate]; 
@@ -111,6 +111,14 @@
 
 }
 
+
+-(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d
+{
+	
+	[proxy changeLevelFromClient:unID inRow:r inColumn:c db:d];
+	
+	
+}
 	
 
 //Connect to the server 
