@@ -87,6 +87,9 @@
 	[nc addObserver:self selector:@selector(textChangedFourtySeven:) name:NSControlTextDidEndEditingNotification object:outputFourtySeven];
 	[nc addObserver:self selector:@selector(textChangedFourtyEight:) name:NSControlTextDidEndEditingNotification object:outputFourtyEight];
 	
+	
+	[nc addObserver:self selector:@selector(selectAllMaster:) name:NSControlTextDidBeginEditingNotification object:masterText];
+	
 
 	
 }
@@ -170,6 +173,13 @@
 	return objectArray; 
 	
 }	
+
+-(void)selectAllMaster:(NSNotification *)notification 
+{ 
+	NSLog(@"Selecting all");
+	[masterText selectAll:nil]; 
+	
+}
 
 
 

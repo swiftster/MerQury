@@ -73,28 +73,37 @@
 
 -(void)main 
 { 
-	
-	NSArray *workspaceArray = sharedData;
+	NSLog(@"Starting Remote Server Import");
+	NSArray *sharedArray = sharedData;
+	NSArray *workspaceArray;
 	int i, l, c, g, numberOfCueLists, numberOfCues; 
-	int arrayCount = [workspaceArray count];
-	//NSLog(@"Workspace Array: %d", arrayCount);
+	int arrayCount = [sharedArray count];
+	NSLog(@"Workspace Array: %d", arrayCount);
 	NSMutableSet *mutableCueLists;
 	NSMutableSet *mutableCues;
 	NSMutableSet *mutableGroupCues;
 	NSMutableSet *mutableWorkspace; 
 	NSArray *cueListArray, *cueArray; 
-	NSString *serviceName = [NSString stringWithFormat:@"%@", [[NSProcessInfo processInfo] hostName]];
+	
 	
 	NSManagedObjectContext *moc = mainMOC;
 	
-	//Add the Local Server Name 
-	;
+	//Add the Remote Server Name 
+	NSString *nameTest;
+	id serverObject = [sharedArray objectAtIndex:0]; 
+	nameTest = [serverObject valueForKey:@"serverName"];
+	NSLog(@"ServerName is:%@",nameTest);
+	
+	
 	NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"Server" inManagedObjectContext:moc]; 
-	[server setValue:serviceName forKey:@"serverName"];
+	[server setValue:nameTest forKey:@"serverName"];
 	
 	//Prepare Workspace Set 
-	mutableWorkspace = [server mutableSetValueForKey:@"workspace"];
-	//Workspace Array Already Created
+	
+	NSSet *workSpaceSet = [serverObject valueForKey:@"Workspace"];
+	workspaceArray = [workSpaceSet allObjects];
+	
+	mutableWorkspace = [workspaceArray mutableSetValueForKey:@"workspace"];
 	//ArrayCount Already Created
 	
 	
@@ -104,15 +113,19 @@
 		
 		
 		
+	
 		NSString *nameString = [[workspaceArray objectAtIndex:i]name];
-		//NSLog(@"Workspace Name: %@",nameString);
+		NSLog(@"Workspace Name: %@",nameString);
 		NSManagedObject *workspace = [NSEntityDescription insertNewObjectForEntityForName:@"Workspace" inManagedObjectContext:moc];  
 		
 		[workspace setValue:nameString forKey:@"name"];
 		
 		//Prepare CueList Set
 		mutableCueLists = [workspace mutableSetValueForKey:@"cuelists"];
-		cueListArray = [[workspaceArray objectAtIndex:i]cueLists];
+		
+		NSSet	*cueLitsSet = [serverObject valueForKey:@"CueLists"];
+		
+		cueListArray = [cueLitsSet allObjects];
 		numberOfCueLists = [cueListArray count];
 		
 		//Iterate through each cue list and add cues to the Set
@@ -200,6 +213,7 @@
 	
 	NSString *cueName = [[cueArray objectAtIndex:c]qName];
 	[cueObject setValue:cueName forKey:@"qName"];
+	NSLog(@"Cue Name:%@",cueName);
 	
 	NSString *idName = [[cueArray objectAtIndex:c]uniqueID]; 
 	[cueObject setValue:idName forKey:@"uniqueID"]; 

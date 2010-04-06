@@ -73,7 +73,7 @@
 	NSArray *serverObjects; 
 	serverObjects = [proxy allObjects]; 
 	
-	NSLog(@"Client Object Count:%@",[serverObjects count]);
+	NSLog(@"Client Object Count:%d",[serverObjects count]);
 	
 	return serverObjects;
 	

@@ -522,7 +522,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	array = [client updateModalFromServer];
 
 	[self importSharedData:array]; 
-
+	
+	
 	
 
 }

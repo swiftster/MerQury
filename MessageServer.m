@@ -31,7 +31,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	if (!(self = [super init])) return nil;
 	
 	appDelegate = delegate;
-	mainMOC = [self newContextToMainStore];
+	mainMOC = [appDelegate managedObjectContext];
 	
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 	[center addObserver:self
