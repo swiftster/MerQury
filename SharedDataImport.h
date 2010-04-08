@@ -34,9 +34,9 @@
 - (void)contextDidSave:(NSNotification*)notification;
 
 
--(NSManagedObject *)cueObject:(int) c:(NSManagedObjectContext *) moc:(NSArray *)cueArray;
--(NSManagedObject *)groupObject:(int) c:(NSManagedObjectContext *) moc: (NSArray *)cueArray;
--(NSManagedObject *)levelsObject:(int) c:(NSManagedObjectContext *) moc:(NSArray *)cueArray;
+-(NSManagedObject *)cueObject:(int) c:(NSManagedObjectContext *) moc:(NSManagedObject *)object;
+-(NSManagedObject *)groupObject:(int) c:(NSManagedObjectContext *) moc: (NSManagedObject *)object;
+-(NSManagedObject *)levelsObject:(int) c:(NSManagedObjectContext *) moc:(NSManagedObject *)object;
 
 -(NSString *)doubleToString:(NSNumber *)numberToString;
 -(int)incrementSortInt;

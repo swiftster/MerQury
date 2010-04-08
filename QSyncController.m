@@ -116,8 +116,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	[nc addObserver:self selector:@selector(refreshQlabInfo:) name:JATDataRefreshNotification object:nil];
 	
 	//Preload Qlab Array
-	if ([qlabScripts isQlabActive] == YES) { 
-		[self importData]; }
+	//if ([qlabScripts isQlabActive] == YES) { 
+		//[self importData]; }
 	
 	[self activeUpdate];
 

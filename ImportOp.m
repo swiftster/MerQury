@@ -148,7 +148,7 @@
 				
 				
 				//If the cue type is Group, add the Cue and then the children group cues
-				if (isGroup = @"Group") {
+				if ([isGroup isEqualToString:@"Group"] == TRUE) {
 					
 					NSManagedObject *cueObjectReturn = [self cueObject:c :moc :cueArray];  //Create and use a single Cue Object pre cue
 					
@@ -193,6 +193,7 @@
 	
 	NSManagedObject *cueObject = [NSEntityDescription insertNewObjectForEntityForName:@"Cues" inManagedObjectContext:moc];
 	NSMutableSet *mutableLevelSet = [cueObject mutableSetValueForKey:@"levels"];
+	
 	
 	
 	NSNumber *sortIndex = [NSNumber numberWithInt:[self incrementSortInt]];
@@ -257,6 +258,7 @@
 	[mutableLevelSet addObject:[self levelsObject:c :moc :cueArray]];
 	
 	
+	
 	return cueObject; 
 	[durationTimeString release]; 
 }
@@ -267,6 +269,7 @@
 	
 	NSManagedObject *groupObject = [NSEntityDescription insertNewObjectForEntityForName:@"GroupCue" inManagedObjectContext:moc];
 	NSMutableSet *mutableLevelSet = [groupObject mutableSetValueForKey:@"levels"];
+	
 
 	
 	NSNumber *sortIndex = [NSNumber numberWithInt:[self incrementSortInt]];
@@ -327,6 +330,7 @@
 	
 	
 	[mutableLevelSet addObject:[self levelsObject:c :moc :cueArray]];
+	
 	 
 	
 	
@@ -343,6 +347,7 @@
 	
 	NSNumber *qMaster =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:0]];
 	[cueObject setValue:qMaster forKey:@"masterLevel"];
+	//NSLog(@"Master level:%@",qMaster);
 	
 	
 	NSNumber *qFader1 =  [NSNumber numberWithDouble:[[cueArray objectAtIndex:c]getLevelRow:0 column:1]]; 
