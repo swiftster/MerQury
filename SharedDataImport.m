@@ -123,7 +123,7 @@
 		NSManagedObject *tempWorkspaceObject = [workspaceArray objectAtIndex:i];
 		NSManagedObject *workspace = [NSEntityDescription insertNewObjectForEntityForName:@"Workspace" inManagedObjectContext:moc]; 
 		
-		mutableWorkspace = [workspace mutableSetValueForKey:@"workspace"];
+		mutableWorkspace = [server mutableSetValueForKey:@"workspace"];
 		
 		NSString *nameString = [tempWorkspaceObject valueForKey:@"name"]; 
 		
@@ -135,7 +135,7 @@
 		
 		//Add Cue Lists to the Workspace
 		mutableCueLists = [workspace mutableSetValueForKey:@"cuelists"];
-		NSLog(@"MutableCueList created");
+		//NSLog(@"MutableCueList created");
 		
 		NSSet *cueListSet = [tempWorkspaceObject valueForKey:@"cuelists"];
 		
@@ -179,7 +179,7 @@
 				NSManagedObject *tempCuesObject = [cueArray objectAtIndex:c];
 			
 				NSString *isGroup = [tempCuesObject valueForKey:@"qType"];
-				NSLog(@"isGroup:%@Number of Cues:%d",isGroup, numberOfCues);
+				NSLog(@"isGroup:%@Number of Cues:%d of %d",isGroup, c, numberOfCues);
 				
 				
 				
@@ -214,10 +214,10 @@
 					[mutableCues addObject:[self cueObject:c :moc :tempCuesObject]]; 
 					NSLog(@"Finished Cues Added");						
 				}
-				
+			}
 				
 				[mutableCueLists addObject:cueListObject]; 
-				NSLog(@"Finished Cue Lists Added");    }
+				NSLog(@"Finished Cue Lists Added");    
 			
 			
 		}
@@ -395,7 +395,7 @@
 
 -(NSManagedObject *)levelsObject:(int) c:(NSManagedObjectContext *) moc:(NSManagedObject *)object
 {
-	NSLog(@"Levels Called");
+	//NSLog(@"Levels Called");
 	NSManagedObject *cueObject = [NSEntityDescription insertNewObjectForEntityForName:@"Levels" inManagedObjectContext:moc];
 	
 	//Fader Levels 
