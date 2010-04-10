@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		380F16CF1170E1CB00EF0112 /* MasterTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 380F16CE1170E1CB00EF0112 /* MasterTableCell.m */; };
 		381986CC10D5932400E25426 /* AboutWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 381986CB10D5932400E25426 /* AboutWindow.m */; };
 		381F326B1119E49500939B24 /* ServerThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F326A1119E49500939B24 /* ServerThread.m */; };
 		381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F326D1119E4B100939B24 /* ConnectionMonitor.m */; };
@@ -95,6 +96,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		380F16CD1170E1CB00EF0112 /* MasterTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterTableCell.h; sourceTree = "<group>"; };
+		380F16CE1170E1CB00EF0112 /* MasterTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterTableCell.m; sourceTree = "<group>"; };
 		381986CA10D5932400E25426 /* AboutWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindow.h; sourceTree = "<group>"; };
 		381986CB10D5932400E25426 /* AboutWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindow.m; sourceTree = "<group>"; };
 		381F32691119E49500939B24 /* ServerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerThread.h; sourceTree = "<group>"; };
@@ -412,6 +415,8 @@
 		96FDBAEC10F0F1D70010537B /* Data View Window */ = {
 			isa = PBXGroup;
 			children = (
+				380F16CD1170E1CB00EF0112 /* MasterTableCell.h */,
+				380F16CE1170E1CB00EF0112 /* MasterTableCell.m */,
 				96FDBAED10F0F1FF0010537B /* DataWindowController.h */,
 				96FDBAEE10F0F1FF0010537B /* DataWindowController.m */,
 				966876B211626A7F003B884F /* MasterTable.h */,
@@ -520,6 +525,7 @@
 				966877231162838F003B884F /* OmniFader.m in Sources */,
 				388A1EAC116F8C7E0026D216 /* LevelTextField.m in Sources */,
 				388A1F47116FAB0F0026D216 /* JTNumberFormatter.m in Sources */,
+				380F16CF1170E1CB00EF0112 /* MasterTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

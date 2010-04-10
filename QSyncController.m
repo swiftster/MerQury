@@ -711,7 +711,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	DataWindowController *newWindowController = [[DataWindowController alloc] initWithManagedObjectContext:[self managedObjectContext] appDelegate:self];
 	[newWindowController setShouldCloseDocument:NO];
 	[self addWindowController:newWindowController];
-	[newWindowController showWindow:sender];
+	[newWindowController showWindow:self];
 	
 }
 

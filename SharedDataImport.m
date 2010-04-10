@@ -100,9 +100,8 @@
 	//Add New Object to Local Context
 	NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"Server" inManagedObjectContext:moc]; 
 	[server setValue:nameTest forKey:@"serverName"];
-	BOOL local = NO;
-	[server setValue:local forKey:@"isLocal"];
-	
+	[server setValue:NO forKey:@"isLocal"];
+		
 	
 	
 	//Prepare Workspace Set 
@@ -128,7 +127,10 @@
 		
 		NSString *nameString = [tempWorkspaceObject valueForKey:@"name"]; 
 		
+		
 		[workspace setValue:nameString forKey:@"name"];
+		[workspace setValue:NO forKey:@"isLocal"];
+
 		NSLog(@"Name Added");
 		
 		//Add Cue Lists to the Workspace
@@ -159,6 +161,7 @@
 			
 			[cueListObject setValue:listName forKey:@"qName"];
 			[cueListObject setValue:idNumberString forKey:@"uniqueID"];
+			[cueListObject setValue:NO forKey:@"isLocal"];
 			
 			//Begin Adding Cues to the List
 			mutableCues = [cueListObject mutableSetValueForKey:@"cues"]; 

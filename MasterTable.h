@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface MasterTable : NSTableView {
+@interface MasterTable : NSOutlineView {
 
 }
 

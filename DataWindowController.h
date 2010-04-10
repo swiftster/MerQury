@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LevelTextField.h"
+#import "OmniFader.h"
+#import "MasterTable.h"
 @class QSyncController; 
 
 
@@ -16,7 +18,11 @@
 	QSyncController *appDelegate;
 	NSManagedObjectContext *moc; 
 	IBOutlet NSTreeController *cuesController; 
-	IBOutlet NSTableView *masterTable; 
+	IBOutlet MasterTable *masterTable; 
+	
+	IBOutlet NSArrayController *serverController; 
+	IBOutlet NSArrayController *workSpaceController;
+	IBOutlet NSArrayController *cueListController;
 	
 	IBOutlet LevelTextField *masterText; 
 	IBOutlet LevelTextField *outputOne, *outputTwo, *outputThree, *outputFour, *outputFive, *outputSix, *outputSeven, *outputEight, *outputNine, 
@@ -27,6 +33,7 @@
 							*outputThirtyNine, *outputFourty, *outputFourtyOne, *outputFourtyTwo, *outputFourtyThree, *outputFourtyFour, *outputFourtyFive, 
 							*outputFourtySix, *outputFourtySeven, *outputFourtyEight;
 	
+	IBOutlet OmniFader *fader; 
 	
 }
 

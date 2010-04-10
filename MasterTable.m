@@ -12,11 +12,20 @@
 @implementation MasterTable
 
 
-- (void)textDidEndEditing:(NSNotification *)notification
-{
-	NSLog(@"Finished Editing Master Table");
-	
-}
+-(void)awakeFromNib
 
+{ 
+	 
+	CGFloat f = 20;
+	[self setRowHeight:f];
+	[self setAllowsColumnSelection:FALSE];
+	
+	//Center Cells 
+	
+	NSSize size = NSMakeSize(3.0, 6.0);
+	[self setIntercellSpacing:size];
+	
+	 
+}
 
 @end

@@ -32,9 +32,13 @@
 - (void)windowDidLoad
 { 
 	//NSLog(@"Sorting");
-	//NSSortDescriptor *cueSort = [[[NSSortDescriptor alloc] initWithKey:@"sortNumber" ascending:YES] autorelease];
-	//NSArray *cueSortArray = [NSArray arrayWithObject:cueSort];
-	[cuesController setSortDescriptors:[self allCuesSortedBySortID]];
+	//NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal = FALSE"];
+	//[serverController setFilterPredicate:predicate];
+	//[workSpaceController setFilterPredicate:predicate];
+	//[cueListController setFilterPredicate:predicate];
+	NSSortDescriptor *cueSort = [[[NSSortDescriptor alloc] initWithKey:@"sortNumber" ascending:YES] autorelease];
+	NSArray *cueSortArray = [NSArray arrayWithObject:cueSort];
+	[cuesController setSortDescriptors:cueSortArray];
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(textChangedMaster:) name:NSControlTextDidEndEditingNotification object:masterText];
@@ -128,10 +132,10 @@
 	NSManagedObjectContext *mocl = [self managedObjectContext];
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setSortDescriptors:sorters];
-	[request setEntity:[NSEntityDescription entityForName:@"Server"
+	[request setEntity:[NSEntityDescription entityForName:@"Workspace"
 								   inManagedObjectContext:mocl]];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal = NO"];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal == NO"];
 	[request setPredicate:predicate];
 	
 	NSError *error = nil;
