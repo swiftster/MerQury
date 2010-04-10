@@ -31,10 +31,10 @@
 
 - (void)windowDidLoad
 { 
-	NSLog(@"Sorting");
-	NSSortDescriptor *cueSort = [[[NSSortDescriptor alloc] initWithKey:@"sortNumber" ascending:YES] autorelease];
-	NSArray *cueSortArray = [NSArray arrayWithObject:cueSort];
-	[cuesController setSortDescriptors:cueSortArray];
+	//NSLog(@"Sorting");
+	//NSSortDescriptor *cueSort = [[[NSSortDescriptor alloc] initWithKey:@"sortNumber" ascending:YES] autorelease];
+	//NSArray *cueSortArray = [NSArray arrayWithObject:cueSort];
+	[cuesController setSortDescriptors:[self allCuesSortedBySortID]];
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(textChangedMaster:) name:NSControlTextDidEndEditingNotification object:masterText];
@@ -88,7 +88,7 @@
 	[nc addObserver:self selector:@selector(textChangedFourtyEight:) name:NSControlTextDidEndEditingNotification object:outputFourtyEight];
 	
 	
-	[nc addObserver:self selector:@selector(selectAllMaster:) name:NSControlTextDidBeginEditingNotification object:masterText];
+	
 	
 
 	
@@ -128,8 +128,12 @@
 	NSManagedObjectContext *mocl = [self managedObjectContext];
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	[request setSortDescriptors:sorters];
-	[request setEntity:[NSEntityDescription entityForName:@"Workspace"
+	[request setEntity:[NSEntityDescription entityForName:@"Server"
 								   inManagedObjectContext:mocl]];
+	
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal = NO"];
+	[request setPredicate:predicate];
+	
 	NSError *error = nil;
 	NSArray *result = [mocl executeFetchRequest:request 
 										 error:&error];
@@ -174,11 +178,19 @@
 	
 }	
 
--(void)selectAllMaster:(NSNotification *)notification 
+-(double)formatLevelText:(NSString *)string 
 { 
-	NSLog(@"Selecting all");
-	[masterText selectAll:nil]; 
 	
+	NSString *negativeString = [NSString stringWithFormat:@"-"];
+	NSString *fieldString = [NSString stringWithFormat:@"%@",string];
+	NSLog(@"FString:%@",fieldString); 
+	
+	NSString *returnString = [negativeString stringByAppendingFormat:fieldString]; 
+	NSLog(@"Returning:%f",[returnString doubleValue]);
+	
+	return [returnString doubleValue];
+	
+
 }
 
 
@@ -196,6 +208,9 @@
 	
 	array = [self selectedCue]; 
 	unID = [[array objectAtIndex:0]uniqueID];
+	
+	
+
 	
 	[appDelegate sendLevelChangeForID:unID inRow:row inColumn:column db:[masterText doubleValue]];
 	

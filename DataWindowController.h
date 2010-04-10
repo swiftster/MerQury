@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "LevelTextField.h"
 @class QSyncController; 
 
 
@@ -17,8 +18,8 @@
 	IBOutlet NSTreeController *cuesController; 
 	IBOutlet NSTableView *masterTable; 
 	
-	IBOutlet NSTextField *masterText; 
-	IBOutlet NSTextField *outputOne, *outputTwo, *outputThree, *outputFour, *outputFive, *outputSix, *outputSeven, *outputEight, *outputNine, 
+	IBOutlet LevelTextField *masterText; 
+	IBOutlet LevelTextField *outputOne, *outputTwo, *outputThree, *outputFour, *outputFive, *outputSix, *outputSeven, *outputEight, *outputNine, 
 							*outputTen, *outputEleven, *outputTweleve, *outputThirteen, *outputFourteen, *outputFifteen, *outputSixteen, *outputSeventeen, 
 							*outputEightteen, *outputNineteen, *outputTwenty, *outputTwentyOne, *outputTwentyTwo, *outputTwentyThree, *outputTwentyFour, 
 							*outputTwentyFive, *outputTwentySix, *outputTwentySeven, *outputTwentyEight, *outputTwentyNine, *outputThirty, *outputThirtyOne,
@@ -45,6 +46,8 @@
 
 
 -(NSArray *)selectedCue;
+
+-(double)formatLevelText:(NSString *)string;
 
 
 

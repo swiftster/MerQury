@@ -116,8 +116,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	[nc addObserver:self selector:@selector(refreshQlabInfo:) name:JATDataRefreshNotification object:nil];
 	
 	//Preload Qlab Array
-	//if ([qlabScripts isQlabActive] == YES) { 
-		//[self importData]; }
+	if ([qlabScripts isQlabActive] == YES) { 
+		[self importData]; }
 	
 	[self activeUpdate];
 
@@ -608,7 +608,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == FALSE) {
+	if (match == TRUE) {
 		NSManagedObjectContext *moc = [self managedObjectContext]; 
 		NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"ServerBrowser" inManagedObjectContext:moc];
 	    [server setValue:[aService name] forKey:@"name"];

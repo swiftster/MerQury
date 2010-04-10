@@ -90,6 +90,7 @@
 	
 	//Add the Remote Server Name 
 	NSString *nameTest;
+	
 	NSManagedObject *serverObject = [sharedArray objectAtIndex:0]; 
 	nameTest = [serverObject valueForKey:@"serverName"];
 	NSLog(@"ServerName is:%@",nameTest);
@@ -99,6 +100,8 @@
 	//Add New Object to Local Context
 	NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"Server" inManagedObjectContext:moc]; 
 	[server setValue:nameTest forKey:@"serverName"];
+	BOOL local = NO;
+	[server setValue:local forKey:@"isLocal"];
 	
 	
 	
@@ -401,145 +404,145 @@
 	NSNumber *qFader1 =  [object valueForKey:@"output1"]; 
 	[cueObject setValue:qFader1 forKey:@"output1"];
 	
-	NSNumber *qFader2 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader2 =  [object valueForKey:@"output2"];  
 	[cueObject setValue:qFader2 forKey:@"output2"];
 	
-	NSNumber *qFader3 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader3 =  [object valueForKey:@"output3"];  
 	[cueObject setValue:qFader3 forKey:@"output3"];
 	
-	NSNumber *qFader4 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader4 =  [object valueForKey:@"output4"]; 
 	[cueObject setValue:qFader4 forKey:@"output4"];
 	
-	NSNumber *qFader5 = [object valueForKey:@"output1"]; 
+	NSNumber *qFader5 = [object valueForKey:@"output5"]; 
 	[cueObject setValue:qFader5 forKey:@"output5"];
 	
-	NSNumber *qFader6 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader6 =  [object valueForKey:@"output6"]; 
 	[cueObject setValue:qFader6 forKey:@"output6"];
 	
-	NSNumber *qFader7=  [object valueForKey:@"output1"];  
+	NSNumber *qFader7=  [object valueForKey:@"output7"];  
 	[cueObject setValue:qFader7 forKey:@"output7"];
 	
-	NSNumber *qFader8 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader8 =  [object valueForKey:@"output8"];  
 	[cueObject setValue:qFader8 forKey:@"output8"];
 	
-	NSNumber *qFader9 = [object valueForKey:@"output1"]; 
+	NSNumber *qFader9 = [object valueForKey:@"output9"]; 
 	[cueObject setValue:qFader9 forKey:@"output9"];
 	
-	NSNumber *qFader10 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader10 =  [object valueForKey:@"output10"];  
 	[cueObject setValue:qFader10 forKey:@"output10"];
 	
-	NSNumber *qFader11 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader11 =  [object valueForKey:@"output11"]; 
 	[cueObject setValue:qFader11 forKey:@"output11"];
 	
-	NSNumber *qFader12 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader12 =  [object valueForKey:@"output12"]; 
 	[cueObject setValue:qFader12 forKey:@"output12"];
 	
-	NSNumber *qFader13 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader13 =  [object valueForKey:@"output13"]; 
 	[cueObject setValue:qFader13 forKey:@"output13"];
 	
-	NSNumber *qFader14 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader14 =  [object valueForKey:@"output14"]; 
 	[cueObject setValue:qFader14 forKey:@"output14"];
 	
-	NSNumber *qFader15 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader15 =  [object valueForKey:@"output15"]; 
 	[cueObject setValue:qFader15 forKey:@"output15"];
 	
-	NSNumber *qFader16 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader16 =  [object valueForKey:@"output16"]; 
 	[cueObject setValue:qFader16 forKey:@"output16"];
 	
-	NSNumber *qFader17 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader17 =  [object valueForKey:@"output17"]; 
 	[cueObject setValue:qFader17 forKey:@"output17"];
 	
-	NSNumber *qFader18 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader18 =  [object valueForKey:@"output18"]; 
 	[cueObject setValue:qFader18 forKey:@"output18"];
 	
-	NSNumber *qFader19 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader19 =  [object valueForKey:@"output19"]; 
 	[cueObject setValue:qFader19 forKey:@"output19"];
 	
-	NSNumber *qFader20 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader20 =  [object valueForKey:@"output20"]; 
 	[cueObject setValue:qFader20 forKey:@"output20"];
 	
-	NSNumber *qFader21 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader21 =  [object valueForKey:@"output21"];  
 	[cueObject setValue:qFader21 forKey:@"output21"];
 	
-	NSNumber *qFader22 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader22 =  [object valueForKey:@"output22"]; 
 	[cueObject setValue:qFader22 forKey:@"output22"];
 	
-	NSNumber *qFader23 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader23 =  [object valueForKey:@"output23"];  
 	[cueObject setValue:qFader23 forKey:@"output23"]; 
 	
-	NSNumber *qFader24 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader24 =  [object valueForKey:@"output24"]; 
 	[cueObject setValue:qFader24 forKey:@"output24"];
 	
-	NSNumber *qFader25 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader25 =  [object valueForKey:@"output25"];  
 	[cueObject setValue:qFader25 forKey:@"output25"];
 	
-	NSNumber *qFader26 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader26 =  [object valueForKey:@"output26"]; 
 	[cueObject setValue:qFader26 forKey:@"output26"];
 	
-	NSNumber *qFader27 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader27 =  [object valueForKey:@"output27"]; 
 	[cueObject setValue:qFader27 forKey:@"output27"];
 	
-	NSNumber *qFader28 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader28 =  [object valueForKey:@"output28"]; 
 	[cueObject setValue:qFader28 forKey:@"output28"];
 	
-	NSNumber *qFader29 = [object valueForKey:@"output1"]; 
+	NSNumber *qFader29 = [object valueForKey:@"output29"]; 
 	[cueObject setValue:qFader29 forKey:@"output29"];
 	
-	NSNumber *qFader30 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader30 =  [object valueForKey:@"output30"]; 
 	[cueObject setValue:qFader30 forKey:@"output30"];
 	
-	NSNumber *qFader31 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader31 =  [object valueForKey:@"output31"]; 
 	[cueObject setValue:qFader31 forKey:@"output31"];
 	
-	NSNumber *qFader32 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader32 =  [object valueForKey:@"output32"];  
 	[cueObject setValue:qFader32 forKey:@"output32"];
 	
-	NSNumber *qFader33 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader33 =  [object valueForKey:@"output33"]; 
 	[cueObject setValue:qFader33 forKey:@"output33"];
 	
-	NSNumber *qFader34 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader34 =  [object valueForKey:@"output34"]; 
 	[cueObject setValue:qFader34 forKey:@"output34"];
 	
-	NSNumber *qFader35 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader35 =  [object valueForKey:@"output35"]; 
 	[cueObject setValue:qFader35 forKey:@"output35"];
 	
-	NSNumber *qFader36 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader36 =  [object valueForKey:@"output36"]; 
 	[cueObject setValue:qFader36 forKey:@"output36"];
 	
-	NSNumber *qFader37 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader37 =  [object valueForKey:@"output37"];  
 	[cueObject setValue:qFader37 forKey:@"output37"];
 	
-	NSNumber *qFader38 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader38 =  [object valueForKey:@"output38"]; 
 	[cueObject setValue:qFader38 forKey:@"output38"];
 	
-	NSNumber *qFader39 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader39 =  [object valueForKey:@"output39"]; 
 	[cueObject setValue:qFader39 forKey:@"output39"];
 	
-	NSNumber *qFader40 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader40 =  [object valueForKey:@"output40"]; 
 	[cueObject setValue:qFader40 forKey:@"output40"];
 	
-	NSNumber *qFader41 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader41 =  [object valueForKey:@"output41"];  
 	[cueObject setValue:qFader41 forKey:@"output41"];
 	
-	NSNumber *qFader42 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader42 =  [object valueForKey:@"output42"]; 
 	[cueObject setValue:qFader42 forKey:@"output42"];
 	
-	NSNumber *qFader43 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader43 =  [object valueForKey:@"output43"]; 
 	[cueObject setValue:qFader43 forKey:@"output43"];
 	
-	NSNumber *qFader44 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader44 =  [object valueForKey:@"output44"]; 
 	[cueObject setValue:qFader44 forKey:@"output44"];
 	
-	NSNumber *qFader45 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader45 =  [object valueForKey:@"output45"]; 
 	[cueObject setValue:qFader45 forKey:@"output45"];
 	
-	NSNumber *qFader46 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader46 =  [object valueForKey:@"output46"]; 
 	[cueObject setValue:qFader46 forKey:@"output46"];
 	
-	NSNumber *qFader47 =  [object valueForKey:@"output1"];  
+	NSNumber *qFader47 =  [object valueForKey:@"output47"];  
 	[cueObject setValue:qFader47 forKey:@"output47"];
 	
-	NSNumber *qFader48 =  [object valueForKey:@"output1"]; 
+	NSNumber *qFader48 =  [object valueForKey:@"output48"]; 
 	[cueObject setValue:qFader48 forKey:@"output48"];
 	
 	NSLog(@"Finished Levels");
