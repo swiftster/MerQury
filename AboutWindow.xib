@@ -41,7 +41,7 @@
 			<object class="NSWindowTemplate" id="774473733">
 				<int key="NSWindowStyleMask">3</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{53, 831}, {350, 144}}</string>
+				<string key="NSWindowRect">{{53, 831}, {377, 144}}</string>
 				<int key="NSWTFlags">603979776</int>
 				<string key="NSWindowTitle">About</string>
 				<string key="NSWindowClass">AboutWindow</string>
@@ -139,16 +139,16 @@
 						<object class="NSTextField" id="960303945">
 							<reference key="NSNextResponder" ref="284530739"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{158, 96}, {175, 33}}</string>
+							<string key="NSFrame">{{174, 91}, {159, 33}}</string>
 							<reference key="NSSuperview" ref="284530739"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="73737676">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">1077937152</int>
-								<string key="NSContents">MerQury v. A12</string>
+								<string key="NSContents">MerQury v. A20</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">Palatino-Roman</string>
-									<double key="NSSize">24</double>
+									<double key="NSSize">20</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<reference key="NSControlView" ref="960303945"/>
@@ -157,7 +157,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{350, 144}</string>
+					<string key="NSFrameSize">{377, 144}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
@@ -355,9 +355,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{172, 551}, {350, 144}}</string>
+					<string>{{172, 550}, {377, 144}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{172, 551}, {350, 144}}</string>
+					<string>{{172, 550}, {377, 144}}</string>
 					<integer value="0"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

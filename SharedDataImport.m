@@ -94,13 +94,14 @@
 	NSManagedObject *serverObject = [sharedArray objectAtIndex:0]; 
 	nameTest = [serverObject valueForKey:@"serverName"];
 	NSLog(@"ServerName is:%@",nameTest);
-	
+	NSString *addRemote = @" (Remote)";
+	NSString *serverName = [nameTest stringByAppendingFormat:addRemote];
 
 	
 	//Add New Object to Local Context
 	NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"Server" inManagedObjectContext:moc]; 
-	[server setValue:nameTest forKey:@"serverName"];
-	[server setValue:NO forKey:@"isLocal"];
+	[server setValue:serverName forKey:@"serverName"];
+	[server setValue:FALSE forKey:@"isLocal"];
 		
 	
 	
@@ -126,10 +127,10 @@
 		mutableWorkspace = [server mutableSetValueForKey:@"workspace"];
 		
 		NSString *nameString = [tempWorkspaceObject valueForKey:@"name"]; 
+		NSString *workspaceNameString = [nameString stringByAppendingFormat:@" on %@",nameTest];
 		
-		
-		[workspace setValue:nameString forKey:@"name"];
-		[workspace setValue:NO forKey:@"isLocal"];
+		[workspace setValue:workspaceNameString forKey:@"name"];
+		[workspace setValue:FALSE forKey:@"isLocal"];
 
 		NSLog(@"Name Added");
 		
@@ -157,11 +158,13 @@
 			
 			NSString *listName = [tempCueListObject valueForKey:@"qName"];
 			NSLog(@"ListName:%@",listName);
+			NSString *cueListName = [listName stringByAppendingFormat:@" (Remote)"];
+			
 			NSString *idNumberString = [tempCueListObject valueForKey:@"uniqueID"];
 			
-			[cueListObject setValue:listName forKey:@"qName"];
+			[cueListObject setValue:cueListName forKey:@"qName"];
 			[cueListObject setValue:idNumberString forKey:@"uniqueID"];
-			[cueListObject setValue:NO forKey:@"isLocal"];
+			[cueListObject setValue:FALSE forKey:@"isLocal"];
 			
 			//Begin Adding Cues to the List
 			mutableCues = [cueListObject mutableSetValueForKey:@"cues"]; 

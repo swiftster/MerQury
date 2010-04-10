@@ -32,7 +32,7 @@
 - (void)windowDidLoad
 { 
 	//NSLog(@"Sorting");
-	//NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal = FALSE"];
+	//NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal == FALSE"];
 	//[serverController setFilterPredicate:predicate];
 	//[workSpaceController setFilterPredicate:predicate];
 	//[cueListController setFilterPredicate:predicate];

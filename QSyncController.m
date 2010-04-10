@@ -608,7 +608,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == TRUE) {
+	if (match == FALSE) {
 		NSManagedObjectContext *moc = [self managedObjectContext]; 
 		NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"ServerBrowser" inManagedObjectContext:moc];
 	    [server setValue:[aService name] forKey:@"name"];
