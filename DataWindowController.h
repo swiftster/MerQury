@@ -51,7 +51,7 @@
 -(IBAction)refreshData:(id)sender;
 -(IBAction)test:(id)sender; 
 
-
+-(void)sortByID;
 -(NSArray *)selectedCue;
 
 -(double)formatLevelText:(NSString *)string;

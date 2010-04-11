@@ -242,7 +242,7 @@
 	
 	
 	
-	NSNumber *sortIndex = [NSNumber numberWithInt:[self incrementSortInt]];
+	NSNumber *sortIndex = [object valueForKey:@"sortNumber"];
 	[cueObject setValue:sortIndex forKey:@"sortNumber"];
 	
 	
@@ -326,7 +326,7 @@
 	NSMutableSet *mutableLevelSet = [groupObject mutableSetValueForKey:@"levels"];
 	
 	
-	NSNumber *sortIndex = [NSNumber numberWithInt:[self incrementSortInt]];
+	NSNumber *sortIndex = [object valueForKey:@"sortNumber"];
 	[groupObject setValue:sortIndex forKey:@"sortNumber"];
 	
 	

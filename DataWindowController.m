@@ -36,9 +36,7 @@
 	//[serverController setFilterPredicate:predicate];
 	//[workSpaceController setFilterPredicate:predicate];
 	//[cueListController setFilterPredicate:predicate];
-	NSSortDescriptor *cueSort = [[[NSSortDescriptor alloc] initWithKey:@"sortNumber" ascending:YES] autorelease];
-	NSArray *cueSortArray = [NSArray arrayWithObject:cueSort];
-	[cuesController setSortDescriptors:cueSortArray];
+	[self sortByID];
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(textChangedMaster:) name:NSControlTextDidEndEditingNotification object:masterText];
@@ -98,7 +96,12 @@
 	
 }
 
-
+-(void)sortByID 
+{ 
+	NSSortDescriptor *cueSort = [[[NSSortDescriptor alloc] initWithKey:@"sortNumber" ascending:YES] autorelease];
+	NSArray *cueSortArray = [NSArray arrayWithObject:cueSort];
+	[cuesController setSortDescriptors:cueSortArray];
+}
 
 - (void)setManagedObjectContext:(NSManagedObjectContext *)value
 {
