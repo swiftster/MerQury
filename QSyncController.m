@@ -880,7 +880,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 }
 
 #pragma mark TODO MenuItem Validation
-
+/*
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 { 
 	BOOL enable;
@@ -888,7 +888,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 }
 	
-
+*/
 
 -(void)enterMasterMode { 
 	

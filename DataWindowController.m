@@ -89,6 +89,9 @@
 	[nc addObserver:self selector:@selector(textChangedFourtySeven:) name:NSControlTextDidEndEditingNotification object:outputFourtySeven];
 	[nc addObserver:self selector:@selector(textChangedFourtyEight:) name:NSControlTextDidEndEditingNotification object:outputFourtyEight];
 	
+	[nc addObserver:self selector:@selector(textChangedTable:) name:NSControlTextDidEndEditingNotification object:masterTable];
+	[nc addObserver:self selector:@selector(textEditingTable:) name:NSControlTextDidBeginEditingNotification object:masterTable];
+	
 	
 	
 	
@@ -197,6 +200,20 @@
 	
 	return [returnString doubleValue];
 	
+
+}
+
+-(void)textEditingTable:(NSNotification *)notification 
+{ 
+	//set the colomn and row being editied 
+	
+
+	
+}
+
+- (void)textChangedTable:(NSNotification *)notification
+{
+	NSLog(@"Table Change"); 
 
 }
 

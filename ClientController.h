@@ -35,7 +35,7 @@
 -(void)disconnect;
 -(void)proxySendCommand:(int)a;
 
--(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d;
+
  
 
 

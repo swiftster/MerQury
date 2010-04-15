@@ -17,9 +17,9 @@
 -(oneway void)commandFromServer:(in int)command; 
 
 //Core Data Sharing 
--(byref NSArray *)allObjectsServer; 
+//-(byref NSArray *)allObjectsServer; 
 
-
+-(void)changeLevelFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c db:(in double)d;
 
 
 
@@ -36,6 +36,8 @@
 
 //Core Data Sharing 
 -(byref NSArray *)allObjectsClient; 
+
+-(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d;
 
 
 

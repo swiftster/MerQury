@@ -50,4 +50,5 @@ extern NSString	* const JATGetClientSharedDataNotification;
 -(void)updateModalFromClient:(NSNotification *)note;
 
 
+
 @end
