@@ -31,7 +31,7 @@
 
 - (void)windowDidLoad
 { 
-	//NSLog(@"Sorting");
+	NSLog(@"Sorting");
 	//NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal == FALSE"];
 	//[serverController setFilterPredicate:predicate];
 	//[workSpaceController setFilterPredicate:predicate];
@@ -214,6 +214,29 @@
 - (void)textChangedTable:(NSNotification *)notification
 {
 	NSLog(@"Table Change"); 
+	NSLog(@"Edited Row:%i", [masterTable editedRow]);
+	
+	NSArray *array; 
+	NSString *unID; 
+	int row = [masterTable editedRow];  
+	int column = [masterTable editedColumn]; 
+	
+	array = [self selectedCue]; 
+	unID = [[array objectAtIndex:0]uniqueID];
+	
+	NSArray *arrayForName;
+	NSString *newString; 
+	
+	arrayForName = [array valueForKey:@"qName"];
+	newString = [arrayForName objectAtIndex:0]; 
+	NSLog(@"Name String:%@", newString);
+	
+	NSArray *arrayForNotes = [array valueForKey:@"notes"];
+	NSString *newNote = [arrayForNotes objectAtIndex:0]; 
+	NSLog(@"Notes:%@",newNote);
+	
+	[appDelegate sendCueNameChangeForID:unID inRow:row inColumn:column string:newString];
+	[appDelegate sendNoteChangesForID:unID inRow:row inColumn:column string:newNote]; 
 
 }
 

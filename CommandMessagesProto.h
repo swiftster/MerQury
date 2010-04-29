@@ -20,6 +20,9 @@
 //-(byref NSArray *)allObjectsServer; 
 
 -(void)changeLevelFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c db:(in double)d;
+-(void)changeCueNameFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c name:(in NSString *)s;
+-(void)changeNotesFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c string:(in NSString *)s;
+
 
 
 
@@ -38,6 +41,8 @@
 -(byref NSArray *)allObjectsClient; 
 
 -(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d;
+-(void)sendCueNameChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)name; 
+-(void)sendNoteChangesForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)note;
 
 
 

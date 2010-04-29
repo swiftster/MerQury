@@ -119,6 +119,20 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 
 }
 
+-(void)changeCueNameFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c name:(in NSString *)s
+{
+	
+	[appDelegate changeCueNameForID:unID inRow:r inColumn:c name:s];
+	
+}
+
+-(void)changeNotesFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c string:(in NSString *)s
+{
+	[appDelegate changeNotesForID:unID inRow:r inColumn:c string:s];
+}
+	 
+
+
 
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient
 { 

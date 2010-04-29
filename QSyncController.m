@@ -997,6 +997,21 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 }
 
+-(void)sendCueNameChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)name 
+{ 
+	[client sendCueNameChangeForID:unID inRow:r inColumn:c string:name];
+	
+	
+}
+
+
+-(void)sendNoteChangesForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)note
+{ 
+	[client sendNoteChangesForID:unID inRow:r inColumn:c string:note];
+	
+}
+
+
 -(void)changeLevelForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d
 {
 	
@@ -1029,6 +1044,76 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 	
 
+	
+}
+
+-(void)changeCueNameForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c name:(NSString *)s
+{
+	
+	NSArray *array = [qlabScripts qlabCurrentArray]; 
+	NSArray *cueArray;
+	NSString *cueID = unID; 
+	//NSInteger xRow = r; 
+	//NSInteger xColumn = c; 
+	NSString *nameString = s;
+	int i, x, cueCount, j;
+	
+	x = [array count]; 
+	
+	for (i = 0; i < x; i++){
+		
+		cueArray = [[array objectAtIndex:i]cues];
+		cueCount = [cueArray count]; 
+		
+		for (j = 0; j < cueCount; j++){
+			
+			if([[[cueArray objectAtIndex:j]uniqueID] isEqual:cueID]) { 
+				
+				[[cueArray objectAtIndex:j]setQName:nameString]; 
+			}
+			
+		}
+		
+	}
+	
+	
+	
+	
+	
+}
+
+-(void)changeNotesForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)s
+{
+	
+	NSArray *array = [qlabScripts qlabCurrentArray]; 
+	NSArray *cueArray;
+	NSString *cueID = unID; 
+	//NSInteger xRow = r; 
+	//NSInteger xColumn = c; 
+	NSString *nameString = s;
+	int i, x, cueCount, j;
+	
+	x = [array count]; 
+	
+	for (i = 0; i < x; i++){
+		
+		cueArray = [[array objectAtIndex:i]cues];
+		cueCount = [cueArray count]; 
+		
+		for (j = 0; j < cueCount; j++){
+			
+			if([[[cueArray objectAtIndex:j]uniqueID] isEqual:cueID]) { 
+				
+				[[cueArray objectAtIndex:j]setNotes:nameString]; 
+			}
+			
+		}
+		
+	}
+	
+	
+	
+	
 	
 }
 

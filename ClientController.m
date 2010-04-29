@@ -120,6 +120,20 @@
 	
 }
 	
+-(void)sendCueNameChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)name
+{
+	
+	[proxy changeCueNameFromClient:unID inRow:r	inColumn:c name:name]; 
+	
+}
+
+-(void)sendNoteChangesForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)note
+{
+		
+	[proxy changeNotesFromClient:unID inRow:r inColumn:c string:note];
+	
+}
+
 
 //Connect to the server 
 -(BOOL)connect:(NSData *)address

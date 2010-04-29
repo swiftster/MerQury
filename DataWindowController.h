@@ -13,7 +13,7 @@
 @class QSyncController; 
 
 
-@interface DataWindowController : NSWindowController {
+@interface DataWindowController : NSWindowController  {
 	
 	QSyncController *appDelegate;
 	NSManagedObjectContext *moc; 
