@@ -134,6 +134,19 @@
 	
 }
 
+-(void)sendPreWaitChangeForID:(NSString *)unID db:(double)d 
+{ 
+
+	[proxy changePreWaitForID:unID db:d]; 
+	
+}
+
+-(void)sendPostWaitChangeForID:(NSString *)unID db:(double)d
+{
+	[proxy changePostWaitForID:unID db:d]; 
+	
+}
+
 
 //Connect to the server 
 -(BOOL)connect:(NSData *)address

@@ -131,6 +131,16 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	[appDelegate changeNotesForID:unID inRow:r inColumn:c string:s];
 }
 	 
+-(void)changePreWaitForID:(in NSString *)unID db:(in double)d
+{ 
+	[appDelegate changePreWaitForID:unID db:d]; 
+}
+
+-(void)changePostWaitForID:(in NSString *)unID db:(in double)d
+{ 
+	[appDelegate changePostWaitForID:unID db:d];
+	
+}
 
 
 

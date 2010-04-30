@@ -182,7 +182,7 @@
 				NSManagedObject *tempCuesObject = [cueArray objectAtIndex:c];
 			
 				NSString *isGroup = [tempCuesObject valueForKey:@"qType"];
-				NSLog(@"isGroup:%@Number of Cues:%d of %d",isGroup, c, numberOfCues);
+				NSLog(@"isGroup:%@ Number of Cues:%d of %d",isGroup, c, numberOfCues);
 				
 				
 				
@@ -190,12 +190,14 @@
 				if ([isGroup isEqualToString:@"Group"] == TRUE)  {
 					
 					NSManagedObject *cueObjectReturn = [self cueObject:c :moc :tempCuesObject];  //Create and use a single Cue Object pre cue
+					NSLog(@"Starting Group Cues Add");
 					
-					
-					NSSet *tempGroupSet = [cueObjectReturn valueForKey:@"cues"];
-					NSArray *groupCueArray = [tempGroupSet allObjects];				//Get an Array of Group Cues
+					NSSet *tempGroupSet = [cueObjectReturn valueForKey:@"GroupCues"];
+					NSLog(@"Created set");
+					NSArray *groupCueArray = [tempGroupSet allObjects];		//Get an Array of Group Cues
+					NSLog(@"Created Group Array");
 					int groupCount = [groupCueArray count];									//Count 
-					
+					NSLog(@"Group Count:%i", groupCount);
 					
 					
 					
@@ -205,6 +207,7 @@
 						
 						NSManagedObject *tempGroupCueObject = [groupCueArray objectAtIndex:g];
 						
+						NSLog(@"Adding Group Cue");
 						[mutableGroupCues addObject:[self groupObject:g :moc:tempGroupCueObject]]; }
 					
 					
@@ -213,14 +216,14 @@
 					
 				} else {																	// If not a Group Cue just Add the cue
 					
-					NSLog(@"Adding Cues");
+					
 					[mutableCues addObject:[self cueObject:c :moc :tempCuesObject]]; 
-					NSLog(@"Finished Cues Added");						
+
 				}
 			}
 				
 				[mutableCueLists addObject:cueListObject]; 
-				NSLog(@"Finished Cue Lists Added");    
+				    
 			
 			
 		}

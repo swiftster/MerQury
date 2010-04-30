@@ -1012,6 +1012,27 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 }
 
 
+-(void)sendPreWaitForID:(NSString *)unID db:(double)d
+{ 
+	
+	[client sendPreWaitChangeForID:unID db:d];
+	
+	
+	
+}
+
+
+-(void)sendPostWaitForID:(NSString *)unID db:(double)d
+{ 
+	
+	[client sendPostWaitChangeForID:unID db:d];
+	
+	
+	
+}
+
+
+
 -(void)changeLevelForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d
 {
 	
@@ -1041,10 +1062,6 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 			
 	}
 
-	
-	
-
-	
 }
 
 -(void)changeCueNameForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c name:(NSString *)s
@@ -1114,6 +1131,65 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 	
 	
+	
+}
+
+
+-(void)changePreWaitForID:(NSString *)unID db:(double)d
+{
+	
+	NSArray *array = [qlabScripts qlabCurrentArray]; 
+	NSArray *cueArray;
+	NSString *cueID = unID; 
+	double time = d; 
+	int i, x, cueCount, j;
+	
+	x = [array count]; 
+	
+	for (i = 0; i < x; i++){
+		
+		cueArray = [[array objectAtIndex:i]cues];
+		cueCount = [cueArray count]; 
+		
+		for (j = 0; j < cueCount; j++){
+			
+			if([[[cueArray objectAtIndex:j]uniqueID] isEqual:cueID]) { 
+				
+				[[cueArray objectAtIndex:j]setPreWait:time]; 
+			}
+			
+		}
+		
+	}
+	
+}
+
+-(void)changePostWaitForID:(NSString *)unID db:(double)d
+{
+	
+	NSArray *array = [qlabScripts qlabCurrentArray]; 
+	NSArray *cueArray;
+	NSString *cueID = unID; 
+	double time = d; 
+	int i, x, cueCount, j;
+	
+	x = [array count]; 
+	
+	for (i = 0; i < x; i++){
+		
+		cueArray = [[array objectAtIndex:i]cues];
+		cueCount = [cueArray count]; 
+		
+		for (j = 0; j < cueCount; j++){
+			
+			if([[[cueArray objectAtIndex:j]uniqueID] isEqual:cueID]) { 
+				
+				[[cueArray objectAtIndex:j]setPostWait:time]; 
+			}
+			
+		}
+		
+	}
 	
 }
 

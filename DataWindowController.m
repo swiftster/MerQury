@@ -31,7 +31,7 @@
 
 - (void)windowDidLoad
 { 
-	NSLog(@"Sorting");
+	//NSLog(@"Sorting");
 	//NSPredicate *predicate = [NSPredicate predicateWithFormat:@"isLocal == FALSE"];
 	//[serverController setFilterPredicate:predicate];
 	//[workSpaceController setFilterPredicate:predicate];
@@ -91,6 +91,7 @@
 	
 	[nc addObserver:self selector:@selector(textChangedTable:) name:NSControlTextDidEndEditingNotification object:masterTable];
 	[nc addObserver:self selector:@selector(textEditingTable:) name:NSControlTextDidBeginEditingNotification object:masterTable];
+	[nc addObserver:self selector:@selector(textChangedTable:) name:NSControlTextDidEndEditingNotification object:notesField];
 	
 	
 	
@@ -213,8 +214,7 @@
 
 - (void)textChangedTable:(NSNotification *)notification
 {
-	NSLog(@"Table Change"); 
-	NSLog(@"Edited Row:%i", [masterTable editedRow]);
+	
 	
 	NSArray *array; 
 	NSString *unID; 
@@ -229,16 +229,76 @@
 	
 	arrayForName = [array valueForKey:@"qName"];
 	newString = [arrayForName objectAtIndex:0]; 
-	NSLog(@"Name String:%@", newString);
+		
 	
-	NSArray *arrayForNotes = [array valueForKey:@"notes"];
-	NSString *newNote = [arrayForNotes objectAtIndex:0]; 
-	NSLog(@"Notes:%@",newNote);
+	NSString *newNote = [notesField stringValue];
 	
+	NSArray *arrayPreWait = [array valueForKey:@"preWait"];
+	NSArray *arrayPostWait = [array valueForKey:@"postWait"];
+	
+	NSString *preWaitString = [arrayPreWait objectAtIndex:0]; 
+	NSString *postWaitString = [arrayPostWait objectAtIndex:0]; 
+	
+	NSNumber *pre = [self stringToDouble:preWaitString];
+	//NSLog(@"Double is:%f",[q doubleValue]);
+	
+	NSNumber *post = [self stringToDouble:postWaitString];
+	
+	double j = [pre doubleValue]; 
+	double t = [post doubleValue]; 
+		
 	[appDelegate sendCueNameChangeForID:unID inRow:row inColumn:column string:newString];
 	[appDelegate sendNoteChangesForID:unID inRow:row inColumn:column string:newNote]; 
+	[appDelegate sendPreWaitForID:unID db:j]; 
+	[appDelegate sendPostWaitForID:unID db:t]; 
+	
 
 }
+
+
+-(NSNumber *)stringToDouble:(NSString *)string
+{ 
+	
+	
+	NSString *noCol = [string stringByReplacingOccurrencesOfString:@":" withString:@""];
+	
+	 
+	NSString *mills = [noCol substringFromIndex:4]; 
+	NSLog(@"Mills:%@",mills);
+
+	NSRange secondsRange = NSMakeRange(2, 2); 
+	NSString *seconds = [noCol substringWithRange:secondsRange]; 
+	
+	NSRange minutesRange = NSMakeRange(0, 2); 
+	NSString *minutes = [noCol substringWithRange:minutesRange]; 
+	
+	
+	
+	double a = [mills doubleValue]; 
+	double b = [seconds doubleValue]; 
+	double c = [minutes doubleValue]; 
+	
+	//The Double returned is in seconds. 
+	//Divide by 100 to get Milliseconds. 
+	double d = a / 100; 
+
+	double e = b + d; 
+	 
+	 
+	//Convert minutes to Seconds
+	double g = c * 60;  
+	
+	double h = g + e; 
+	
+	
+	NSNumber *number = [NSNumber numberWithDouble:h]; 
+	
+	return number; 
+	
+	
+	
+}
+
 
 
 
@@ -246,7 +306,7 @@
 
 - (void)textChangedMaster:(NSNotification *)notification
 {
-	NSLog(@"Master Text Field Edited");
+	
 	
 	NSArray *array; 
 	NSString *unID; 
@@ -266,7 +326,7 @@
 
 - (void)textChangedOne:(NSNotification *)notification
 {
-	NSLog(@"Output 1 Text Field Edited");
+	//NSLog(@"Output 1 Text Field Edited");
 	
 	NSArray *array; 
 	NSString *unID; 
@@ -283,7 +343,7 @@
 
 - (void)textChangedTwo:(NSNotification *)notification
 {
-	NSLog(@"Output 2 Text Field Edited");
+	//NSLog(@"Output 2 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -298,7 +358,7 @@
 }
 - (void)textChangedThree:(NSNotification *)notification
 {
-	NSLog(@"Output 3 Text Field Edited");
+	//NSLog(@"Output 3 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -314,7 +374,7 @@
 
 - (void)textChangedFour:(NSNotification *)notification
 {
-	NSLog(@"Output 4 Text Field Edited");
+	//NSLog(@"Output 4 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -330,7 +390,7 @@
 
 - (void)textChangedFive:(NSNotification *)notification
 {
-	NSLog(@"Output 5 Text Field Edited");
+	//NSLog(@"Output 5 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -345,7 +405,7 @@
 }
 - (void)textChangedSix:(NSNotification *)notification
 {
-	NSLog(@"Output 6 Text Field Edited");
+	//NSLog(@"Output 6 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -361,7 +421,7 @@
 
 - (void)textChangedSeven:(NSNotification *)notification
 {
-	NSLog(@"Output 7 Text Field Edited");
+	//NSLog(@"Output 7 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -377,7 +437,7 @@
 
 - (void)textChangedEight:(NSNotification *)notification
 {
-	NSLog(@"Output 8 Text Field Edited");
+	//NSLog(@"Output 8 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -393,7 +453,7 @@
 
 - (void)textChangedNine:(NSNotification *)notification
 {
-	NSLog(@"Output 9 Text Field Edited");
+	//NSLog(@"Output 9 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -409,7 +469,7 @@
 
 - (void)textChangedTen:(NSNotification *)notification
 {
-	NSLog(@"Output 10 Text Field Edited");
+	//NSLog(@"Output 10 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -425,7 +485,7 @@
 
 - (void)textChangedEleven:(NSNotification *)notification
 {
-	NSLog(@"Output 11 Text Field Edited");
+	//NSLog(@"Output 11 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -441,7 +501,7 @@
 
 - (void)textChangedTwelve:(NSNotification *)notification
 {
-	NSLog(@"Output 12 Text Field Edited");
+	//NSLog(@"Output 12 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -456,7 +516,7 @@
 }
 - (void)textChangedThirteen:(NSNotification *)notification
 {
-	NSLog(@"Output 13 Text Field Edited");
+	//NSLog(@"Output 13 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -472,7 +532,7 @@
 
 - (void)textChangedFourteen:(NSNotification *)notification
 {
-	NSLog(@"Output 14 Text Field Edited");
+	//NSLog(@"Output 14 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -488,7 +548,7 @@
 
 - (void)textChangedFifteen:(NSNotification *)notification
 {
-	NSLog(@"Output 15 Text Field Edited");
+	//NSLog(@"Output 15 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -504,7 +564,7 @@
 
 - (void)textChangedSixteen:(NSNotification *)notification
 {
-	NSLog(@"Output 16 Text Field Edited");
+	//NSLog(@"Output 16 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -521,7 +581,7 @@
 
 - (void)textChangedSeventeen:(NSNotification *)notification
 {
-	NSLog(@"Output 17 Text Field Edited");
+	//NSLog(@"Output 17 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -538,7 +598,7 @@
 
 - (void)textChangedEightteen:(NSNotification *)notification
 {
-	NSLog(@"Output 18 Text Field Edited");
+	//NSLog(@"Output 18 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -554,7 +614,7 @@
 
 - (void)textChangedNineteen:(NSNotification *)notification
 {
-	NSLog(@"Output 19 Text Field Edited");
+	//NSLog(@"Output 19 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -570,7 +630,7 @@
 
 - (void)textChangedTwenty:(NSNotification *)notification
 {
-	NSLog(@"Output 20 Text Field Edited");
+	//NSLog(@"Output 20 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -586,7 +646,7 @@
 
 - (void)textChangedTwentyOne:(NSNotification *)notification
 {
-	NSLog(@"Output 21 Text Field Edited");
+	//NSLog(@"Output 21 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -602,7 +662,7 @@
 
 - (void)textChangedTwentyTwo:(NSNotification *)notification
 {
-	NSLog(@"Output 22 Text Field Edited");
+	//NSLog(@"Output 22 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -618,7 +678,7 @@
 
 - (void)textChangedTwentyThree:(NSNotification *)notification
 {
-	NSLog(@"Output 23 Text Field Edited");
+	//NSLog(@"Output 23 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -634,7 +694,7 @@
 
 - (void)textChangedTwentyFour:(NSNotification *)notification
 {
-	NSLog(@"Output 24 Text Field Edited");
+	//NSLog(@"Output 24 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -651,7 +711,7 @@
 
 - (void)textChangedTwentyFive:(NSNotification *)notification
 {
-	NSLog(@"Output 25 Text Field Edited");
+	//NSLog(@"Output 25 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -667,7 +727,7 @@
 
 - (void)textChangedTwentySix:(NSNotification *)notification
 {
-	NSLog(@"Output 26 Text Field Edited");
+	//NSLog(@"Output 26 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -683,7 +743,7 @@
 
 - (void)textChangedTwentySeven:(NSNotification *)notification
 {
-	NSLog(@"Output 27 Text Field Edited");
+	//NSLog(@"Output 27 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -699,7 +759,7 @@
 
 - (void)textChangedTwentyEight:(NSNotification *)notification
 {
-	NSLog(@"Output 28 Text Field Edited");
+	//NSLog(@"Output 28 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -715,7 +775,7 @@
 
 - (void)textChangedTwentyNine:(NSNotification *)notification
 {
-	NSLog(@"Output 29 Text Field Edited");
+	//NSLog(@"Output 29 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -731,7 +791,7 @@
 
 - (void)textChangedThirty:(NSNotification *)notification
 {
-	NSLog(@"Output 30 Text Field Edited");
+	//NSLog(@"Output 30 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -747,7 +807,7 @@
 
 - (void)textChangedThirtyOne:(NSNotification *)notification
 {
-	NSLog(@"Output 31 Text Field Edited");
+	//NSLog(@"Output 31 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -763,7 +823,7 @@
 
 - (void)textChangedThirtyTwo:(NSNotification *)notification
 {
-	NSLog(@"Output 32 Text Field Edited");
+	//NSLog(@"Output 32 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -779,7 +839,7 @@
 
 - (void)textChangedThirtyThree:(NSNotification *)notification
 {
-	NSLog(@"Output 33 Text Field Edited");
+	//NSLog(@"Output 33 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -794,7 +854,7 @@
 
 - (void)textChangedThirtyFour:(NSNotification *)notification
 {
-	NSLog(@"Output 34 Text Field Edited");
+	//NSLog(@"Output 34 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -810,7 +870,7 @@
 
 - (void)textChangedThirtyFive:(NSNotification *)notification
 {
-	NSLog(@"Output 35 Text Field Edited");
+	//NSLog(@"Output 35 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -827,7 +887,7 @@
 
 - (void)textChangedThirtySix:(NSNotification *)notification
 {
-	NSLog(@"Output 36 Text Field Edited");
+	//NSLog(@"Output 36 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -843,7 +903,7 @@
 
 - (void)textChangedThirtySeven:(NSNotification *)notification
 {
-	NSLog(@"Output 37 Text Field Edited");
+	//NSLog(@"Output 37 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -860,7 +920,7 @@
 
 - (void)textChangedThirtyEight:(NSNotification *)notification
 {
-	NSLog(@"Output 38 Text Field Edited");
+	//NSLog(@"Output 38 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -876,7 +936,7 @@
 
 - (void)textChangedThirtyNine:(NSNotification *)notification
 {
-	NSLog(@"Output 39 Text Field Edited");
+	//NSLog(@"Output 39 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -891,7 +951,7 @@
 
 - (void)textChangedFourty:(NSNotification *)notification
 {
-	NSLog(@"Output 40 Text Field Edited");
+	//NSLog(@"Output 40 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -908,7 +968,7 @@
 
 - (void)textChangedFourtyOne:(NSNotification *)notification
 {
-	NSLog(@"Output 41 Text Field Edited");
+	//NSLog(@"Output 41 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -925,7 +985,7 @@
 
 - (void)textChangedFourtyTwo:(NSNotification *)notification
 {
-	NSLog(@"Output 42 Text Field Edited");
+	//NSLog(@"Output 42 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -941,7 +1001,7 @@
 
 - (void)textChangedFourtyThree:(NSNotification *)notification
 {
-	NSLog(@"Output 43 Text Field Edited");
+	//NSLog(@"Output 43 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -956,7 +1016,7 @@
 
 - (void)textChangedFourtyFour:(NSNotification *)notification
 {
-	NSLog(@"Output 44 Text Field Edited");
+	//NSLog(@"Output 44 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -973,7 +1033,7 @@
 
 - (void)textChangedFourtyFive:(NSNotification *)notification
 {
-	NSLog(@"Output 45 Text Field Edited");
+	//NSLog(@"Output 45 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -989,7 +1049,7 @@
 
 - (void)textChangedFourtySix:(NSNotification *)notification
 {
-	NSLog(@"Output 46 Text Field Edited");
+	//NSLog(@"Output 46 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -1005,7 +1065,7 @@
 
 - (void)textChangedFourtySeven:(NSNotification *)notification
 {
-	NSLog(@"Output 47 Text Field Edited");
+	//NSLog(@"Output 47 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 
@@ -1021,7 +1081,7 @@
 
 - (void)textChangedFourtyEight:(NSNotification *)notification
 {
-	NSLog(@"Output 48 Text Field Edited");
+	//NSLog(@"Output 48 Text Field Edited");
 	NSArray *array; 
 	NSString *unID; 
 	int row = 0; 

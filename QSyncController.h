@@ -202,6 +202,13 @@ extern NSString * const JATDataRefreshNotification;
 -(void)sendNoteChangesForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)note;
 -(void)changeNotesForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)s;
 
+-(void)sendPreWaitForID:(NSString *)unID db:(double)d;
+-(void)changePreWaitForID:(NSString *)unID db:(double)d;
+
+
+-(void)sendPostWaitForID:(NSString *)unID db:(double)d;
+-(void)changePostWaitForID:(NSString *)unID db:(double)d;
+
 
 
 

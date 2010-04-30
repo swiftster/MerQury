@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="2"/>
+			<integer value="920"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -5197,7 +5197,7 @@
 										<object class="NSTextField" id="698048339">
 											<reference key="NSNextResponder" ref="973548748"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{65, 7}, {602, 22}}</string>
+											<string key="NSFrame">{{72, 7}, {602, 22}}</string>
 											<reference key="NSSuperview" ref="973548748"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTextFieldCell" key="NSCell" id="636093155">
@@ -5208,6 +5208,26 @@
 												<reference key="NSControlView" ref="698048339"/>
 												<reference key="NSBackgroundColor" ref="562517092"/>
 												<reference key="NSTextColor" ref="91854800"/>
+											</object>
+										</object>
+										<object class="NSTextField" id="995833829">
+											<reference key="NSNextResponder" ref="973548748"/>
+											<int key="NSvFlags">268</int>
+											<string key="NSFrame">{{61, 7}, {16, 22}}</string>
+											<reference key="NSSuperview" ref="973548748"/>
+											<bool key="NSEnabled">YES</bool>
+											<object class="NSTextFieldCell" key="NSCell" id="10355020">
+												<int key="NSCellFlags">68288064</int>
+												<int key="NSCellFlags2">272630784</int>
+												<string key="NSContents">:</string>
+												<object class="NSFont" key="NSSupport">
+													<string key="NSName">LucidaGrande-Bold</string>
+													<double key="NSSize">18</double>
+													<int key="NSfFlags">16</int>
+												</object>
+												<reference key="NSControlView" ref="995833829"/>
+												<reference key="NSBackgroundColor" ref="562517092"/>
+												<reference key="NSTextColor" ref="82329066"/>
 											</object>
 										</object>
 									</object>
@@ -6968,6 +6988,14 @@
 						</object>
 					</object>
 					<int key="connectionID">919</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">notesField</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="766164581"/>
+					</object>
+					<int key="connectionID">921</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -9284,8 +9312,9 @@
 						<reference key="object" ref="13564382"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="533353184"/>
 							<reference ref="698048339"/>
+							<reference ref="533353184"/>
+							<reference ref="995833829"/>
 						</object>
 						<reference key="parent" ref="1006"/>
 					</object>
@@ -9316,6 +9345,20 @@
 						<int key="objectID">911</int>
 						<reference key="object" ref="636093155"/>
 						<reference key="parent" ref="698048339"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">922</int>
+						<reference key="object" ref="995833829"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="10355020"/>
+						</object>
+						<reference key="parent" ref="13564382"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">923</int>
+						<reference key="object" ref="10355020"/>
+						<reference key="parent" ref="995833829"/>
 					</object>
 				</object>
 			</object>
@@ -9833,12 +9876,14 @@
 					<string>910.IBPluginDependency</string>
 					<string>911.IBPluginDependency</string>
 					<string>920.IBPluginDependency</string>
+					<string>922.IBPluginDependency</string>
+					<string>923.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>{{228, 301}, {891, 655}}</string>
+					<string>{{157, 98}, {891, 655}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{228, 301}, {891, 655}}</string>
+					<string>{{157, 98}, {891, 655}}</string>
 					<integer value="1"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -10346,6 +10391,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -10364,7 +10411,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">920</int>
+			<int key="maxID">923</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -10394,6 +10441,7 @@
 							<string>fader</string>
 							<string>masterTable</string>
 							<string>masterText</string>
+							<string>notesField</string>
 							<string>outputEight</string>
 							<string>outputEightteen</string>
 							<string>outputEleven</string>
@@ -10452,6 +10500,7 @@
 							<string>OmniFader</string>
 							<string>MasterTable</string>
 							<string>LevelTextField</string>
+							<string>NSTextField</string>
 							<string>LevelTextField</string>
 							<string>LevelTextField</string>
 							<string>LevelTextField</string>

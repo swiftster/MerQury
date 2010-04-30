@@ -15,8 +15,8 @@
 -(void)awakeFromNib 
 { 
 	
-	NSLog(@"Cell Font:%@", [self font]);
-	NSLog(@"Cell Test!"); 
+	//NSLog(@"Cell Font:%@", [self font]);
+	//NSLog(@"Cell Test!"); 
 	
 	CGFloat f = 15;
 	NSFont *font = [NSFont fontWithName:@"LucidaGrande" size:f]; 

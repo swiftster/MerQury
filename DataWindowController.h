@@ -19,6 +19,7 @@
 	NSManagedObjectContext *moc; 
 	IBOutlet NSTreeController *cuesController; 
 	IBOutlet MasterTable *masterTable; 
+	IBOutlet NSTextField *notesField; 
 	
 	IBOutlet NSArrayController *serverController; 
 	IBOutlet NSArrayController *workSpaceController;
@@ -55,6 +56,7 @@
 -(NSArray *)selectedCue;
 
 -(double)formatLevelText:(NSString *)string;
+-(NSNumber *)stringToDouble:(NSString *)string;
 
 
 

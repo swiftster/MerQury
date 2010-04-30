@@ -533,7 +533,8 @@
 
 	durationTimeString = [NSString stringWithFormat:@"%@:%@:%@",minutes, seconds, milliSeconds]; 
 	
-	return durationTimeString; }
+	return durationTimeString;
+}
 
 -(int)incrementSortInt
 { 
