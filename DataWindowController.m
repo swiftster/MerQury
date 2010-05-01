@@ -121,8 +121,50 @@
 
 -(IBAction)refreshData:(id)sender 
 { 
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-	[nc postNotificationName:JATDataRefreshNotification object:self];
+	
+	
+	NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+	
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"GroupCue" inManagedObjectContext:moc]];
+	NSArray *result = [moc executeFetchRequest:fetch error:nil];
+	for (id groupcue in result)
+		[moc deleteObject:groupcue];
+	 
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"Cues" inManagedObjectContext:moc]];
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id cues in result)
+		[moc deleteObject:cues];
+	 
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"CueLists" inManagedObjectContext:moc]];
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id cuelists in result)
+		[moc deleteObject:cuelists];
+	 
+	
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"Workspace" inManagedObjectContext:moc]];
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id workspace in result)
+	[moc deleteObject:workspace];
+	
+	
+	
+	[fetch setEntity:[NSEntityDescription entityForName:@"Server" inManagedObjectContext:moc]];
+	
+	result = [moc executeFetchRequest:fetch error:nil];
+	for (id server in result)
+	[moc deleteObject:server];
+	
+	
+	[moc processPendingChanges]; 
+	 
+	[appDelegate remoteDataRefresh]; 
+	
+	
+	
 	
 	
 }
@@ -288,11 +330,21 @@
 	
 	double j = [pre doubleValue]; 
 	double t = [post doubleValue]; 
+	
+	NSArray *arrayForAction = [array valueForKey:@"duration"];
+	NSString *actionString = [arrayForAction objectAtIndex:0];
+	
+	NSNumber *action = [self stringToDouble:actionString]; 
+	
+	double a = [action doubleValue];
+	
+	
 		
 	[appDelegate sendCueNameChangeForID:unID inRow:row inColumn:column string:newString];
 	[appDelegate sendNoteChangesForID:unID inRow:row inColumn:column string:newNote]; 
 	[appDelegate sendPreWaitForID:unID db:j]; 
 	[appDelegate sendPostWaitForID:unID db:t]; 
+	[appDelegate sendActionForID:unID db:a];
 	
 
 }

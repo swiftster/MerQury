@@ -25,7 +25,7 @@
 -(void)changePreWaitForID:(in NSString *)unID db:(in double)d;
 -(void)changePostWaitForID:(in NSString *)unID db:(in double)d;
 -(void)changeActionForID:(in NSString *)unID db:(in double)d;
-
+-(void)refreshData;
 
 
 
@@ -49,6 +49,8 @@
 -(void)sendPreWaitChangeForID:(NSString *)unID db:(double)d;
 -(void)sendPostWaitChangeForID:(NSString *)unID db:(double)d;
 -(void)sendActionChangeForID:(NSString *)unID db:(double)d;
+
+-(oneway void)refreshData;
 
 
 

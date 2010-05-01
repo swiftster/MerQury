@@ -153,6 +153,11 @@
 	
 }
 
+-(oneway void)refreshData
+{
+	[proxy refreshData]; 
+}
+
 //Connect to the server 
 -(BOOL)connect:(NSData *)address
 {

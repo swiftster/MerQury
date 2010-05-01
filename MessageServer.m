@@ -149,6 +149,10 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	
 }
 
+-(void)refreshData
+{ 
+	[appDelegate refreshQlabInfo]; 
+}
 
 
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient

@@ -773,7 +773,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 }
 
 
--(void)refreshQlabInfo:(NSNotification *)note
+-(void)refreshQlabInfo
 { 
 	NSLog(@"Refreshing Data");
 	[qlabScripts loadQlabArray];
@@ -986,6 +986,11 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 
 #pragma mark Blind Mode Methods 
+
+-(void)remoteDataRefresh 
+{ 
+	[client refreshData]; 
+}
 
 
 -(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d

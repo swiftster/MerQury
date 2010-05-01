@@ -174,7 +174,7 @@ extern NSString * const JATDataRefreshNotification;
 //Qlab Time Cycle 
 -(void)activeUpdate;
 -(void)qlabMait;
--(void)refreshQlabInfo:(NSNotification *)note;
+-(void)refreshQlabInfo;
  
 
 -(void)enterMasterMode;
@@ -193,6 +193,8 @@ extern NSString * const JATDataRefreshNotification;
 -(MessageServer *)setupServerClass; 
 
 //Blind Mode 
+-(void)remoteDataRefresh;
+
 -(void)sendLevelChangeForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d;
 -(void)changeLevelForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d;
 
