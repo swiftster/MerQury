@@ -24,6 +24,7 @@
 	IBOutlet NSArrayController *serverController; 
 	IBOutlet NSArrayController *workSpaceController;
 	IBOutlet NSArrayController *cueListController;
+	IBOutlet NSTableColumn *actionColumn; 
 	
 	IBOutlet LevelTextField *masterText; 
 	IBOutlet LevelTextField *outputOne, *outputTwo, *outputThree, *outputFour, *outputFive, *outputSix, *outputSeven, *outputEight, *outputNine, 
@@ -51,6 +52,8 @@
 - (NSArray*)allCuesSortedBySortID; 
 -(IBAction)refreshData:(id)sender;
 -(IBAction)test:(id)sender; 
+-(BOOL)isFade;
+
 
 -(void)sortByID;
 -(NSArray *)selectedCue;

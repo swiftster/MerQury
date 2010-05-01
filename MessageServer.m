@@ -142,6 +142,13 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	
 }
 
+-(void)changeActionForID:(in NSString *)unID db:(in double)d
+{
+
+	[appDelegate changeActionForID:unID db:d];
+	
+}
+
 
 
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient

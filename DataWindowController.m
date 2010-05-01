@@ -38,6 +38,7 @@
 	//[cueListController setFilterPredicate:predicate];
 	[self sortByID];
 	
+	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(textChangedMaster:) name:NSControlTextDidEndEditingNotification object:masterText];
 	[nc addObserver:self selector:@selector(textChangedOne:) name:NSControlTextDidEndEditingNotification object:outputOne];
@@ -92,7 +93,7 @@
 	[nc addObserver:self selector:@selector(textChangedTable:) name:NSControlTextDidEndEditingNotification object:masterTable];
 	[nc addObserver:self selector:@selector(textEditingTable:) name:NSControlTextDidBeginEditingNotification object:masterTable];
 	[nc addObserver:self selector:@selector(textChangedTable:) name:NSControlTextDidEndEditingNotification object:notesField];
-	
+		
 	
 	
 	
@@ -204,6 +205,45 @@
 
 }
 
+-(void)outlineViewSelectionDidChange:(NSNotification *)aNotification
+{ 
+	
+	NSLog(@"Checking for Fade");
+	
+ 
+	
+	if ([self isFade] == TRUE) { 
+		[actionColumn setEditable:TRUE];  
+	} else {
+		[actionColumn setEditable:FALSE];
+	}
+	
+	
+}
+
+
+-(BOOL)isFade 
+{ 
+	BOOL fade; 
+	
+	
+	NSArray *array = [cuesController selectedObjects]; 
+	
+	
+	NSArray *isFadeArray;
+	isFadeArray = [array valueForKey:@"qType"]; 
+	NSString *isFade; 
+	isFade = [isFadeArray objectAtIndex:0]; 
+	
+	if ([isFade isEqualToString:@"Fade"] == TRUE) { 
+		fade = TRUE;  
+	} else {
+		fade = FALSE;
+	}
+
+	return fade; 
+}
+
 -(void)textEditingTable:(NSNotification *)notification 
 { 
 	//set the colomn and row being editied 
@@ -227,9 +267,11 @@
 	NSArray *arrayForName;
 	NSString *newString; 
 	
+	
 	arrayForName = [array valueForKey:@"qName"];
 	newString = [arrayForName objectAtIndex:0]; 
-		
+	
+
 	
 	NSString *newNote = [notesField stringValue];
 	

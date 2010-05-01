@@ -209,7 +209,8 @@ extern NSString * const JATDataRefreshNotification;
 -(void)sendPostWaitForID:(NSString *)unID db:(double)d;
 -(void)changePostWaitForID:(NSString *)unID db:(double)d;
 
-
+-(void)sendActionForID:(NSString *)unID db:(double)d;
+-(void)changeActionForID:(NSString *)unID db:(double)d;
 
 
 @end

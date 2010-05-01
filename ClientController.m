@@ -147,6 +147,11 @@
 	
 }
 
+-(void)sendActionChangeForID:(NSString *)unID db:(double)d
+{
+	[proxy changeActionForID:unID db:d]; 
+	
+}
 
 //Connect to the server 
 -(BOOL)connect:(NSData *)address

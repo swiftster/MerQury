@@ -24,6 +24,7 @@
 -(void)changeNotesFromClient:(in NSString *)unID inRow:(in NSInteger)r inColumn:(in NSInteger)c string:(in NSString *)s;
 -(void)changePreWaitForID:(in NSString *)unID db:(in double)d;
 -(void)changePostWaitForID:(in NSString *)unID db:(in double)d;
+-(void)changeActionForID:(in NSString *)unID db:(in double)d;
 
 
 
@@ -47,6 +48,7 @@
 -(void)sendNoteChangesForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c string:(NSString *)note;
 -(void)sendPreWaitChangeForID:(NSString *)unID db:(double)d;
 -(void)sendPostWaitChangeForID:(NSString *)unID db:(double)d;
+-(void)sendActionChangeForID:(NSString *)unID db:(double)d;
 
 
 

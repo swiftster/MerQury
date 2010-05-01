@@ -608,7 +608,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	BOOL match; 
 	match = [localServerName isEqual:[aService name]];
 	
-	if (match == TRUE) {
+	if (match == FALSE) {
 		NSManagedObjectContext *moc = [self managedObjectContext]; 
 		NSManagedObject *server = [NSEntityDescription insertNewObjectForEntityForName:@"ServerBrowser" inManagedObjectContext:moc];
 	    [server setValue:[aService name] forKey:@"name"];
@@ -1031,6 +1031,11 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 }
 
+-(void)sendActionForID:(NSString *)unID db:(double)d
+{ 
+	[client sendActionChangeForID:unID db:d];
+	
+}
 
 
 -(void)changeLevelForID:(NSString *)unID inRow:(NSInteger)r inColumn:(NSInteger)c db:(double)d
@@ -1185,6 +1190,35 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 			if([[[cueArray objectAtIndex:j]uniqueID] isEqual:cueID]) { 
 				
 				[[cueArray objectAtIndex:j]setPostWait:time]; 
+			}
+			
+		}
+		
+	}
+	
+}
+
+-(void)changeActionForID:(NSString *)unID db:(double)d
+{
+	
+	NSArray *array = [qlabScripts qlabCurrentArray]; 
+	NSArray *cueArray;
+	NSString *cueID = unID; 
+	double time = d; 
+	int i, x, cueCount, j;
+	
+	x = [array count]; 
+	
+	for (i = 0; i < x; i++){
+		
+		cueArray = [[array objectAtIndex:i]cues];
+		cueCount = [cueArray count]; 
+		
+		for (j = 0; j < cueCount; j++){
+			
+			if([[[cueArray objectAtIndex:j]uniqueID] isEqual:cueID]) { 
+				
+				[[cueArray objectAtIndex:j]setDuration:time]; 
 			}
 			
 		}

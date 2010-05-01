@@ -190,7 +190,7 @@
 				if ([isGroup isEqualToString:@"Group"] == TRUE)  {
 					
 					
-					//NSManagedObject *cueObjectReturn = [cueArray objectAtIndex:c];
+					NSManagedObject *cueObjectReturn = [self cueObject:c :moc :tempCuesObject];
 					
 					
 					//NSLog(@"Starting Group Cues Add");
@@ -205,7 +205,7 @@
 					
 					
 					
-					mutableGroupCues = [tempCuesObject mutableSetValueForKey:@"groupCues"]; //Prepare MutableSet, Adds values via KVO
+					mutableGroupCues = [cueObjectReturn mutableSetValueForKey:@"groupCues"]; //Prepare MutableSet, Adds values via KVO
 					
 					for (g = 0; g < groupCount; g++) { 
 						
@@ -219,7 +219,7 @@
 					
 					NSLog(@"Group Cue Adding");
 					
-					[mutableCues addObject:[self cueObject:c :moc :tempCuesObject]]; 
+					[mutableCues addObject:cueObjectReturn]; 
 					
 					NSLog(@"Group Cue Added");
 				
@@ -345,6 +345,7 @@
 	
 	NSString *cueName = [object valueForKey:@"qName"];
 	[groupObject setValue:cueName forKey:@"qName"];
+	NSLog(@"GroupCue Name:%@",cueName);
 	
 	NSString *idName = [object valueForKey:@"uniqueID"];
 	[groupObject setValue:idName forKey:@"uniqueID"]; 
