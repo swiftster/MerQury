@@ -149,7 +149,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	
 }
 
--(void)refreshData
+-(oneway void)serverRefreshData
 { 
 	[appDelegate refreshQlabInfo]; 
 }

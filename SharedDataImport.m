@@ -182,7 +182,7 @@
 				NSManagedObject *tempCuesObject = [cueArray objectAtIndex:c];
 			
 				NSString *isGroup = [tempCuesObject valueForKey:@"qType"];
-				NSLog(@"isGroup:%@ Number of Cues:%d of %d",isGroup, c, numberOfCues);
+				//NSLog(@"isGroup:%@ Number of Cues:%d of %d",isGroup, c, numberOfCues);
 				
 				
 				
@@ -212,16 +212,16 @@
 						//NSLog(@"G = %i", g);
 						NSManagedObject *tempGroupCueObject = [groupCueArray objectAtIndex:g];
 						
-					NSLog(@"Adding Group Cue #%i",g);
+					//NSLog(@"Adding Group Cue #%i",g);
 						[mutableGroupCues addObject:[self groupObject:g :moc:tempGroupCueObject]]; 
 					
 					}
 					
-					NSLog(@"Group Cue Adding");
+					//NSLog(@"Group Cue Adding");
 					
 					[mutableCues addObject:cueObjectReturn]; 
 					
-					NSLog(@"Group Cue Added");
+					//NSLog(@"Group Cue Added");
 				
 				} else {																	// If not a Group Cue just Add the cue
 					
@@ -238,7 +238,8 @@
 		}
 		
 		[mutableWorkspace addObject:workspace];   //Add the workspace
-		NSLog(@"Workspace Added"); }
+		//NSLog(@"Workspace Added"); 
+	}
 	
 	
 }

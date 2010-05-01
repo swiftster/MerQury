@@ -155,7 +155,8 @@
 
 -(oneway void)refreshData
 {
-	[proxy refreshData]; 
+	NSLog(@"Clinet Trying to Send");
+	[proxy serverRefreshData];
 }
 
 //Connect to the server 

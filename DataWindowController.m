@@ -123,9 +123,9 @@
 { 
 	
 	
-	NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
+	//NSFetchRequest *fetch = [[[NSFetchRequest alloc] init] autorelease];
 	
-	
+	/*
 	[fetch setEntity:[NSEntityDescription entityForName:@"GroupCue" inManagedObjectContext:moc]];
 	NSArray *result = [moc executeFetchRequest:fetch error:nil];
 	for (id groupcue in result)
@@ -137,29 +137,40 @@
 	for (id cues in result)
 		[moc deleteObject:cues];
 	 
+	//NSLog(@"CuesPing");
 	
-	[fetch setEntity:[NSEntityDescription entityForName:@"CueLists" inManagedObjectContext:moc]];
-	result = [moc executeFetchRequest:fetch error:nil];
-	for (id cuelists in result)
-		[moc deleteObject:cuelists];
+	//NSArray *deleteCueListsArray = [cueListController arrangedObjects]; 
+	//[cueListController removeObjects:deleteCueListsArray]; 
+	
+	NSArray *deleteWorkspaceArray = [workSpaceController arrangedObjects]; 
+	[workSpaceController removeObjects:deleteWorkspaceArray]; 
+	
+	NSArray *deleteSeverArray = [serverController arrangedObjects]; 
+	[serverController removeObjects:deleteSeverArray]; 
+	
+	
+	//[fetch setEntity:[NSEntityDescription entityForName:@"CueLists" inManagedObjectContext:moc]];
+	//result = [moc executeFetchRequest:fetch error:nil];
+	//for (id cuelists in result)
+	//	[moc deleteObject:cuelists];
 	 
+	//NSLog(@"List Ping");
+	
+	//[fetch setEntity:[NSEntityDescription entityForName:@"Workspace" inManagedObjectContext:moc]];
+	//result = [moc executeFetchRequest:fetch error:nil];
+	//for (id workspace in result)
+	///[moc deleteObject:workspace];
 	
 	
-	[fetch setEntity:[NSEntityDescription entityForName:@"Workspace" inManagedObjectContext:moc]];
-	result = [moc executeFetchRequest:fetch error:nil];
-	for (id workspace in result)
-	[moc deleteObject:workspace];
 	
+	//[fetch setEntity:[NSEntityDescription entityForName:@"Server" inManagedObjectContext:moc]];
 	
+	//result = [moc executeFetchRequest:fetch error:nil];
+	//for (id server in result)
+	//[moc deleteObject:server];
+	*/
 	
-	[fetch setEntity:[NSEntityDescription entityForName:@"Server" inManagedObjectContext:moc]];
-	
-	result = [moc executeFetchRequest:fetch error:nil];
-	for (id server in result)
-	[moc deleteObject:server];
-	
-	
-	[moc processPendingChanges]; 
+	NSLog(@"Ping Remote");
 	 
 	[appDelegate remoteDataRefresh]; 
 	

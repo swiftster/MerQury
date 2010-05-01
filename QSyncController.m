@@ -88,6 +88,10 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	connectEnabled = YES; 
 	disconnectEnabled = NO;
 	
+	
+	
+	
+	
 	return self; 
 }
 
@@ -119,6 +123,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	if ([qlabScripts isQlabActive] == YES) { 
 		[self importData]; }
 	
+	[self enterSlaveMode];
 	[self activeUpdate];
 
 }
