@@ -38,6 +38,7 @@
 -(NSManagedObject *)groupObject:(int) c:(NSManagedObjectContext *) moc: (NSManagedObject *)object;
 -(NSManagedObject *)levelsObject:(int) c:(NSManagedObjectContext *) moc:(NSManagedObject *)object;
 
+
 -(NSString *)doubleToString:(NSNumber *)numberToString;
 -(int)incrementSortInt;
 

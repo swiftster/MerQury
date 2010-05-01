@@ -132,7 +132,7 @@
 		[workspace setValue:workspaceNameString forKey:@"name"];
 		[workspace setValue:FALSE forKey:@"isLocal"];
 
-		NSLog(@"Name Added");
+		//NSLog(@"Name Added");
 		
 		//Add Cue Lists to the Workspace
 		mutableCueLists = [workspace mutableSetValueForKey:@"cuelists"];
@@ -189,31 +189,40 @@
 				//If the cue type is Group, add the Cue and then the children group cues
 				if ([isGroup isEqualToString:@"Group"] == TRUE)  {
 					
-					NSManagedObject *cueObjectReturn = [self cueObject:c :moc :tempCuesObject];  //Create and use a single Cue Object pre cue
-					NSLog(@"Starting Group Cues Add");
 					
-					NSSet *tempGroupSet = [cueObjectReturn valueForKey:@"GroupCues"];
-					NSLog(@"Created set");
+					//NSManagedObject *cueObjectReturn = [cueArray objectAtIndex:c];
+					
+					
+					//NSLog(@"Starting Group Cues Add");
+					
+					NSSet *tempGroupSet = [tempCuesObject valueForKey:@"groupCues"];
+					
+					//NSLog(@"Created set");
 					NSArray *groupCueArray = [tempGroupSet allObjects];		//Get an Array of Group Cues
-					NSLog(@"Created Group Array");
+					
 					int groupCount = [groupCueArray count];									//Count 
-					NSLog(@"Group Count:%i", groupCount);
+					NSLog(@"GroupCount:%i",groupCount);
 					
 					
 					
-					mutableGroupCues = [cueObjectReturn mutableSetValueForKey:@"groupCues"]; //Prepare MutableSet, Adds values via KVO
+					mutableGroupCues = [tempCuesObject mutableSetValueForKey:@"groupCues"]; //Prepare MutableSet, Adds values via KVO
 					
 					for (g = 0; g < groupCount; g++) { 
 						
+						//NSLog(@"G = %i", g);
 						NSManagedObject *tempGroupCueObject = [groupCueArray objectAtIndex:g];
 						
-						NSLog(@"Adding Group Cue");
-						[mutableGroupCues addObject:[self groupObject:g :moc:tempGroupCueObject]]; }
+					NSLog(@"Adding Group Cue #%i",g);
+						[mutableGroupCues addObject:[self groupObject:g :moc:tempGroupCueObject]]; 
 					
+					}
 					
-					[mutableCues addObject:cueObjectReturn]; 
+					NSLog(@"Group Cue Adding");
 					
+					[mutableCues addObject:[self cueObject:c :moc :tempCuesObject]]; 
 					
+					NSLog(@"Group Cue Added");
+				
 				} else {																	// If not a Group Cue just Add the cue
 					
 					
@@ -325,6 +334,7 @@
 
 {    
 	
+	
 	NSManagedObject *groupObject = [NSEntityDescription insertNewObjectForEntityForName:@"GroupCue" inManagedObjectContext:moc];
 	NSMutableSet *mutableLevelSet = [groupObject mutableSetValueForKey:@"levels"];
 	
@@ -365,6 +375,7 @@
 	[groupObject setValue:qFileTarget forKey:@"fileTarget"];
 	
 	
+	
 	NSNumber *qLoaded = [object valueForKey:@"loaded"];
 	[groupObject setValue:qLoaded	forKey:@"loaded"]; 
 	
@@ -373,7 +384,8 @@
 	[groupObject setValue:qNotes forKey:@"notes"];
 	
 	NSNumber *qPaused = [object valueForKey:@"paused"];
-	[groupObject setValue:qPaused	forKey:@"paused"];
+	[groupObject setValue:qPaused forKey:@"paused"];
+	
 	
 	
 	NSString *postWaitTimeString;
@@ -381,8 +393,9 @@
 	[groupObject setValue:postWaitTimeString forKey:@"postWait"];
 	
 	
+	
 	NSString *preWaitTimeString;
-	preWaitTimeString = [object valueForKey:@"prewait"];
+	preWaitTimeString = [object valueForKey:@"preWait"];
 	[groupObject setValue:preWaitTimeString forKey:@"preWait"]; 
 	
 	
@@ -392,11 +405,15 @@
 	NSManagedObject *tempLevelsObject = [tempLevelArray objectAtIndex:0]; 
 	
 	
+	
 	[mutableLevelSet addObject:[self levelsObject:c :moc :tempLevelsObject]];
 
+	//NSLog(@"Returning groupObject");
 	
 	return groupObject; 
 }
+
+
 
 
 -(NSManagedObject *)levelsObject:(int) c:(NSManagedObjectContext *) moc:(NSManagedObject *)object
@@ -554,7 +571,7 @@
 	NSNumber *qFader48 =  [object valueForKey:@"output48"]; 
 	[cueObject setValue:qFader48 forKey:@"output48"];
 	
-	NSLog(@"Finished Levels");
+	//NSLog(@"Finished Levels");
 	
 	
 	return cueObject;
