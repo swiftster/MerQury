@@ -18,6 +18,8 @@
 #import	"ClientController.h"
 #import "MessageServer.h"
 
+#import "PreferenceController.h"
+
 
 
 
@@ -81,6 +83,8 @@ extern NSString * const JATDataRefreshNotification;
 
 	//Windows and View Controllers 
 	AboutWindowControl *aboutWindow;
+	DataWindowController *dataWindow;
+	PreferenceController *preferenceWindow; 
 	
 	
 	
@@ -166,7 +170,7 @@ extern NSString * const JATDataRefreshNotification;
 //App Controls
 -(IBAction)openAboutWindow: (id) sender;
 -(IBAction)openDataViewWindow: (id) sender; 
--(IBAction)openAdjustPanel:(id)sender;
+-(IBAction)openPreferencePanel:(id)sender;
 -(IBAction)adjustNow: (id) sender; 
 -(IBAction)modeSelection: (id) sender; 
 

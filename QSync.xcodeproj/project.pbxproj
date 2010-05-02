@@ -13,16 +13,19 @@
 		381F326E1119E4B100939B24 /* ConnectionMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F326D1119E4B100939B24 /* ConnectionMonitor.m */; };
 		381F32711119F8AB00939B24 /* ClientController.m in Sources */ = {isa = PBXBuildFile; fileRef = 381F32701119F8AB00939B24 /* ClientController.m */; };
 		3822658B10D58F8A00F96214 /* Q.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3822658A10D58F8900F96214 /* Q.jpg */; };
+		3872C780118D068100122036 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3872C77F118D068100122036 /* PreferenceWindow.xib */; };
 		388A1EAC116F8C7E0026D216 /* LevelTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 388A1EAB116F8C7E0026D216 /* LevelTextField.m */; };
 		388A1F47116FAB0F0026D216 /* JTNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 388A1F46116FAB0F0026D216 /* JTNumberFormatter.m */; };
 		388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B2ED51108E17C00745A2D /* MerQuryToolbar.m */; };
+		38AC139A118CF9030004B2C6 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */; };
+		38AC139D118CF9120004B2C6 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */; };
+		38AC13D8118CFC700004B2C6 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC13D7118CFC700004B2C6 /* PreferenceController.m */; };
 		38B351FC10CB3F0D00E5A97A /* MessageBroker.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351F710CB3F0D00E5A97A /* MessageBroker.m */; };
 		38B351FD10CB3F0D00E5A97A /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351F910CB3F0D00E5A97A /* Message.m */; };
 		38B351FE10CB3F0D00E5A97A /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351FA10CB3F0D00E5A97A /* AsyncSocket.m */; };
 		38B3520510CB3F2400E5A97A /* QlabScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B3520210CB3F2400E5A97A /* QlabScripting.m */; };
-		38B3520610CB3F2400E5A97A /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B3520410CB3F2400E5A97A /* PreferenceController.m */; };
 		38B3520910CB3F9A00E5A97A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38B3520710CB3F9A00E5A97A /* MainMenu.xib */; };
 		38B3520C10CB3FB100E5A97A /* QSyncController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B3520B10CB3FB100E5A97A /* QSyncController.m */; };
 		38B3520E10CB400C00E5A97A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B3520D10CB400C00E5A97A /* CoreServices.framework */; };
@@ -84,6 +87,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				38AC139D118CF9120004B2C6 /* BWToolkitFramework.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +111,7 @@
 		381F326F1119F8AB00939B24 /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
 		381F32701119F8AB00939B24 /* ClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientController.m; sourceTree = "<group>"; };
 		3822658A10D58F8900F96214 /* Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q.jpg; sourceTree = "<group>"; };
+		3872C77F118D068100122036 /* PreferenceWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		388A1EAA116F8C7E0026D216 /* LevelTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTextField.h; sourceTree = "<group>"; };
 		388A1EAB116F8C7E0026D216 /* LevelTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTextField.m; sourceTree = "<group>"; };
 		388A1F45116FAB0F0026D216 /* JTNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberFormatter.h; sourceTree = "<group>"; };
@@ -114,6 +119,9 @@
 		388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		388B2ED41108E17C00745A2D /* MerQuryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerQuryToolbar.h; sourceTree = "<group>"; };
 		388B2ED51108E17C00745A2D /* MerQuryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerQuryToolbar.m; sourceTree = "<group>"; };
+		38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = BWToolkit/BWToolkitFramework.framework; sourceTree = "<group>"; };
+		38AC13D6118CFC700004B2C6 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
+		38AC13D7118CFC700004B2C6 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		38B351F610CB3F0D00E5A97A /* MessageBroker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBroker.h; sourceTree = "<group>"; };
 		38B351F710CB3F0D00E5A97A /* MessageBroker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageBroker.m; sourceTree = "<group>"; };
 		38B351F810CB3F0D00E5A97A /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -122,8 +130,6 @@
 		38B351FB10CB3F0D00E5A97A /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncSocket.h; sourceTree = "<group>"; };
 		38B3520110CB3F2400E5A97A /* QlabScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QlabScripting.h; sourceTree = "<group>"; };
 		38B3520210CB3F2400E5A97A /* QlabScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QlabScripting.m; sourceTree = "<group>"; };
-		38B3520310CB3F2400E5A97A /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
-		38B3520410CB3F2400E5A97A /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		38B3520810CB3F9A00E5A97A /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		38B3520A10CB3FB100E5A97A /* QSyncController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QSyncController.h; sourceTree = "<group>"; };
 		38B3520B10CB3FB100E5A97A /* QSyncController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QSyncController.m; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */,
 				967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */,
 				96135F76115E665600D6A9BA /* Sparkle.framework in Frameworks */,
+				38AC139A118CF9030004B2C6 /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +221,7 @@
 				38B3520D10CB400C00E5A97A /* CoreServices.framework */,
 				38B3521210CB402200E5A97A /* ScriptingBridge.framework */,
 				96135F75115E665600D6A9BA /* Sparkle.framework */,
+				38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -271,6 +279,7 @@
 				8D1107310486CEB800E47090 /* QSync-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				38C0AB45110782DA00592A30 /* Adjust.xib */,
+				3872C77F118D068100122036 /* PreferenceWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -292,6 +301,15 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		38AC13D9118CFCA60004B2C6 /* Preference Window */ = {
+			isa = PBXGroup;
+			children = (
+				38AC13D6118CFC700004B2C6 /* PreferenceController.h */,
+				38AC13D7118CFC700004B2C6 /* PreferenceController.m */,
+			);
+			name = "Preference Window";
+			sourceTree = "<group>";
+		};
 		38B351F510CB3F0D00E5A97A /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -307,8 +325,6 @@
 				96B5195D10FF9F0E007504CB /* Qlab.h */,
 				38B3520110CB3F2400E5A97A /* QlabScripting.h */,
 				38B3520210CB3F2400E5A97A /* QlabScripting.m */,
-				38B3520310CB3F2400E5A97A /* PreferenceController.h */,
-				38B3520410CB3F2400E5A97A /* PreferenceController.m */,
 				966876F311627B8E003B884F /* QlabLevelController.h */,
 				966876F411627B8E003B884F /* QlabLevelController.m */,
 			);
@@ -373,6 +389,7 @@
 				9628A1AC10FA5329009DCE4B /* MainWindow.h */,
 				9628A1AD10FA5329009DCE4B /* MainWindow.m */,
 				96FDBAEC10F0F1D70010537B /* Data View Window */,
+				38AC13D9118CFCA60004B2C6 /* Preference Window */,
 				96F774E310D5BA05005A6B6B /* About Window */,
 				388B2ED41108E17C00745A2D /* MerQuryToolbar.h */,
 				388B2ED51108E17C00745A2D /* MerQuryToolbar.m */,
@@ -486,6 +503,7 @@
 				967A4B2E10E91AA000CA5CDD /* DataWindow.xib in Resources */,
 				38C0AB46110782DA00592A30 /* Adjust.xib in Resources */,
 				38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */,
+				3872C780118D068100122036 /* PreferenceWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,7 +519,6 @@
 				38B351FD10CB3F0D00E5A97A /* Message.m in Sources */,
 				38B351FE10CB3F0D00E5A97A /* AsyncSocket.m in Sources */,
 				38B3520510CB3F2400E5A97A /* QlabScripting.m in Sources */,
-				38B3520610CB3F2400E5A97A /* PreferenceController.m in Sources */,
 				38B3520C10CB3FB100E5A97A /* QSyncController.m in Sources */,
 				38B353E110CB438F00E5A97A /* SGHotKey.m in Sources */,
 				38B353E210CB438F00E5A97A /* SGHotKeyCenter.m in Sources */,
@@ -526,6 +543,7 @@
 				388A1EAC116F8C7E0026D216 /* LevelTextField.m in Sources */,
 				388A1F47116FAB0F0026D216 /* JTNumberFormatter.m in Sources */,
 				380F16CF1170E1CB00EF0112 /* MasterTableCell.m in Sources */,
+				38AC13D8118CFC700004B2C6 /* PreferenceController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +579,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../shortcutrecorder-read-only/build/Release\"",
 					"\"$(SRCROOT)/../Sparkle/build/Release (GC dual-mode; 10.5-only)\"",
+					"\"$(SRCROOT)/BWToolkit\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -584,6 +603,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../shortcutrecorder-read-only/build/Release\"",
 					"\"$(SRCROOT)/../Sparkle/build/Release (GC dual-mode; 10.5-only)\"",
+					"\"$(SRCROOT)/BWToolkit\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

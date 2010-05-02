@@ -711,21 +711,35 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 -(IBAction)openDataViewWindow: (id) sender
 { 
+	if (!dataWindow) { 
+		 
+	 
 	
+	dataWindow = [[DataWindowController alloc] initWithManagedObjectContext:[self managedObjectContext] appDelegate:self];
+	[dataWindow setShouldCloseDocument:NO];
+	[self addWindowController:dataWindow];
+	}
 	
-	DataWindowController *newWindowController = [[DataWindowController alloc] initWithManagedObjectContext:[self managedObjectContext] appDelegate:self];
-	[newWindowController setShouldCloseDocument:NO];
-	[self addWindowController:newWindowController];
-	[newWindowController showWindow:self];
+	[dataWindow showWindow:self];
+
+
 	
 }
 
 
 
--(IBAction)openAdjustPanel:(id)sender { 
+-(IBAction)openPreferencePanel:(id)sender { 
+	
+	if (!preferenceWindow) { 
+		preferenceWindow = [[PreferenceController  alloc] init]; 
+	} 
+	 
+	[preferenceWindow showWindow:self]; 
+	
 
 }
 
+//Old Time adjust method.  Used before the DO server was implemented to adjust for Network lag. 
 
 -(IBAction)adjustNow: (id) sender  {
 	
