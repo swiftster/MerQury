@@ -41,6 +41,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 		return nil;
 	
 	qlabScripts = [QlabScripting sharedQlabScripting]; 
+	server = [MessageServer sharedMessageServer];
 	
 	return self; 
 }
@@ -180,27 +181,27 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 - (void)goKeyPressed:(id)sender {
 	
 	NSLog(@"Go Button Pressed");
-
+	[server serverGo];
 	[qlabScripts goCue];
 }
 
 - (void)stopKeyPressed:(id)sender {
 	
-
+	[server serverStop];
 	[qlabScripts stopCue];
 	
 } 
 
 - (void)upKeyPressed:(id)sender {
 	
-	
+	[server serverUp];
 	[qlabScripts moveSelectionUp];
 	
 }
 
 - (void)downKeyPressed:(id)sender {
 	
-	
+	[server serverDown];
 	[qlabScripts moveSelectionDown];
 	
 	

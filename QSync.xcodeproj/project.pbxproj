@@ -202,7 +202,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				3834D20311A3513900AC77C3 /* SynthesizeSingleton.h */,
 				38B3520A10CB3FB100E5A97A /* QSyncController.h */,
 				38B3520B10CB3FB100E5A97A /* QSyncController.m */,
 				964415FD10CD78AD005F595D /* Views & Controllers */,
@@ -211,6 +210,7 @@
 				38D811D410D9B11400931384 /* HotKeys */,
 				38B351FF10CB3F2400E5A97A /* QLab Scripting */,
 				38B351F510CB3F0D00E5A97A /* Networking */,
+				96E9FFF411A432F700D33897 /* Macros */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -418,6 +418,14 @@
 				9668B9591160EFCB0095B752 /* SharedDataImport.m */,
 			);
 			name = "Import Operations";
+			sourceTree = "<group>";
+		};
+		96E9FFF411A432F700D33897 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				3834D20311A3513900AC77C3 /* SynthesizeSingleton.h */,
+			);
+			name = Macros;
 			sourceTree = "<group>";
 		};
 		96F774E310D5BA05005A6B6B /* About Window */ = {

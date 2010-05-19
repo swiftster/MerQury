@@ -333,7 +333,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 #pragma mark MessageBroker Delegate Methods
 -(void)messageBroker:(MessageBroker *)server didReceiveMessage:(Message *)message {
 	
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+	//NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
 	//NSLog(@"Reciveing Message"); 
     if ( message.tag == 100 ) {
 		NSLog(@"Tag = 100"); }
@@ -766,7 +766,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 -(void)enterMasterMode { 
 	
-	NSLog(@"Master Mode");
+	//NSLog(@"Master Mode");
 	[preferenceWindow registerHotKeys];
 	[qlabScripts loadQlabArray];
 	[toggleKeysMenuItem setState:1];
@@ -776,7 +776,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 -(void)enterSlaveMode { 
 	
-	NSLog(@"Slave Mode");
+	//NSLog(@"Slave Mode");
 	[preferenceWindow unregisterHotKeys];
 	[qlabScripts loadQlabArray];
 	[toggleKeysMenuItem setState:0];
@@ -790,8 +790,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 -(MessageServer *)setupServerClass
 {
-	MessageServer *server = [[MessageServer alloc] initWithDelegate:self]; 
-	
+	MessageServer *server = [[MessageServer sharedMessageServer] initWithDelegate:self];
+	NSLog(@"Server Setup");
 	return server; 
 	
 }

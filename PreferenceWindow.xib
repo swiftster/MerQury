@@ -21,7 +21,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="11"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -159,10 +159,10 @@
 								<nil key="autosaveName"/>
 								<integer value="49" key="keyComboCode"/>
 								<integer value="0" key="keyComboFlags"/>
-								<integer value="10354688" key="allowedFlags"/>
+								<integer value="1966080" key="allowedFlags"/>
 								<integer value="0" key="requiredFlags"/>
 								<boolean value="YES" key="allowsKeyOnly"/>
-								<boolean value="NO" key="escapeKeysRecord"/>
+								<boolean value="YES" key="escapeKeysRecord"/>
 								<boolean value="YES" key="isAnimating"/>
 								<integer value="1" key="style"/>
 							</object>
@@ -201,10 +201,10 @@
 								<nil key="autosaveName"/>
 								<integer value="126" key="keyComboCode"/>
 								<integer value="0" key="keyComboFlags"/>
-								<integer value="10354688" key="allowedFlags"/>
+								<integer value="1966080" key="allowedFlags"/>
 								<integer value="0" key="requiredFlags"/>
 								<boolean value="YES" key="allowsKeyOnly"/>
-								<boolean value="NO" key="escapeKeysRecord"/>
+								<boolean value="YES" key="escapeKeysRecord"/>
 								<boolean value="YES" key="isAnimating"/>
 								<integer value="1" key="style"/>
 							</object>
@@ -222,10 +222,10 @@
 								<nil key="autosaveName"/>
 								<integer value="125" key="keyComboCode"/>
 								<integer value="0" key="keyComboFlags"/>
-								<integer value="10354688" key="allowedFlags"/>
+								<integer value="1966080" key="allowedFlags"/>
 								<integer value="0" key="requiredFlags"/>
 								<boolean value="YES" key="allowsKeyOnly"/>
-								<boolean value="NO" key="escapeKeysRecord"/>
+								<boolean value="YES" key="escapeKeysRecord"/>
 								<boolean value="YES" key="isAnimating"/>
 								<integer value="1" key="style"/>
 							</object>

@@ -9,15 +9,18 @@
 
 #import "MessageServer.h"
 #import "CommandMessagesProto.h"
+#import "SynthesizeSingleton.h"
 
 
-NSString * const JATServerGoNotification = @"ServerGoNote";
-NSString * const JATServerSelectionUpNotification = @"ServerUpNote";
-NSString * const JATServerSelectionDownNotification = @"ServerDownNote";
-NSString * const JATServerStopNotification = @"ServerStopNote";
-NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
+//NSString * const JATServerGoNotification = @"ServerGoNote";
+//NSString * const JATServerSelectionUpNotification = @"ServerUpNote";
+//NSString * const JATServerSelectionDownNotification = @"ServerDownNote";
+//NSString * const JATServerStopNotification = @"ServerStopNote";
+//NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 
 @implementation MessageServer
+
+SYNTHESIZE_SINGLETON_FOR_CLASS(MessageServer);
 
 
 @synthesize appDelegate;
@@ -27,6 +30,8 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 
 -(id)initWithDelegate:(QSyncController *)delegate
 {	
+	
+	NSLog(@"Server init");
 	
 	if (!(self = [super init])) return nil;
 	
@@ -44,12 +49,12 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	
 	
 	
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-	[nc addObserver:self selector:@selector(serverGoNote:) name:JATServerGoNotification object:nil];
-	[nc addObserver:self selector:@selector(serverUpNote:) name:JATServerSelectionUpNotification object:nil];
-	[nc addObserver:self selector:@selector(serverDownNote:) name:JATServerSelectionDownNotification object:nil];
-	[nc addObserver:self selector:@selector(serverStopNote:) name:JATServerStopNotification object:nil];
-	[nc addObserver:self selector:@selector(updateModalFromClient:) name:JATGetClientSharedDataNotification object:nil];
+	//NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	//[nc addObserver:self selector:@selector(serverGoNote:) name:JATServerGoNotification object:nil];
+	//[nc addObserver:self selector:@selector(serverUpNote:) name:JATServerSelectionUpNotification object:nil];
+	//[nc addObserver:self selector:@selector(serverDownNote:) name:JATServerSelectionDownNotification object:nil];
+	//[nc addObserver:self selector:@selector(serverStopNote:) name:JATServerStopNotification object:nil];
+	//[nc addObserver:self selector:@selector(updateModalFromClient:) name:JATGetClientSharedDataNotification object:nil];
 	
 	return self; 
 	
@@ -159,7 +164,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient
 { 
 
-	//NSLog(@"adding client"); 
+	NSLog(@"adding client"); 
 	
 	[clients addObject:newClient]; 
 	
@@ -173,11 +178,11 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	NSConnection *connection = [clientProxy connectionForProxy]; 
 	[clients removeObject:client];
 	[connection invalidate]; 
-	//NSLog(@"Client Removed"); 
+	NSLog(@"Client Removed"); 
 }
 						
 //Notification Handle 
-
+/*
 -(void)serverGoNote:(NSNotificationCenter *)note 
 {
 	
@@ -190,7 +195,20 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 		[currentClient commandFromServer:110]; }
 	
 }
-
+*/
+-(void)serverGo
+{
+	NSLog(@"Server Passing Go");
+	NSEnumerator *enumerator; 
+	id currentClient; 
+	
+	enumerator = [clients objectEnumerator]; 
+	
+	while (currentClient = [enumerator nextObject]) { 
+		[currentClient commandFromServer:110]; }
+	
+}
+/*
 -(void)serverStopNote:(NSNotificationCenter *)note 
 { 
 	
@@ -203,7 +221,22 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 		[currentClient commandFromServer:120]; }
 	
 }
+ */
+	 
+-(void)serverStop 
+{ 
+		
+		NSEnumerator *enumerator; 
+		id currentClient; 
+		
+		enumerator = [clients objectEnumerator]; 
+		
+		while (currentClient = [enumerator nextObject]) { 
+			[currentClient commandFromServer:120]; }
+		
+}
 
+/*
 -(void)serverUpNote:(NSNotificationCenter *)note 
 { 
 	
@@ -216,7 +249,23 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 		[currentClient commandFromServer:130]; }
 	
 }
-
+*/
+	 
+-(void)serverUp
+{ 
+		
+		NSEnumerator *enumerator; 
+		id currentClient; 
+		
+		enumerator = [clients objectEnumerator]; 
+		
+		while (currentClient = [enumerator nextObject]) { 
+			[currentClient commandFromServer:130]; }
+		
+}
+	 
+/*
+	 
 -(void)serverDownNote:(NSNotificationCenter *)note
 { 
 	
@@ -229,7 +278,21 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 		[currentClient commandFromServer:140]; }
 	
 }
+*/
 
+-(void)serverDown
+{ 
+		
+		NSEnumerator *enumerator; 
+		id currentClient; 
+		
+		enumerator = [clients objectEnumerator]; 
+		
+		while (currentClient = [enumerator nextObject]) { 
+			[currentClient commandFromServer:140]; }
+		
+}
+	 
 
 #pragma mark FROM CLient messages
 

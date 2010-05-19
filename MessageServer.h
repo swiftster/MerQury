@@ -16,11 +16,11 @@
 
 
 //Use notifcations for server return since Server is running on another Thread
-extern NSString * const JATServerGoNotification;
-extern NSString * const JATServerSelectionUpNotification;
-extern NSString * const JATServerSelectionDownNotification;
-extern NSString * const JATServerStopNotification;
-extern NSString	* const JATGetClientSharedDataNotification; 
+//extern NSString * const JATServerGoNotification;
+//extern NSString * const JATServerSelectionUpNotification;
+//extern NSString * const JATServerSelectionDownNotification;
+//extern NSString * const JATServerStopNotification;
+//extern NSString	* const JATGetClientSharedDataNotification; 
 
 
 @interface MessageServer : NSObject <ServerMessage> {
@@ -37,17 +37,24 @@ extern NSString	* const JATGetClientSharedDataNotification;
 @property (readwrite, assign) NSManagedObjectContext *mainMOC;
 
 
++ (MessageServer *)sharedMessageServer;
+
 -(id)initWithDelegate:(QSyncController *)delegate;
 
 - (NSManagedObjectContext*)newContextToMainStore;
 - (void)contextDidSave:(NSNotification*)notification;
 
--(void)serverGoNote:(NSNotificationCenter *)note;
--(void)serverStopNote:(NSNotificationCenter *)note;
--(void)serverUpNote:(NSNotificationCenter *)note;
--(void)serverDownNote:(NSNotificationCenter *)note;
+//-(void)serverGoNote:(NSNotificationCenter *)note;
+//-(void)serverStopNote:(NSNotificationCenter *)note;
+//-(void)serverUpNote:(NSNotificationCenter *)note;
+//-(void)serverDownNote:(NSNotificationCenter *)note;
 
 -(void)updateModalFromClient:(NSNotification *)note;
+
+-(void)serverGo;
+-(void)serverStop;
+-(void)serverUp;
+-(void)serverDown;
 
 
 

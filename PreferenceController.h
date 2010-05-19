@@ -10,6 +10,7 @@
 #import <ShortcutRecorder/ShortcutRecorder.h>
 #import "SGHotKey.h"
 #import "QlabScripting.h"
+#import "MessageServer.h"
 
 
 extern NSString *kGlobalGoKey;
@@ -35,6 +36,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	SGHotKey *primaryKey; 
 	
 	QlabScripting *qlabScripts;
+	MessageServer *server;
 
 }
 
