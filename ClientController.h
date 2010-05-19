@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "CommandMessagesProto.h"
 #import <sys/socket.h>
-
+#import "QlabScripting.h"
 
 @interface ClientController : NSObject <ServerMessage> {
 	
@@ -18,6 +18,7 @@
 	NSString *serverHostName; 
 	id proxy;
 	NSManagedObjectContext *moc; 
+	QlabScripting *qlabScripts;
 	
 	
 	

@@ -12,23 +12,13 @@
 #import "AsyncSocket.h"
 #import "MessageBroker.h"
 #import "Message.h"
-#import "SGHotKeyCenter.h"
+
 #import	"ImportOp.h"
 #import "ServerThread.h"
 #import "ServerBrowser.h"
 #import "MessageServer.h"
 #import "SharedDataImport.h"
 
-
-
-
-
-
-NSString *kGlobalGoKey = @"Global Go Key";
-NSString *kGlobalStopKey = @"Global Stop Key";
-NSString *kGlobalUpKey = @"Global Up Key";
-NSString *kGlobalDownKey = @"Global Down Key";
-NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
@@ -51,18 +41,6 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 @synthesize retryAttempt;
 
 
-//hotkeys
-@synthesize hotKeyGoControl;
-@synthesize hotKeyStopControl; 
-@synthesize hotKeyUpSelectionControl; 
-@synthesize hotKeyDownSelectionControl; 
-@synthesize hotKeyBecomePrimaryControl; 
-@synthesize goKey;
-@synthesize stopKey; 
-@synthesize upKey; 
-@synthesize downKey; 
-@synthesize primaryKey; 
-
 //ToolBar
 @synthesize searchEnabled;
 @synthesize connectEnabled; 
@@ -77,10 +55,12 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 -(id)init
 {
 	[super init]; 
-	qlabScripts = [[QlabScripting alloc] init]; 
+	
 	 
 	queue = [[NSOperationQueue alloc] init];
 	remoteService = [[NSNetService alloc] init]; 
+	
+	qlabScripts = [QlabScripting sharedQlabScripting];
 	
 	searchEnabled = TRUE; 
 	connectEnabled = TRUE;
@@ -88,7 +68,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	connectEnabled = YES; 
 	disconnectEnabled = NO;
 	
-	
+	preferenceWindow = [[PreferenceController  alloc] init];
 	
 	
 	
@@ -114,7 +94,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	[self startService];
 	[self startDoServer];
 	[self search:self];
-	[self registerHotKeys]; 
+	[preferenceWindow registerHotKeys]; 
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(refreshQlabInfo:) name:JATDataRefreshNotification object:nil];
@@ -129,11 +109,11 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 }
 
 - (void)applicationWillTerminate:(NSNotification *)theNotification {
-	[[NSUserDefaults standardUserDefaults] setObject:[self.goKey.keyCombo plistRepresentation] forKey:kGlobalGoKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[self.stopKey.keyCombo plistRepresentation] forKey:kGlobalStopKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[self.upKey.keyCombo plistRepresentation] forKey:kGlobalUpKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[self.downKey.keyCombo plistRepresentation] forKey:kGlobalDownKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[self.primaryKey.keyCombo plistRepresentation] forKey:kGlobalBecomePrimaryKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.goKey.keyCombo plistRepresentation] forKey:kGlobalGoKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.stopKey.keyCombo plistRepresentation] forKey:kGlobalStopKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.upKey.keyCombo plistRepresentation] forKey:kGlobalUpKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.downKey.keyCombo plistRepresentation] forKey:kGlobalDownKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.primaryKey.keyCombo plistRepresentation] forKey:kGlobalBecomePrimaryKey];
 	
 	[client disconnect];
 } 
@@ -156,72 +136,9 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 }
 
-
-# pragma mark -
-#pragma mark Register HotKeys 
-
--(void)registerHotKeys { 
-	//GO Key
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:goKey];	
-	id goKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalGoKey];
-	SGKeyCombo *goKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:goKeyComboPlist] autorelease];
-	goKey = [[SGHotKey alloc] initWithIdentifier:kGlobalGoKey keyCombo:goKeyCombo target:self action:@selector(goKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:goKey];
-	[hotKeyGoControl setKeyCombo:SRMakeKeyCombo(goKey.keyCombo.keyCode, [hotKeyGoControl carbonToCocoaFlags:goKey.keyCombo.modifiers])];
-	
-	 	
-	//Stop Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:stopKey];	
-	id stopKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalStopKey];
-	SGKeyCombo *stopKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:stopKeyComboPlist] autorelease];
-	stopKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:stopKeyCombo target:self action:@selector(stopKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:stopKey];
-	[hotKeyStopControl setKeyCombo:SRMakeKeyCombo(stopKey.keyCombo.keyCode, [hotKeyGoControl carbonToCocoaFlags:stopKey.keyCombo.modifiers])];
-	
-	//Up Selection Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:upKey];	
-	id upKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalUpKey];
-	SGKeyCombo *upKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:upKeyComboPlist] autorelease];
-	upKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:upKeyCombo target:self action:@selector(upKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:upKey];
-	[hotKeyUpSelectionControl setKeyCombo:SRMakeKeyCombo(upKey.keyCombo.keyCode, [hotKeyUpSelectionControl carbonToCocoaFlags:upKey.keyCombo.modifiers])];
-	
-	//Down Selection Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:downKey];	
-	id downKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalDownKey];
-	SGKeyCombo *downKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:downKeyComboPlist] autorelease];
-	downKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:downKeyCombo target:self action:@selector(downKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:downKey];
-	[hotKeyDownSelectionControl setKeyCombo:SRMakeKeyCombo(downKey.keyCombo.keyCode, [hotKeyDownSelectionControl carbonToCocoaFlags:downKey.keyCombo.modifiers])];
-	
-	//Become Primary Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:primaryKey];	
-	id primaryKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalBecomePrimaryKey];
-	SGKeyCombo *primaryKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:primaryKeyComboPlist] autorelease];
-	primaryKey = [[SGHotKey alloc] initWithIdentifier:kGlobalBecomePrimaryKey keyCombo:primaryKeyCombo target:self action:@selector(becomePrimaryPresssed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:primaryKey];
-	[hotKeyBecomePrimaryControl setKeyCombo:SRMakeKeyCombo(primaryKey.keyCombo.keyCode, [hotKeyBecomePrimaryControl carbonToCocoaFlags:primaryKey.keyCombo.modifiers])];
-	
-	//NSLog(@"Keys Registered");
-}
-
--(void)unregisterHotKeys { 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:goKey];	
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:stopKey];
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:upKey];
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:downKey];
-	//[[SGHotKeyCenter sharedCenter] unregisterHotKey:primaryKey];
-}
-
--(void)clearKeys { 
-	
-	[goKey setKeyCombo:nil]; 
-	
-}
-
 #pragma mark Message Center  
 
-
+/*
 //Keys
 
 - (void)goKeyPressed:(id)sender {
@@ -277,69 +194,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	}
 	
 }
-
-
-#pragma mark -
-#pragma mark ShortcutRecorder Delegate Methods
-
-- (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags reason:(NSString **)aReason {	
-	return NO;
-}
-
-- (void)shortcutRecorder:(SRRecorderControl *)aRecorder keyComboDidChange:(KeyCombo)newKeyCombo {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	SGKeyCombo *keyCombo = [SGKeyCombo keyComboWithKeyCode:[aRecorder keyCombo].code
-												 modifiers:[aRecorder cocoaToCarbonFlags:[aRecorder keyCombo].flags]];
-	
-	if (aRecorder == hotKeyGoControl) {		
-		[goKey setKeyCombo:keyCombo];
-		
-		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:goKey];
-		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalGoKey];
-	} 
-	
-	if (aRecorder == hotKeyStopControl) {		
-		//self.stopKey.keyCombo = keyCombo;
-		[stopKey setKeyCombo:keyCombo];
-		
-		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:stopKey];
-		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalStopKey];
-	} 
-	
-	if (aRecorder == hotKeyUpSelectionControl) {		
-		[upKey setKeyCombo:keyCombo];
-		
-		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:upKey];
-		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalUpKey];
-	} 
-	
-	if (aRecorder == hotKeyDownSelectionControl) {		
-		[downKey setKeyCombo:keyCombo];
-		
-		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:self.downKey];
-		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalDownKey];
-	} 
-	
-	if (aRecorder == hotKeyBecomePrimaryControl) {		
-		[primaryKey setKeyCombo:keyCombo];
-		
-		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:self.primaryKey];
-		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalBecomePrimaryKey];
-	} 
-	
-	
-	
-	[defaults synchronize];
-}
-
-
-
+*/
 //Server
 
 -(IBAction)startServer:(id)sender { 
@@ -484,19 +339,19 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 		NSLog(@"Tag = 100"); }
 	
 	if (message.tag == 110) {
-		[nc postNotificationName:JATQlabGoNotification object:self];
+		//[nc postNotificationName:JATQlabGoNotification object:self];
 	}
 	
 	if (message.tag == 120) {
-		[nc postNotificationName:JATQlabStopNotification object:self];
+		//[nc postNotificationName:JATQlabStopNotification object:self];
 	}
 	
 	if (message.tag == 130) {
-		[nc postNotificationName:JATQlabSelectionUpNotification object:self];
+		//[nc postNotificationName:JATQlabSelectionUpNotification object:self];
 	}
 	
 	if (message.tag == 140) {
-		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+		//[nc postNotificationName:JATQlabSelectionDownNotification object:self];
 	}
 
 	
@@ -731,7 +586,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 -(IBAction)openPreferencePanel:(id)sender { 
 	
 	if (!preferenceWindow) { 
-		preferenceWindow = [[PreferenceController  alloc] init]; 
+		//preferenceWindow = [[PreferenceController  alloc] init]; 
 	} 
 	 
 	[preferenceWindow showWindow:self]; 
@@ -912,7 +767,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 -(void)enterMasterMode { 
 	
 	NSLog(@"Master Mode");
-	[self registerHotKeys];
+	[preferenceWindow registerHotKeys];
 	[qlabScripts loadQlabArray];
 	[toggleKeysMenuItem setState:1];
 		
@@ -922,7 +777,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 -(void)enterSlaveMode { 
 	
 	NSLog(@"Slave Mode");
-	[self unregisterHotKeys];
+	[preferenceWindow unregisterHotKeys];
 	[qlabScripts loadQlabArray];
 	[toggleKeysMenuItem setState:0];
 	

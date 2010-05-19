@@ -8,14 +8,9 @@
 
 #import "QlabScripting.h"
 #import	"Qlab.h"
+#import "SynthesizeSingleton.h"
 
 
-NSString const * JATFeedBackNotification = @"JATFeedBackPost";
-NSString * const JATQlabGoNotification = @"JATQlabGo";
-NSString * const JATQlabSelectionUpNotification = @"JATQlabUp";
-NSString * const JATQlabSelectionDownNotification = @"JATQlanDown";
-NSString * const JATQlabStopNotification = @"JATQlabStop";
-NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 
 @implementation QlabScripting
 
@@ -24,23 +19,19 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 @synthesize workspaces; 
 @synthesize qlabCurrentArray;
 
+SYNTHESIZE_SINGLETON_FOR_CLASS(QlabScripting);
+
 
 -(id)init
 {
 	[super init]; 
-	//Register Observer 
+
 	
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-	[nc addObserver:self selector:@selector(goCueNote:) name:JATQlabGoNotification object:nil];
-	[nc addObserver:self selector:@selector(upSelectionNote:) name:JATQlabSelectionUpNotification object:nil];
-	[nc addObserver:self selector:@selector(downSelectionNote:) name:JATQlabSelectionDownNotification object:nil];
-	[nc addObserver:self selector:@selector(stopNote:) name:JATQlabStopNotification object:nil];
-	[nc addObserver:self selector:@selector(levelAdjustNote:) name:JATQlabAdjustLevelNotification object:nil]; 
 	
 	if ([self isQlabActive] == TRUE) { 
 		[self loadQlabArray];  }
 
-
+	
 
 	return self;
 }	
@@ -134,7 +125,7 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 //Is the QLab Application Running?
 -(BOOL)isQlabActive 
 { 
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
+	//NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	
 	QlabApplication *qLab = [SBApplication applicationWithBundleIdentifier:@"com.figure53.Qlab.2"]; 
 	
@@ -147,7 +138,7 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 				active = FALSE; 
 		[self setFeedBackText:@"Please Launch Qlab 2!"]; 
 		 
-		[nc postNotificationName:(NSString *) JATFeedBackNotification object:self];
+		//[nc postNotificationName:(NSString *) JATFeedBackNotification object:self];
 	  }
 	
 	
@@ -235,36 +226,6 @@ NSString * const JATQlabAdjustLevelNotification = @"JATQlabAdjustLevel";
 	return i; 
 }
 
-#pragma mark -
-#pragma mark Notifications 
-#pragma mark - 
-
--(void)goCueNote:(NSNotification *)note
-{ 
-	[self goCue]; 
-	NSLog(@"Go Note");
-}
-
--(void)upSelectionNote:(NSNotification *)note 
-{ 
-	NSLog(@"Up Note");
-	[self moveSelectionUp]; 
-}
-
--(void)downSelectionNote:(NSNotification *)note
-{ 
-	[self moveSelectionDown]; 
-}
-
--(void)stopNote:(NSNotification *)note
-{
-	[self stopCue]; 
-}
-
-
--(void)levelAdjustNote:(NSNotification *)note
-{
-}
 
 
 

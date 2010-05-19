@@ -40,6 +40,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 				 object:mainMOC];;
 	
 	clients = [[NSMutableArray alloc] init];
+	qlabScripts = [QlabScripting sharedQlabScripting];
 	
 	
 	
@@ -158,7 +159,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 -(BOOL)connectClient:(in byref id <ServerMessage>)newClient
 { 
 
-	NSLog(@"adding client"); 
+	//NSLog(@"adding client"); 
 	
 	[clients addObject:newClient]; 
 	
@@ -172,7 +173,7 @@ NSString * const JATGetClientSharedDataNotification = @"ClientDataShare";
 	NSConnection *connection = [clientProxy connectionForProxy]; 
 	[clients removeObject:client];
 	[connection invalidate]; 
-	NSLog(@"Client Removed"); 
+	//NSLog(@"Client Removed"); 
 }
 						
 //Notification Handle 

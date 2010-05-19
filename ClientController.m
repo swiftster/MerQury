@@ -9,7 +9,7 @@
 #import "ClientController.h"
 #import <sys/socket.h>
 #import "CommandMessagesProto.h"
-#import "QlabScripting.h"
+
 
 
 @implementation ClientController
@@ -34,6 +34,8 @@
 { 
 	moc = mainMoc; 
 	
+	qlabScripts = [QlabScripting sharedQlabScripting];
+	
 	[super init]; 
 	return self; 
 }
@@ -42,27 +44,26 @@
 //Show Message coming in from server 
 -(oneway void)commandFromServer:(in int)command
 {
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-	NSLog(@"Reciveing Message"); 
+
+	//NSLog(@"Reciveing Message"); 
     if ( command == 100 ) {
 		NSLog(@"Tag = 100"); }
 	 
 	if (command == 110) {
 		NSLog(@"Client Go Message Recieved");
-		[nc postNotificationName:JATQlabGoNotification object:self];
+		[qlabScripts goCue];
 		
 	}
 	
 	if (command == 120) {
-		[nc postNotificationName:JATQlabStopNotification object:self];
-	}
+		[qlabScripts stopCue];	}
 	 
 	if (command == 130) {
-		[nc postNotificationName:JATQlabSelectionUpNotification object:self];
+		[qlabScripts moveSelectionUp];
 	}
 	
 	if (command == 140) {
-		[nc postNotificationName:JATQlabSelectionDownNotification object:self];
+		[qlabScripts moveSelectionDown];
 	}
 	
 	

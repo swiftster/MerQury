@@ -111,6 +111,7 @@
 		381F326F1119F8AB00939B24 /* ClientController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientController.h; sourceTree = "<group>"; };
 		381F32701119F8AB00939B24 /* ClientController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientController.m; sourceTree = "<group>"; };
 		3822658A10D58F8900F96214 /* Q.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Q.jpg; sourceTree = "<group>"; };
+		3834D20311A3513900AC77C3 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		3872C77F118D068100122036 /* PreferenceWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		388A1EAA116F8C7E0026D216 /* LevelTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTextField.h; sourceTree = "<group>"; };
 		388A1EAB116F8C7E0026D216 /* LevelTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTextField.m; sourceTree = "<group>"; };
@@ -201,6 +202,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3834D20311A3513900AC77C3 /* SynthesizeSingleton.h */,
 				38B3520A10CB3FB100E5A97A /* QSyncController.h */,
 				38B3520B10CB3FB100E5A97A /* QSyncController.m */,
 				964415FD10CD78AD005F595D /* Views & Controllers */,

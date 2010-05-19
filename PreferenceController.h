@@ -7,10 +7,52 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <ShortcutRecorder/ShortcutRecorder.h>
+#import "SGHotKey.h"
+#import "QlabScripting.h"
+
+
+extern NSString *kGlobalGoKey;
+extern NSString *kGlobalStopKey;
+extern NSString *kGlobalUpKey;
+extern NSString *kGlobalDownKey;
+extern NSString *kGlobalBecomePrimaryKey; 
 
 
 @interface PreferenceController : NSWindowController {
+	
+	
+	SRRecorderControl *hotKeyGoControl;
+	SRRecorderControl *hotKeyStopControl; 
+	SRRecorderControl *hotKeyUpSelectionControl; 
+	SRRecorderControl *hotKeyDownSelectionControl; 
+	SRRecorderControl *hotKeyBecomePrimaryControl;
+	
+	SGHotKey *goKey;
+	SGHotKey *stopKey;
+	SGHotKey *upKey;
+	SGHotKey *downKey;
+	SGHotKey *primaryKey; 
+	
+	QlabScripting *qlabScripts;
 
 }
+
+@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyGoControl;
+@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyStopControl;
+@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyUpSelectionControl;
+@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyDownSelectionControl;
+@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyBecomePrimaryControl;
+
+@property (nonatomic, retain) SGHotKey *goKey;
+@property (nonatomic, retain) SGHotKey *stopKey;
+@property (nonatomic, retain) SGHotKey *upKey;
+@property (nonatomic, retain) SGHotKey *downKey;
+@property (nonatomic, retain) SGHotKey *primaryKey; 
+
+-(void)registerHotKeys;
+-(void)unregisterHotKeys;
+-(void)clearKeys;
+
 
 @end

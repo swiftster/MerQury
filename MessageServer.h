@@ -28,7 +28,7 @@ extern NSString	* const JATGetClientSharedDataNotification;
 	NSMutableArray *clients;  
 	QSyncController *appDelegate;
 	NSManagedObjectContext *mainMOC;
-	
+	QlabScripting *qlabScripts; 
 	
 
 

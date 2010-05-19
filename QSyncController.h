@@ -10,8 +10,7 @@
 #import <Foundation/Foundation.h>
 #import <Carbon/Carbon.h>
 #import "QlabScripting.h"
-#import <ShortcutRecorder/ShortcutRecorder.h>
-#import "SGHotKey.h"
+
 #import	"AboutWindowControl.h"
 
 #import	"DataWindowController.h"
@@ -20,14 +19,6 @@
 
 #import "PreferenceController.h"
 
-
-
-
-extern NSString *kGlobalGoKey;
-extern NSString *kGlobalStopKey;
-extern NSString *kGlobalUpKey;
-extern NSString *kGlobalDownKey;
-extern NSString *kGlobalBecomePrimaryKey; 
 
 extern NSString * const JATDataRefreshNotification;
 
@@ -59,17 +50,6 @@ extern NSString * const JATDataRefreshNotification;
 	//Qlab
 	QlabScripting *qlabScripts;
 	
-	//HotKeys 
-	SRRecorderControl *hotKeyGoControl;
-	SRRecorderControl *hotKeyStopControl; 
-	SRRecorderControl *hotKeyUpSelectionControl; 
-	SRRecorderControl *hotKeyDownSelectionControl; 
-	SRRecorderControl *hotKeyBecomePrimaryControl;
-	SGHotKey *goKey;
-	SGHotKey *stopKey;
-	SGHotKey *upKey;
-	SGHotKey *downKey;
-	SGHotKey *primaryKey; 
 	
 	//Server Que 
 	NSOperationQueue *doServerOperarionQueue; 
@@ -144,21 +124,6 @@ extern NSString * const JATDataRefreshNotification;
 -(void)disconnectPause;
 
 
-//HotKeys
-@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyGoControl;
-@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyStopControl;
-@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyUpSelectionControl;
-@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyDownSelectionControl;
-@property (nonatomic, retain) IBOutlet SRRecorderControl *hotKeyBecomePrimaryControl;
-@property (nonatomic, retain) SGHotKey *goKey;
-@property (nonatomic, retain) SGHotKey *stopKey;
-@property (nonatomic, retain) SGHotKey *upKey;
-@property (nonatomic, retain) SGHotKey *downKey;
-@property (nonatomic, retain) SGHotKey *primaryKey; 
-
--(void)registerHotKeys;
--(void)unregisterHotKeys;
--(void)clearKeys;
 
 //ToolBar 
 @property (readwrite, assign) BOOL searchEnabled;

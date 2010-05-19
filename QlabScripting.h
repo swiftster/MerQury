@@ -9,11 +9,6 @@
 #import <Cocoa/Cocoa.h>
 
 
-extern NSString * const JATQlabGoNotification;
-extern NSString * const JATQlabSelectionUpNotification;
-extern NSString * const JATQlabSelectionDownNotification;
-extern NSString * const JATQlabStopNotification;
-extern NSString * const JATQlabAdjustLevelNotification;
 
 @interface QlabScripting : NSObject {
 
@@ -39,6 +34,9 @@ NSString *workspaceName;
 @property (assign) NSMutableArray *workspaces;
 @property (readwrite, assign) NSArray *qlabCurrentArray;
 
++ (QlabScripting *)sharedQlabScripting;
+
+
 // Grab SBElements from Qlab for other Methods. If Qlab Scriping Changes, these should be the only methods to change.
 -(NSArray *)getWorkspaceArray;
 -(NSArray *)getDocumentArray; 
@@ -58,12 +56,7 @@ NSString *workspaceName;
 //Saveing and Backups
 -(int)getArrayNumber;
 
-//Notification Handleing 
--(void)goCueNote:(NSNotification *)note;
--(void)upSelectionNote:(NSNotification *)note;
--(void)downSelectionNote:(NSNotification *)note;
--(void)stopNote:(NSNotification *)note;
--(void)levelAdjustNote:(NSNotification *)note; 
+
 
 //Controls
 -(void)goCue;
