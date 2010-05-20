@@ -23,7 +23,6 @@
 NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 
-
 @implementation QSyncController
 
 
@@ -558,7 +557,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 		aboutWindow = [[AboutWindowControl alloc] init]; 
 	} 
 	NSLog(@"showing %@", aboutWindow); 
-	[aboutWindow showWindow:self]; 
+	 
+	[[aboutWindow window] makeKeyAndOrderFront:sender];
 	
 	
 	
@@ -566,16 +566,15 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 -(IBAction)openDataViewWindow: (id) sender
 { 
+	
+	
 	if (!dataWindow) { 
-		 
-	 
-	
 	dataWindow = [[DataWindowController alloc] initWithManagedObjectContext:[self managedObjectContext] appDelegate:self];
-	[dataWindow setShouldCloseDocument:NO];
-	[self addWindowController:dataWindow];
+	//[dataWindow setShouldCloseDocument:NO];
+	//[self addWindowController:dataWindow];
 	}
+	[[dataWindow window]makeKeyAndOrderFront:sender];
 	
-	[dataWindow showWindow:self];
 
 
 	
@@ -585,11 +584,15 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 
 -(IBAction)openPreferencePanel:(id)sender { 
 	
+	
+ 
+	
 	if (!preferenceWindow) { 
-		//preferenceWindow = [[PreferenceController  alloc] init]; 
+		preferenceWindow = [[PreferenceController  alloc] init]; 
 	} 
 	 
-	[preferenceWindow showWindow:self]; 
+	[[preferenceWindow window]makeKeyAndOrderFront:sender]; 
+	
 	
 
 }

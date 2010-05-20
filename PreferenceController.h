@@ -28,15 +28,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 	SRRecorderControl *hotKeyUpSelectionControl; 
 	SRRecorderControl *hotKeyDownSelectionControl; 
 	SRRecorderControl *hotKeyBecomePrimaryControl;
-	
-	SGHotKey *goKey;
-	SGHotKey *stopKey;
-	SGHotKey *upKey;
-	SGHotKey *downKey;
-	SGHotKey *primaryKey; 
-	
-	QlabScripting *qlabScripts;
-	MessageServer *server;
+
 
 }
 

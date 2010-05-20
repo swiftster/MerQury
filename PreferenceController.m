@@ -49,7 +49,7 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 -(void)windowDidLoad 
 { 
 	NSLog(@"About Nib is loaded"); 
-	
+		
 }
 #pragma mark ShortcutRecorder Delegate Methods
 
