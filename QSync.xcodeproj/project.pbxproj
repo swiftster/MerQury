@@ -19,8 +19,6 @@
 		388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B2ED51108E17C00745A2D /* MerQuryToolbar.m */; };
-		38AC139A118CF9030004B2C6 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */; };
-		38AC139D118CF9120004B2C6 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */; };
 		38AC13D8118CFC700004B2C6 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC13D7118CFC700004B2C6 /* PreferenceController.m */; };
 		38B351FC10CB3F0D00E5A97A /* MessageBroker.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351F710CB3F0D00E5A97A /* MessageBroker.m */; };
 		38B351FD10CB3F0D00E5A97A /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351F910CB3F0D00E5A97A /* Message.m */; };
@@ -89,7 +87,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				38AC139D118CF9120004B2C6 /* BWToolkitFramework.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +119,6 @@
 		388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		388B2ED41108E17C00745A2D /* MerQuryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerQuryToolbar.h; sourceTree = "<group>"; };
 		388B2ED51108E17C00745A2D /* MerQuryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerQuryToolbar.m; sourceTree = "<group>"; };
-		38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = BWToolkit/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		38AC13D6118CFC700004B2C6 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		38AC13D7118CFC700004B2C6 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		38B351F610CB3F0D00E5A97A /* MessageBroker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageBroker.h; sourceTree = "<group>"; };
@@ -198,7 +194,6 @@
 				388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */,
 				967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */,
 				96135F76115E665600D6A9BA /* Sparkle.framework in Frameworks */,
-				38AC139A118CF9030004B2C6 /* BWToolkitFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +224,6 @@
 				38B3520D10CB400C00E5A97A /* CoreServices.framework */,
 				38B3521210CB402200E5A97A /* ScriptingBridge.framework */,
 				96135F75115E665600D6A9BA /* Sparkle.framework */,
-				38AC1399118CF9030004B2C6 /* BWToolkitFramework.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
