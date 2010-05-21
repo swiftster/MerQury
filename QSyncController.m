@@ -568,14 +568,14 @@ NSString * const JATModeSelectionNotification = @"ToggleKeys";
 	NSLog(@"State Note");
 	int i = [keyCaptureButton state];
 	
-	if (i == 1) {
+	if (i == 0) {
 		[self enterMasterMode];
-		[keyCaptureButton setState:0];
+		[keyCaptureButton setState:1];
 	}
 	
-	if (i == 0) { 
+	if (i == 1) { 
 		[self enterSlaveMode]; 
-		[keyCaptureButton setState:1]; 
+		[keyCaptureButton setState:0]; 
 	}
 	
 }
