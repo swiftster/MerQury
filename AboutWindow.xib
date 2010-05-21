@@ -145,7 +145,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="73737676">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">1077937152</int>
-								<string key="NSContents">MerQury v. A30</string>
+								<string key="NSContents">MerQury v. A31</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">Palatino-Roman</string>
 									<double key="NSSize">20</double>
@@ -355,9 +355,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{172, 550}, {377, 144}}</string>
+					<string>{{172, 545}, {377, 144}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{172, 550}, {377, 144}}</string>
+					<string>{{172, 545}, {377, 144}}</string>
 					<integer value="0"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

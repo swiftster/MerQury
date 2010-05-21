@@ -12,6 +12,7 @@
 #import	"MessageServer.h"
 
 
+
 extern NSString *kGlobalGoKey;
 extern NSString *kGlobalStopKey;
 extern NSString *kGlobalUpKey;
@@ -49,6 +50,7 @@ extern NSString *kGlobalBecomePrimaryKey;
 - (void)stopKeyPressed:(id)sender;
 - (void)upKeyPressed:(id)sender;
 - (void)downKeyPressed:(id)sender;
+- (void)becomePrimaryPresssed:(id)sender;
 
 
 @end

@@ -22,6 +22,7 @@
 
 
 extern NSString * const JATDataRefreshNotification;
+extern NSString * const JATModeSelectionNotification;
 
 @class AsyncSocket;
 @class MessageBroker;
@@ -139,7 +140,7 @@ extern NSString * const JATDataRefreshNotification;
 -(IBAction)openPreferencePanel:(id)sender;
 -(IBAction)adjustNow: (id) sender; 
 -(IBAction)modeSelection: (id) sender; 
-
+-(void)modeSelectionNote:(NSNotification *)note;
 
 //Qlab Time Cycle 
 -(void)activeUpdate;

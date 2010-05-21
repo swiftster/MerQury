@@ -13,6 +13,7 @@
 
 
 
+
 NSString *kGlobalGoKey = @"Global Go Key";
 NSString *kGlobalStopKey = @"Global Stop Key";
 NSString *kGlobalUpKey = @"Global Up Key";
@@ -49,7 +50,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HotKeyController);
 	SGKeyCombo *goKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:goKeyComboPlist] autorelease];
 	goKey = [[SGHotKey alloc] initWithIdentifier:kGlobalGoKey keyCombo:goKeyCombo target:self action:@selector(goKeyPressed:)];
 	[[SGHotKeyCenter sharedCenter] registerHotKey:goKey];
-	//[hotKeyGoControl setKeyCombo:SRMakeKeyCombo(goKey.keyCombo.keyCode, [hotKeyGoControl carbonToCocoaFlags:goKey.keyCombo.modifiers])];
+	
 	
 	
 	//Stop Key 
@@ -58,7 +59,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HotKeyController);
 	SGKeyCombo *stopKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:stopKeyComboPlist] autorelease];
 	stopKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:stopKeyCombo target:self action:@selector(stopKeyPressed:)];
 	[[SGHotKeyCenter sharedCenter] registerHotKey:stopKey];
-	//[hotKeyStopControl setKeyCombo:SRMakeKeyCombo(stopKey.keyCombo.keyCode, [hotKeyStopControl carbonToCocoaFlags:stopKey.keyCombo.modifiers])];
+	
 	
 	//Up Selection Key 
 	[[SGHotKeyCenter sharedCenter] unregisterHotKey:upKey];	
@@ -66,7 +67,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HotKeyController);
 	SGKeyCombo *upKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:upKeyComboPlist] autorelease];
 	upKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:upKeyCombo target:self action:@selector(upKeyPressed:)];
 	[[SGHotKeyCenter sharedCenter] registerHotKey:upKey];
-	//[hotKeyUpSelectionControl setKeyCombo:SRMakeKeyCombo(upKey.keyCombo.keyCode, [hotKeyUpSelectionControl carbonToCocoaFlags:upKey.keyCombo.modifiers])];
+	
 	
 	//Down Selection Key 
 	[[SGHotKeyCenter sharedCenter] unregisterHotKey:downKey];	
@@ -74,7 +75,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HotKeyController);
 	SGKeyCombo *downKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:downKeyComboPlist] autorelease];
 	downKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:downKeyCombo target:self action:@selector(downKeyPressed:)];
 	[[SGHotKeyCenter sharedCenter] registerHotKey:downKey];
-	//[hotKeyDownSelectionControl setKeyCombo:SRMakeKeyCombo(downKey.keyCombo.keyCode, [hotKeyDownSelectionControl carbonToCocoaFlags:downKey.keyCombo.modifiers])];
+	
 	
 	//Become Primary Key 
 	[[SGHotKeyCenter sharedCenter] unregisterHotKey:primaryKey];	
@@ -82,9 +83,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HotKeyController);
 	SGKeyCombo *primaryKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:primaryKeyComboPlist] autorelease];
 	primaryKey = [[SGHotKey alloc] initWithIdentifier:kGlobalBecomePrimaryKey keyCombo:primaryKeyCombo target:self action:@selector(becomePrimaryPresssed:)];
 	[[SGHotKeyCenter sharedCenter] registerHotKey:primaryKey];
-	//[hotKeyBecomePrimaryControl setKeyCombo:SRMakeKeyCombo(primaryKey.keyCombo.keyCode, [hotKeyBecomePrimaryControl carbonToCocoaFlags:primaryKey.keyCombo.modifiers])];
 	
-	NSLog(@"Keys Registered");
+	
 }
 
 -(void)unregisterHotKeys { 
@@ -131,6 +131,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(HotKeyController);
 	
 }
 
+- (void)becomePrimaryPresssed:(id)sender
+{
+	NSLog(@"Sending Note");
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"ToggleKeys" object:self];
+	
+}
 
 
 

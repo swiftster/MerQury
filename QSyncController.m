@@ -21,7 +21,7 @@
 
 
 NSString * const JATDataRefreshNotification = @"DataRefreshNote";
-
+NSString * const JATModeSelectionNotification = @"ToggleKeys";
 
 @implementation QSyncController
 
@@ -97,6 +97,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(refreshQlabInfo:) name:JATDataRefreshNotification object:nil];
+	[nc addObserver:self selector:@selector(modeSelectionNote:) name:JATModeSelectionNotification object:nil];
+	
 	
 	//Preload Qlab Array
 	if ([qlabScripts isQlabActive] == YES) { 
@@ -558,6 +560,24 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 		[self enterSlaveMode]; }
 	
 
+}
+
+-(void)modeSelectionNote:(NSNotification *)note 
+{ 
+	
+	NSLog(@"State Note");
+	int i = [keyCaptureButton state];
+	
+	if (i == 1) {
+		[self enterMasterMode];
+		[keyCaptureButton setState:0];
+	}
+	
+	if (i == 0) { 
+		[self enterSlaveMode]; 
+		[keyCaptureButton setState:1]; 
+	}
+	
 }
 
 
