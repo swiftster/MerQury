@@ -7,6 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SGHotKey.h"
+#import "QlabScripting.h"
+#import	"MessageServer.h"
+
 
 extern NSString *kGlobalGoKey;
 extern NSString *kGlobalStopKey;
@@ -29,5 +33,22 @@ extern NSString *kGlobalBecomePrimaryKey;
 	
 
 }
+
+@property (nonatomic, retain) SGHotKey *goKey;
+@property (nonatomic, retain) SGHotKey *stopKey;
+@property (nonatomic, retain) SGHotKey *upKey;
+@property (nonatomic, retain) SGHotKey *downKey;
+@property (nonatomic, retain) SGHotKey *primaryKey; 
+
++ (HotKeyController *)sharedHotKeyController;
+
+-(void)registerHotKeys;
+-(void)unregisterHotKeys;
+
+- (void)goKeyPressed:(id)sender;
+- (void)stopKeyPressed:(id)sender;
+- (void)upKeyPressed:(id)sender;
+- (void)downKeyPressed:(id)sender;
+
 
 @end

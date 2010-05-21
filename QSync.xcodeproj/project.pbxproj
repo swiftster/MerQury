@@ -36,6 +36,7 @@
 		38B353E310CB438F00E5A97A /* SGKeyCodeTranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353DE10CB438F00E5A97A /* SGKeyCodeTranslator.m */; };
 		38B353E410CB438F00E5A97A /* SGKeyCombo.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B353E010CB438F00E5A97A /* SGKeyCombo.m */; };
 		38C0AB46110782DA00592A30 /* Adjust.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C0AB45110782DA00592A30 /* Adjust.xib */; };
+		38C9CEF811A6113200480730 /* PrefsWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C9CEF711A6113200480730 /* PrefsWindow.m */; };
 		38D8D75311190F5F004775AB /* MessageServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D8D75211190F5F004775AB /* MessageServer.m */; };
 		38F5B00E113AFF1B003F1DAF /* ServerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5B00D113AFF1B003F1DAF /* ServerBrowser.m */; };
 		38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 38F99DE5111134140057CE78 /* dsa_pub.pem */; };
@@ -147,6 +148,8 @@
 		38B353DF10CB438F00E5A97A /* SGKeyCombo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGKeyCombo.h; sourceTree = "<group>"; };
 		38B353E010CB438F00E5A97A /* SGKeyCombo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGKeyCombo.m; sourceTree = "<group>"; };
 		38C0AB45110782DA00592A30 /* Adjust.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Adjust.xib; sourceTree = "<group>"; };
+		38C9CEF611A6113200480730 /* PrefsWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsWindow.h; sourceTree = "<group>"; };
+		38C9CEF711A6113200480730 /* PrefsWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsWindow.m; sourceTree = "<group>"; };
 		38D8D75111190F5F004775AB /* MessageServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageServer.h; sourceTree = "<group>"; };
 		38D8D75211190F5F004775AB /* MessageServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageServer.m; sourceTree = "<group>"; };
 		38F5B00C113AFF1B003F1DAF /* ServerBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerBrowser.h; sourceTree = "<group>"; };
@@ -311,6 +314,8 @@
 			children = (
 				38AC13D6118CFC700004B2C6 /* PreferenceController.h */,
 				38AC13D7118CFC700004B2C6 /* PreferenceController.m */,
+				38C9CEF611A6113200480730 /* PrefsWindow.h */,
+				38C9CEF711A6113200480730 /* PrefsWindow.m */,
 			);
 			name = "Preference Window";
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				380F16CF1170E1CB00EF0112 /* MasterTableCell.m in Sources */,
 				38AC13D8118CFC700004B2C6 /* PreferenceController.m in Sources */,
 				962CA9DC11A5A71A00B871A4 /* HotKeyController.m in Sources */,
+				38C9CEF811A6113200480730 /* PrefsWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

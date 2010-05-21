@@ -18,6 +18,7 @@
 #import "MessageServer.h"
 
 #import "PreferenceController.h"
+#import	"HotKeyController.h"
 
 
 extern NSString * const JATDataRefreshNotification;
@@ -28,7 +29,7 @@ extern NSString * const JATDataRefreshNotification;
 
 @interface QSyncController : NSPersistentDocument {
 	
-	
+	HotKeyController *hotKeyCon;
 
 	IBOutlet NSArrayController *serviceBrowserController; 
 	IBOutlet NSTableView *browserTableView;

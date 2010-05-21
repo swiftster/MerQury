@@ -7,17 +7,10 @@
 //
 
 #import "PreferenceController.h"
+#import "HotKeyController.h"
 #import "SGKeyCombo.h"
-#import "SGHotKeyCenter.h"
-#import	"QlabScripting.h"
+#import	"SGHotKeyCenter.h"
 
-
- 
-NSString *kGlobalGoKey = @"Global Go Key";
-NSString *kGlobalStopKey = @"Global Stop Key";
-NSString *kGlobalUpKey = @"Global Up Key";
-NSString *kGlobalDownKey = @"Global Down Key";
-NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 
 
 @implementation PreferenceController
@@ -28,11 +21,6 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 @synthesize hotKeyDownSelectionControl; 
 @synthesize hotKeyBecomePrimaryControl; 
 
-@synthesize goKey;
-@synthesize stopKey; 
-@synthesize upKey; 
-@synthesize downKey; 
-@synthesize primaryKey;
 
 
 -(id)init 
@@ -40,17 +28,23 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 	if (![super initWithWindowNibName:@"PreferenceWindow"])
 		return nil;
 	
-	qlabScripts = [QlabScripting sharedQlabScripting]; 
-	server = [MessageServer sharedMessageServer];
+		
 	
 	return self; 
 }
 
 -(void)windowDidLoad 
 { 
-	NSLog(@"About Nib is loaded"); 
-		
+	hotKeyCon = [HotKeyController sharedHotKeyController]; 
+
+	[hotKeyGoControl setKeyCombo:SRMakeKeyCombo(hotKeyCon.goKey.keyCombo.keyCode, [hotKeyGoControl carbonToCocoaFlags:hotKeyCon.goKey.keyCombo.modifiers])];
+	[hotKeyStopControl setKeyCombo:SRMakeKeyCombo(hotKeyCon.stopKey.keyCombo.keyCode, [hotKeyStopControl carbonToCocoaFlags:hotKeyCon.stopKey.keyCombo.modifiers])];
+	[hotKeyUpSelectionControl setKeyCombo:SRMakeKeyCombo(hotKeyCon.upKey.keyCombo.keyCode, [hotKeyUpSelectionControl carbonToCocoaFlags:hotKeyCon.upKey.keyCombo.modifiers])];
+	[hotKeyDownSelectionControl setKeyCombo:SRMakeKeyCombo(hotKeyCon.downKey.keyCombo.keyCode, [hotKeyDownSelectionControl carbonToCocoaFlags:hotKeyCon.downKey.keyCombo.modifiers])];
+	[hotKeyBecomePrimaryControl setKeyCombo:SRMakeKeyCombo(hotKeyCon.primaryKey.keyCombo.keyCode, [hotKeyBecomePrimaryControl carbonToCocoaFlags:hotKeyCon.primaryKey.keyCombo.modifiers])];
 }
+
+
 #pragma mark ShortcutRecorder Delegate Methods
 
 - (BOOL)shortcutRecorder:(SRRecorderControl *)aRecorder isKeyCode:(NSInteger)keyCode andFlagsTaken:(NSUInteger)flags reason:(NSString **)aReason {	
@@ -64,43 +58,43 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 												 modifiers:[aRecorder cocoaToCarbonFlags:[aRecorder keyCombo].flags]];
 	
 	if (aRecorder == hotKeyGoControl) {		
-		[goKey setKeyCombo:keyCombo];
+		[[hotKeyCon goKey] setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:goKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:[hotKeyCon goKey]];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalGoKey];
 	} 
 	
 	if (aRecorder == hotKeyStopControl) {		
-		//self.stopKey.keyCombo = keyCombo;
-		[stopKey setKeyCombo:keyCombo];
+		
+		[[hotKeyCon stopKey] setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:stopKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:[hotKeyCon stopKey]];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalStopKey];
 	} 
 	
 	if (aRecorder == hotKeyUpSelectionControl) {		
-		[upKey setKeyCombo:keyCombo];
+		[[hotKeyCon upKey] setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:upKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:[hotKeyCon upKey]];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalUpKey];
 	} 
 	
 	if (aRecorder == hotKeyDownSelectionControl) {		
-		[downKey setKeyCombo:keyCombo];
+		[[hotKeyCon downKey] setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:self.downKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:[hotKeyCon downKey]];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalDownKey];
 	} 
 	
 	if (aRecorder == hotKeyBecomePrimaryControl) {		
-		[primaryKey setKeyCombo:keyCombo];
+		[[hotKeyCon primaryKey] setKeyCombo:keyCombo];
 		
 		// Re-register the new hot key
-		[[SGHotKeyCenter sharedCenter] registerHotKey:self.primaryKey];
+		[[SGHotKeyCenter sharedCenter] registerHotKey:[hotKeyCon primaryKey]];
 		[defaults setObject:[keyCombo plistRepresentation] forKey:kGlobalBecomePrimaryKey];
 	} 
 	
@@ -110,103 +104,8 @@ NSString *kGlobalBecomePrimaryKey = @"Global Primary Key";
 }
 
 
-# pragma mark -
-#pragma mark Register HotKeys 
-
--(void)registerHotKeys { 
-	//GO Key
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:goKey];	
-	id goKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalGoKey];
-	SGKeyCombo *goKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:goKeyComboPlist] autorelease];
-	goKey = [[SGHotKey alloc] initWithIdentifier:kGlobalGoKey keyCombo:goKeyCombo target:self action:@selector(goKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:goKey];
-	[hotKeyGoControl setKeyCombo:SRMakeKeyCombo(goKey.keyCombo.keyCode, [hotKeyGoControl carbonToCocoaFlags:goKey.keyCombo.modifiers])];
-	
-	
-	//Stop Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:stopKey];	
-	id stopKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalStopKey];
-	SGKeyCombo *stopKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:stopKeyComboPlist] autorelease];
-	stopKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:stopKeyCombo target:self action:@selector(stopKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:stopKey];
-	[hotKeyStopControl setKeyCombo:SRMakeKeyCombo(stopKey.keyCombo.keyCode, [hotKeyStopControl carbonToCocoaFlags:stopKey.keyCombo.modifiers])];
-	
-	//Up Selection Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:upKey];	
-	id upKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalUpKey];
-	SGKeyCombo *upKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:upKeyComboPlist] autorelease];
-	upKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:upKeyCombo target:self action:@selector(upKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:upKey];
-	[hotKeyUpSelectionControl setKeyCombo:SRMakeKeyCombo(upKey.keyCombo.keyCode, [hotKeyUpSelectionControl carbonToCocoaFlags:upKey.keyCombo.modifiers])];
-	
-	//Down Selection Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:downKey];	
-	id downKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalDownKey];
-	SGKeyCombo *downKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:downKeyComboPlist] autorelease];
-	downKey = [[SGHotKey alloc] initWithIdentifier:kGlobalStopKey keyCombo:downKeyCombo target:self action:@selector(downKeyPressed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:downKey];
-	[hotKeyDownSelectionControl setKeyCombo:SRMakeKeyCombo(downKey.keyCombo.keyCode, [hotKeyDownSelectionControl carbonToCocoaFlags:downKey.keyCombo.modifiers])];
-	
-	//Become Primary Key 
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:primaryKey];	
-	id primaryKeyComboPlist = [[NSUserDefaults standardUserDefaults] objectForKey:kGlobalBecomePrimaryKey];
-	SGKeyCombo *primaryKeyCombo = [[[SGKeyCombo alloc] initWithPlistRepresentation:primaryKeyComboPlist] autorelease];
-	primaryKey = [[SGHotKey alloc] initWithIdentifier:kGlobalBecomePrimaryKey keyCombo:primaryKeyCombo target:self action:@selector(becomePrimaryPresssed:)];
-	[[SGHotKeyCenter sharedCenter] registerHotKey:primaryKey];
-	[hotKeyBecomePrimaryControl setKeyCombo:SRMakeKeyCombo(primaryKey.keyCombo.keyCode, [hotKeyBecomePrimaryControl carbonToCocoaFlags:primaryKey.keyCombo.modifiers])];
-	
-	NSLog(@"Keys Registered");
-}
-
--(void)unregisterHotKeys { 
-	NSLog(@"Unregistering Keys");
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:goKey];	
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:stopKey];
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:upKey];
-	[[SGHotKeyCenter sharedCenter] unregisterHotKey:downKey];
-	//[[SGHotKeyCenter sharedCenter] unregisterHotKey:primaryKey];
-}
-
--(void)clearKeys { 
-	
-	[goKey setKeyCombo:nil]; 
-	
-}
-
-#pragma mark Message Center  
 
 
-//Keys
-
-- (void)goKeyPressed:(id)sender {
-	
-	NSLog(@"Go Button Pressed");
-	[server serverGo];
-	[qlabScripts goCue];
-}
-
-- (void)stopKeyPressed:(id)sender {
-	
-	[server serverStop];
-	[qlabScripts stopCue];
-	
-} 
-
-- (void)upKeyPressed:(id)sender {
-	
-	[server serverUp];
-	[qlabScripts moveSelectionUp];
-	
-}
-
-- (void)downKeyPressed:(id)sender {
-	
-	[server serverDown];
-	[qlabScripts moveSelectionDown];
-	
-	
-	
-}
 
 //This method is now call Toggle HiJacked Keys, should rename
 /*

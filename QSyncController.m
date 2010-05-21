@@ -67,8 +67,8 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	connectEnabled = YES; 
 	disconnectEnabled = NO;
 	
-	preferenceWindow = [[PreferenceController  alloc] init];
-	
+
+	hotKeyCon = [HotKeyController sharedHotKeyController];
 	
 	
 	return self; 
@@ -93,7 +93,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	[self startService];
 	[self startDoServer];
 	[self search:self];
-	[preferenceWindow registerHotKeys]; 
+	[hotKeyCon registerHotKeys]; 
 	
 	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
 	[nc addObserver:self selector:@selector(refreshQlabInfo:) name:JATDataRefreshNotification object:nil];
@@ -108,11 +108,11 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 }
 
 - (void)applicationWillTerminate:(NSNotification *)theNotification {
-	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.goKey.keyCombo plistRepresentation] forKey:kGlobalGoKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.stopKey.keyCombo plistRepresentation] forKey:kGlobalStopKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.upKey.keyCombo plistRepresentation] forKey:kGlobalUpKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.downKey.keyCombo plistRepresentation] forKey:kGlobalDownKey];
-	[[NSUserDefaults standardUserDefaults] setObject:[preferenceWindow.primaryKey.keyCombo plistRepresentation] forKey:kGlobalBecomePrimaryKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[hotKeyCon.goKey.keyCombo plistRepresentation] forKey:kGlobalGoKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[hotKeyCon.stopKey.keyCombo plistRepresentation] forKey:kGlobalStopKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[hotKeyCon.upKey.keyCombo plistRepresentation] forKey:kGlobalUpKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[hotKeyCon.downKey.keyCombo plistRepresentation] forKey:kGlobalDownKey];
+	[[NSUserDefaults standardUserDefaults] setObject:[hotKeyCon.primaryKey.keyCombo plistRepresentation] forKey:kGlobalBecomePrimaryKey];
 	
 	[client disconnect];
 } 
@@ -135,66 +135,6 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	
 }
 
-#pragma mark Message Center  
-
-/*
-//Keys
-
-- (void)goKeyPressed:(id)sender {
-	
-	//NSLog(@"Go Button Pressed");
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter]; 
-	[nc postNotificationName:JATServerGoNotification object:self];
-	[qlabScripts goCue];
-}
-
-- (void)stopKeyPressed:(id)sender {
-
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-	[nc postNotificationName:JATServerStopNotification object:self];
-	[nc postNotificationName:JATQlabStopNotification object:self];
-	
-}
-
-- (void)upKeyPressed:(id)sender {
-	
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-	[nc postNotificationName:JATServerSelectionUpNotification object:self];
-	[nc postNotificationName:JATQlabSelectionUpNotification object:self];
-	
-}
-
-- (void)downKeyPressed:(id)sender {
-
-	NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-	[nc postNotificationName:JATServerSelectionDownNotification object:self];
-	[nc postNotificationName:JATQlabSelectionDownNotification object:self];
-	
-
-	
-}
-
-//This method is now call Toggle HiJacked Keys, should rename
-
--(void)becomePrimaryPresssed:(id)sender { 
-	
-	
-	int i = [keyCaptureButton state];
-	//NSLog(@"Key state: %d", [keyCaptureButton state]);
-	
-	
-	if (i == 0) {
-		[self enterMasterMode];
-		[keyCaptureButton setState:1]; }
-	
-	if (i == 1) { 
-		[self enterSlaveMode]; 
-		[keyCaptureButton setState:0];
-	}
-	
-}
-*/
-//Server
 
 -(IBAction)startServer:(id)sender { 
 	
@@ -556,7 +496,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 	if (!aboutWindow) { 
 		aboutWindow = [[AboutWindowControl alloc] init]; 
 	} 
-	NSLog(@"showing %@", aboutWindow); 
+	
 	 
 	[[aboutWindow window] makeKeyAndOrderFront:sender];
 	
@@ -770,7 +710,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 -(void)enterMasterMode { 
 	
 	//NSLog(@"Master Mode");
-	[preferenceWindow registerHotKeys];
+	[hotKeyCon registerHotKeys];
 	[qlabScripts loadQlabArray];
 	[toggleKeysMenuItem setState:1];
 		
@@ -780,7 +720,7 @@ NSString * const JATDataRefreshNotification = @"DataRefreshNote";
 -(void)enterSlaveMode { 
 	
 	//NSLog(@"Slave Mode");
-	[preferenceWindow unregisterHotKeys];
+	[hotKeyCon unregisterHotKeys];
 	[qlabScripts loadQlabArray];
 	[toggleKeysMenuItem setState:0];
 	
