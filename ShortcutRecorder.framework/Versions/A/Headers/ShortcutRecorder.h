@@ -7,7 +7,7 @@
 //
 //  License: BSD
 //
-//  Contributors to this fie:
+//  Contributors to this file:
 //      Jesper
 
 #import <ShortcutRecorder/SRCommon.h>

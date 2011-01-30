@@ -16,8 +16,6 @@
 		3872C780118D068100122036 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3872C77F118D068100122036 /* PreferenceWindow.xib */; };
 		388A1EAC116F8C7E0026D216 /* LevelTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 388A1EAB116F8C7E0026D216 /* LevelTextField.m */; };
 		388A1F47116FAB0F0026D216 /* JTNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 388A1F46116FAB0F0026D216 /* JTNumberFormatter.m */; };
-		388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
-		388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */; };
 		388B2ED61108E17C00745A2D /* MerQuryToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 388B2ED51108E17C00745A2D /* MerQuryToolbar.m */; };
 		38AC13D8118CFC700004B2C6 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AC13D7118CFC700004B2C6 /* PreferenceController.m */; };
 		38B351FC10CB3F0D00E5A97A /* MessageBroker.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B351F710CB3F0D00E5A97A /* MessageBroker.m */; };
@@ -38,6 +36,7 @@
 		38D8D75311190F5F004775AB /* MessageServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38D8D75211190F5F004775AB /* MessageServer.m */; };
 		38F5B00E113AFF1B003F1DAF /* ServerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5B00D113AFF1B003F1DAF /* ServerBrowser.m */; };
 		38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 38F99DE5111134140057CE78 /* dsa_pub.pem */; };
+		852E382F12F5E025007B6BAE /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852E382E12F5E025007B6BAE /* ShortcutRecorder.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -77,7 +76,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				388AF92810CB543100081B5F /* ShortcutRecorder.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,7 +114,6 @@
 		388A1EAB116F8C7E0026D216 /* LevelTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTextField.m; sourceTree = "<group>"; };
 		388A1F45116FAB0F0026D216 /* JTNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTNumberFormatter.h; sourceTree = "<group>"; };
 		388A1F46116FAB0F0026D216 /* JTNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTNumberFormatter.m; sourceTree = "<group>"; };
-		388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		388B2ED41108E17C00745A2D /* MerQuryToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerQuryToolbar.h; sourceTree = "<group>"; };
 		388B2ED51108E17C00745A2D /* MerQuryToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerQuryToolbar.m; sourceTree = "<group>"; };
 		38AC13D6118CFC700004B2C6 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
@@ -151,6 +148,7 @@
 		38F5B00C113AFF1B003F1DAF /* ServerBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerBrowser.h; sourceTree = "<group>"; };
 		38F5B00D113AFF1B003F1DAF /* ServerBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerBrowser.m; sourceTree = "<group>"; };
 		38F99DE5111134140057CE78 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		852E382E12F5E025007B6BAE /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* QSync-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QSync-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MerQury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerQury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		960ACB79111C9CB200A9A18B /* CommandMessagesProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandMessagesProto.h; sourceTree = "<group>"; };
@@ -191,9 +189,9 @@
 				38B3520E10CB400C00E5A97A /* CoreServices.framework in Frameworks */,
 				38B3521310CB402200E5A97A /* ScriptingBridge.framework in Frameworks */,
 				38B3534F10CB404000E5A97A /* Carbon.framework in Frameworks */,
-				388AF7C410CB4EE000081B5F /* ShortcutRecorder.framework in Frameworks */,
 				967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */,
 				96135F76115E665600D6A9BA /* Sparkle.framework in Frameworks */,
+				852E382F12F5E025007B6BAE /* ShortcutRecorder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,10 +229,10 @@
 		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				388AF7C310CB4EE000081B5F /* ShortcutRecorder.framework */,
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				967A4ABF10E914E900CA5CDD /* CoreData.framework */,
+				852E382E12F5E025007B6BAE /* ShortcutRecorder.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
