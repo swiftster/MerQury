@@ -37,6 +37,7 @@
 		38F5B00E113AFF1B003F1DAF /* ServerBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 38F5B00D113AFF1B003F1DAF /* ServerBrowser.m */; };
 		38F99DE6111134140057CE78 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 38F99DE5111134140057CE78 /* dsa_pub.pem */; };
 		852E382F12F5E025007B6BAE /* ShortcutRecorder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 852E382E12F5E025007B6BAE /* ShortcutRecorder.framework */; };
+		85DB231A12F5E3E6002A5CCC /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85DB231912F5E3E6002A5CCC /* CoreMIDI.framework */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -149,6 +150,7 @@
 		38F5B00D113AFF1B003F1DAF /* ServerBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerBrowser.m; sourceTree = "<group>"; };
 		38F99DE5111134140057CE78 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		852E382E12F5E025007B6BAE /* ShortcutRecorder.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShortcutRecorder.framework; sourceTree = "<group>"; };
+		85DB231912F5E3E6002A5CCC /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* QSync-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "QSync-Info.plist"; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* MerQury.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MerQury.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		960ACB79111C9CB200A9A18B /* CommandMessagesProto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandMessagesProto.h; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				967A4AC010E914E900CA5CDD /* CoreData.framework in Frameworks */,
 				96135F76115E665600D6A9BA /* Sparkle.framework in Frameworks */,
 				852E382F12F5E025007B6BAE /* ShortcutRecorder.framework in Frameworks */,
+				85DB231A12F5E3E6002A5CCC /* CoreMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +236,7 @@
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 				967A4ABF10E914E900CA5CDD /* CoreData.framework */,
 				852E382E12F5E025007B6BAE /* ShortcutRecorder.framework */,
+				85DB231912F5E3E6002A5CCC /* CoreMIDI.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
